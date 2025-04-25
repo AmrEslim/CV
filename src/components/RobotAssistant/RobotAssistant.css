@@ -1,0 +1,251 @@
+#robot-assistant {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 180px;
+  height: 250px;
+  z-index: 100;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.robot-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.5s ease;
+}
+
+.robot-head {
+  position: absolute;
+  width: 80px;
+  height: 70px;
+  background: var(--chip-color);
+  border: 2px solid var(--robot-primary);
+  border-radius: 15px 15px 10px 10px;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  overflow: hidden;
+  transition: all 0.3s;
+}
+
+.robot-eye-container {
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  padding: 15px 0 0 0;
+}
+
+.robot-eye {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  background: #000;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 1px solid var(--robot-primary);
+  transition: all 0.3s;
+}
+
+.robot-pupil {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: var(--robot-primary);
+  border-radius: 50%;
+  top: 5px;
+  left: 5px;
+  transition: all 0.2s;
+}
+
+.robot-mouth {
+  position: absolute;
+  width: 40px;
+  height: 8px;
+  background: #000;
+  bottom: 15px;
+  left: 20px;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.robot-mouth-line {
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background: var(--robot-primary);
+  top: 3px;
+  animation: speak 2s infinite;
+}
+
+.robot-antenna {
+  position: absolute;
+  width: 6px;
+  height: 25px;
+  background: var(--pin-color);
+  top: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+.robot-antenna:after {
+  content: '';
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: var(--robot-primary);
+  border-radius: 50%;
+  top: -10px;
+  left: -3px;
+  animation: pulse 2s infinite;
+  box-shadow: 0 0 10px var(--robot-primary);
+}
+
+.robot-body {
+  position: absolute;
+  width: 120px;
+  height: 100px;
+  background: var(--chip-color);
+  border: 2px solid var(--robot-primary);
+  border-radius: 15px;
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px;
+  z-index: 1;
+}
+
+.robot-body-display {
+  width: 90%;
+  height: 40px;
+  background: #000;
+  border-radius: 5px;
+  overflow: hidden;
+  position: relative;
+}
+
+.robot-display-text {
+  position: absolute;
+  color: var(--robot-primary);
+  font-size: 10px;
+  white-space: nowrap;
+  animation: scrollText 10s linear infinite;
+}
+
+.robot-controls {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.robot-button {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: var(--led-off);
+  cursor: pointer;
+  border: 1px solid var(--robot-primary);
+  transition: all 0.3s;
+}
+
+.robot-button:hover, .robot-button.active {
+  background: var(--robot-primary);
+  box-shadow: 0 0 10px var(--robot-primary);
+}
+
+.robot-arm {
+  position: absolute;
+  width: 15px;
+  height: 70px;
+  background: var(--chip-color);
+  border: 2px solid var(--robot-primary);
+  bottom: 90px;
+  z-index: 0;
+  transition: all 0.5s;
+}
+
+.robot-arm.left {
+  left: 30px;
+  transform-origin: bottom center;
+  transform: rotate(15deg);
+  border-radius: 5px 5px 0 0;
+}
+
+.robot-arm.right {
+  right: 30px;
+  transform-origin: bottom center;
+  transform: rotate(-15deg);
+  border-radius: 5px 5px 0 0;
+}
+
+.robot-hand {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  border-radius: 5px;
+  background: var(--chip-color);
+  border: 2px solid var(--robot-primary);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  top: -12px;
+}
+
+.robot-finger {
+  width: 4px;
+  height: 12px;
+  background: var(--robot-primary);
+  border-radius: 2px;
+}
+
+.robot-leg {
+  position: absolute;
+  width: 20px;
+  height: 50px;
+  background: var(--chip-color);
+  border: 2px solid var(--robot-primary);
+  bottom: 0;
+  z-index: 0;
+  border-radius: 0 0 5px 5px;
+}
+
+.robot-leg.left {
+  left: 40px;
+}
+
+.robot-leg.right {
+  right: 40px;
+}
+
+.robot-wheel {
+  position: absolute;
+  width: 30px;
+  height: 15px;
+  background: var(--robot-primary);
+  border-radius: 7px;
+  bottom: -7px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Robot animation states */
+#robot-assistant:hover .robot-arm.left {
+  transform: rotate(45deg);
+}
+
+#robot-assistant:hover .robot-arm.right {
+  transform: rotate(-45deg);
+}
+
+#robot-assistant:hover .robot-pupil {
+  background: var(--robot-accent);
+}

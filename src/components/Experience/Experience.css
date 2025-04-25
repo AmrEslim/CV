@@ -1,0 +1,121 @@
+.timeline {
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.timeline::after {
+  content: '';
+  position: absolute;
+  width: 2px;
+  background-color: var(--robot-primary);
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  margin-left: -1px;
+  box-shadow: 0 0 10px var(--robot-primary);
+}
+
+.timeline-item {
+  position: relative;
+  width: 50%;
+  padding: 1rem 2rem;
+  box-sizing: border-box;
+  margin-bottom: 2rem;
+  transform: translateY(50px);
+  opacity: 0;
+  transition: all 0.8s ease;
+  cursor: pointer;
+}
+
+.timeline-item.visible {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.timeline-item:hover {
+  transform: scale(1.05);
+  z-index: 10;
+}
+
+.timeline-item.left {
+  left: 0;
+}
+
+.timeline-item.right {
+  left: 50%;
+}
+
+.timeline-item::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: var(--terminal-bg);
+  border: 3px solid var(--robot-primary);
+  top: 1rem;
+  z-index: 1;
+  box-shadow: 0 0 10px var(--robot-primary);
+}
+
+.timeline-item.left::after {
+  right: -13px;
+}
+
+.timeline-item.right::after {
+  left: -13px;
+}
+
+.timeline-content {
+  padding: 1.5rem;
+  background-color: var(--terminal-bg);
+  border-radius: 6px;
+  box-shadow: 0 0 15px rgba(0, 255, 0, 0.1);
+  position: relative;
+  border: 1px solid var(--robot-primary);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.timeline-content:hover {
+  box-shadow: 0 0 25px rgba(0, 136, 255, 0.3);
+}
+
+.timeline-date {
+  display: inline-block;
+  padding: 0.3rem 0.8rem;
+  background-color: var(--chip-color);
+  color: var(--robot-primary);
+  font-size: 0.9rem;
+  border-radius: 4px;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  border: 1px solid var(--robot-primary);
+}
+
+.timeline-title {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: var(--robot-primary);
+}
+
+@media (max-width: 768px) {
+  .timeline::after {
+    left: 31px;
+  }
+  
+  .timeline-item {
+    width: 100%;
+    padding-left: 70px;
+    padding-right: 25px;
+  }
+  
+  .timeline-item.right {
+    left: 0;
+  }
+  
+  .timeline-item.left::after,
+  .timeline-item.right::after {
+    left: 21px;
+  }
+}

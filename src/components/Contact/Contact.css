@@ -1,0 +1,86 @@
+.contact-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2rem;
+  position: relative;
+}
+
+.contact-robot {
+  position: absolute;
+  top: -100px;
+  right: 50px;
+  width: 150px;
+  height: 150px;
+  z-index: 1;
+}
+
+.contact-text {
+  text-align: center;
+  max-width: 600px;
+  margin-bottom: 2rem;
+  position: relative;
+  z-index: 2;
+}
+
+.contact-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  position: relative;
+  z-index: 2;
+}
+
+.contact-form {
+  width: 100%;
+  max-width: 600px;
+  margin-top: 30px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px 15px;
+  background: var(--terminal-bg);
+  border: 1px solid var(--robot-primary);
+  color: var(--text-color);
+  border-radius: 5px;
+  font-family: 'Share Tech Mono', monospace;
+  resize: none;
+}
+
+.form-control:focus {
+  outline: none;
+  box-shadow: 0 0 10px var(--robot-primary);
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes wave {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(15deg); }
+  75% { transform: rotate(-15deg); }
+}
+
+@media (max-width: 768px) {
+  .contact-robot {
+    display: none;
+  }
+  
+  .contact-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .contact-buttons .cta-button {
+    width: 100%;
+    text-align: center;
+  }
+}

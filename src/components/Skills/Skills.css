@@ -1,0 +1,130 @@
+.circuit-board {
+  background-color: var(--board-color);
+  border-radius: 10px;
+  padding: 30px;
+  margin-bottom: 40px;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  border: 1px solid var(--accent-color);
+  overflow: hidden;
+  transition: transform 0.5s;
+  transform-style: preserve-3d;
+}
+
+.circuit-board:hover {
+  transform: translateY(-10px) rotateX(5deg);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7);
+}
+
+.circuit-board::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+      linear-gradient(90deg, transparent 99%, var(--accent-color) 99.5%, transparent 100%),
+      linear-gradient(0deg, transparent 99%, var(--accent-color) 99.5%, transparent 100%);
+  background-size: 20px 20px;
+  opacity: 0.1;
+  pointer-events: none;
+}
+
+.chip {
+  background-color: var(--chip-color);
+  border-radius: 4px;
+  padding: 15px;
+  margin-bottom: 20px;
+  position: relative;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.chip:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
+}
+
+.chip::before {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: 10px;
+  width: 30px;
+  height: 5px;
+  background-color: var(--pin-color);
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+}
+
+.chip::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  right: 10px;
+  width: 30px;
+  height: 5px;
+  background-color: var(--pin-color);
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
+}
+
+.chip-title {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: var(--secondary-color);
+}
+
+.pin-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.pin {
+  width: 10px;
+  height: 10px;
+  background-color: var(--pin-color);
+  border-radius: 50%;
+}
+
+/* Skill meters */
+.skill-meter {
+  width: 100%;
+  height: 20px;
+  background-color: var(--terminal-bg);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-top: 10px;
+  position: relative;
+  border: 1px solid var(--accent-color);
+  margin-bottom: 15px;
+}
+
+.skill-progress {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent-color), var(--secondary-color));
+  border-radius: 10px;
+  width: 0; /* Will be set dynamically with JS */
+  transition: width 1.5s ease;
+}
+
+.skill-dots {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 10px;
+  align-items: center;
+}
+
+.skill-dot {
+  width: 3px;
+  height: 10px;
+  background-color: rgba(0, 0, 0, 0.3);
+}

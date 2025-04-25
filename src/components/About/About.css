@@ -1,0 +1,6 @@
+/* About component specific styles */
+#about {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}

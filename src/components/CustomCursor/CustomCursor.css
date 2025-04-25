@@ -1,0 +1,23 @@
+.custom-cursor {
+  position: fixed;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: var(--accent-color);
+  box-shadow: 0 0 10px var(--accent-color);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.7;
+  transition: transform 0.1s, opacity 0.3s;
+  mix-blend-mode: screen;
+}
+
+.custom-cursor.hidden {
+  opacity: 0;
+}
+
+.custom-cursor.enlarged {
+  transform: translate(-50%, -50%) scale(1.5);
+  opacity: 1;
+}
