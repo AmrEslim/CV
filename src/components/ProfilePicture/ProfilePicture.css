@@ -1,0 +1,144 @@
+.profile-picture-container {
+  width: 300px;
+  height: 300px;
+  position: relative;
+  transition: transform 0.3s ease-out;
+  transform-style: preserve-3d;
+}
+
+.profile-frame {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  padding: 20px;
+  background: var(--terminal-bg);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.profile-image {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  border-radius: 5px;
+}
+
+.profile-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: contrast(110%) brightness(110%);
+}
+
+.frame-corner {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--robot-primary);
+  z-index: 2;
+}
+
+.top-left {
+  top: 0;
+  left: 0;
+  border-right: none;
+  border-bottom: none;
+}
+
+.top-right {
+  top: 0;
+  right: 0;
+  border-left: none;
+  border-bottom: none;
+}
+
+.bottom-left {
+  bottom: 0;
+  left: 0;
+  border-right: none;
+  border-top: none;
+}
+
+.bottom-right {
+  bottom: 0;
+  right: 0;
+  border-left: none;
+  border-top: none;
+}
+
+.frame-edge {
+  position: absolute;
+  background: var(--robot-primary);
+  opacity: 0.5;
+  z-index: 2;
+}
+
+.top, .bottom {
+  height: 2px;
+  width: calc(100% - 40px);
+  left: 20px;
+}
+
+.left, .right {
+  width: 2px;
+  height: calc(100% - 40px);
+  top: 20px;
+}
+
+.top { top: 0; }
+.right { right: 0; }
+.bottom { bottom: 0; }
+.left { left: 0; }
+
+.scanning-line {
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    var(--robot-primary) 50%, 
+    transparent 100%
+  );
+  top: 0;
+  left: 0;
+  z-index: 3;
+  animation: scan 3s linear infinite;
+  opacity: 0.7;
+  box-shadow: 0 0 10px var(--robot-primary);
+}
+
+.frame-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    45deg,
+    transparent 0%,
+    rgba(0, 136, 255, 0.1) 50%,
+    transparent 100%
+  );
+  pointer-events: none;
+  z-index: 2;
+}
+
+@keyframes scan {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(300px); }
+}
+
+/* Glitch effect on hover */
+.profile-image:hover img {
+  animation: glitch 0.5s infinite;
+}
+
+@keyframes glitch {
+  0% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(-2px, -2px); }
+  60% { transform: translate(2px, 2px); }
+  80% { transform: translate(2px, -2px); }
+  100% { transform: translate(0); }
+}

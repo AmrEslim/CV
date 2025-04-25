@@ -22,6 +22,8 @@
   margin: 0 auto;
   max-width: 1200px;
   flex-wrap: wrap;
+  gap: 2rem;
+  align-items: center;
 }
 
 .hero-text {
@@ -29,6 +31,21 @@
   min-width: 300px;
   text-align: left;
   padding: 2rem;
+}
+
+.hero-profile {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 300px;
+  perspective: 1000px;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
 }
 
 .hero-content h1 {
@@ -305,6 +322,19 @@
   .robot-model {
     width: 220px;
     height: 280px;
+  }
+
+  .hero-flex {
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+  
+  .hero-text {
+    margin-top: 2rem;
+  }
+  
+  .cta-buttons {
+    justify-content: center;
   }
 }
 

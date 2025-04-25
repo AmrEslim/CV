@@ -1,6 +1,7 @@
 import React, { useRef, useEffect } from 'react';
 import { HashLink } from 'react-router-hash-link';
 import Terminal from '../Terminal/Terminal';
+import ProfilePicture from '../ProfilePicture/ProfilePicture';
 import './Hero.css';
 
 const Hero = () => {
@@ -50,58 +51,14 @@ const Hero = () => {
             
             <Terminal lines={terminalLines} typingAnimation={true} />
             
-            <HashLink smooth to="#about" className="cta-button">EXPLORE</HashLink>
-            <HashLink smooth to="#contact" className="cta-button">CONNECT</HashLink>
+            <div className="cta-buttons">
+              <HashLink smooth to="#about" className="cta-button">EXPLORE</HashLink>
+              <HashLink smooth to="#contact" className="cta-button">CONNECT</HashLink>
+            </div>
           </div>
           
-          <div className="robot-model-container">
-            <div className="robot-model" ref={robotModelRef}>
-              <div className="robot-model-part robot-model-head">
-                <div className="robot-model-eye left">
-                  <div className="robot-model-eye-light"></div>
-                </div>
-                <div className="robot-model-eye right">
-                  <div className="robot-model-eye-light"></div>
-                </div>
-                <div className="robot-model-mouth">
-                  <div className="robot-model-mouth-line"></div>
-                </div>
-              </div>
-              <div className="robot-model-part robot-model-body">
-                <div className="robot-model-chest-light">
-                  <div className="robot-model-light-effect"></div>
-                </div>
-                <div className="robot-model-panel">
-                  <div className="robot-model-button-row">
-                    <div className="robot-model-button"></div>
-                    <div className="robot-model-button"></div>
-                    <div className="robot-model-button"></div>
-                    <div className="robot-model-button"></div>
-                    <div className="robot-model-button"></div>
-                  </div>
-                </div>
-              </div>
-              <div className="robot-model-part robot-model-arm left">
-                <div className="robot-model-hand">
-                  <div className="robot-model-finger finger-1"></div>
-                  <div className="robot-model-finger finger-2"></div>
-                  <div className="robot-model-finger finger-3"></div>
-                </div>
-              </div>
-              <div className="robot-model-part robot-model-arm right">
-                <div className="robot-model-hand">
-                  <div className="robot-model-finger finger-1"></div>
-                  <div className="robot-model-finger finger-2"></div>
-                  <div className="robot-model-finger finger-3"></div>
-                </div>
-              </div>
-              <div className="robot-model-part robot-model-leg left">
-                <div className="robot-model-foot"></div>
-              </div>
-              <div className="robot-model-part robot-model-leg right">
-                <div className="robot-model-foot"></div>
-              </div>
-            </div>
+          <div className="hero-profile">
+            <ProfilePicture />
           </div>
         </div>
       </div>
