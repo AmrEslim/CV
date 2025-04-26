@@ -1,15 +1,16 @@
 .robot-project {
   background-color: var(--terminal-bg);
   border-radius: 10px;
-  overflow: hidden;
   border: 1px solid var(--robot-primary);
   transition: all 0.3s;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
   position: relative;
   transform: translateY(50px);
   opacity: 0;
-  height: 400px;
+  min-height: 400px;
   cursor: pointer;
+  display: flex;
+  flex-direction: column;
 }
 
 .robot-project.visible {
@@ -27,6 +28,7 @@
   overflow: hidden;
   position: relative;
   background: var(--board-color);
+  min-height: 200px;
 }
 
 .project-robot {
@@ -42,18 +44,34 @@
 
 .project-details {
   padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  background: var(--terminal-bg);
+}
+
+.content-wrapper {
+  flex: 1;
 }
 
 .project-title {
   font-size: 1.5rem;
   color: var(--robot-primary);
   margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.project-description {
+  color: var(--text-color);
+  margin: 0 0 15px 0;
+  line-height: 1.6;
+  opacity: 0.9;
 }
 
 .project-tech {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 8px;
   margin: 15px 0;
 }
 
@@ -63,12 +81,15 @@
   border-radius: 5px;
   font-size: 0.8rem;
   border: 1px solid var(--robot-primary);
+  color: var(--robot-primary);
 }
 
 .project-links {
   display: flex;
   justify-content: space-between;
-  margin-top: 15px;
+  margin-top: auto;
+  padding-top: 15px;
+  border-top: 1px solid var(--robot-primary);
 }
 
 .project-link {
@@ -79,9 +100,10 @@
   border-radius: 5px;
   border: 1px solid var(--robot-primary);
   transition: all 0.3s;
+  font-weight: bold;
 }
 
 .project-link:hover {
   background: var(--robot-primary);
-  color: #000;
+  color: var(--terminal-bg);
 }

@@ -76,7 +76,7 @@ function App() {
           <Skills />
           <Experience />
           <Projects />
-          <RoboticsDiagram />
+          {/* <RoboticsDiagram /> */}
           <Languages />
           <Interests />
           <Contact />

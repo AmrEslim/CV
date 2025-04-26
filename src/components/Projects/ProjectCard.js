@@ -65,16 +65,18 @@ const ProjectCard = forwardRef(({ project }, ref) => {
         <ProjectVisual type={project.visualType} />
       </div>
       <div className="project-details">
-        <h3 className="project-title">{project.title}</h3>
-        <p>{project.description}</p>
-        <div className="project-tech">
-          {project.technologies.map((tech, index) => (
-            <span className="tech-tag" key={index}>{tech}</span>
-          ))}
+        <div className="content-wrapper">
+          <h3 className="project-title">{project.title}</h3>
+          <p className="project-description">{project.description}</p>
+          <div className="project-tech">
+            {project.technologies.map((tech, index) => (
+              <span className="tech-tag" key={index}>{tech}</span>
+            ))}
+          </div>
         </div>
         <div className="project-links">
-          <a href="#" className="project-link">Details</a>
-          <a href="#" className="project-link">Demo</a>
+          <a href={project.detailsLink || "#"} className="project-link">Details</a>
+          <a href={project.demoLink || "#"} className="project-link">Demo</a>
         </div>
       </div>
     </div>

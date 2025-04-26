@@ -6,7 +6,6 @@ const Contact = () => {
   const terminalLines = [
     "> user@amr-eslim:~$ contact --info",
     "> Email: Eslim.amr@gmail.com",
-    "> Phone: +49 176 42743800",
     "> LinkedIn: www.linkedin.com/in/amr-eslim",
     "> Location: Berlin, Germany",
     "> user@amr-eslim:~$ _"
@@ -43,7 +42,7 @@ const Contact = () => {
             <a href="https://www.linkedin.com/in/amr-eslim" target="_blank" rel="noopener noreferrer" className="cta-button">LinkedIn</a>
           </div>
           
-          <div className="contact-form">
+          {/* <div className="contact-form">
             <form onSubmit={handleSubmit}>
               <div className="form-group">
                 <input type="text" className="form-control" placeholder="Your Name" required />
@@ -56,7 +55,7 @@ const Contact = () => {
               </div>
               <button type="submit" className="cta-button">Send Message</button>
             </form>
-          </div>
+          </div> */}
         </div>
       </div>
     </section>
