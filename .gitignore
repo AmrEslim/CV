@@ -5,7 +5,7 @@ node_modules
 .pnp.js
 
 #media
-/public/images
+/public/images/pri
 # testing
 /coverage
 
