@@ -52,8 +52,7 @@ const ProfilePicture = () => {
         <div className="frame-edge left"></div>
         <div className="scanning-line"></div>
         <div className="profile-image">
-          {/* Replace the src with your actual image path */}
-          <img src="/images/profile.jpg" alt="Amr Eslim" />
+          <img src={process.env.PUBLIC_URL + '/images/profile.jpg'} alt="Amr Eslim" />
         </div>
         <div className="frame-overlay"></div>
       </div>
