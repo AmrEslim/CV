@@ -1,23 +1,37 @@
 .custom-cursor {
-  position: fixed;
   width: 20px;
   height: 20px;
+  border: 2px solid var(--robot-primary);
   border-radius: 50%;
-  background-color: var(--accent-color);
-  box-shadow: 0 0 10px var(--accent-color);
-  transform: translate(-50%, -50%);
+  position: fixed;
   pointer-events: none;
   z-index: 9999;
-  opacity: 0.7;
-  transition: transform 0.1s, opacity 0.3s;
-  mix-blend-mode: screen;
+  transition: width 0.2s, height 0.2s, border-color 0.2s;
+  mix-blend-mode: difference;
 }
 
-.custom-cursor.hidden {
-  opacity: 0;
+.cursor-dot {
+  width: 4px;
+  height: 4px;
+  background: var(--robot-primary);
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  mix-blend-mode: difference;
 }
 
-.custom-cursor.enlarged {
-  transform: translate(-50%, -50%) scale(1.5);
-  opacity: 1;
+/* Hide custom cursor on touch devices */
+@media (hover: none) and (pointer: coarse) {
+  .custom-cursor,
+  .cursor-dot {
+    display: none;
+  }
+}
+
+.custom-cursor.hover {
+  width: 40px;
+  height: 40px;
+  border-color: var(--robot-accent);
+  background: rgba(0, 136, 255, 0.1);
 }

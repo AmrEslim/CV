@@ -49,3 +49,45 @@ footer {
   animation-delay: 5s;
   top: 8px;
 }
+
+@media (max-width: 768px) {
+  footer {
+    padding: 2rem 1rem;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    gap: 1.5rem;
+    text-align: center;
+  }
+
+  .footer-links {
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .footer-social {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  footer {
+    padding: 1.5rem 0.8rem;
+  }
+
+  .footer-content {
+    gap: 1.2rem;
+  }
+
+  .footer-links {
+    flex-wrap: wrap;
+    gap: 0.8rem;
+  }
+
+  .footer-social-link {
+    width: 35px;
+    height: 35px;
+    font-size: 1.1rem;
+  }
+}

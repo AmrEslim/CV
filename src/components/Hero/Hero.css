@@ -6,6 +6,7 @@
   align-items: center;
   overflow: hidden;
   position: relative;
+  padding: 2rem 0;
 }
 
 .hero-content {
@@ -23,6 +24,7 @@
   max-width: 1200px;
   flex-wrap: wrap;
   gap: 2rem;
+  padding: 0 1rem;
   align-items: center;
 }
 
@@ -312,7 +314,7 @@
 
 @media (max-width: 768px) {
   .hero-content h1 {
-    font-size: 2.5rem;
+    font-size: 3rem;
   }
   
   .robot-model-container {
@@ -327,19 +329,45 @@
   .hero-flex {
     flex-direction: column-reverse;
     text-align: center;
+    gap: 1.5rem;
   }
   
   .hero-text {
     margin-top: 2rem;
+    text-align: center;
+    padding: 0;
   }
   
   .cta-buttons {
     justify-content: center;
   }
+
+  .hero-subtitle {
+    font-size: 1.2rem;
+  }
 }
 
 @media (max-width: 480px) {
   .hero-content h1 {
-    font-size: 2rem;
+    font-size: 2.2rem;
+  }
+
+  #hero {
+    padding: 1rem 0;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+    width: 100%;
+    gap: 0.8rem;
+  }
+
+  .cta-button {
+    width: 100%;
+    text-align: center;
   }
 }

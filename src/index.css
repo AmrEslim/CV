@@ -16,6 +16,19 @@
   --robot-primary: #0088ff;
   --robot-secondary: #00aaff;
   --robot-accent: #ff3800;
+
+  /* Responsive breakpoints */
+  --mobile: 480px;
+  --tablet: 768px;
+  --desktop: 1024px;
+
+  /* Responsive spacing units */
+  --space-unit: 1rem;
+  --space-xs: calc(var(--space-unit) * 0.25);
+  --space-sm: calc(var(--space-unit) * 0.5);
+  --space-md: var(--space-unit);
+  --space-lg: calc(var(--space-unit) * 1.5);
+  --space-xl: calc(var(--space-unit) * 2);
 }
 
 * {
@@ -23,6 +36,12 @@
   padding: 0;
   box-sizing: border-box;
   font-family: 'Share Tech Mono', 'Courier New', monospace;
+  -webkit-overflow-scrolling: touch;
+}
+
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
@@ -31,6 +50,9 @@ body {
   line-height: 1.6;
   overflow-x: hidden;
   position: relative;
+  padding-left: min(1rem, env(safe-area-inset-left));
+  padding-right: min(1rem, env(safe-area-inset-right));
+  padding-bottom: min(1rem, env(safe-area-inset-bottom));
 }
 
 /* Scene and content containers */
@@ -42,13 +64,13 @@ body {
   justify-content: center;
   overflow: hidden;
   z-index: 1;
-  padding: 40px 0;
+  padding: 40px 20px;
 }
 
 .content-container {
   max-width: 1200px;
   width: 100%;
-  padding: 0 2rem;
+  padding: 0 1.5rem;
   position: relative;
   z-index: 2;
 }
@@ -290,6 +312,34 @@ body {
 
 /* Responsive styles */
 @media (max-width: 768px) {
+  html {
+    font-size: 15px;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+
+  h3 {
+    font-size: 1.75rem;
+  }
+
+  p {
+    font-size: 1rem;
+  }
+
+  .scene {
+    padding: 30px 15px;
+  }
+
+  .content-container {
+    padding: 0 1rem;
+  }
+
   .timeline::after {
     left: 31px;
   }
@@ -315,6 +365,7 @@ body {
   
   .section-title {
     font-size: 2rem;
+    margin-bottom: 2rem;
   }
   
   .robot-diagram-container {
@@ -329,15 +380,71 @@ body {
     width: 220px;
     height: 280px;
   }
+
+  button,
+  .button,
+  a {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  input,
+  select,
+  textarea {
+    font-size: 16px; /* Prevents zoom on focus in iOS */
+  }
+
+  ::-webkit-scrollbar {
+    width: 0px;
+    height: 0px;
+  }
+
+  * {
+    scrollbar-width: none;
+  }
 }
 
 @media (max-width: 480px) {
+  html {
+    font-size: 14px;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.75rem;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+  }
+
+  p {
+    font-size: 0.95rem;
+  }
+
+  .scene {
+    padding: 20px 10px;
+  }
+
+  .content-container {
+    padding: 0 0.8rem;
+  }
+
   .hero-content h1 {
     font-size: 2rem;
   }
 
   .section-title {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .cta-button {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
   }
 
   .cta-button {

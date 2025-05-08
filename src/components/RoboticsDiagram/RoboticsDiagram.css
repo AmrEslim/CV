@@ -282,3 +282,101 @@
     height: 50px;
   }
 }
+
+.robotics-diagram {
+  width: 100%;
+  max-width: 900px;
+  margin: 3rem auto;
+  position: relative;
+}
+
+.diagram-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.diagram-node {
+  background: var(--terminal-bg);
+  border: 1px solid var(--robot-primary);
+  border-radius: 10px;
+  padding: 1.5rem;
+  text-align: center;
+  transition: all 0.3s;
+}
+
+.diagram-node:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 136, 255, 0.2);
+}
+
+.node-icon {
+  font-size: 2rem;
+  color: var(--robot-primary);
+  margin-bottom: 1rem;
+}
+
+.node-title {
+  color: var(--robot-primary);
+  font-size: 1.2rem;
+  margin-bottom: 0.8rem;
+}
+
+.node-description {
+  color: var(--text-color);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .diagram-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    padding: 1.5rem;
+  }
+
+  .diagram-node {
+    padding: 1.2rem;
+  }
+
+  .node-icon {
+    font-size: 1.8rem;
+  }
+
+  .node-title {
+    font-size: 1.1rem;
+  }
+
+  .node-description {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .diagram-container {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .diagram-node {
+    padding: 1rem;
+  }
+
+  .node-icon {
+    font-size: 1.6rem;
+  }
+
+  .node-title {
+    font-size: 1rem;
+  }
+
+  .node-description {
+    font-size: 0.8rem;
+  }
+
+  .robotics-diagram {
+    margin: 2rem auto;
+  }
+}

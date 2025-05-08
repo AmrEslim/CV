@@ -102,3 +102,36 @@
 .nav-links a:hover::before {
   opacity: 1;
 }
+
+@media (max-width: 768px) {
+  .nav-container {
+    top: 1rem;
+    right: 1rem;
+  }
+
+  .nav-menu {
+    width: 100%;
+    right: -100%;
+    border-radius: 0;
+  }
+
+  .nav-links {
+    margin-top: 4rem;
+  }
+
+  .nav-links a {
+    font-size: 1.4rem;
+    padding: 1rem 0;
+  }
+
+  .nav-close {
+    top: 1rem;
+    right: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-links a {
+    font-size: 1.2rem;
+  }
+}
