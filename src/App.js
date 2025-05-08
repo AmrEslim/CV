@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import Hero from './components/Hero/Hero';
 import About from './components/About/About';
@@ -18,7 +18,7 @@ import CustomCursor from './components/CustomCursor/CustomCursor';
 import './App.css';
 
 function App() {
-  const [codeEditorOpen, setCodeEditorOpen] = React.useState(false);
+  const [codeEditorOpen, setCodeEditorOpen] = useState(false);
 
   const toggleCodeEditor = () => {
     setCodeEditorOpen(!codeEditorOpen);
@@ -61,7 +61,7 @@ function App() {
   }, []);
 
   return (
-    <Router>
+    <Router basename={process.env.PUBLIC_URL}>
       <div className="App">
         <CustomCursor />
         <CircuitBackground />
