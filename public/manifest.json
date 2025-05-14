@@ -1,15 +1,21 @@
 {
     "short_name": "Amr Eslim",
-    "name": "Amr Eslim Portfolio",
+    "name": "Amr Eslim | Robotics & Embedded Systems Engineer",
     "icons": [
       {
         "src": "favicon.ico",
         "sizes": "64x64 32x32 24x24 16x16",
         "type": "image/x-icon"
+      },
+      {
+        "src": "robot-icon.svg",
+        "type": "image/svg+xml",
+        "sizes": "512x512",
+        "purpose": "any maskable"
       }
     ],
     "start_url": ".",
     "display": "standalone",
-    "theme_color": "#000000",
+    "theme_color": "#0088ff",
     "background_color": "#0a0a0a"
   }

@@ -20,18 +20,19 @@ const Projects = () => {
       }
     );
 
-    projectsRef.current.forEach(project => {
-      if (project) {
-        observer.observe(project);
-      }
-    });
+    const elements = projectsRef.current;
+    if (elements) {
+      elements.forEach(ref => {
+        if (ref) observer.observe(ref);
+      });
+    }
 
     return () => {
-      projectsRef.current.forEach(project => {
-        if (project) {
-          observer.unobserve(project);
-        }
-      });
+      if (elements) {
+        elements.forEach(ref => {
+          if (ref) observer.unobserve(ref);
+        });
+      }
     };
   }, []);
 

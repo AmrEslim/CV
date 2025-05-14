@@ -11,12 +11,6 @@ const Contact = () => {
     "> user@amr-eslim:~$ _"
   ];
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Form submission logic would go here
-    console.log('Form submitted');
-  };
-
   return (
     <section id="contact" className="scene">
       <div className="content-container">

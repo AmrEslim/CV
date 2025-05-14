@@ -21,13 +21,14 @@ const LanguageItem = ({ language, proficiency, percentage }) => {
       { threshold: 0.1 }
     );
 
-    if (itemRef.current) {
-      observer.observe(itemRef.current);
+    const currentItemRef = itemRef.current;
+    if (currentItemRef) {
+      observer.observe(currentItemRef);
     }
 
     return () => {
-      if (itemRef.current) {
-        observer.unobserve(itemRef.current);
+      if (currentItemRef) {
+        observer.unobserve(currentItemRef);
       }
     };
   }, [percentage]);
@@ -59,19 +60,19 @@ const Languages = () => {
     {
       id: 1,
       language: "English",
-      proficiency: "Fließend (in Wort und Schrift)",
+      proficiency: "Proficient/Fluent (in Word and Writing)",
       percentage: 95
     },
     {
       id: 2,
       language: "Arabic",
-      proficiency: "Fließend (in Wort und Schrift)",
+      proficiency: "Native Speaker",
       percentage: 100
     },
     {
       id: 3,
       language: "German",
-      proficiency: "Fließend (in Wort und Schrift)",
+      proficiency: "Proficient/Fluent (in Word and Writing)",
       percentage: 90
     },
     {

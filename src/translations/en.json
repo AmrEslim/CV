@@ -1,0 +1,21 @@
+{
+  "hero": {
+    "greeting": "Hi, I'm",
+    "role": "Robotics & Embedded Systems Engineer"
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "skills": "Technical Skills",
+    "experience": "Education & Experience",
+    "projects": "Projects",
+    "architecture": "System Architecture",
+    "languages": "Languages",
+    "interests": "Interests",
+    "contact": "Contact"
+  },
+  "about": {
+    "title": "About Me",
+    "description": "Computer Engineering graduate specializing in Embedded Systems and Robotics"
+  }
+}

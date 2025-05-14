@@ -16,13 +16,14 @@ const SkillMeter = ({ name, percentage }) => {
       { threshold: 0.1 }
     );
 
-    if (progressRef.current) {
-      observer.observe(progressRef.current);
+    const currentRef = progressRef.current;
+    if (currentRef) {
+      observer.observe(currentRef);
     }
 
     return () => {
-      if (progressRef.current) {
-        observer.unobserve(progressRef.current);
+      if (currentRef) {
+        observer.unobserve(currentRef);
       }
     };
   }, [percentage]);

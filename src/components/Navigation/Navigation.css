@@ -76,6 +76,7 @@
 
 .nav-links li {
   margin-bottom: 1.5rem;
+  position: relative;
 }
 
 .nav-links a {
@@ -83,20 +84,27 @@
   text-decoration: none;
   font-size: 1.2rem;
   position: relative;
-  display: inline-block;
-  padding: 0.5rem 0;
+  display: block;
+  padding: 0.8rem 1rem;
   transition: all 0.3s;
+  background-color: rgba(0, 136, 255, 0.05);
+  border-radius: 6px;
+  border: 1px solid transparent;
 }
 
 .nav-links a::before {
   content: '> ';
   opacity: 0;
   transition: opacity var(--transition-speed) ease;
+  position: absolute;
+  left: 0.5rem;
 }
 
 .nav-links a:hover {
   transform: translateX(10px);
   color: var(--accent-color);
+  background-color: rgba(0, 136, 255, 0.1);
+  border-color: var(--accent-color);
 }
 
 .nav-links a:hover::before {

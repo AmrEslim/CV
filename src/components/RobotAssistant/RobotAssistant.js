@@ -29,7 +29,6 @@ const RobotAssistant = ({ onRobotClick }) => {
     width: window.innerWidth,
     height: window.innerHeight
   });
-  const navigate = useNavigate();
 
   const tourSteps = [
     {
@@ -252,42 +251,6 @@ const RobotAssistant = ({ onRobotClick }) => {
         }, step.delay);
       }
     }, 1000);
-  };
-
-  const nextTourStep = () => {
-    if (tourState.currentStep < tourSteps.length - 1) {
-      const nextStep = tourState.currentStep + 1;
-      const step = tourSteps[nextStep];
-      
-      setTourState(prev => ({
-        ...prev,
-        currentStep: nextStep,
-        message: step.message,
-        isThinking: true,
-        score: prev.score + 10
-      }));
-
-      moveToPosition(step.position.x, step.position.y);
-
-      if (step.target) {
-        const element = document.querySelector(step.target);
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth', block: 'center' });
-          highlightElement(element);
-        }
-      }
-
-      setTimeout(() => {
-        setTourState(prev => ({ ...prev, isThinking: false }));
-      }, 1000);
-
-      // Automatically move to next step after delay
-      if (nextStep < tourSteps.length - 1) {
-        setTimeout(() => {
-          nextTourStep();
-        }, step.delay);
-      }
-    }
   };
 
   const highlightElement = (element) => {

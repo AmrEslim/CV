@@ -5,7 +5,6 @@ import About from './components/About/About';
 import Skills from './components/Skills/Skills';
 import Experience from './components/Experience/Experience';
 import Projects from './components/Projects/Projects';
-import RoboticsDiagram from './components/RoboticsDiagram/RoboticsDiagram';
 import Languages from './components/Languages/Languages';
 import Interests from './components/Interests/Interests';
 import Contact from './components/Contact/Contact';
@@ -15,6 +14,8 @@ import CodeEditor from './components/CodeEditor/CodeEditor';
 import Footer from './components/Footer/Footer';
 import CircuitBackground from './components/CircuitBackground/CircuitBackground';
 import CustomCursor from './components/CustomCursor/CustomCursor';
+import LanguageSwitcher from './components/LanguageSwitcher/LanguageSwitcher';
+import { LanguageProvider } from './context/LanguageContext';
 import './App.css';
 
 function App() {
@@ -61,30 +62,32 @@ function App() {
   }, []);
 
   return (
-    <Router basename={process.env.PUBLIC_URL}>
-      <div className="App">
-        <CustomCursor />
-        <CircuitBackground />
+    <LanguageProvider>
+      <Router basename={process.env.PUBLIC_URL}>
+        <div className="App">
+          <CustomCursor />
+          <CircuitBackground />
+          <LanguageSwitcher />
         
-        <Navigation />
-        <RobotAssistant onRobotClick={toggleCodeEditor} />
-        <CodeEditor isOpen={codeEditorOpen} onClose={() => setCodeEditorOpen(false)} />
+          <Navigation />
+          <RobotAssistant onRobotClick={toggleCodeEditor} />
+          <CodeEditor isOpen={codeEditorOpen} onClose={() => setCodeEditorOpen(false)} />
         
-        <main>
-          <Hero />
-          <About />
-          <Skills />
-          <Experience />
-          <Projects />
-          {/* <RoboticsDiagram /> */}
-          <Languages />
-          <Interests />
-          <Contact />
-        </main>
+          <main>
+            <Hero />
+            <About />
+            <Skills />
+            <Experience />
+            <Projects />
+            <Languages />
+            <Interests />
+            <Contact />
+          </main>
         
-        <Footer />
-      </div>
-    </Router>
+          <Footer />
+        </div>
+      </Router>
+    </LanguageProvider>
   );
 }
 

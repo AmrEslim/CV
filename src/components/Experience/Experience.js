@@ -20,18 +20,19 @@ const Experience = () => {
       }
     );
 
-    timelineItemsRef.current.forEach(item => {
-      if (item) {
-        observer.observe(item);
-      }
-    });
+    const elements = timelineItemsRef.current;
+    if (elements) {
+      elements.forEach(ref => {
+        if (ref) observer.observe(ref);
+      });
+    }
 
     return () => {
-      timelineItemsRef.current.forEach(item => {
-        if (item) {
-          observer.unobserve(item);
-        }
-      });
+      if (elements) {
+        elements.forEach(ref => {
+          if (ref) observer.unobserve(ref);
+        });
+      }
     };
   }, []);
 
