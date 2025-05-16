@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from 'react';
-import Terminal from '../Terminal/Terminal';
 import './RoboticsDiagram.css';
 
 const RoboticsDiagram = () => {
@@ -28,7 +27,7 @@ const RoboticsDiagram = () => {
     // Highlight connected traces
     const partClass = e.target.classList[1]; // e.g., "cpu", "sensors"
     if (partClass) {
-      setActiveConnection(`connection-cpu-${partClass}`);
+      setActiveConnection(partClass);
     }
   };
 
@@ -39,47 +38,28 @@ const RoboticsDiagram = () => {
   const startSimulation = () => {
     if (!simulationRunning) {
       setSimulationRunning(true);
-      
-      // Show path
-      if (pathRef.current) {
-        pathRef.current.style.transform = 'scaleX(1)';
-        pathRef.current.style.width = '380px';
-      }
-      
-      // Move robot
-      setTimeout(() => {
-        if (robotRef.current) {
-          robotRef.current.style.transition = 'left 4s ease-in-out';
-          robotRef.current.style.left = '400px';
-        }
-      }, 300);
+      moveRobot();
     }
   };
 
   const resetSimulation = () => {
     setSimulationRunning(false);
-    
-    // Reset path
-    if (pathRef.current) {
-      pathRef.current.style.transform = 'scaleX(0)';
-    }
-    
-    // Reset robot
     if (robotRef.current) {
-      robotRef.current.style.transition = 'left 0.5s ease-in-out';
       robotRef.current.style.left = '20px';
     }
   };
 
-  const terminalLines = [
-    "> System booted successfully",
-    "> OS: Linux-based embedded system",
-    "> CPU: ARM Cortex-A53 @ 1.2GHz",
-    "> RAM: 1GB LPDDR4",
-    "> Storage: 16GB eMMC Flash",
-    "> Interface: 3 x USB, 1 x HDMI, GPIO, I2C, SPI",
-    "> Network: WiFi 802.11ac, Bluetooth 5.0, Ethernet",
-    "> Running diagnostics..."
+  const moveRobot = () => {
+    // ... existing moveRobot implementation ...
+  };
+
+  const systemInfo = [
+    { label: "Operating System", value: "Linux-based embedded system" },
+    { label: "Processor", value: "ARM Cortex-A53 @ 1.2GHz" },
+    { label: "Memory", value: "1GB LPDDR4" },
+    { label: "Storage", value: "16GB eMMC Flash" },
+    { label: "Interfaces", value: "3 x USB, 1 x HDMI, GPIO, I2C, SPI" },
+    { label: "Network", value: "WiFi 802.11ac, Bluetooth 5.0, Ethernet" }
   ];
 
   return (
@@ -87,6 +67,15 @@ const RoboticsDiagram = () => {
       <div className="content-container">
         <h2 className="section-title">EMBEDDED SYSTEMS ARCHITECTURE</h2>
         <p>Explore the key components of embedded systems architecture I work with. Click on components to learn more.</p>
+
+        <div className="system-info">
+          {systemInfo.map((item, index) => (
+            <div key={index} className="info-item">
+              <span className="info-label">{item.label}:</span>
+              <span className="info-value">{item.value}</span>
+            </div>
+          ))}
+        </div>
         
         <div className="robot-diagram-container">
           <div className="robot-diagram">
@@ -129,29 +118,23 @@ const RoboticsDiagram = () => {
               <h4>Power Systems</h4>
               <p>Manages power distribution, battery monitoring, and implements energy-efficient operations for extended system lifespan and reliability.</p>
             </div>
-            
-            <div className={`robot-connection vert-connection connection-cpu-sensors ${activeConnection === 'connection-cpu-sensors' ? 'active' : ''}`}></div>
-            <div className={`robot-connection vert-connection connection-cpu-motors ${activeConnection === 'connection-cpu-motors' ? 'active' : ''}`}></div>
-            <div className={`robot-connection vert-connection connection-cpu-communication ${activeConnection === 'connection-cpu-communication' ? 'active' : ''}`}></div>
-            <div className={`robot-connection vert-connection connection-cpu-power ${activeConnection === 'connection-cpu-power' ? 'active' : ''}`}></div>
           </div>
-        </div>
-        
-        <div className="robot-simulation">
-          <div className="simulation-robot" ref={robotRef}>
-            <div className="simulation-sensor"></div>
+
+          <div className="system-specs">
+            {systemSpecs.map((spec, index) => (
+              <div key={index} className="spec-item">
+                <span className="spec-label">{spec.label}:</span>
+                <span className="spec-value">{spec.value}</span>
+              </div>
+            ))}
           </div>
-          <div className="simulation-obstacle obstacle-1"></div>
-          <div className="simulation-obstacle obstacle-2"></div>
-          <div className="simulation-obstacle obstacle-3"></div>
+
           <div className="simulation-path" ref={pathRef}></div>
           <div className="simulation-control">
             <div className="control-btn" onClick={startSimulation}>▶</div>
             <div className="control-btn" onClick={resetSimulation}>↺</div>
           </div>
         </div>
-        
-        <Terminal lines={terminalLines} />
       </div>
     </section>
   );

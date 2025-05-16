@@ -1,11 +1,13 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import './RobotAssistant.css';
 
-const RobotAssistant = ({ onRobotClick }) => {
+const RobotAssistant = ({ hideOnMenuOpen = false, menuOpen = false }) => {
   const robotRef = useRef(null);
   const eyesRef = useRef([]);
   const containerRef = useRef(null);
+  const isDraggingRef = useRef(false);
+  const dragOffsetRef = useRef({ x: 0, y: 0 });
+  const [robotVisible, setRobotVisible] = useState(true);
   
   // Initialize position from localStorage or default values
   const [position, setPosition] = useState(() => {
@@ -98,7 +100,20 @@ const RobotAssistant = ({ onRobotClick }) => {
 
   useEffect(() => {
     const handleMouseMove = (e) => {
-      if (robotRef.current && containerRef.current) {
+      if (isDraggingRef.current && robotRef.current) {
+        // Update position based on mouse movement
+        const newX = e.clientX - dragOffsetRef.current.x;
+        const newY = e.clientY - dragOffsetRef.current.y;
+        
+        // Constrain to viewport
+        const maxX = window.innerWidth - robotRef.current.offsetWidth;
+        const maxY = window.innerHeight - robotRef.current.offsetHeight;
+        
+        setPosition({
+          x: Math.min(Math.max(0, newX), maxX),
+          y: Math.min(Math.max(0, newY), maxY)
+        });
+      } else if (robotRef.current && containerRef.current) {
         const robotRect = robotRef.current.getBoundingClientRect();
         const robotCenterX = robotRect.left + robotRect.width / 2;
         const robotCenterY = robotRect.top + robotRect.height / 2;
@@ -118,8 +133,21 @@ const RobotAssistant = ({ onRobotClick }) => {
       }
     };
 
+    const handleMouseUp = () => {
+      if (isDraggingRef.current && robotRef.current) {
+        isDraggingRef.current = false;
+        document.body.style.cursor = 'auto';
+      }
+    };
+
     document.addEventListener('mousemove', handleMouseMove);
-    return () => document.removeEventListener('mousemove', handleMouseMove);
+    document.addEventListener('mouseup', handleMouseUp);
+
+    return () => {
+      document.removeEventListener('mousemove', handleMouseMove);
+      document.removeEventListener('mouseup', handleMouseUp);
+      document.body.style.cursor = 'auto';
+    };
   }, []);
 
   // Save position to localStorage whenever it changes
@@ -208,7 +236,6 @@ const RobotAssistant = ({ onRobotClick }) => {
       showIntroDialog: false
     }));
     
-    onRobotClick(); // Open code editor when tour starts
     navigateToStep(0);
   };
 
@@ -271,7 +298,7 @@ const RobotAssistant = ({ onRobotClick }) => {
   const handleClick = () => {
     if (!tourState.isGuiding) {
       if (!tourState.showIntroDialog) {
-        showIntroDialog();  // Just show the dialog, don't open code editor
+        showIntroDialog();
       }
     }
     
@@ -283,6 +310,25 @@ const RobotAssistant = ({ onRobotClick }) => {
         setTimeout(() => button.classList.remove('active'), 500);
       }
     });
+  };
+
+  const toggleVisibility = (e) => {
+    e.stopPropagation();  // Prevent the robot click handler from firing
+    setRobotVisible(!robotVisible);
+  };
+
+  const handleMouseDown = (e) => {
+    if (robotRef.current) {
+      isDraggingRef.current = true;
+      document.body.style.cursor = 'grabbing';
+      const robotRect = robotRef.current.getBoundingClientRect();
+      dragOffsetRef.current = {
+        x: e.clientX - robotRect.left,
+        y: e.clientY - robotRect.top
+      };
+      e.preventDefault(); // Prevent text selection while dragging
+      e.stopPropagation(); // Prevent other click handlers from firing
+    }
   };
 
   const getMessage = () => {
@@ -318,19 +364,51 @@ const RobotAssistant = ({ onRobotClick }) => {
     return () => window.removeEventListener('resize', updateMessagePosition);
   }, [tourState.message, tourState.showIntroDialog]);
 
-  return (
+  // Hide robot when menu is open (if hideOnMenuOpen is true) or when manually hidden
+  const shouldShowRobot = robotVisible && !(hideOnMenuOpen && menuOpen);
+  
+  return shouldShowRobot ? (
     <div 
       id="robot-assistant" 
       ref={robotRef} 
+      onMouseDown={handleMouseDown}
       onClick={handleClick}
       style={{
         position: 'fixed',
         left: `${position.x}px`,
         top: `${position.y}px`,
-        transform: 'none'
+        transform: 'none',
+        cursor: isDraggingRef.current ? 'grabbing' : 'grab',
+        zIndex: 1000,
+        userSelect: 'none'
       }}
       className={`${tourState.isMoving ? 'moving' : ''} ${tourState.showIntroDialog ? 'showing-dialog' : ''}`}
     >
+      <button 
+        className="robot-hide-button"
+        onClick={toggleVisibility}
+        style={{
+          position: 'absolute',
+          top: '5px',
+          right: '5px',
+          background: 'transparent',
+          border: 'none',
+          color: '#fff',
+          cursor: 'pointer',
+          fontSize: '20px',
+          padding: '5px',
+          zIndex: 1001,
+          width: '30px',
+          height: '30px',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          borderRadius: '50%',
+          backgroundColor: 'rgba(0,0,0,0.3)'
+        }}
+      >
+        ×
+      </button>
       <div className="robot-container" ref={containerRef}>
         <div className={`robot-head ${tourState.isGuiding ? 'guiding' : ''}`}>
           <div className="robot-antenna"></div>
@@ -420,7 +498,7 @@ const RobotAssistant = ({ onRobotClick }) => {
         </div>
       )}
     </div>
-  );
+  ) : null;
 };
 
 export default RobotAssistant;

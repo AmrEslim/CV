@@ -10,7 +10,6 @@ import Interests from './components/Interests/Interests';
 import Contact from './components/Contact/Contact';
 import Navigation from './components/Navigation/Navigation';
 import RobotAssistant from './components/RobotAssistant/RobotAssistant';
-import CodeEditor from './components/CodeEditor/CodeEditor';
 import Footer from './components/Footer/Footer';
 import CircuitBackground from './components/CircuitBackground/CircuitBackground';
 import CustomCursor from './components/CustomCursor/CustomCursor';
@@ -19,11 +18,7 @@ import { LanguageProvider } from './context/LanguageContext';
 import './App.css';
 
 function App() {
-  const [codeEditorOpen, setCodeEditorOpen] = useState(false);
-
-  const toggleCodeEditor = () => {
-    setCodeEditorOpen(!codeEditorOpen);
-  };
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     // Initialize intersection observer for animations
@@ -69,9 +64,8 @@ function App() {
           <CircuitBackground />
           <LanguageSwitcher />
         
-          <Navigation />
-          <RobotAssistant onRobotClick={toggleCodeEditor} />
-          <CodeEditor isOpen={codeEditorOpen} onClose={() => setCodeEditorOpen(false)} />
+          <Navigation onMenuOpenChange={(isOpen) => setMenuOpen(isOpen)} />
+          <RobotAssistant hideOnMenuOpen menuOpen={menuOpen} />
         
           <main>
             <Hero />

@@ -380,3 +380,34 @@
     margin: 2rem auto;
   }
 }
+
+.system-info {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+  margin: 2rem 0;
+  padding: 1.5rem;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  border: 1px solid rgba(0, 255, 0, 0.1);
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.5rem;
+  border-radius: 4px;
+  background: rgba(0, 255, 0, 0.05);
+}
+
+.info-label {
+  font-weight: bold;
+  color: var(--accent-color);
+  min-width: 120px;
+}
+
+.info-value {
+  color: var(--text-color);
+  opacity: 0.9;
+}

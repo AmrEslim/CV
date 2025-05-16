@@ -1,13 +1,35 @@
 .custom-cursor {
   width: 20px;
   height: 20px;
-  border: 2px solid var(--robot-primary);
+  background: rgba(255, 255, 255, 0.2);
+  border: 2px solid #ffffff;
   border-radius: 50%;
   position: fixed;
   pointer-events: none;
   z-index: 9999;
-  transition: width 0.2s, height 0.2s, border-color 0.2s;
+  transition: width 0.2s ease-out, height 0.2s ease-out, background-color 0.2s ease-out, border-color 0.2s ease-out;
+  transform: translate(-50%, -50%);
+  will-change: transform;
+}
+
+.custom-cursor.hidden {
+  opacity: 0;
+}
+
+.custom-cursor.enlarged {
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.3);
+  border-color: #ffffff;
   mix-blend-mode: difference;
+}
+
+.custom-cursor.dragging {
+  width: 50px;
+  height: 50px;
+  background: rgba(255, 255, 255, 0.4);
+  border-color: #4A90E2;
+  mix-blend-mode: normal;
 }
 
 .cursor-dot {
@@ -29,9 +51,23 @@
   }
 }
 
-.custom-cursor.hover {
-  width: 40px;
-  height: 40px;
-  border-color: var(--robot-accent);
-  background: rgba(0, 136, 255, 0.1);
+/* When hovering over robot */
+#robot-assistant:hover ~ .custom-cursor {
+  width: 35px;
+  height: 35px;
+  border-color: #4A90E2;
+  background: rgba(74, 144, 226, 0.2);
+}
+
+/* When actively dragging */
+#robot-assistant:active ~ .custom-cursor {
+  width: 45px;
+  height: 45px;
+  background: rgba(74, 144, 226, 0.3);
+}
+
+@media (hover: none) {
+  .custom-cursor {
+    display: none;
+  }
 }

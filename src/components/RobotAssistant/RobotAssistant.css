@@ -3,12 +3,24 @@
   width: 180px;
   height: 250px;
   z-index: 1000;
-  cursor: pointer;
+  cursor: move;
   transform-style: preserve-3d;
   perspective: 1000px;
   will-change: transform;
   pointer-events: auto;
-  margin-top: 70px; /* Add margin from the top */
+  margin-top: 70px;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  user-select: none;
+}
+
+#robot-assistant[data-hidden="true"] {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+#robot-assistant:active {
+  cursor: grabbing;
 }
 
 #robot-assistant.moving {

@@ -8,6 +8,278 @@
   align-items: center;
 }
 
+.nav-horizontal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(180deg, rgba(18, 18, 18, 0.98), rgba(18, 18, 18, 0.95));
+  backdrop-filter: blur(10px);
+  padding: 0.75rem 1rem;
+  z-index: 100;
+  border-bottom: 2px solid var(--accent-color);
+  display: none; /* Hidden by default, shown on desktop */
+  justify-content: center;
+  gap: 1.5rem;
+  box-shadow: 
+    0 2px 20px rgba(0, 255, 0, 0.1),
+    0 0 30px rgba(0, 255, 0, 0.05);
+  animation: navSlideDown 0.5s ease-out, float 4s ease-in-out infinite;
+  position: relative;
+  overflow: hidden;
+  height: 60px;
+  align-items: center;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow-x: auto; /* Allow horizontal scroll if needed */
+  scrollbar-width: none; /* Hide scrollbar Firefox */
+  -ms-overflow-style: none; /* Hide scrollbar IE/Edge */
+  transition: all 0.3s ease;
+}
+
+.nav-horizontal::-webkit-scrollbar {
+  display: none; /* Hide scrollbar Chrome/Safari/Webkit */
+}
+
+.nav-horizontal::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 150%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--accent-color), transparent);
+  animation: scanline 4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  transform: skewX(-45deg);
+}
+
+.nav-horizontal::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: -50%;
+  width: 50%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--accent-color), transparent);
+  animation: scanline 3s linear infinite reverse;
+}
+
+@keyframes scanline {
+  0% {
+    transform: translateX(-150%) skewX(-45deg);
+  }
+  100% {
+    transform: translateX(150%) skewX(-45deg);
+  }
+}
+
+@keyframes navSlideDown {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  50% {
+    transform: translateY(-50%);
+    opacity: 0.5;
+  }
+  70% {
+    transform: translateY(-30%);
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.nav-horizontal .nav-links {
+  display: flex;
+  gap: 1.5rem;
+  margin: 0;
+  list-style: none;
+  position: relative;
+  flex-wrap: nowrap;
+  max-width: 1200px;
+  width: 100%;
+  justify-content: space-around;
+  padding: 0 1rem;
+  min-width: min-content; /* Ensure items don't shrink too much */
+}
+
+.nav-horizontal .nav-links::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: -20px;
+  width: 10px;
+  height: 10px;
+  background: var(--accent-color);
+  border-radius: 50%;
+  transform: translateY(-50%);
+  animation: pulse 2s infinite;
+}
+
+.nav-horizontal .nav-links li {
+  margin: 0;
+  position: relative;
+}
+
+.nav-horizontal .nav-links li::before {
+  content: '[';
+  position: absolute;
+  left: -10px;
+  color: var(--accent-color);
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.nav-horizontal .nav-links li::after {
+  content: ']';
+  position: absolute;
+  right: -10px;
+  color: var(--accent-color);
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.nav-horizontal .nav-links li:hover::before,
+.nav-horizontal .nav-links li:hover::after {
+  opacity: 1;
+}
+
+.nav-horizontal .nav-links li:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: -1rem;
+  width: 0.5rem;
+  height: 1px;
+  background: var(--accent-color);
+  opacity: 0.3;
+}
+
+.nav-horizontal .nav-links a {
+  color: var(--text-color);
+  text-decoration: none;
+  font-size: 0.9rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid transparent;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(90deg, transparent, rgba(0, 255, 0, 0.03), transparent);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 500;
+  white-space: nowrap;
+  transform-origin: center;
+}
+
+.nav-horizontal .nav-links a::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(0, 255, 0, 0.1), transparent);
+  transition: left 0.5s ease;
+}
+
+.nav-horizontal .nav-links a:hover::before {
+  left: 100%;
+}
+
+.nav-horizontal .nav-links a:hover {
+  border-color: var(--accent-color);
+  background: rgba(0, 255, 0, 0.05);
+  transform: translateY(-2px) scale(1.05);
+  text-shadow: 0 0 8px rgba(0, 255, 0, 0.5);
+  letter-spacing: 1.5px;
+  box-shadow: 0 4px 12px rgba(0, 255, 0, 0.2);
+}
+
+.nav-horizontal .nav-links a:hover::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 255, 0, 0.1);
+  animation: glitch 0.3s cubic-bezier(.25,.46,.45,.94) both infinite;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: inherit;
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.nav-horizontal .nav-links a.active {
+  background: rgba(0, 255, 0, 0.1);
+  border-color: var(--accent-color);
+}
+
+.nav-horizontal .nav-links a.active::before {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--accent-color);
+  animation: activeLink 2s infinite;
+}
+
+@keyframes activeLink {
+  0% {
+    opacity: 0.5;
+    transform: scaleX(0.8);
+  }
+  50% {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+  100% {
+    opacity: 0.5;
+    transform: scaleX(0.8);
+  }
+}
+
+@keyframes glitch {
+  0% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(-2px, 2px);
+  }
+  40% {
+    transform: translate(-2px, -2px);
+  }
+  60% {
+    transform: translate(2px, 2px);
+  }
+  80% {
+    transform: translate(2px, -2px);
+  }
+  100% {
+    transform: translate(0);
+  }
+}
+
+/* Show horizontal nav on desktop and hide mobile nav */
+@media (min-width: 1024px) {
+  .nav-container {
+    display: none;
+  }
+  
+  .nav-horizontal {
+    padding: 0.75rem 2rem;
+  }
+}
+
 .nav-toggle {
   width: 40px;
   height: 40px;
@@ -43,14 +315,18 @@
   height: 100vh;
   background-color: var(--terminal-bg);
   padding: 2rem;
-  transition: right var(--transition-speed) ease;
+  transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   z-index: 101;
   border-left: 1px solid var(--accent-color);
   box-shadow: -5px 0 20px rgba(0, 255, 0, 0.1);
+  background: linear-gradient(180deg, rgba(18, 18, 18, 0.98), rgba(18, 18, 18, 0.95));
+  backdrop-filter: blur(10px);
 }
 
 .nav-menu.active {
   right: 0;
+  box-shadow: -5px 0 20px rgba(0, 255, 0, 0.1);
+  border-left: 2px solid var(--accent-color);
 }
 
 .nav-close {
@@ -111,7 +387,7 @@
   opacity: 1;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1040px) {
   .nav-container {
     top: 1rem;
     right: 1rem;
@@ -136,10 +412,203 @@
     top: 1rem;
     right: 1rem;
   }
+
+  .nav-horizontal {
+    padding: 0.5rem;
+  }
+
+  .nav-horizontal .nav-links {
+    gap: 1rem;
+  }
+
+  .nav-horizontal .nav-links a {
+    font-size: 0.8rem;
+    padding: 0.3rem 0.6rem;
+  }
+
+  .nav-horizontal .nav-links li:not(:last-child)::after {
+    right: -0.5rem;
+    width: 0.3rem;
+  }
 }
 
 @media (max-width: 480px) {
   .nav-links a {
     font-size: 1.2rem;
+  }
+}
+
+/* Circuit board pattern in the background */
+.nav-horizontal::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    linear-gradient(90deg, rgba(0, 255, 0, 0.03) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(0, 255, 0, 0.03) 1px, transparent 1px);
+  background-size: 20px 20px;
+  pointer-events: none;
+  opacity: 0.2;
+}
+
+/* Glowing dot animation */
+@keyframes pulse {
+  0% {
+    transform: translateY(-50%) scale(1);
+    box-shadow: 0 0 0 0 rgba(0, 255, 0, 0.7);
+  }
+  70% {
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 0 0 10px rgba(0, 255, 0, 0);
+  }
+  100% {
+    transform: translateY(-50%) scale(1);
+    box-shadow: 0 0 0 0 rgba(0, 255, 0, 0);
+  }
+}
+
+.nav-menu,
+.nav-toggle,
+.nav-close {
+  display: block; /* Override the previous none */
+}
+
+/* Show horizontal nav on desktop */
+@media (min-width: 768px) {
+  .nav-horizontal {
+    display: flex;
+    position: fixed; /* Keeps it visible while scrolling */
+    justify-content: center;
+  }
+  
+  .nav-container {
+    display: none; /* Hide mobile nav on desktop */
+  }
+}
+
+/* Mobile styles */
+@media (max-width: 1024px) {
+  .nav-container {
+    display: flex;
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+  }
+
+  .nav-menu {
+    display: block;
+    width: 100%;
+    right: -100%;
+  }
+
+  .nav-toggle {
+    display: flex;
+  }
+
+  .nav-close {
+    display: flex;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-horizontal {
+    padding: 0.5rem;
+  }
+  
+  .nav-horizontal .nav-links {
+    gap: 0.75rem;
+    padding: 0 0.5rem;
+  }
+  
+  .nav-horizontal .nav-links a {
+    padding: 0.3rem 0.5rem;
+    font-size: 0.8rem;
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 1350px) {
+  .nav-horizontal {
+    padding: 0.5rem;
+  }
+
+  .nav-horizontal .nav-links {
+    gap: 1rem;
+    font-size: 0.9rem;
+    padding: 0 0.5rem;
+  }
+
+  .nav-horizontal .nav-links li:not(:last-child)::after {
+    right: -0.5rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .nav-horizontal {
+    display: none;
+  }
+}
+
+/* Active section indicator */
+.nav-links a.active {
+  color: var(--accent-color);
+  text-shadow: 0 0 8px var(--accent-color);
+  position: relative;
+}
+
+.nav-links a.active::before {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--accent-color);
+  box-shadow: 0 0 8px var(--accent-color);
+  animation: activeLink 1.5s ease-in-out infinite;
+}
+
+/* Enhanced hover effects */
+.nav-links a {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: var(--accent-color);
+  text-shadow: 0 0 5px var(--accent-color);
+  transform: translateY(-2px);
+}
+
+.nav-links a::before {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  width: 0;
+  height: 1px;
+  background: var(--accent-color);
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+  opacity: 0;
+}
+
+.nav-links a:hover::before {
+  width: 100%;
+  opacity: 1;
+  box-shadow: 0 0 8px var(--accent-color);
+}
+
+@keyframes activeLink {
+  0%, 100% {
+    opacity: 0.5;
+    transform: scaleX(0.8);
+  }
+  50% {
+    opacity: 1;
+    transform: scaleX(1);
   }
 }

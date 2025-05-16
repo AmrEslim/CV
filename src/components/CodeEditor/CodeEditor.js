@@ -2,25 +2,12 @@ import React, { useEffect, useState } from 'react';
 import './CodeEditor.css';
 
 const CodeEditor = ({ isOpen, onClose }) => {
-  const [robotOutput, setRobotOutput] = useState([]);
-  const [direction] = useState('forward');
-  const [speed] = useState('medium');
-
-  useEffect(() => {
-    if (isOpen) {
-      setRobotOutput([]);
-      // Initialize robot and execute commands when editor opens
-      executeRobotCommands();
-    }
-  }, [isOpen]);
-
   const executeRobotCommands = () => {
     class RobotController {
       constructor() {
         this.sensors = [];
         this.motors = ['left', 'right'];
         this.battery = 100;
-        setRobotOutput(prev => [...prev, '> Initializing robot controller...']);
       }
 
       initializeSensors() {
@@ -30,7 +17,6 @@ const CodeEditor = ({ isOpen, onClose }) => {
           { type: 'infrared', position: 'right' },
           { type: 'camera', position: 'front' }
         ];
-        setRobotOutput(prev => [...prev, '> Sensors initialized']);
         return this.sensors;
       }
 
@@ -39,37 +25,23 @@ const CodeEditor = ({ isOpen, onClose }) => {
         const validSpeeds = ['slow', 'medium', 'fast'];
 
         if (!validDirections.includes(direction)) {
-          setRobotOutput(prev => [...prev, '> Error: Invalid direction']);
           return;
         }
 
         if (!validSpeeds.includes(speed)) {
-          setRobotOutput(prev => [...prev, '> Error: Invalid speed']);
           return;
         }
-
-        setRobotOutput(prev => [...prev, `> Moving ${direction} at ${speed} speed`]);
       }
     }
-
-    // Execute the robot initialization and movement
-    const robot = new RobotController();
-    robot.initializeSensors();
-    robot.move(direction, speed);
   };
 
   return (
     <div id="code-editor" className={isOpen ? 'open' : ''}>
       <div className="code-header">
-        <div className="code-title">Robotics Control Terminal</div>
+        <div className="code-title">Robotics Control Interface</div>
         <button className="code-close" onClick={onClose}>×</button>
       </div>
       <div className="code-content">
-        <div className="code-output">
-          {robotOutput.map((line, index) => (
-            <div key={index}>{line}</div>
-          ))}
-        </div>
         <div className="code-display">
           <div className="code-line">
             <span className="line-number">1</span>
@@ -188,77 +160,59 @@ const CodeEditor = ({ isOpen, onClose }) => {
           <div className="code-line">
             <span className="line-number">20</span>
             <span className="line-content">
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span className="keyword">console</span>.<span className="function">error</span>(<span className="string">'Invalid direction'</span>);
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span className="keyword">return</span>;
             </span>
           </div>
           <div className="code-line">
             <span className="line-number">21</span>
             <span className="line-content">
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span className="keyword">return</span>;
+              &nbsp;&nbsp;&nbsp;&nbsp;{'}'}
             </span>
           </div>
           <div className="code-line">
             <span className="line-number">22</span>
             <span className="line-content">
-              &nbsp;&nbsp;&nbsp;&nbsp;{'}'}
+              &nbsp;&nbsp;&nbsp;&nbsp;<span className="keyword">if</span> (!validSpeeds.<span className="function">includes</span>(speed)) {'{'}
             </span>
           </div>
           <div className="code-line">
             <span className="line-number">23</span>
             <span className="line-content">
-              &nbsp;&nbsp;&nbsp;&nbsp;<span className="keyword">if</span> (!validSpeeds.<span className="function">includes</span>(speed)) {'{'}
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span className="keyword">return</span>;
             </span>
           </div>
           <div className="code-line">
             <span className="line-number">24</span>
             <span className="line-content">
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span className="keyword">console</span>.<span className="function">error</span>(<span className="string">'Invalid speed'</span>);
+              &nbsp;&nbsp;&nbsp;&nbsp;{'}'}
             </span>
           </div>
           <div className="code-line">
             <span className="line-number">25</span>
             <span className="line-content">
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span className="keyword">return</span>;
+              &nbsp;&nbsp;{'}'}
             </span>
           </div>
           <div className="code-line">
             <span className="line-number">26</span>
             <span className="line-content">
-              &nbsp;&nbsp;&nbsp;&nbsp;{'}'}
+              {'}'}
             </span>
           </div>
           <div className="code-line">
             <span className="line-number">27</span>
             <span className="line-content">
-              &nbsp;&nbsp;&nbsp;&nbsp;<span className="keyword">console</span>.<span className="function">log</span>(<span className="string">`Moving ${direction} at ${speed} speed`</span>);
+              <span className="keyword">const</span> robot = <span className="keyword">new</span> <span className="function">RobotController</span>();
             </span>
           </div>
           <div className="code-line">
             <span className="line-number">28</span>
             <span className="line-content">
-              &nbsp;&nbsp;{'}'}
-            </span>
-          </div>
-          <div className="code-line">
-            <span className="line-number">29</span>
-            <span className="line-content">
-              {'}'}
-            </span>
-          </div>
-          <div className="code-line">
-            <span className="line-number">30</span>
-            <span className="line-content">
-              <span className="keyword">const</span> robot = <span className="keyword">new</span> <span className="function">RobotController</span>();
-            </span>
-          </div>
-          <div className="code-line">
-            <span className="line-number">31</span>
-            <span className="line-content">
               robot.<span className="function">initializeSensors</span>();
             </span>
           </div>
           <div className="code-line">
-            <span className="line-number">32</span>
+            <span className="line-number">29</span>
             <span className="line-content">
               robot.<span className="function">move</span>(<span className="variable">direction</span>, <span className="variable">speed</span>);
             </span>

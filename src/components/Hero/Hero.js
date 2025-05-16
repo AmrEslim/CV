@@ -1,6 +1,5 @@
 import React, { useRef, useEffect } from 'react';
 import { HashLink } from 'react-router-hash-link';
-import Terminal from '../Terminal/Terminal';
 import ProfilePicture from '../ProfilePicture/ProfilePicture';
 import { useTranslation } from '../../hooks/useTranslation';
 import './Hero.css';
@@ -35,14 +34,6 @@ const Hero = () => {
 
   const { t } = useTranslation();
 
-  const terminalLines = [
-    `> ${t('hero.greeting')} Amr Eslim`,
-    `> ${t('hero.role')} based in Berlin`,
-    "> Recently graduated from HTW Berlin with a degree in Computer Engineering",
-    "> Specializing in Linux-based embedded systems and web applications",
-    "> Scroll down to explore my portfolio..."
-  ];
-
   return (
     <section id="hero" className="scene">
       <div className="content-container">
@@ -51,7 +42,13 @@ const Hero = () => {
             <h1>Amr Eslim</h1>
             <p className="hero-subtitle">Computer Engineer & <span className="title-effect">Embedded Systems Developer</span></p>
             
-            <Terminal lines={terminalLines} typingAnimation={true} />
+            <div className="hero-info">
+              <p>{t('hero.greeting')} Amr Eslim</p>
+              <p>{t('hero.role')} based in Berlin</p>
+              <p>Recently graduated from HTW Berlin with a degree in Computer Engineering</p>
+              <p>Specializing in Linux-based embedded systems and web applications</p>
+              <p>Scroll down to explore my portfolio...</p>
+            </div>
             
             <div className="cta-buttons">
               <HashLink smooth to="#about" className="cta-button">EXPLORE</HashLink>

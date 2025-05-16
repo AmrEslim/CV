@@ -5,14 +5,22 @@ const CustomCursor = () => {
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [hidden, setHidden] = useState(true);
   const [enlarged, setEnlarged] = useState(false);
+  const [isDragging, setIsDragging] = useState(false);
 
   useEffect(() => {
+    let rafId;
     const updateCursorPosition = (e) => {
-      setPosition({ x: e.clientX, y: e.clientY });
-      setHidden(false);
+      // Use requestAnimationFrame for smoother cursor movement
+      cancelAnimationFrame(rafId);
+      rafId = requestAnimationFrame(() => {
+        setPosition({ x: e.clientX, y: e.clientY });
+        setHidden(false);
+      });
     };
 
     const handleMouseOver = (e) => {
+      const isDraggableElement = e.target.closest('#robot-assistant') !== null;
+      
       if (e.target.tagName === 'A' || 
           e.target.tagName === 'BUTTON' || 
           e.target.classList.contains('robot-part') ||
@@ -26,6 +34,25 @@ const CustomCursor = () => {
       } else {
         setEnlarged(false);
       }
+
+      // Update dragging state based on robot interaction
+      if (isDraggableElement) {
+        document.body.style.cursor = 'grab';
+      } else {
+        document.body.style.cursor = '';
+      }
+    };
+
+    const handleMouseDown = (e) => {
+      if (e.target.closest('#robot-assistant') !== null) {
+        setIsDragging(true);
+        document.body.style.cursor = 'grabbing';
+      }
+    };
+
+    const handleMouseUp = () => {
+      setIsDragging(false);
+      document.body.style.cursor = '';
     };
 
     const handleMouseOut = () => {
@@ -35,20 +62,26 @@ const CustomCursor = () => {
     document.addEventListener('mousemove', updateCursorPosition);
     document.addEventListener('mouseover', handleMouseOver);
     document.addEventListener('mouseout', handleMouseOut);
+    document.addEventListener('mousedown', handleMouseDown);
+    document.addEventListener('mouseup', handleMouseUp);
 
     return () => {
       document.removeEventListener('mousemove', updateCursorPosition);
       document.removeEventListener('mouseover', handleMouseOver);
       document.removeEventListener('mouseout', handleMouseOut);
+      document.removeEventListener('mousedown', handleMouseDown);
+      document.removeEventListener('mouseup', handleMouseUp);
+      cancelAnimationFrame(rafId);
     };
   }, []);
 
   return (
     <div 
-      className={`custom-cursor ${hidden ? 'hidden' : ''} ${enlarged ? 'enlarged' : ''}`}
+      className={`custom-cursor ${hidden ? 'hidden' : ''} ${enlarged ? 'enlarged' : ''} ${isDragging ? 'dragging' : ''}`}
       style={{ 
         left: `${position.x}px`, 
-        top: `${position.y}px` 
+        top: `${position.y}px`,
+        transform: 'translate(-50%, -50%)'
       }}
     />
   );
