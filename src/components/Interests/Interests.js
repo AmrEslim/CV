@@ -3,14 +3,14 @@ import './Interests.css';
 
 const Interests = () => {
   const interests = [
-    "Musik", 
-    "Fußball", 
-    "Schwimmen", 
-    "Kochen", 
-    "Reisen", 
-    "Sprachen lernen", 
-    "Robotics Development", 
-    "Embedded Systems", 
+    "Music", 
+    "Football",
+    "Sports and athletics", 
+    "swimming", 
+    "Cooking", 
+    "Travelling", 
+    "Languages learning", 
+    "Robotics and Automation", 
     "Digital Assistance Systems"
   ];
 
