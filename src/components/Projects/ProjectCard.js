@@ -1,7 +1,8 @@
-import React, { forwardRef } from 'react';
+import React, { forwardRef, useState } from 'react';
 import './ProjectCard.css';
+import Modal from './Modal';
 
-const ProjectVisual = ({ type }) => {
+export const ProjectVisual = ({ type }) => {
   // Different visual representations based on project type
   switch (type) {
     case 'embedded-system':
@@ -59,26 +60,34 @@ const ProjectVisual = ({ type }) => {
 };
 
 const ProjectCard = forwardRef(({ project }, ref) => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = (e) => {
+    e.preventDefault();
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
   return (
     <div className="robot-project" ref={ref}>
       <div className="project-image">
         <ProjectVisual type={project.visualType} />
       </div>
       <div className="project-details">
-        <div className="content-wrapper">
-          <h3 className="project-title">{project.title}</h3>
-          <p className="project-description">{project.description}</p>
-          <div className="project-tech">
-            {project.technologies.map((tech, index) => (
-              <span className="tech-tag" key={index}>{tech}</span>
-            ))}
-          </div>
-        </div>
+        <h3 className="project-title">{project.title}</h3>
         <div className="project-links">
-          <a href={project.detailsLink || "#"} className="project-link">Details</a>
-          <a href={project.demoLink || "#"} className="project-link">Demo</a>
+          <button onClick={openModal} className="project-link">Details</button>
+          <a href={project.demoLink || "#"} target="_blank" rel="noopener noreferrer" className="project-link">Demo</a>
         </div>
       </div>
+      <Modal 
+        isOpen={isModalOpen}
+        onClose={closeModal}
+        project={project}
+      />
     </div>
   );
 });
