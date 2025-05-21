@@ -1,41 +1,54 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
+import { createPortal } from 'react-dom';
 import { ProjectVisual } from './ProjectCard';
 import './Modal.css';
 
 const Modal = ({ isOpen, onClose, project }) => {
+  const modalRef = useRef(null);
+  const contentRef = useRef(null);
+
   useEffect(() => {
+    // Handle ESC key
     const handleEsc = (event) => {
-      if (event.keyCode === 27) {
+      if (event.key === 'Escape') {
+        onClose();
+      }
+    };
+
+    // Handle click outside
+    const handleClickOutside = (event) => {
+      if (contentRef.current && !contentRef.current.contains(event.target)) {
         onClose();
       }
     };
 
     if (isOpen) {
       document.addEventListener('keydown', handleEsc);
-      document.body.style.overflow = 'hidden';
+      document.body.style.overflow = 'hidden'; // Prevent background scrolling
     }
 
     return () => {
       document.removeEventListener('keydown', handleEsc);
-      document.body.style.overflow = 'unset';
+      document.body.style.overflow = 'unset'; // Re-enable scrolling when modal is closed
     };
   }, [isOpen, onClose]);
 
-  const handleBackdropClick = (e) => {
-    if (e.target === e.currentTarget) {
-      onClose();
-    }
-  };
-
   if (!isOpen) return null;
 
-  return (
+  // Use React Portal to render the modal outside of the component hierarchy
+  // This ensures it appears on top of everything, regardless of where the component is mounted
+  return createPortal(
     <div 
       className={`modal-backdrop ${isOpen ? 'visible' : ''}`}
-      onClick={handleBackdropClick}
+      ref={modalRef}
+      onClick={onClose}
     >
-      <div className="modal-content">
-        <button className="modal-close" onClick={onClose}>×</button>
+      <div 
+        className="modal-content" 
+        ref={contentRef}
+        onClick={(e) => e.stopPropagation()}
+      >
+        <button className="modal-close" onClick={onClose} aria-label="Close modal">×</button>
         
         <div className="modal-header">
           <h2 className="modal-title">{project.title}</h2>
@@ -78,7 +91,8 @@ const Modal = ({ isOpen, onClose, project }) => {
           </div>
         </div>
       </div>
-    </div>
+    </div>,
+    document.body // Mount the modal directly to the document body
   );
 };
 
