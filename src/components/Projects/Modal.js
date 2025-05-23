@@ -56,7 +56,11 @@ const Modal = ({ isOpen, onClose, project }) => {
 
         <div className="modal-body">
           <div className="project-visual">
-            <ProjectVisual type={project.visualType} />
+            {project.images && project.images.length > 0 ? (
+              <ProjectVisual type={project.visualType} images={project.images} />
+            ) : (
+              <ProjectVisual type={project.visualType} />
+            )}
           </div>
           
           <p className="modal-description">{project.description}</p>
@@ -65,29 +69,6 @@ const Modal = ({ isOpen, onClose, project }) => {
             {project.technologies.map((tech, index) => (
               <span key={index} className="modal-tech-tag">{tech}</span>
             ))}
-          </div>
-          
-          <div className="modal-links">
-            {project.demoLink && (
-              <a 
-                href={project.demoLink} 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="modal-link"
-              >
-                View Demo
-              </a>
-            )}
-            {project.githubLink && (
-              <a 
-                href={project.githubLink} 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="modal-link"
-              >
-                View on GitHub
-              </a>
-            )}
           </div>
         </div>
       </div>

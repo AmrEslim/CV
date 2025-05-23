@@ -1,9 +1,14 @@
 import React, { forwardRef, useState } from 'react';
 import './ProjectCard.css';
 import Modal from './Modal';
+import ImageCarousel from './ImageCarousel';
 
-export const ProjectVisual = ({ type }) => {
-  // Different visual representations based on project type
+export const ProjectVisual = ({ type, images }) => {
+  if (images && images.length > 0) {
+    return <ImageCarousel images={images} />;
+  }
+
+  // Fallback to robot visualizations if no images
   switch (type) {
     case 'embedded-system':
       return (
@@ -74,7 +79,7 @@ const ProjectCard = forwardRef(({ project }, ref) => {
   return (
     <div className="robot-project" ref={ref}>
       <div className="project-image">
-        <ProjectVisual type={project.visualType} />
+        <ProjectVisual type={project.visualType} images={project.images} />
       </div>
       <div className="project-details">
         <h3 className="project-title">{project.title}</h3>
