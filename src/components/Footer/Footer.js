@@ -1,7 +1,9 @@
 import React from 'react';
+import { useTranslation } from '../../hooks/useTranslation';
 import './Footer.css';
 
 const Footer = () => {
+  const { t } = useTranslation();
   const currentYear = new Date().getFullYear();
 
   return (
@@ -15,8 +17,8 @@ const Footer = () => {
         <div className="track"></div>
       </div>
       <div className="container">
-        <p>© {currentYear} Amr Eslim | Computer Engineer & Embedded Systems Developer</p>
-        <p>Berlin, Germany</p>
+        <p>© {currentYear} Amr Eslim | {t('hero.subtitle')}</p>
+        <p>{t('contact.info.locationValue')}</p>
       </div>
     </footer>
   );

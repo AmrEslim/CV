@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import { useTranslation } from '../../hooks/useTranslation';
 import './Skills.css';
 
 const SkillMeter = ({ name, percentage }) => {
@@ -50,36 +51,38 @@ const SkillMeter = ({ name, percentage }) => {
 };
 
 const Skills = () => {
+  const { t } = useTranslation();
+
   return (
     <section id="skills" className="scene">
       <div className="content-container">
-        <h2 className="section-title">TECHNICAL SKILLS</h2>
+        <h2 className="section-title">{t('skills.title')}</h2>
         <div className="circuit-board">
           <div className="chip">
-            <h3 className="chip-title">Programming Languages</h3>
-            <SkillMeter name="C/C++" percentage={90} />
-            <SkillMeter name="Python" percentage={85} />
+            <h3 className="chip-title">{t('skills.categories.programming.title')}</h3>
+            <SkillMeter name={t('skills.categories.programming.skills.cpp')} percentage={90} />
+            <SkillMeter name={t('skills.categories.programming.skills.python')} percentage={85} />
+            <SkillMeter name={t('skills.categories.programming.skills.sql')} percentage={75} />
           </div>
           
           <div className="chip">
-            <h3 className="chip-title">Web Development</h3>
-            <SkillMeter name="HTML/CSS/JavaScript" percentage={80} />
-            <SkillMeter name="Flask" percentage={75} />
-            <SkillMeter name="React.js" percentage={70} />
+            <h3 className="chip-title">{t('skills.categories.web.title')}</h3>
+            <SkillMeter name={t('skills.categories.web.skills.frontend')} percentage={80} />
+            <SkillMeter name={t('skills.categories.web.skills.flask')} percentage={75} />
+            <SkillMeter name={t('skills.categories.web.skills.react')} percentage={70} />
           </div>
           
           <div className="chip">
-            <h3 className="chip-title">Tools & Technologies</h3>
-            <SkillMeter name="Git" percentage={85} />
-            <SkillMeter name="Linux" percentage={90} />
-            <SkillMeter name="Docker" percentage={75} />
+            <h3 className="chip-title">{t('skills.categories.tools.title')}</h3>
+            <SkillMeter name={t('skills.categories.tools.skills.git')} percentage={85} />
+            <SkillMeter name={t('skills.categories.tools.skills.linux')} percentage={90} />
+            <SkillMeter name={t('skills.categories.tools.skills.docker')} percentage={75} />
           </div>
           
           <div className="chip">
-            <h3 className="chip-title">Embedded Systems</h3>
-            <SkillMeter name="Embedded Linux Systems" percentage={85} />
-            <SkillMeter name="SQL" percentage={75} />
-            <SkillMeter name="Digital Assistance Systems" percentage={80} />
+            <h3 className="chip-title">{t('skills.categories.embedded.title')}</h3>
+            <SkillMeter name={t('skills.categories.embedded.skills.embedded_linux')} percentage={85} />
+
           </div>
         </div>
       </div>

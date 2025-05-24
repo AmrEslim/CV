@@ -1,7 +1,15 @@
 {
   "hero": {
     "greeting": "Hi, I'm",
-    "role": "Robotics & Embedded Systems Engineer"
+    "role": "Robotics & Embedded Systems Engineer",
+    "subtitle": "Computer Engineer & Embedded Systems Developer",
+    "info": {
+      "greeting": "Hi, I'm Amr Eslim",
+      "location": "based in Berlin",
+      "education": "Recently graduated from HTW Berlin with a degree in Computer Engineering",
+      "specialization": "Specialized in Linux-based Embedded Systems and web applications",
+      "scroll": "Scroll down to explore my portfolio..."
+    }
   },
   "nav": {
     "home": "Home",
@@ -13,9 +21,355 @@
     "languages": "Languages",
     "interests": "Interests",
     "contact": "Contact"
-  },
-  "about": {
+  },  "about": {
     "title": "About Me",
-    "description": "Computer Engineering graduate specializing in Embedded Systems and Robotics"
+    "description": "Computer Engineering graduate specializing in Embedded Systems and Robotics",
+    "content": [
+      "Hello! I'm Amr Eslim, a Computer Engineering graduate based in Berlin, Germany.",
+      "I recently completed my Bachelor's degree in Computer Engineering at HTW Berlin (April 2025) with a focus on embedded systems.",
+      "My expertise lies in embedded systems with Linux, software development, and web application development.",
+      "I have hands-on experience as a software development working student at Fraunhofer IPK since May 2022.",
+      "With a strong background in C/C++, Python, and embedded systems, I build reliable and efficient solutions.",
+      "I'm particularly interested in developing robotics systems that can seamlessly integrate with digital assistance systems.",
+      "Let's build the future of robotics and embedded systems together!"
+    ]
+  },
+  "skills": {
+    "title": "Technical Skills",
+    "categories": {
+      "programming": {
+        "title": "Programming Languages",
+        "skills": {
+          "cpp": "C/C++",
+          "python": "Python",
+          "sql": "SQL"
+        }
+      },
+      "web": {
+        "title": "Web Development",
+        "skills": {
+          "frontend": "HTML/CSS/JavaScript",
+          "flask": "Flask",
+          "react": "React.js"
+        }
+      },
+      "tools": {
+        "title": "Tools & Technologies",
+        "skills": {
+          "git": "Git",
+          "linux": "Linux",
+          "docker": "Docker"
+        }
+      },
+      "embedded": {
+        "title": "Embedded Systems",
+        "skills": {
+          "embedded_linux": "Embedded Linux Systems"
+        }
+      }
+    }
+  },
+  "experience": {
+    "title": "Education & Experience",
+    "items": [
+      {
+        "id": 1,
+        "date": "04/2021 – 04/2025",
+        "title": "Bachelor's Degree in Computer Engineering",
+        "description": "HTW Berlin (Hochschule für Technik und Wirtschaft)",
+        "details": "Focus areas: Computer Science, Hardware, Networks, Computer-controlled devices and systems",
+        "side": "left"
+      },
+      {
+        "id": 2,
+        "date": "05/2022 – Present",
+        "title": "Working Student (Software Development)",
+        "description": "Fraunhofer IPK, Berlin",
+        "details": "Working with Embedded Systems with Linux, developing web-based applications and dashboards, implementing backend functionalities, and supporting the conception and implementation of digital assistance systems.",
+        "side": "right"
+      },
+      {
+        "id": 3,
+        "date": "12/2019 – 12/2023",
+        "title": "Volunteer",
+        "description": "Medibüro, Berlin",
+        "details": "Medical liaison for people without residence status and health insurance through qualified medical professionals. Regular processing of incoming mail.",
+        "side": "left"
+      },
+      {
+        "id": 4,
+        "date": "02/2020",
+        "title": "Hackathon: Future of Education",
+        "description": "N3XTCODER GmbH",
+        "details": "Worked with a team on the on-boarding process for a mentoring app for teenagers who identify as LGBTQIA. Our goal was to ensure a smooth process. We presented our results to the audience.",
+        "side": "right"
+      },
+      {
+        "id": 5,
+        "date": "09/2018 – 06/2019",
+        "title": "Preparatory Year for Medical Faculty",
+        "description": "Damascus University, Syria",
+        "details": "Studies in Anatomy, Biochemistry, General Medicine, and Neurology",
+        "side": "left"
+      },
+      {
+        "id": 6,
+        "date": "10/2015 – 06/2018",
+        "title": "High School",
+        "description": "Shakib Arslan School, Syria",
+        "details": "Focus on Physics, Math, Chemistry, Biology, English, Arabic, and French",
+        "side": "right"
+      }
+    ]
+  },
+  "languages": {
+    "title": "Languages",
+    "items": [
+      {
+        "id": 1,
+        "language": "Arabic",
+        "proficiency": "Native speaker",
+        "percentage": 100
+      },
+      {
+        "id": 2,
+        "language": "German",
+        "proficiency": "Fluent (C1 level)",
+        "percentage": 90
+      },
+      {
+        "id": 3,
+        "language": "English",
+        "proficiency": "Fluent (C1 level)",
+        "percentage": 85
+      },
+      {
+        "id": 4,
+        "language": "French",
+        "proficiency": "Basic proficiency/Beginner",
+        "percentage": 30
+      }
+    ]
+  },
+  "interests": {
+    "title": "Personal Interests",
+    "items": [
+      "Music",
+      "Football",
+      "Sports and athletics",
+      "Swimming",
+      "Cooking",
+      "Travelling",
+      "Languages learning",
+      "Robotics and Automation",
+      "Digital Assistance Systems"
+    ]
+  },
+  "contact": {
+    "title": "Contact",
+    "info": {
+      "email": "Email:",
+      "linkedin": "LinkedIn:",
+      "location": "Location:",
+      "locationValue": "Berlin, Germany"
+    },
+    "text": "I'm currently looking for new opportunities in robotics and autonomous systems development. Whether you have a question about robotics, want to collaborate on a project, or just want to say hi, I'll do my best to get back to you!",
+    "buttons": {
+      "email": "Email Me",
+      "linkedin": "LinkedIn",
+      "form": {
+        "name": "Your Name",
+        "email": "Your Email",
+        "message": "Your Message",
+        "send": "Send Message"
+      }
+    }
+  },  "ui": {
+    "buttons": {
+      "details": "Details",
+      "demo": "Demo",
+      "connect": "Connect",
+      "explore": "Explore",
+      "emailMe": "Email Me",
+      "linkedin": "LinkedIn",
+      "close": "Close"
+    },
+    "sections": {
+      "technicalSkills": "Technical Skills",
+      "projects": "Projects",
+      "educationExperience": "Education & Experience",
+      "languages": "Languages",
+      "personalInterests": "Personal Interests",
+      "contact": "Contact",
+      "references": "References"
+    },
+    "meta": {
+      "title": "Amr Eslim | Robotics & Embedded Systems Engineer",
+      "description": "Computer Engineering graduate specializing in Embedded Systems, Robotics, and Digital Assistance Systems. Based in Berlin, Germany. Currently working at Fraunhofer IPK."
+    }
+  },
+  "projects": {
+    "title": "Projects",
+    "snake_robot": {
+      "title": "Neurobiologically-Inspired Snake Robot",
+      "subtitle": "Bachelor Thesis – HTW Berlin (2025)",
+      "description": "This project presents the design, implementation, and testing of a modular snake-like robot inspired by biological snake locomotion. It reproduces lateral undulation and sidewinding using a Central Pattern Generator (CPG) control model, built entirely from scratch for the thesis 'Neurobiologically-inspired Control of a Robot.' The robot integrates mechanical engineering, embedded programming, and motion neuroscience into a functional bio-inspired system.",
+      "features": [
+        "✅ **Mechanical Design**: Built in Onshape CAD and 3D-printed with TPU friction scales and PLA+ wheels. Alternating servo layout (horizontal/vertical) for complex out-of-plane motion.",
+        "✅ **Control System**: CPG control based on a phase-coupled oscillator model. Implements two gaits – lateral undulation and sidewinding – driven by sinusoidal position updates at 50Hz.",
+        "✅ **Microcontroller & Power**: ESP32 used for real-time web-based control and Wi-Fi AP mode. Each of the 10 servo segments includes a local buck converter with capacitive filtering for noise suppression.",
+        "✅ **Web Interface**: Developed in React.js and served over Wi-Fi from ESP32. Allows live tuning of motion parameters (amplitude, frequency, phase offset) and toggling of movement direction.",
+        "✅ **Testing & Evaluation**: Experimental trials conducted on laminate flooring. Multiple configurations (base, TPU scales, PLA+ wheels) were compared using video tracking and current sensors.",
+        "✅ **Motion Tracking**: Kinovea used to track head/tail motion. Data exported to CSV and visualized in React-based plots, showing performance differences across configurations and gaits.",
+        "✅ **Energy Profiling**: Current draw was measured using ACS712 sensor. Sidewinding was found to consume ~50% more current than lateral undulation, with PLA+ wheels offering the most consistent performance.",
+        "✅ **Robust Control Architecture**: Uses mathematical oscillator model (θk = A·cos(2πft + φk)) for each servo. Oscillator phase relationships enable direction control and motion symmetry.",
+        "✅ **Design Evolution**: Replaced an earlier STM32 version with ESP32 for better connectivity and real-time tuning. Power distribution was redesigned for servo isolation, and mechanical tolerances were iteratively improved.",
+        "✅ **Future Work**: The thesis proposes improvements like ESP-NOW-based swarm collaboration, autonomous direction control using IMUs, and flexible soft-body actuation for terrain adaptation."
+      ],
+      "references": [
+        {
+          "title": "Thesis PDF (HTW Berlin, 2025)",
+          "url": "https://github.com/AmrEslim/snake_robot"
+        },
+        {
+          "title": "Central Pattern Generator – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/central_pattern_generator"
+        },
+        {
+          "title": "Kinovea (Motion Analysis Software)",
+          "url": "https://www.kinovea.org"
+        }
+      ]
+    },
+    "dashboard": {
+      "title": "Real-Time Robotics Dashboard",
+      "subtitle": "Embedded Monitoring + Visualization",
+      "description": "A full-stack application integrating React and Flask to monitor embedded sensor data in real-time. Features a dynamic front-end for command dispatch, system diagnostics, and graphing historical sensor readings."
+    },
+    "mentoring": {
+      "title": "LGBTQIA+ Mentoring UX App",
+      "subtitle": "Hackathon Concept – Inclusive Design",
+      "description": "A mentoring platform prototype tailored for LGBTQIA+ teens. Focused on safety, onboarding simplicity, and privacy-aware community pairing. Developed through UX research, user interviews, and iterative prototyping."
+    }
+  },
+  "roboticsDiagram": {
+    "title": "Embedded Systems Architecture",
+    "description": "Explore the key components of embedded systems architecture I work with. Click on components to learn more.",
+    "systemInfo": [
+      { "label": "Operating System", "value": "Linux-based embedded system" },
+      { "label": "Processor", "value": "ARM Cortex-A53 @ 1.2GHz" },
+      { "label": "Memory", "value": "1GB LPDDR4" },
+      { "label": "Storage", "value": "16GB eMMC Flash" },
+      { "label": "Interfaces", "value": "3 x USB, 1 x HDMI, GPIO, I2C, SPI" },
+      { "label": "Network", "value": "WiFi 802.11ac, Bluetooth 5.0, Ethernet" }
+    ],
+    "components": {
+      "cpu": {
+        "title": "Central Processing",
+        "description": "The brain of the system with ARM-based architecture. Executes real-time computations and manages system resources for optimal performance."
+      },
+      "sensors": {
+        "title": "Sensor & Input",
+        "description": "Manages data acquisition from various sensors and input devices. Processes environmental data and user interactions for system response."
+      },
+      "communication": {
+        "title": "Networking & Comms",
+        "description": "Handles Wi-Fi, Bluetooth, and other communication protocols. Manages data transfer between components and external systems securely and efficiently."
+      },
+      "output": {
+        "title": "Output & Control",
+        "description": "Manages system outputs including displays, indicators, and control signals. Implements precise timing mechanisms and feedback control loops."
+      },
+      "power": {
+        "title": "Power Systems",
+        "description": "Manages power distribution, battery monitoring, and implements energy-efficient operations for extended system lifespan and reliability."
+      }    }
+  },
+  "robotAssistant": {
+    "tourSteps": [
+      {
+        "title": "👋 Introduction",
+        "message": "I'm your friendly robot assistant! Let me guide you through this portfolio and show you all the cool features!"
+      },
+      {
+        "title": "🚀 Hero Section",
+        "message": "Welcome to Amr's portfolio! I was built using React and advanced CSS animations. Pretty cool, right?"
+      },
+      {
+        "title": "💻 Technical Skills",
+        "message": "These interactive chips represent my creator's technical skills. Try hovering over them to see detailed descriptions!"
+      },
+      {
+        "title": "🏗️ Projects Showcase",
+        "message": "Check out these awesome projects! Each card is interactive and reveals more details when you interact with it."
+      },
+      {
+        "title": "📈 Experience Timeline",
+        "message": "Here's our journey through time! Watch how each milestone animates as you scroll through."
+      },
+      {
+        "title": "🤖 System Architecture",
+        "message": "This is my brain! An interactive diagram showing how I'm built. Try clicking on different components!"
+      },
+      {
+        "title": "🌍 Languages",
+        "message": "We speak multiple languages! Each bar shows proficiency levels with cool animations."
+      },
+      {
+        "title": "🎯 Interests",
+        "message": "Discover our passions and interests. These cards light up as you explore them!"
+      },
+      {
+        "title": "📬 Let's Connect",
+        "message": "Want to get in touch? You can find all contact information here. I'd love to hear from you!"
+      }
+    ],
+    "intro": {
+      "greeting": "Would you like me to guide you through this portfolio? [Click me to start the tour!]",
+      "default": "Hi! Click me for an interactive tour!",
+      "dialog": "Would you like me to guide you through this portfolio? I can show you all the cool features!"
+    },
+    "tour": {
+      "intro": {
+        "title": "👋 Introduction",
+        "message": "I'm your friendly robot assistant! Let me guide you through this portfolio and show you all the cool features!"
+      },
+      "hero": {
+        "title": "🚀 Hero Section",
+        "message": "Welcome to Amr's portfolio! I was built using React and advanced CSS animations. Pretty cool, right?"
+      },
+      "skills": {
+        "title": "💻 Technical Skills",
+        "message": "These interactive chips represent my creator's technical skills. Try hovering over them to see detailed descriptions!"
+      },
+      "projects": {
+        "title": "🏗️ Projects Showcase",
+        "message": "Check out these awesome projects! Each card is interactive and reveals more details when you interact with it."
+      },
+      "experience": {
+        "title": "📈 Experience Timeline",
+        "message": "Here's our journey through time! Watch how each milestone animates as you scroll through."
+      },
+      "architecture": {
+        "title": "🤖 System Architecture",
+        "message": "This is my brain! An interactive diagram showing how I'm built. Try clicking on different components!"
+      },
+      "languages": {
+        "title": "🌍 Languages",
+        "message": "We speak multiple languages! Each bar shows proficiency levels with cool animations."
+      },
+      "interests": {
+        "title": "🎯 Interests",
+        "message": "Discover our passions and interests. These cards light up as you explore them!"
+      },
+      "contact": {
+        "title": "📬 Let's Connect",
+        "message": "Want to get in touch? You can find all contact information here. I'd love to hear from you!"
+      }
+    },    "buttons": {
+      "startTour": "Let's explore together!",
+      "later": "Maybe later"
+    },
+    "score": "Score"
   }
 }

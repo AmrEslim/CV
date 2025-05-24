@@ -1,7 +1,15 @@
 {
   "hero": {
     "greeting": "Hallo, ich bin",
-    "role": "Robotik- und Embedded-Systems-Ingenieur"
+    "role": "Robotik- und Embedded-Systems-Ingenieur",
+    "subtitle": "Computer-Ingenieur & Embedded-Systems-Entwickler",
+    "info": {
+      "greeting": "Hallo, ich bin Amr Eslim",
+      "location": "ansässig in Berlin",
+      "education": "Kürzlich absolviert an der HTW Berlin mit einem Abschluss in Computer Engineering",
+      "specialization": "Spezialisiert auf Linux-basierte Embedded-Systeme und Webanwendungen",
+      "scroll": "Scrollen Sie nach unten, um mein Portfolio zu erkunden..."
+    }
   },
   "nav": {
     "home": "Startseite",
@@ -13,9 +21,353 @@
     "languages": "Sprachen",
     "interests": "Interessen",
     "contact": "Kontakt"
-  },
-  "about": {
+  },  "about": {
     "title": "Über Mich",
-    "description": "Computer Engineering-Absolvent, spezialisiert auf Embedded Systems und Robotik"
+    "description": "Computer Engineering-Absolvent, spezialisiert auf Embedded Systems und Robotik",
+    "content": [
+      "Hallo! Ich bin Amr Eslim, ein Computer Engineering-Absolvent mit Sitz in Berlin, Deutschland.",
+      "Ich habe kürzlich meinen Bachelor-Abschluss in Computer Engineering an der HTW Berlin (April 2025) mit Schwerpunkt auf Embedded Systems abgeschlossen.",
+      "Meine Expertise liegt in Embedded Systems mit Linux, Softwareentwicklung und Webanwendungsentwicklung.",
+      "Ich habe praktische Erfahrungen als Werkstudent für Softwareentwicklung bei Fraunhofer IPK seit Mai 2022.",
+      "Mit einem starken Hintergrund in C/C++, Python und Embedded Systems entwickle ich zuverlässige und effiziente Lösungen.",
+      "Ich bin besonders interessiert an der Entwicklung von Robotiksystemen, die nahtlos in digitale Assistenzsysteme integriert werden können.",
+      "Lassen Sie uns gemeinsam die Zukunft der Robotik und Embedded Systems gestalten!"
+    ]
+  },
+  "skills": {
+    "title": "Technische Fähigkeiten",
+    "categories": {
+      "programming": {
+        "title": "Programmiersprachen",
+        "skills": {
+          "cpp": "C/C++",
+          "python": "Python",
+          "sql": "SQL"
+        }
+      },
+      "web": {
+        "title": "Webentwicklung",
+        "skills": {
+          "frontend": "HTML/CSS/JavaScript",
+          "flask": "Flask",
+          "react": "React.js"
+        }
+      },
+      "tools": {
+        "title": "Tools & Technologien",
+        "skills": {
+          "git": "Git",
+          "linux": "Linux",
+          "docker": "Docker"
+        }
+      },
+      "embedded": {
+        "title": "Embedded Systems",
+        "skills": {
+          "embedded_linux": "Embedded Linux Systeme"
+        }
+      }
+    }
+  },
+  "experience": {
+    "title": "Ausbildung & Erfahrung",
+    "items": [
+      {
+        "id": 1,
+        "date": "04/2021 – 04/2025",
+        "title": "Bachelor-Abschluss in Computer Engineering",
+        "description": "HTW Berlin (Hochschule für Technik und Wirtschaft)",
+        "details": "Schwerpunkte: Informatik, Hardware, Netzwerke, rechnergesteuerte Geräte und Systeme",
+        "side": "left"
+      },
+      {
+        "id": 2,
+        "date": "05/2022 – Aktuell",
+        "title": "Werkstudent (Softwareentwicklung)",
+        "description": "Fraunhofer IPK, Berlin",
+        "details": "Arbeit mit Embedded Systems unter Linux, Entwicklung webbasierter Anwendungen und Dashboards, Implementierung von Backend-Funktionalitäten und Unterstützung bei der Konzeption und Umsetzung digitaler Assistenzsysteme.",
+        "side": "right"
+      },
+      {
+        "id": 3,
+        "date": "12/2019 – 12/2023",
+        "title": "Ehrenamtliche Tätigkeit",
+        "description": "Medibüro, Berlin",
+        "details": "Medizinische Vermittlung für Menschen ohne Aufenthaltsstatus und Krankenversicherung durch qualifizierte Mediziner. Regelmäßige Bearbeitung der eingehenden Post.",
+        "side": "left"
+      },
+      {
+        "id": 4,
+        "date": "02/2020",
+        "title": "Hackathon: Zukunft der Bildung",
+        "description": "N3XTCODER GmbH",
+        "details": "Zusammenarbeit im Team am Onboarding-Prozess für eine Mentoring-App für Jugendliche, die sich als LGBTQIA identifizieren. Unser Ziel war es, einen reibungslosen Prozess zu gewährleisten. Wir präsentierten unsere Ergebnisse vor dem Publikum.",
+        "side": "right"
+      },
+      {
+        "id": 5,
+        "date": "09/2018 – 06/2019",
+        "title": "Vorbereitungsjahr für die Medizinische Fakultät",
+        "description": "Universität Damaskus, Syrien",
+        "details": "Studium in Anatomie, Biochemie, Allgemeinmedizin und Neurologie",
+        "side": "left"
+      },
+      {
+        "id": 6,
+        "date": "10/2015 – 06/2018",
+        "title": "Gymnasium",
+        "description": "Shakib Arslan Schule, Syrien",
+        "details": "Schwerpunkte: Physik, Mathematik, Chemie, Biologie, Englisch, Arabisch und Französisch",
+        "side": "right"
+      }
+    ]
+  },
+  "languages": {
+    "title": "Sprachen",
+    "items": [
+      {
+        "id": 1,
+        "language": "Arabisch",
+        "proficiency": "Muttersprache",
+        "percentage": 100
+      },
+      {
+        "id": 2,
+        "language": "Deutsch",
+        "proficiency": "Fließend (C1-Niveau)",
+        "percentage": 90
+      },
+      {
+        "id": 3,
+        "language": "Englisch",
+        "proficiency": "Fließend (C1-Niveau)",
+        "percentage": 85
+      },
+      {
+        "id": 4,
+        "language": "Französisch",
+        "proficiency": "Grundkenntnisse/Anfänger",
+        "percentage": 30
+      }
+    ]
+  },
+  "interests": {
+    "title": "Persönliche Interessen",
+    "items": [
+      "Musik",
+      "Fußball",
+      "Sport und Leichtathletik",
+      "Schwimmen",
+      "Kochen",
+      "Reisen",
+      "Sprachen lernen",
+      "Robotik und Automatisierung",
+      "Digitale Assistenzsysteme"
+    ]
+  },
+  "contact": {
+    "title": "Kontakt",
+    "info": {
+      "email": "E-Mail:",
+      "linkedin": "LinkedIn:",
+      "location": "Standort:",
+      "locationValue": "Berlin, Deutschland"
+    },
+    "text": "Ich bin derzeit auf der Suche nach neuen Möglichkeiten in der Robotik- und autonomen Systementwicklung. Ob Sie eine Frage zur Robotik haben, an einem Projekt zusammenarbeiten möchten oder einfach nur Hallo sagen wollen - ich werde mein Bestes geben, Ihnen zu antworten!",
+    "buttons": {
+      "email": "E-Mail senden",
+      "linkedin": "LinkedIn",
+      "form": {
+        "name": "Ihr Name",
+        "email": "Ihre E-Mail",
+        "message": "Ihre Nachricht",
+        "send": "Nachricht senden"
+      }    }
+  },  "ui": {    "buttons": {
+      "details": "Mehr erfahren",
+      "demo": "Demo ansehen",
+      "connect": "Verbinden",
+      "explore": "Erkunden",
+      "emailMe": "E-Mail senden",
+      "linkedin": "LinkedIn",
+      "close": "Schließen"
+    },
+    "sections": {
+      "technicalSkills": "Technische Fähigkeiten",
+      "projects": "Projekte",
+      "educationExperience": "Ausbildung & Erfahrung",
+      "languages": "Sprachen",
+      "personalInterests": "Persönliche Interessen",
+      "contact": "Kontakt",
+      "references": "Referenzen"
+    },
+    "meta": {
+      "title": "Amr Eslim | Robotik- und Embedded-Systems-Ingenieur",
+      "description": "Computer Engineering-Absolvent, spezialisiert auf Embedded Systems, Robotik und digitale Assistenzsysteme. Ansässig in Berlin, Deutschland. Derzeit tätig bei Fraunhofer IPK."
+    }
+  },
+  "projects": {
+    "title": "Projekte",
+    "snake_robot": {
+      "title": "Neurobiologisch inspirierter Schlangen-Roboter",
+      "subtitle": "Bachelor-Arbeit – HTW Berlin (2025)",
+      "description": "Dieses Projekt präsentiert den Entwurf, die Implementierung und das Testen eines modularen schlangenähnlichen Roboters, inspiriert von der biologischen Schlangenbewegung. Er reproduziert laterale Undulation und Seitenwinden mithilfe eines Central Pattern Generator (CPG) Steuermodells, das vollständig von Grund auf für die Thesis 'Neurobiologisch inspirierte Steuerung eines Roboters' entwickelt wurde. Der Roboter integriert Maschinenbau, Embedded-Programmierung und Bewegungsneurowissenschaft in ein funktionales bio-inspiriertes System.",
+      "features": [
+        "✅ **Mechanisches Design**: In Onshape CAD entwickelt und 3D-gedruckt mit TPU-Reibungsschuppen und PLA+-Rädern. Alternierende Servo-Anordnung (horizontal/vertikal) für komplexe räumliche Bewegungen.",
+        "✅ **Steuerungssystem**: CPG-Steuerung basierend auf einem phasengekoppelten Oszillatormodell. Implementiert zwei Gangarten – laterale Undulation und Seitenwinden – angetrieben durch sinusförmige Positionsaktualisierungen bei 50Hz.",
+        "✅ **Mikrocontroller & Stromversorgung**: ESP32 für echtzeitfähige webbasierte Steuerung im WLAN-AP-Modus. Jedes der 10 Servo-Segmente enthält einen lokalen Buck-Converter mit kapazitiver Filterung zur Rauschunterdrückung.",
+        "✅ **Web-Interface**: Entwickelt in React.js und über WLAN vom ESP32 bereitgestellt. Ermöglicht Live-Einstellung von Bewegungsparametern (Amplitude, Frequenz, Phasenverschiebung) und Umschalten der Bewegungsrichtung.",
+        "✅ **Tests & Auswertung**: Experimentelle Versuche auf Laminatboden durchgeführt. Mehrere Konfigurationen (Basis, TPU-Schuppen, PLA+-Räder) wurden mittels Videotracking und Stromsensoren verglichen.",
+        "✅ **Bewegungsverfolgung**: Kinovea zur Verfolgung der Kopf-/Schwanzbewegung verwendet. Daten in CSV exportiert und in React-basierten Plots visualisiert, zeigt Leistungsunterschiede zwischen Konfigurationen und Gangarten.",
+        "✅ **Energieprofil**: Stromaufnahme mit ACS712-Sensor gemessen. Seitenwinden verbrauchte ~50% mehr Strom als laterale Undulation, wobei PLA+-Räder die konsistenteste Leistung boten.",
+        "✅ **Robuste Steuerungsarchitektur**: Verwendet mathematisches Oszillatormodell (θk = A·cos(2πft + φk)) für jeden Servo. Oszillator-Phasenbeziehungen ermöglichen Richtungssteuerung und Bewegungssymmetrie.",
+        "✅ **Design-Evolution**: Ersetzte eine frühere STM32-Version durch ESP32 für bessere Konnektivität und Echtzeit-Tuning. Stromverteilung wurde für Servo-Isolation neu gestaltet und mechanische Toleranzen iterativ verbessert.",
+        "✅ **Zukünftige Arbeit**: Die Thesis schlägt Verbesserungen wie ESP-NOW-basierte Schwarmzusammenarbeit, autonome Richtungssteuerung mittels IMUs und flexible Weichkörper-Aktuierung zur Terrainanpassung vor."
+      ],
+      "references": [
+        {
+          "title": "Thesis PDF (HTW Berlin, 2025)",
+          "url": "https://github.com/AmrEslim/snake_robot"
+        },
+        {
+          "title": "Central Pattern Generator – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/central_pattern_generator"
+        },
+        {
+          "title": "Kinovea (Bewegungsanalyse-Software)",
+          "url": "https://www.kinovea.org"
+        }
+      ]
+    },
+    "dashboard": {
+      "title": "Echtzeit-Robotik-Dashboard",
+      "subtitle": "Embedded-Überwachung + Visualisierung",
+      "description": "Eine Full-Stack-Anwendung, die React und Flask integriert, um Embedded-Sensordaten in Echtzeit zu überwachen. Bietet ein dynamisches Frontend für Befehlsversand, Systemdiagnose und Graphen historischer Sensorwerte."
+    },
+    "mentoring": {
+      "title": "LGBTQIA+ Mentoring UX App",
+      "subtitle": "Hackathon Konzept – Inklusives Design",
+      "description": "Ein Mentoring-Plattform-Prototyp, maßgeschneidert für LGBTQIA+ Jugendliche. Fokussiert auf Sicherheit, einfaches Onboarding und datenschutzbewusstes Community-Matching. Entwickelt durch UX-Research, Nutzerinterviews und iteratives Prototyping."
+    }
+  },
+  "roboticsDiagram": {
+    "title": "Embedded Systems Architektur",
+    "description": "Erkunden Sie die wichtigsten Komponenten der Embedded Systems-Architektur, mit denen ich arbeite. Klicken Sie auf Komponenten, um mehr zu erfahren.",
+    "systemInfo": [
+      { "label": "Betriebssystem", "value": "Linux-basiertes Embedded System" },
+      { "label": "Prozessor", "value": "ARM Cortex-A53 @ 1.2GHz" },
+      { "label": "Speicher", "value": "1GB LPDDR4" },
+      { "label": "Speicherplatz", "value": "16GB eMMC Flash" },
+      { "label": "Schnittstellen", "value": "3 x USB, 1 x HDMI, GPIO, I2C, SPI" },
+      { "label": "Netzwerk", "value": "WiFi 802.11ac, Bluetooth 5.0, Ethernet" }
+    ],
+    "components": {
+      "cpu": {
+        "title": "Zentrale Verarbeitung",
+        "description": "Das Gehirn des Systems mit ARM-basierter Architektur. Führt Echtzeitberechnungen aus und verwaltet Systemressourcen für optimale Leistung."
+      },
+      "sensors": {
+        "title": "Sensor & Eingabe",
+        "description": "Verwaltet die Datenerfassung von verschiedenen Sensoren und Eingabegeräten. Verarbeitet Umgebungsdaten und Benutzerinteraktionen für Systemantworten."
+      },
+      "communication": {
+        "title": "Netzwerk & Kommunikation",
+        "description": "Behandelt Wi-Fi, Bluetooth und andere Kommunikationsprotokolle. Verwaltet sicher und effizient die Datenübertragung zwischen Komponenten und externen Systemen."
+      },
+      "output": {
+        "title": "Ausgabe & Steuerung",
+        "description": "Verwaltet Systemausgaben einschließlich Displays, Indikatoren und Steuersignale. Implementiert präzise Timing-Mechanismen und Feedback-Regelkreise."
+      },
+      "power": {
+        "title": "Energiesysteme",
+        "description": "Verwaltet Energieverteilung, Batterieüberwachung und implementiert energieeffiziente Betriebsabläufe für erweiterte Systemlebensdauer und Zuverlässigkeit."
+      }    }
+  },
+  "robotAssistant": {
+    "tourSteps": [
+      {
+        "title": "👋 Einführung",
+        "message": "Ich bin dein freundlicher Roboter-Assistent! Lass mich dich durch dieses Portfolio führen und dir alle coolen Features zeigen!"
+      },
+      {
+        "title": "🚀 Hero-Bereich",
+        "message": "Willkommen zu Amrs Portfolio! Ich wurde mit React und erweiterten CSS-Animationen gebaut. Ziemlich cool, oder?"
+      },
+      {
+        "title": "💻 Technische Fähigkeiten",
+        "message": "Diese interaktiven Chips repräsentieren die technischen Fähigkeiten meines Schöpfers. Versuche, über sie zu hovern, um detaillierte Beschreibungen zu sehen!"
+      },
+      {
+        "title": "🏗️ Projekt-Showcase",
+        "message": "Schau dir diese tollen Projekte an! Jede Karte ist interaktiv und zeigt mehr Details, wenn du mit ihr interagierst."
+      },
+      {
+        "title": "📈 Erfahrungs-Timeline",
+        "message": "Hier ist unsere Reise durch die Zeit! Beobachte, wie jeder Meilenstein animiert wird, während du scrollst."
+      },
+      {
+        "title": "🤖 System-Architektur",
+        "message": "Das ist mein Gehirn! Ein interaktives Diagramm, das zeigt, wie ich gebaut bin. Versuche, auf verschiedene Komponenten zu klicken!"
+      },
+      {
+        "title": "🌍 Sprachen",
+        "message": "Wir sprechen mehrere Sprachen! Jeder Balken zeigt Kompetenzniveaus mit coolen Animationen."
+      },
+      {
+        "title": "🎯 Interessen",
+        "message": "Entdecke unsere Leidenschaften und Interessen. Diese Karten leuchten auf, während du sie erkundest!"
+      },
+      {
+        "title": "📬 Lass uns in Kontakt bleiben",
+        "message": "Möchtest du in Kontakt treten? Du findest alle Kontaktinformationen hier. Ich würde gerne von dir hören!"
+      }
+    ],
+    "intro": {
+      "greeting": "Möchten Sie, dass ich Sie durch dieses Portfolio führe? [Klicken Sie auf mich, um die Tour zu starten!]",
+      "default": "Hallo! Klicken Sie mich für eine interaktive Tour!",
+      "dialog": "Möchten Sie, dass ich Sie durch dieses Portfolio führe? Ich kann Ihnen alle coolen Features zeigen!"
+    },
+    "tour": {
+      "intro": {
+        "title": "👋 Einführung",
+        "message": "Ich bin Ihr freundlicher Roboter-Assistent! Lassen Sie mich Sie durch dieses Portfolio führen und Ihnen alle coolen Features zeigen!"
+      },
+      "hero": {
+        "title": "🚀 Hero-Bereich",
+        "message": "Willkommen in Amrs Portfolio! Ich wurde mit React und fortgeschrittenen CSS-Animationen erstellt. Ziemlich cool, oder?"
+      },
+      "skills": {
+        "title": "💻 Technische Fähigkeiten",
+        "message": "Diese interaktiven Chips repräsentieren die technischen Fähigkeiten meines Schöpfers. Fahren Sie mit der Maus darüber, um detaillierte Beschreibungen zu sehen!"
+      },
+      "projects": {
+        "title": "🏗️ Projekt-Showcase",
+        "message": "Schauen Sie sich diese tollen Projekte an! Jede Karte ist interaktiv und zeigt mehr Details, wenn Sie mit ihr interagieren."
+      },
+      "experience": {
+        "title": "📈 Erfahrungs-Timeline",
+        "message": "Hier ist unsere Zeitreise! Beobachten Sie, wie jeder Meilenstein beim Scrollen animiert wird."
+      },
+      "architecture": {
+        "title": "🤖 System-Architektur",
+        "message": "Das ist mein Gehirn! Ein interaktives Diagramm, das zeigt, wie ich aufgebaut bin. Probieren Sie, auf verschiedene Komponenten zu klicken!"
+      },
+      "languages": {
+        "title": "🌍 Sprachen",
+        "message": "Wir sprechen mehrere Sprachen! Jeder Balken zeigt Kompetenzniveaus mit coolen Animationen."
+      },
+      "interests": {
+        "title": "🎯 Interessen",
+        "message": "Entdecken Sie unsere Leidenschaften und Interessen. Diese Karten leuchten auf, wenn Sie sie erkunden!"
+      },
+      "contact": {
+        "title": "📬 Kontakt",
+        "message": "Möchten Sie Kontakt aufnehmen? Hier finden Sie alle Kontaktinformationen. Ich würde mich freuen, von Ihnen zu hören!"
+      }
+    },    "buttons": {
+      "startTour": "Lass uns gemeinsam erkunden!",
+      "later": "Vielleicht später"
+    },
+    "score": "Punkte"
   }
 }

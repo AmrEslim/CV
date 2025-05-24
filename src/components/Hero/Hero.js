@@ -40,19 +40,19 @@ const Hero = () => {
         <div className="hero-flex">
           <div className="hero-text">
             <h1>Amr Eslim</h1>
-            <p className="hero-subtitle">Computer Engineer & <span className="title-effect">Embedded Systems Developer</span></p>
+            <p className="hero-subtitle">{t('hero.subtitle')}</p>
             
             <div className="hero-info">
-              <p>{t('hero.greeting')} Amr Eslim</p>
-              <p>{t('hero.role')} based in Berlin</p>
-              <p>Recently graduated from HTW Berlin with a degree in Computer Engineering</p>
-              <p>Specializing in Linux-based embedded systems and web applications</p>
-              <p>Scroll down to explore my portfolio...</p>
+              <p>{t('hero.info.greeting')}</p>
+              <p>{t('hero.info.location')}</p>
+              <p>{t('hero.info.education')}</p>
+              <p>{t('hero.info.specialization')}</p>
+              <p>{t('hero.info.scroll')}</p>
             </div>
             
             <div className="cta-buttons">
-              <HashLink smooth to="#about" className="cta-button">EXPLORE</HashLink>
-              <HashLink smooth to="#contact" className="cta-button">CONNECT</HashLink>
+              <HashLink smooth to="#about" className="cta-button">{t('ui.buttons.explore').toUpperCase()}</HashLink>
+              <HashLink smooth to="#contact" className="cta-button">{t('ui.buttons.connect').toUpperCase()}</HashLink>
             </div>
           </div>
           

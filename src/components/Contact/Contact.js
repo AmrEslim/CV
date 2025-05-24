@@ -1,26 +1,29 @@
 import React from 'react';
+import { useTranslation } from '../../hooks/useTranslation';
 import './Contact.css';
 
 const Contact = () => {
+  const { t } = useTranslation();
+
   return (
     <section id="contact" className="scene">
       <div className="content-container">
-        <h2 className="section-title">CONTACT</h2>
+        <h2 className="section-title">{t('contact.title')}</h2>
         
         <div className="contact-info">
           <div className="contact-item">
-            <span className="contact-label">Email:</span>
+            <span className="contact-label">{t('contact.info.email')}</span>
             <a href="mailto:Eslim.amr@gmail.com">Eslim.amr@gmail.com</a>
           </div>
           <div className="contact-item">
-            <span className="contact-label">LinkedIn:</span>
+            <span className="contact-label">{t('contact.info.linkedin')}</span>
             <a href="https://www.linkedin.com/in/amr-eslim" target="_blank" rel="noopener noreferrer">
               www.linkedin.com/in/amr-eslim
             </a>
           </div>
           <div className="contact-item">
-            <span className="contact-label">Location:</span>
-            <span>Berlin, Germany</span>
+            <span className="contact-label">{t('contact.info.location')}</span>
+            <span>{t('contact.info.locationValue')}</span>
           </div>
         </div>
         
@@ -34,11 +37,11 @@ const Contact = () => {
             </div>
           </div>
           <div className="contact-text">
-            <p>I'm currently looking for new opportunities in robotics and autonomous systems development. Whether you have a question about robotics, want to collaborate on a project, or just want to say hi, I'll do my best to get back to you!</p>
+            <p>{t('contact.text')}</p>
           </div>
           <div className="contact-buttons">
-            <a href="mailto:Eslim.amr@gmail.com" className="cta-button">Email Me</a>
-            <a href="https://www.linkedin.com/in/amr-eslim" target="_blank" rel="noopener noreferrer" className="cta-button">LinkedIn</a>
+            <a href="mailto:Eslim.amr@gmail.com" className="cta-button">{t('contact.buttons.email')}</a>
+            <a href="https://www.linkedin.com/in/amr-eslim" target="_blank" rel="noopener noreferrer" className="cta-button">{t('contact.buttons.linkedin')}</a>
           </div>
           
           {/* <div className="contact-form">

@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import { useTranslation } from '../../hooks/useTranslation';
 import './ImageCarousel.css';
 
 const ImageCarousel = ({ images }) => {
+  const { t } = useTranslation();
   const [currentIndex, setCurrentIndex] = useState(0);
 
   if (!images || images.length === 0) {

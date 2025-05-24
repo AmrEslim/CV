@@ -1,8 +1,10 @@
 import React, { useEffect, useRef } from 'react';
+import { useTranslation } from '../../hooks/useTranslation';
 import ProjectCard from './ProjectCard';
 import './Projects.css';
 
 const Projects = () => {
+  const { t } = useTranslation();
   const projectsRef = useRef([]);
 
   useEffect(() => {
@@ -14,7 +16,7 @@ const Projects = () => {
           }
         });
       },
-      { 
+      {
         threshold: 0.1,
         rootMargin: '0px 0px -50px 0px'
       }
@@ -39,9 +41,12 @@ const Projects = () => {
   const projectsData = [
     {
       id: 1,
-      title: "Bio-Inspired Snake Robot",
-      description: "Developed a modular snake-like robot as a Bachelor's thesis utilizing CPG-based control algorithms, capable of both lateral undulation and sidewinding locomotion patterns. Features ESP32-based wireless control, real-time parameter adjustment, and power consumption monitoring.",
-      technologies: ["C++", "Arduino", "ESP32", "3D Printing", "Robotics"],
+      ...t('projects.snake_robot'),
+      technologies: [
+        "ESP32", "C++", "CPG Control Algorithms", "3D Printing (TPU, PLA+)",
+        "Arduino Framework", "React", "WebSockets", "Motion Tracking (Kinovea)",
+        "ACS712 Current Sensor", "Onshape CAD", "CSV Data Logging"
+      ],
       visualType: "embedded-system",
       images: [
         process.env.PUBLIC_URL + '/images/snake-robot1.jpg',
@@ -49,48 +54,28 @@ const Projects = () => {
       ],
       demoLink: "https://github.com/AmrEslim/snake_robot"
     },
-    // {
-    //   id: 2,
-    //   title: "Digital Assistance System",
-    //   description: "Developed at Fraunhofer IPK, this system uses embedded Linux to provide real-time assistance and monitoring for industrial applications.",
-    //   technologies: ["Linux", "C++", "Python", "Web Development"],
-    //   visualType: "embedded-system",
-    //   images: [process.env.PUBLIC_URL + '/images/digital-assistance.jpg'],
-    //   demoLink: "https://github.com/AmrEslim/"
-    // },
     {
-      id: 3,
-      title: "Web-Based Dashboard Application",
-      description: "Created interactive web dashboards for monitoring and controlling embedded systems, with real-time data visualization and user-friendly interfaces.",
-      technologies: ["Flask", "React.js", "JavaScript", "HTML/CSS"],
+      id: 2,
+      ...t('projects.dashboard'),
+      technologies: ["React", "Flask", "Bootstrap", "HTML/CSS", "JavaScript"],
       visualType: "web-dashboard",
       images: [process.env.PUBLIC_URL + '/images/dashboard.jpg'],
       demoLink: "https://github.com/AmrEslim/"
     },
     {
-      id: 4,
-      title: "LGBTQIA+ Mentoring App",
-      description: "Hackathon project focused on creating a smooth onboarding process for a mentoring app designed for LGBTQIA+ teenagers, emphasizing user experience and inclusivity.",
-      technologies: ["UX Design", "Frontend Development", "User Testing", "Prototyping"],
+      id: 3,
+      ...t('projects.mentoring'),
+      technologies: ["Figma", "UX Design", "React", "Prototyping", "Accessibility"],
       visualType: "mentoring-app",
       images: [process.env.PUBLIC_URL + '/images/mentoring-app.jpg'],
       demoLink: "https://github.com/AmrEslim/"
-    },
-    // {
-    //   id: 5,
-    //   title: "Backend System Architecture",
-    //   description: "Designed and implemented backend functionalities for embedded systems applications, focusing on performance, reliability, and seamless integration with frontend interfaces.",
-    //   technologies: ["Python", "SQL", "API Design", "System Architecture"],
-    //   visualType: "backend-system",
-    //   images: [process.env.PUBLIC_URL + '/images/backend.jpg'],
-    //   demoLink: "https://github.com/AmrEslim/"
-    // }
+    }
   ];
 
   return (
     <section id="projects" className="scene">
       <div className="content-container">
-        <h2 className="section-title">PROJECTS</h2>
+        <h2 className="section-title">{t('projects.title')}</h2>
         <div className="robotics-projects">
           {projectsData.map((project, index) => (
             <ProjectCard

@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import { useTranslation } from '../../hooks/useTranslation';
 import './Languages.css';
 
 const LanguageItem = ({ language, proficiency, percentage }) => {
@@ -56,39 +57,14 @@ const LanguageItem = ({ language, proficiency, percentage }) => {
 };
 
 const Languages = () => {
-  const languagesData = [
-    {
-      id: 1,
-      language: "English",
-      proficiency: "Proficient/Fluent (in Word and Writing)",
-      percentage: 95
-    },
-    {
-      id: 2,
-      language: "Arabic",
-      proficiency: "Native Speaker",
-      percentage: 100
-    },
-    {
-      id: 3,
-      language: "German",
-      proficiency: "Proficient/Fluent (in Word and Writing)",
-      percentage: 90
-    },
-    {
-      id: 4,
-      language: "Spanish",
-      proficiency: "Beginner/Basic proficiency",
-      percentage: 30
-    }
-  ];
+  const { t } = useTranslation();
 
   return (
     <section id="languages" className="scene">
       <div className="content-container">
-        <h2 className="section-title">LANGUAGES</h2>
+        <h2 className="section-title">{t('languages.title')}</h2>
         <div className="languages-container">
-          {languagesData.map(item => (
+          {t('languages.items').map(item => (
             <LanguageItem
               key={item.id}
               language={item.language}

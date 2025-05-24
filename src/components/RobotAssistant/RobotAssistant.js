@@ -1,7 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { useTranslation } from '../../hooks/useTranslation';
 import './RobotAssistant.css';
 
 const RobotAssistant = ({ hideOnMenuOpen = false, menuOpen = false }) => {
+  const { t } = useTranslation();
   const robotRef = useRef(null);
   const eyesRef = useRef([]);
   const containerRef = useRef(null);
@@ -32,71 +34,23 @@ const RobotAssistant = ({ hideOnMenuOpen = false, menuOpen = false }) => {
     height: window.innerHeight
   });
 
-  const tourSteps = [
-    {
-      title: "👋 Introduction",
-      message: "I'm your friendly robot assistant! Let me guide you through this portfolio and show you all the cool features!",
-      target: null,
-      position: { x: 70, y: 50 },
-      delay: 3000
-    },
-    {
-      title: "🚀 Hero Section",
-      message: "Welcome to Amr's portfolio! I was built using React and advanced CSS animations. Pretty cool, right?",
-      target: "#hero",
-      position: { x: 20, y: 30 },
-      delay: 4000
-    },
-    {
-      title: "💻 Technical Skills",
-      message: "These interactive chips represent my creator's technical skills. Try hovering over them to see detailed descriptions!",
-      target: "#skills",
-      position: { x: 80, y: 40 },
-      delay: 5000
-    },
-    {
-      title: "🏗️ Projects Showcase",
-      message: "Check out these awesome projects! Each card is interactive and reveals more details when you interact with it.",
-      target: "#projects",
-      position: { x: 20, y: 50 },
-      delay: 5000
-    },
-    {
-      title: "📈 Experience Timeline",
-      message: "Here's our journey through time! Watch how each milestone animates as you scroll through.",
-      target: "#experience",
-      position: { x: 75, y: 40 },
-      delay: 4000
-    },
-    {
-      title: "🤖 System Architecture",
-      message: "This is my brain! An interactive diagram showing how I'm built. Try clicking on different components!",
-      target: "#robotics-diagram",
-      position: { x: 25, y: 60 },
-      delay: 5000
-    },
-    {
-      title: "🌍 Languages",
-      message: "We speak multiple languages! Each bar shows proficiency levels with cool animations.",
-      target: "#languages",
-      position: { x: 80, y: 50 },
-      delay: 4000
-    },
-    {
-      title: "🎯 Interests",
-      message: "Discover our passions and interests. These cards light up as you explore them!",
-      target: "#interests",
-      position: { x: 20, y: 70 },
-      delay: 4000
-    },
-    {
-      title: "📬 Let's Connect",
-      message: "Want to get in touch? You can find all contact information here. I'd love to hear from you!",
-      target: "#contact",
-      position: { x: 70, y: 60 },
-      delay: 4000
-    }
-  ];
+  const tourSteps = t('robotAssistant.tourSteps').map((step, index) => ({
+    title: step.title,
+    message: step.message,
+    target: [null, "#hero", "#skills", "#projects", "#experience", "#robotics-diagram", "#languages", "#interests", "#contact"][index],
+    position: [
+      { x: 70, y: 50 },
+      { x: 20, y: 30 },
+      { x: 80, y: 40 },
+      { x: 20, y: 50 },
+      { x: 75, y: 40 },
+      { x: 25, y: 60 },
+      { x: 80, y: 50 },
+      { x: 20, y: 70 },
+      { x: 70, y: 60 }
+    ][index],
+    delay: [3000, 4000, 5000, 5000, 4000, 5000, 4000, 4000, 4000][index]
+  }));
 
   useEffect(() => {
     const handleMouseMove = (e) => {
@@ -224,7 +178,7 @@ const RobotAssistant = ({ hideOnMenuOpen = false, menuOpen = false }) => {
     setTourState(prev => ({
       ...prev,
       showIntroDialog: true,
-      message: "Would you like me to guide you through this portfolio? I can show you all the cool features!"
+      message: t('robotAssistant.intro.dialog')
     }));
   };
 
@@ -333,9 +287,9 @@ const RobotAssistant = ({ hideOnMenuOpen = false, menuOpen = false }) => {
 
   const getMessage = () => {
     if (tourState.showIntroDialog) {
-      return "Would you like me to guide you through this portfolio? [Click me to start the tour!]";
+      return t('robotAssistant.intro.greeting');
     }
-    const message = tourState.message || "Hey there! Click me for an interactive tour!";
+    const message = tourState.message || t('robotAssistant.intro.default');
     // Ensure message isn't too long
     return message.length > 150 ? message.substring(0, 147) + '...' : message;
   };
@@ -437,7 +391,7 @@ const RobotAssistant = ({ hideOnMenuOpen = false, menuOpen = false }) => {
             <div className="robot-button"></div>
             <div className="robot-button"></div>
           </div>
-          <div className="robot-score">Score: {tourState.score}</div>
+          <div className="robot-score">{t('robotAssistant.score')}: {tourState.score}</div>
         </div>
         
         <div className="robot-arm left">
@@ -490,9 +444,9 @@ const RobotAssistant = ({ hideOnMenuOpen = false, menuOpen = false }) => {
       {tourState.showIntroDialog && (
         <div className="robot-dialog">
           <div className="dialog-options">
-            <button onClick={startTour}>Let's explore together!</button>
+            <button onClick={startTour}>{t('robotAssistant.buttons.startTour')}</button>
             <button onClick={() => setTourState(prev => ({ ...prev, showIntroDialog: false }))}>
-              Maybe later
+              {t('robotAssistant.buttons.later')}
             </button>
           </div>
         </div>
