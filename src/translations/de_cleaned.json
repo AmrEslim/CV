@@ -14,12 +14,14 @@
   "nav": {
     "home": "Startseite",
     "about": "Über mich",
-    "skills": "Technische Fähigkeiten",    "experience": "Ausbildung & Erfahrung",
+    "skills": "Technische Fähigkeiten",
+    "experience": "Ausbildung & Erfahrung",
     "projects": "Projekte",
     "languages": "Sprachen",
     "interests": "Interessen",
     "contact": "Kontakt"
-  },  "about": {
+  },
+  "about": {
     "title": "Über Mich",
     "description": "Computer Engineering-Absolvent, spezialisiert auf Embedded Systems und Robotik",
     "content": [
@@ -180,8 +182,11 @@
         "email": "Ihre E-Mail",
         "message": "Ihre Nachricht",
         "send": "Nachricht senden"
-      }    }
-  },  "ui": {    "buttons": {
+      }
+    }
+  },
+  "ui": {
+    "buttons": {
       "details": "Mehr erfahren",
       "demo": "Demo ansehen",
       "connect": "Verbinden",
@@ -244,7 +249,8 @@
     },
     "mentoring": {
       "title": "LGBTQIA+ Mentoring UX App",
-      "subtitle": "Hackathon Konzept – Inklusives Design",      "description": "Ein Mentoring-Plattform-Prototyp, maßgeschneidert für LGBTQIA+ Jugendliche. Fokussiert auf Sicherheit, einfaches Onboarding und datenschutzbewusstes Community-Matching. Entwickelt durch UX-Research, Nutzerinterviews und iteratives Prototyping."
+      "subtitle": "Hackathon Konzept – Inklusives Design",
+      "description": "Ein Mentoring-Plattform-Prototyp, maßgeschneidert für LGBTQIA+ Jugendliche. Fokussiert auf Sicherheit, einfaches Onboarding und datenschutzbewusstes Community-Matching. Entwickelt durch UX-Research, Nutzerinterviews und iteratives Prototyping."
     }
   }
 }

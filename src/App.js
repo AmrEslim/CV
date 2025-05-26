@@ -9,7 +9,6 @@ import Languages from './components/Languages/Languages';
 import Interests from './components/Interests/Interests';
 import Contact from './components/Contact/Contact';
 import Navigation from './components/Navigation/Navigation';
-import RobotAssistant from './components/RobotAssistant/RobotAssistant';
 import Footer from './components/Footer/Footer';  
 import CircuitBackground from './components/CircuitBackground/CircuitBackground';
 import CustomCursor from './components/CustomCursor/CustomCursor';
@@ -50,7 +49,7 @@ function App() {
     
     // Observe elements only after loading is complete
     if (!isLoading) {
-      document.querySelectorAll('.timeline-item, .robot-project, .language-item, .interest-item').forEach(item => {
+      document.querySelectorAll('.timeline-item, .language-item, .interest-item').forEach(item => {
         observer.observe(item);
       });
     }
@@ -79,10 +78,8 @@ function App() {
         <div className="App">
           <CustomCursor />
           <CircuitBackground />
-          <LanguageSwitcher />
-        
+          <LanguageSwitcher />        
           <Navigation onMenuOpenChange={(isOpen) => setMenuOpen(isOpen)} />
-          <RobotAssistant hideOnMenuOpen menuOpen={menuOpen} />
         
           <main>
             <Hero />

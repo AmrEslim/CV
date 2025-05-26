@@ -9,10 +9,9 @@ const Navigation = ({ onMenuOpenChange }) => {
   const { t } = useTranslation();
 
   useEffect(() => {
-    const handleScroll = () => {
-      const sections = [
+    const handleScroll = () => {      const sections = [
         'hero', 'about', 'skills', 'experience', 
-        'projects', 'robotics-diagram', 'languages', 
+        'projects', 'languages', 
         'interests', 'contact'
       ];
       
