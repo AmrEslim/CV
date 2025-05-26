@@ -10,15 +10,17 @@ import Interests from './components/Interests/Interests';
 import Contact from './components/Contact/Contact';
 import Navigation from './components/Navigation/Navigation';
 import RobotAssistant from './components/RobotAssistant/RobotAssistant';
-import Footer from './components/Footer/Footer';
+import Footer from './components/Footer/Footer';  
 import CircuitBackground from './components/CircuitBackground/CircuitBackground';
 import CustomCursor from './components/CustomCursor/CustomCursor';
 import LanguageSwitcher from './components/LanguageSwitcher/LanguageSwitcher';
+import LoadingPage from './components/LoadingPage/LoadingPage';
 import { LanguageProvider } from './context/LanguageContext';
 import './App.css';
 
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     // Initialize intersection observer for animations
@@ -46,15 +48,30 @@ function App() {
       });
     }, observerOptions);
     
-    // Observe elements
-    document.querySelectorAll('.timeline-item, .robot-project, .language-item, .interest-item').forEach(item => {
-      observer.observe(item);
-    });
+    // Observe elements only after loading is complete
+    if (!isLoading) {
+      document.querySelectorAll('.timeline-item, .robot-project, .language-item, .interest-item').forEach(item => {
+        observer.observe(item);
+      });
+    }
     
     return () => {
       observer.disconnect();
     };
-  }, []);
+  }, [isLoading]);
+
+  const handleLoadingComplete = () => {
+    setIsLoading(false);
+  };
+
+  // Show loading page while loading
+  if (isLoading) {
+    return (
+      <LanguageProvider>
+        <LoadingPage onLoadingComplete={handleLoadingComplete} />
+      </LanguageProvider>
+    );
+  }
 
   return (
     <LanguageProvider>

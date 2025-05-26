@@ -1,0 +1,1648 @@
+/* Embedded Engineering Loading Page Styles */
+.loading-page {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: var(--bg-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  overflow: hidden;
+  font-family: 'Share Tech Mono', monospace;
+  transition: all 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
+  box-sizing: border-box;
+}
+
+.loading-container {
+  text-align: center;
+  position: relative;
+  max-width: min(600px, 95vw);
+  width: 100%;
+  padding: min(1.5rem, 3vh);
+  max-height: 90vh;
+  min-height: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  gap: min(1rem, 2vh);
+}
+
+/* Microcontroller Board */
+.mcu-board {
+  margin-bottom: min(1.5rem, 3vh);
+  display: flex;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.board-outline {
+  width: min(280px, 80vw);
+  height: min(180px, 20vh);
+  max-width: 280px;
+  max-height: 180px;
+  background: linear-gradient(135deg, #2a4a3a, #1a3a2a);
+  border: 2px solid var(--accent-color);
+  border-radius: 8px;
+  position: relative;
+  box-shadow: 
+    0 0 20px rgba(0, 255, 157, 0.3),
+    inset 0 0 30px rgba(0, 0, 0, 0.5);
+  animation: boardPulse 3s ease-in-out infinite;
+  box-sizing: border-box;
+}
+
+.mcu-chip {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80px;
+  height: 60px;
+  background: var(--chip-color);
+  border: 1px solid var(--secondary-color);
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 15px rgba(0, 204, 126, 0.4);
+}
+
+.chip-label {
+  font-size: 8px;
+  color: var(--accent-color);
+  font-weight: bold;
+  margin-bottom: 4px;
+  text-shadow: 0 0 5px var(--accent-color);
+}
+
+.chip-pins {
+  display: flex;
+  gap: 2px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.pin {
+  width: 6px;
+  height: 2px;
+  background: var(--pin-color);
+  border-radius: 1px;
+  animation: pinActivity 2s infinite;
+}
+
+.pin:nth-child(odd) {
+  animation-delay: 0.5s;
+}
+
+/* Status LEDs */
+.status-leds {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.led {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--led-off);
+  transition: all 0.3s ease;
+  border: 1px solid #444;
+}
+
+.led.on {
+  box-shadow: 0 0 12px currentColor;
+  border-color: currentColor;
+}
+
+.led.power.on {
+  background: #ff3333;
+  color: #ff3333;
+}
+
+.led.status.on {
+  background: var(--warning-color);
+  color: var(--warning-color);
+}
+
+.led.comm.on {
+  background: var(--accent-color);
+  color: var(--accent-color);
+  animation: commBlink 1s infinite;
+}
+
+/* Components */
+.components {
+  position: absolute;
+}
+
+.capacitor {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 12px;
+  height: 20px;
+  background: linear-gradient(to right, #666 0%, #666 45%, transparent 45%, transparent 55%, #666 55%);
+  border-radius: 2px;
+}
+
+.resistor {
+  position: absolute;
+  bottom: 30px;
+  left: 30px;
+  width: 20px;
+  height: 6px;
+  background: repeating-linear-gradient(
+    90deg,
+    #8B4513 0px,
+    #8B4513 3px,
+    #DAA520 3px,
+    #DAA520 6px
+  );
+  border-radius: 3px;
+}
+
+.crystal {
+  position: absolute;
+  bottom: 20px;
+  right: 30px;
+  width: 16px;
+  height: 8px;
+  background: #C0C0C0;
+  border: 1px solid #999;
+  border-radius: 2px;
+  position: relative;
+}
+
+.crystal::before,
+.crystal::after {
+  content: '';
+  position: absolute;
+  width: 2px;
+  height: 10px;
+  background: #666;
+  top: -1px;
+}
+
+.crystal::before {
+  left: -2px;
+}
+
+.crystal::after {
+  right: -2px;
+}
+
+/* GPIO Header */
+.gpio-header {
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+}
+
+.gpio-pin {
+  width: 6px;
+  height: 10px;
+  background: var(--pin-color);
+  border-radius: 1px 1px 0 0;
+  animation: gpioActivity 3s infinite;
+}
+
+.gpio-pin:nth-child(even) {
+  animation-delay: 1s;
+}
+
+/* Terminal Output */
+.terminal-output {
+  background: var(--terminal-bg);
+  border: 1px solid var(--accent-color);
+  border-radius: 8px;
+  margin-bottom: min(1.5rem, 2vh);
+  box-shadow: 0 0 20px rgba(0, 255, 157, 0.2);
+  overflow: hidden;
+  flex-shrink: 1;
+  min-height: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.terminal-header {
+  background: linear-gradient(90deg, var(--chip-color), var(--terminal-bg));
+  padding: min(8px, 1vh) min(12px, 2vw);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--accent-color);
+  flex-shrink: 0;
+}
+
+.terminal-title {
+  font-size: clamp(0.6rem, 2vw, 0.8rem);
+  color: var(--accent-color);
+  font-weight: bold;
+}
+
+.terminal-controls {
+  display: flex;
+  gap: 6px;
+}
+
+.control {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  opacity: 0.7;
+}
+
+.control.minimize {
+  background: var(--warning-color);
+}
+
+.control.maximize {
+  background: var(--accent-color);
+}
+
+.control.close {
+  background: var(--error-color);
+}
+
+.terminal-body {
+  padding: min(12px, 2vw);
+  height: clamp(80px, 15vh, 120px);
+  max-height: 15vh;
+  overflow-y: auto;
+  font-size: clamp(0.6rem, 1.8vw, 0.75rem);
+  line-height: 1.4;
+  box-sizing: border-box;
+}
+
+.terminal-line {
+  color: var(--text-color);
+  margin-bottom: 4px;
+  display: flex;
+  justify-content: space-between;
+  animation: terminalType 0.5s ease-out;
+}
+
+.terminal-line.current {
+  color: var(--accent-color);
+}
+
+.terminal-line.current.clickable {
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 5px;
+  border-radius: 3px;
+}
+
+.terminal-line.current.clickable:hover {
+  background: rgba(0, 255, 157, 0.1);
+  color: var(--warning-color);
+  text-shadow: 0 0 10px var(--warning-color);
+  transform: translateX(5px);
+}
+
+.status-ok {
+  color: var(--accent-color);
+  font-weight: bold;
+}
+
+/* System Status */
+.system-status {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: min(1.5rem, 2vh);
+  padding: min(1rem, 2vw);
+  background: var(--terminal-bg);
+  border: 1px solid var(--secondary-color);
+  border-radius: 6px;
+  box-shadow: 0 0 15px rgba(0, 204, 126, 0.2);
+  flex-shrink: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.status-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  flex: 1;
+}
+
+.status-label {
+  font-size: clamp(0.6rem, 1.5vw, 0.7rem);
+  color: var(--secondary-color);
+  font-weight: bold;
+}
+
+.status-value {
+  font-size: clamp(0.7rem, 1.8vw, 0.8rem);
+  color: var(--accent-color);
+  text-shadow: 0 0 5px var(--accent-color);
+  animation: valueFlicker 2s infinite;
+}
+
+/* Progress Container */
+.progress-container {
+  margin-bottom: min(2rem, 3vh);
+  width: 100%;
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+
+.progress-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: min(0.5rem, 1vh);
+  width: 100%;
+}
+
+.loading-label {
+  color: var(--accent-color);
+  font-size: clamp(0.7rem, 2vw, 0.9rem);
+  font-weight: bold;
+  text-shadow: 0 0 10px rgba(0, 255, 157, 0.5);
+  animation: labelPulse 1.5s ease-in-out infinite;
+}
+
+.hex-value {
+  color: var(--warning-color);
+  font-size: clamp(0.6rem, 1.8vw, 0.8rem);
+  font-family: 'Share Tech Mono', monospace;
+  text-shadow: 0 0 8px var(--warning-color);
+}
+
+.progress-bar {
+  width: 100%;
+  height: clamp(8px, 2vh, 12px);
+  background: var(--terminal-bg);
+  box-sizing: border-box;
+  border: 1px solid var(--accent-color);
+  border-radius: 6px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 
+    inset 0 2px 4px rgba(0, 0, 0, 0.4),
+    0 0 15px rgba(0, 255, 157, 0.3);
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, 
+    var(--secondary-color), 
+    var(--accent-color), 
+    var(--secondary-color)
+  );
+  transition: width 0.3s ease;
+  position: relative;
+  box-shadow: 0 0 15px rgba(0, 255, 157, 0.6);
+  animation: progressGlow 2s ease-in-out infinite;
+}
+
+.progress-scanner {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 20px;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+  animation: scannerMove 1.5s linear infinite;
+}
+
+.progress-text {
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+  color: var(--text-color);
+  text-align: center;
+}
+
+/* Data Stream */
+.data-stream {
+  margin-bottom: min(1.5rem, 2vh);
+  text-align: center;
+  flex-shrink: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.stream-line {
+  display: flex;
+  justify-content: center;
+  gap: min(1rem, 3vw);
+  animation: streamFlow 2s ease-in-out infinite;
+  flex-wrap: wrap;
+}
+
+.data-packet {
+  background: var(--chip-color);
+  color: var(--accent-color);
+  padding: min(4px, 1vw) min(8px, 2vw);
+  border-radius: 4px;
+  font-size: clamp(0.65rem, 1.5vw, 0.75rem);
+  border: 1px solid var(--accent-color);
+  box-shadow: 0 0 8px rgba(0, 255, 157, 0.4);
+  animation: packetPulse 1s infinite;
+  white-space: nowrap;
+}
+
+.data-packet:nth-child(2) {
+  animation-delay: 0.3s;
+}
+
+.data-packet:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+/* Circuit Background */
+.circuit-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  opacity: 0.3;
+  z-index: -1;
+}
+
+.circuit-trace {
+  position: absolute;
+  background: var(--accent-color);
+  box-shadow: 0 0 4px var(--accent-color);
+}
+
+.trace-1 {
+  width: 100px;
+  height: 1px;
+  top: 20%;
+  left: 10%;
+  animation: traceFlow 3s linear infinite;
+}
+
+.trace-2 {
+  width: 1px;
+  height: 80px;
+  top: 30%;
+  right: 15%;
+  animation: traceFlow 3s linear infinite 1s;
+}
+
+.trace-3 {
+  width: 120px;
+  height: 1px;
+  bottom: 25%;
+  left: 20%;
+  animation: traceFlow 3s linear infinite 2s;
+}
+
+.circuit-via {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: var(--accent-color);
+  border-radius: 50%;
+  box-shadow: 0 0 8px var(--accent-color);
+}
+
+.via-1 {
+  top: 20%;
+  left: 20%;
+  animation: viaPulse 2s infinite;
+}
+
+.via-2 {
+  top: 60%;
+  right: 25%;
+  animation: viaPulse 2s infinite 0.7s;
+}
+
+.via-3 {
+  bottom: 30%;
+  left: 30%;
+  animation: viaPulse 2s infinite 1.4s;
+}
+
+/* Blinking Cursor */
+.blinking-cursor {
+  display: inline-block;
+  width: 8px;
+  height: 14px;
+  background-color: var(--accent-color);
+  animation: blink 1s infinite;
+  vertical-align: middle;
+  margin-left: 4px;
+  box-shadow: 0 0 5px var(--accent-color);
+}
+
+/* Animations */
+@keyframes boardPulse {
+  0%, 100% { 
+    box-shadow: 0 0 20px rgba(0, 255, 157, 0.3), inset 0 0 30px rgba(0, 0, 0, 0.5);
+  }
+  50% { 
+    box-shadow: 0 0 30px rgba(0, 255, 157, 0.5), inset 0 0 30px rgba(0, 0, 0, 0.5);
+  }
+}
+
+@keyframes pinActivity {
+  0%, 100% { background: var(--pin-color); }
+  50% { background: var(--accent-color); box-shadow: 0 0 4px var(--accent-color); }
+}
+
+@keyframes commBlink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0.3; }
+}
+
+@keyframes gpioActivity {
+  0%, 100% { background: var(--pin-color); }
+  33% { background: var(--accent-color); box-shadow: 0 0 6px var(--accent-color); }
+  66% { background: var(--warning-color); box-shadow: 0 0 6px var(--warning-color); }
+}
+
+@keyframes terminalType {
+  from { opacity: 0; transform: translateX(-10px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes valueFlicker {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+@keyframes labelPulse {
+  0%, 100% { 
+    text-shadow: 0 0 10px rgba(0, 255, 157, 0.5);
+  }
+  50% { 
+    text-shadow: 0 0 20px rgba(0, 255, 157, 0.8);
+  }
+}
+
+@keyframes progressGlow {
+  0%, 100% { box-shadow: 0 0 15px rgba(0, 255, 157, 0.6); }
+  50% { box-shadow: 0 0 25px rgba(0, 255, 157, 0.9); }
+}
+
+@keyframes scannerMove {
+  0% { transform: translateX(-20px); opacity: 0; }
+  50% { opacity: 1; }
+  100% { transform: translateX(20px); opacity: 0; }
+}
+
+@keyframes streamFlow {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+@keyframes packetPulse {
+  0%, 100% { 
+    transform: scale(1);
+    box-shadow: 0 0 8px rgba(0, 255, 157, 0.4);
+  }
+  50% { 
+    transform: scale(1.05);
+    box-shadow: 0 0 12px rgba(0, 255, 157, 0.6);
+  }
+}
+
+@keyframes traceFlow {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}
+
+@keyframes viaPulse {
+  0%, 100% { 
+    transform: scale(1);
+    box-shadow: 0 0 8px var(--accent-color);
+  }
+  50% { 
+    transform: scale(1.3);
+    box-shadow: 0 0 15px var(--accent-color);
+  }
+}
+
+@keyframes blink {
+  0%, 49% { opacity: 1; }  50%, 100% { opacity: 0; }
+}
+
+/* Start Button */
+.start-button-container {
+  margin: min(1.5rem, 2vh) 0;
+  display: flex;
+  justify-content: center;
+  animation: buttonPulse 2s ease-in-out infinite;
+  flex-shrink: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.start-button {
+  background: linear-gradient(135deg, var(--accent-color), var(--secondary-color));
+  border: 2px solid var(--accent-color);
+  border-radius: 8px;
+  padding: min(12px, 2vw) min(24px, 4vw);
+  color: var(--text-color);
+  font-family: 'Share Tech Mono', monospace;
+  font-size: clamp(0.8rem, 2.5vw, 1rem);
+  font-weight: bold;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: min(8px, 1vw);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 
+    0 0 20px rgba(0, 255, 157, 0.3),
+    inset 0 0 20px rgba(0, 0, 0, 0.2);
+  min-height: 44px;
+  box-sizing: border-box;
+  white-space: nowrap;
+}
+
+.start-button:hover {
+  background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+  box-shadow: 
+    0 0 30px rgba(0, 255, 157, 0.5),
+    inset 0 0 30px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+.start-button:active {
+  transform: translateY(0);
+  box-shadow: 
+    0 0 15px rgba(0, 255, 157, 0.4),
+    inset 0 0 25px rgba(0, 0, 0, 0.3);
+}
+
+.button-icon {
+  font-size: 1.2rem;
+  animation: iconSpark 1.5s ease-in-out infinite;
+}
+
+.button-text {
+  position: relative;
+  z-index: 2;
+}
+
+.button-underline {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--warning-color);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.start-button:hover .button-underline {
+  transform: scaleX(1);
+}
+
+.start-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.start-button:hover::before {
+  left: 100%;
+}
+
+@keyframes buttonPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+@keyframes iconSpark {
+  0%, 100% { color: var(--accent-color); text-shadow: 0 0 5px var(--accent-color); }
+  50% { color: var(--warning-color); text-shadow: 0 0 10px var(--warning-color); }
+}
+
+/* Dashboard Button - Enhanced styling */
+.dashboard-button {
+  background: linear-gradient(135deg, var(--secondary-color), var(--warning-color));
+  border: 2px solid var(--warning-color);
+  animation: dashboardPulse 1.5s ease-in-out infinite;
+}
+
+.dashboard-button:hover {
+  background: linear-gradient(135deg, var(--warning-color), var(--secondary-color));
+  box-shadow: 
+    0 0 40px rgba(255, 193, 7, 0.6),
+    inset 0 0 30px rgba(0, 0, 0, 0.1);
+  transform: translateY(-3px) scale(1.02);
+}
+
+.dashboard-button .button-icon {
+  animation: rocketPulse 1s ease-in-out infinite;
+}
+
+@keyframes dashboardPulse {
+  0%, 100% { 
+    transform: scale(1);
+    box-shadow: 0 0 20px rgba(255, 193, 7, 0.4);
+  }
+  50% { 
+    transform: scale(1.03);
+    box-shadow: 0 0 30px rgba(255, 193, 7, 0.6);
+  }
+}
+
+@keyframes rocketPulse {
+  0%, 100% { 
+    color: var(--warning-color); 
+    text-shadow: 0 0 5px var(--warning-color);
+    transform: translateY(0);
+  }
+  50% { 
+    color: var(--accent-color); 
+    text-shadow: 0 0 15px var(--accent-color);
+    transform: translateY(-2px);
+  }
+}
+
+/* Transition Effects */
+.loading-page.transitioning {
+  animation: systemShutdown 2.5s ease-in-out forwards;
+}
+
+.loading-container.transitioning {
+  animation: containerFadeOut 2.5s ease-in-out forwards;
+}
+
+.board-outline.transitioning {
+  animation: boardPowerDown 2s ease-in-out forwards;
+}
+
+.terminal-output.transitioning {
+  animation: terminalClose 1.5s ease-in-out forwards;
+}
+
+@keyframes systemShutdown {
+  0% { 
+    background: var(--bg-color);
+    opacity: 1;
+  }
+  70% {
+    background: radial-gradient(circle, var(--accent-color), var(--bg-color));
+    opacity: 0.8;
+  }
+  100% { 
+    background: var(--accent-color);
+    opacity: 0;
+    transform: scale(1.1);
+  }
+}
+
+@keyframes containerFadeOut {
+  0% { 
+    opacity: 1;
+    transform: scale(1) rotateY(0deg);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(0.95) rotateY(5deg);
+  }
+  100% { 
+    opacity: 0;
+    transform: scale(0.8) rotateY(15deg);
+  }
+}
+
+@keyframes boardPowerDown {
+  0% { 
+    box-shadow: 0 0 20px rgba(0, 255, 157, 0.3);
+    opacity: 1;
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(0, 255, 157, 0.8);
+    opacity: 0.7;
+  }
+  100% { 
+    box-shadow: 0 0 5px rgba(0, 255, 157, 0.1);
+    opacity: 0.3;
+    transform: scale(0.9);
+  }
+}
+
+@keyframes terminalClose {
+  0% { 
+    opacity: 1;
+    transform: scaleY(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scaleY(0.8);
+  }
+  100% { 
+    opacity: 0;
+    transform: scaleY(0);
+  }
+}
+
+/* Boot Complete State */
+.boot-complete .status-leds .led {
+  animation: ledCelebration 0.5s ease-in-out infinite alternate;
+}
+
+.boot-complete .progress-fill {
+  background: linear-gradient(90deg, var(--accent-color), var(--warning-color));
+  animation: progressCelebration 2s ease-in-out infinite;
+}
+
+@keyframes ledCelebration {
+  0% { box-shadow: 0 0 12px currentColor; }
+  100% { box-shadow: 0 0 20px currentColor, 0 0 30px currentColor; }
+}
+
+@keyframes progressCelebration {
+  0%, 100% { filter: brightness(1); }
+  50% { filter: brightness(1.3); }
+}
+
+/* Responsive Design */
+
+/* Large desktop screens */
+@media (min-width: 1400px) {
+  .loading-container {
+    max-width: 700px;
+  }
+  
+  .board-outline {
+    width: 320px;
+    height: 200px;
+  }
+  
+  .mcu-chip {
+    width: 90px;
+    height: 65px;
+  }
+  
+  .terminal-body {
+    height: 140px;
+    font-size: 0.85rem;
+  }
+}
+
+/* Desktop screens */
+@media (min-width: 1024px) and (max-width: 1399px) {
+  .loading-container {
+    max-width: 650px;
+  }
+  
+  .board-outline {
+    width: 300px;
+    height: 190px;
+  }
+}
+
+/* Tablet landscape */
+@media (min-width: 769px) and (max-width: 1023px) {
+  .loading-container {
+    width: 90%;
+    max-width: 550px;
+    padding: 1.25rem;
+  }
+
+  .board-outline {
+    width: 260px;
+    height: 165px;
+  }
+
+  .mcu-chip {
+    width: 70px;
+    height: 50px;
+  }
+
+  .terminal-body {
+    height: 100px;
+    font-size: 0.75rem;
+  }
+
+  .system-status {
+    gap: 1rem;
+  }
+}
+
+/* Tablet portrait and small laptops */
+@media (max-width: 768px) {
+  .loading-container {
+    width: 95vw;
+    padding: min(1rem, 2vh);
+    max-height: 95vh;
+    min-height: 0;
+    gap: min(0.8rem, 1.5vh);
+  }
+
+  .board-outline {
+    width: min(240px, 70vw);
+    height: min(150px, 18vh);
+  }
+
+  .mcu-chip {
+    width: min(60px, 15vw);
+    height: min(45px, 8vh);
+  }
+
+  .chip-label {
+    font-size: clamp(6px, 1.5vw, 7px);
+  }
+
+  .led {
+    width: 6px;
+    height: 6px;
+  }
+
+  .terminal-body {
+    height: clamp(70px, 12vh, 90px);
+    font-size: clamp(0.6rem, 1.5vw, 0.7rem);
+    padding: min(10px, 2vw);
+  }
+
+  .terminal-header {
+    padding: min(6px, 1vh) min(10px, 2vw);
+  }
+
+  .terminal-title {
+    font-size: clamp(0.65rem, 1.8vw, 0.75rem);
+  }
+
+  .system-status {
+    flex-direction: column;
+    gap: min(0.5rem, 1vh);
+    margin: min(1rem, 1.5vh) 0;
+    padding: min(0.8rem, 1.5vw);
+  }
+
+  .status-item {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: min(0.25rem, 0.5vh) 0;
+  }
+
+  .status-label,
+  .status-value {
+    font-size: clamp(0.6rem, 1.5vw, 0.7rem);
+  }
+
+  .progress-bar {
+    height: clamp(8px, 2vh, 10px);
+    margin: min(0.75rem, 1.5vh) 0;
+  }
+
+  .hex-display {
+    font-size: clamp(0.6rem, 1.4vw, 0.65rem);
+  }
+
+  .mcu-board {
+    margin-bottom: min(1rem, 1.5vh);
+  }
+
+  .start-button {
+    padding: min(10px, 2vh) min(20px, 4vw);
+    font-size: clamp(0.8rem, 2vw, 0.9rem);
+  }
+
+  .button-icon {
+    font-size: clamp(0.9rem, 2.2vw, 1rem);
+  }
+
+  .data-stream {
+    height: clamp(60px, 10vh, 80px);
+    margin-bottom: min(1rem, 1.5vh);
+  }
+
+  .data-packet {
+    font-size: clamp(0.65rem, 1.5vw, 0.7rem);
+    padding: min(3px, 0.8vw) min(8px, 1.5vw);
+  }
+}
+
+/* Large mobile devices */
+@media (max-width: 640px) {
+  .loading-container {
+    width: 96%;
+    padding: 0.8rem;
+  }
+
+  .board-outline {
+    width: 220px;
+    height: 140px;
+  }
+
+  .mcu-chip {
+    width: 55px;
+    height: 40px;
+  }
+
+  .terminal-body {
+    height: 85px;
+    font-size: 0.68rem;
+  }
+
+  .loading-label {
+    font-size: 0.85rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .progress-bar {
+    height: 9px;
+  }
+}
+
+/* Standard mobile devices */
+@media (max-width: 480px) {
+  .loading-container {
+    width: 98%;
+    padding: 0.5rem;
+    max-height: 90vh;
+  }
+
+  .board-outline {
+    width: 200px;
+    height: 120px;
+  }
+
+  .mcu-chip {
+    width: 50px;
+    height: 35px;
+  }
+
+  .chip-label {
+    font-size: 6px;
+  }
+
+  .led {
+    width: 5px;
+    height: 5px;
+  }
+
+  .capacitor {
+    width: 8px;
+    height: 12px;
+  }
+
+  .resistor {
+    width: 12px;
+    height: 4px;
+  }
+
+  .crystal {
+    width: 12px;
+    height: 6px;
+  }
+
+  .gpio-pin {
+    width: 5px;
+    height: 8px;
+  }
+
+  .terminal-body {
+    height: 75px;
+    font-size: 0.65rem;
+    padding: 8px;
+  }
+
+  .terminal-header {
+    padding: 5px 8px;
+  }
+
+  .terminal-title {
+    font-size: 0.7rem;
+  }
+
+  .control {
+    width: 6px;
+    height: 6px;
+  }
+
+  .loading-label {
+    font-size: 0.8rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .hex-value {
+    font-size: 0.7rem;
+  }
+
+  .progress-bar {
+    height: 8px;
+    margin: 0.6rem 0;
+  }
+
+  .progress-fill {
+    min-height: 8px;
+  }
+
+  .data-packet {
+    font-size: 0.7rem;
+    padding: 3px 6px;
+    margin: 2px;
+  }
+
+  /* Touch and interaction improvements */
+  .start-button,
+  .terminal-line.clickable {
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+  }
+
+  /* Improved touch targets for mobile */
+  @media (max-width: 768px) {
+    .start-button {
+      min-height: 44px; /* iOS recommended touch target */
+      min-width: 120px;
+    }
+    
+    .terminal-line.clickable {
+      min-height: 36px;
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  /* Focus states for accessibility */
+  .start-button:focus-visible {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 2px;
+  }
+
+  .terminal-line.clickable:focus-visible {
+    outline: 1px solid var(--accent-color);
+    outline-offset: 1px;
+  }
+
+  /* Smooth font scaling for better readability */
+  @media (max-width: 320px) {
+    .loading-container {
+      font-size: 14px;
+    }
+    
+    .terminal-body {
+      line-height: 1.3;
+    }
+    
+    .loading-label {
+      font-size: 0.7rem;
+    }
+  }
+
+  /* Performance optimizations */
+  .loading-page * {
+    will-change: auto;
+  }
+
+  .loading-page.transitioning * {
+    will-change: transform, opacity;
+  }
+
+  /* High contrast mode support */
+  @media (prefers-contrast: high) {
+    .board-outline {
+      border-width: 3px;
+    }
+    
+    .terminal-output {
+      border-width: 2px;
+    }
+    
+    .led.on {
+      box-shadow: 0 0 15px currentColor;
+    }
+  }
+
+  /* Reduced motion support */
+  @media (prefers-reduced-motion: reduce) {
+    .loading-page *,
+    .loading-page *::before,
+    .loading-page *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+    
+    .progress-scanner {
+      display: none;
+    }
+  }
+
+  /* Container queries for fine-tuned responsive design */
+  @container (max-width: 400px) {
+    .loading-container {
+      gap: 0.5rem;
+    }
+    
+    .system-status {
+      font-size: 0.8em;
+    }
+  }
+}
+
+/* Very small mobile devices */
+@media (max-width: 360px) {
+  .loading-container {
+    width: calc(100vw - 0.5rem);
+    max-width: calc(100vw - 0.5rem);
+    padding: 0.25rem;
+    max-height: calc(100vh - 0.5rem);
+    gap: min(0.3rem, 0.8vh);
+  }
+
+  .board-outline {
+    width: min(180px, calc(100vw - 1rem));
+    height: min(110px, 12vh);
+  }
+
+  .mcu-chip {
+    width: min(45px, 10vw);
+    height: min(30px, 5vh);
+  }
+  .terminal-body {
+    height: min(65px, 8vh);
+    font-size: clamp(0.55rem, 2.8vw, 0.6rem);
+    padding: min(6px, 1vw);
+  }
+
+  .system-status {
+    padding: min(0.4rem, 1vw);
+    margin: min(0.6rem, 1vh) 0;
+  }
+  .status-label,
+  .status-value {
+    font-size: clamp(0.55rem, 2.8vw, 0.6rem);
+  }
+  .loading-label {
+    font-size: clamp(0.7rem, 3.2vw, 0.75rem);
+  }
+  .hex-value {
+    font-size: clamp(0.6rem, 2.8vw, 0.65rem);
+  }
+
+  .data-stream {
+    height: min(60px, 7vh);
+    padding: min(0.3rem, 0.8vh);
+  }
+  .data-packet {
+    font-size: clamp(0.6rem, 2.8vw, 0.65rem);
+    padding: min(2px, 0.5vw) min(4px, 0.8vw);
+    margin: min(1px, 0.3vw);
+  }
+  .start-button {
+    padding: min(6px, 1vh) min(12px, 2.5vw);
+    font-size: clamp(0.65rem, 3vw, 0.75rem);
+    max-width: calc(100vw - 2rem);
+  }
+}
+
+/* Landscape mode for mobile devices */
+@media screen and (max-height: 500px) and (orientation: landscape) {
+  .loading-container {
+    max-height: 95vh;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    gap: min(0.5rem, 2vw);
+    padding: min(0.5rem, 1vh);
+  }
+
+  .mcu-board {
+    margin-bottom: 0;
+    flex-shrink: 0;
+    width: auto;
+  }
+
+  .board-outline {
+    width: min(160px, 30vw);
+    height: min(100px, 80vh);
+  }
+
+  .terminal-output,
+  .system-status,
+  .progress-container,
+  .data-stream,
+  .start-button-container {
+    flex: 1;
+    max-width: min(300px, 65vw);
+    margin-bottom: min(0.3rem, 1vh);
+  }
+  .terminal-body {
+    height: min(60px, 50vh);
+    font-size: clamp(0.55rem, 2.5vw, 0.6rem);
+  }
+
+  .system-status {
+    flex-direction: row;
+    gap: min(0.5rem, 2vw);
+    padding: min(0.3rem, 1vw);
+  }
+
+  .status-item {
+    flex-direction: column;
+  }
+}
+
+/* Ensure no element overflows viewport width */
+.loading-page *,
+.loading-container *,
+.board-outline *,
+.terminal-output *,
+.system-status *,
+.progress-container *,
+.data-stream *,
+.start-button-container * {
+  max-width: 100%;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+/* Prevent text overflow */
+.terminal-line,
+.loading-label,
+.status-label,
+.status-value,
+.button-text {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+/* Flex item constraints */
+.stream-line {
+  flex-wrap: wrap;
+  max-width: 100%;
+}
+
+.data-packet {
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+/* Enhanced Mobile Responsiveness - Viewport Overflow Prevention */
+
+/* Global box-sizing fix */
+* {
+  box-sizing: border-box;
+}
+
+/* Prevent horizontal overflow */
+.loading-page {
+  overflow-x: hidden;
+}
+
+.loading-container {
+  overflow-x: hidden;
+}
+
+/* Enhanced mobile-first responsive approach */
+@media screen and (max-width: 480px) {
+  .loading-page {
+    width: 100vw;
+    height: 100vh;
+    max-width: 100vw;
+    max-height: 100vh;
+  }
+  
+  .loading-container {
+    width: calc(100vw - 1rem);
+    max-width: calc(100vw - 1rem);
+    padding: 0.5rem;
+    max-height: calc(100vh - 1rem);
+    gap: min(0.5rem, 1vh);
+    margin: 0 auto;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  .board-outline {
+    width: min(200px, calc(100vw - 2rem));
+    height: min(120px, 15vh);
+    max-width: calc(100vw - 2rem);
+  }
+
+  .mcu-chip {
+    width: min(50px, 12vw);
+    height: min(35px, 6vh);
+  }
+
+  .terminal-output {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .terminal-body {
+    height: min(75px, 10vh);
+    font-size: clamp(0.6rem, 3vw, 0.65rem);
+    padding: min(8px, 1.5vw);
+  }
+
+  .system-status {
+    width: 100%;
+    padding: min(0.6rem, 1.2vw);
+    margin: min(0.8rem, 1.5vh) 0;
+  }
+
+  .progress-container {
+    width: 100%;
+    margin-bottom: min(0.8rem, 1.5vh);
+  }
+
+  .progress-bar {
+    width: 100%;
+    height: min(8px, 1.5vh);
+  }
+
+  .data-stream {
+    width: 100%;
+    height: min(70px, 8vh);
+    padding: min(0.5rem, 1vh);
+  }
+
+  .start-button-container {
+    width: 100%;
+    margin: min(1rem, 1.5vh) 0 min(0.5rem, 1vh) 0;
+  }
+
+  .start-button {
+    min-height: 44px;
+    padding: min(8px, 1.5vh) min(16px, 3vw);
+    font-size: clamp(0.7rem, 3.5vw, 0.8rem);
+    width: auto;
+    max-width: calc(100vw - 4rem);
+  }
+}
+
+/* Very small screens - prevent any overflow */
+@media screen and (max-width: 360px) {
+  .loading-container {
+    width: calc(100vw - 0.5rem);
+    max-width: calc(100vw - 0.5rem);
+    padding: 0.25rem;
+    max-height: calc(100vh - 0.5rem);
+    gap: min(0.3rem, 0.8vh);
+  }
+
+  .board-outline {
+    width: min(180px, calc(100vw - 1rem));
+    height: min(110px, 12vh);
+  }
+
+  .mcu-chip {
+    width: min(45px, 10vw);
+    height: min(30px, 5vh);
+  }
+
+  .terminal-body {
+    height: min(65px, 8vh);
+    font-size: clamp(0.55rem, 2.8vw, 0.6rem);
+    padding: min(6px, 1vw);
+  }
+
+  .system-status {
+    padding: min(0.4rem, 1vw);
+    margin: min(0.6rem, 1vh) 0;
+  }
+
+  .status-label,
+  .status-value {
+    font-size: clamp(0.55rem, 2.8vw, 0.6rem);
+  }
+
+  .loading-label {
+    font-size: clamp(0.7rem, 3.2vw, 0.75rem);
+  }
+
+  .hex-value {
+    font-size: clamp(0.6rem, 2.8vw, 0.65rem);
+  }
+
+  .data-stream {
+    height: min(60px, 7vh);
+    padding: min(0.3rem, 0.8vh);
+  }
+
+  .data-packet {
+    font-size: clamp(0.6rem, 2.8vw, 0.65rem);
+    padding: min(2px, 0.5vw) min(4px, 0.8vw);
+    margin: min(1px, 0.3vw);
+  }
+
+  .start-button {
+    padding: min(6px, 1vh) min(12px, 2.5vw);
+    font-size: clamp(0.65rem, 3vw, 0.75rem);
+    max-width: calc(100vw - 2rem);
+  }
+}
+
+/* Landscape mode for mobile devices */
+@media screen and (max-height: 500px) and (orientation: landscape) {
+  .loading-container {
+    max-height: 95vh;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    gap: min(0.5rem, 2vw);
+    padding: min(0.5rem, 1vh);
+  }
+
+  .mcu-board {
+    margin-bottom: 0;
+    flex-shrink: 0;
+    width: auto;
+  }
+
+  .board-outline {
+    width: min(160px, 30vw);
+    height: min(100px, 80vh);
+  }
+
+  .terminal-output,
+  .system-status,
+  .progress-container,
+  .data-stream,
+  .start-button-container {
+    flex: 1;
+    max-width: min(300px, 65vw);
+    margin-bottom: min(0.3rem, 1vh);
+  }
+
+  .terminal-body {
+    height: min(60px, 50vh);
+    font-size: clamp(0.55rem, 2.5vw, 0.6rem);
+  }
+
+  .system-status {
+    flex-direction: row;
+    gap: min(0.5rem, 2vw);
+    padding: min(0.3rem, 1vw);
+  }
+
+  .status-item {
+    flex-direction: column;
+  }
+}
+
+/* Ensure no element overflows viewport width */
+.loading-page *,
+.loading-container *,
+.board-outline *,
+.terminal-output *,
+.system-status *,
+.progress-container *,
+.data-stream *,
+.start-button-container * {
+  max-width: 100%;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+/* Prevent text overflow */
+.terminal-line,
+.loading-label,
+.status-label,
+.status-value,
+.button-text {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+/* Flex item constraints */
+.stream-line {
+  flex-wrap: wrap;
+  max-width: 100%;
+}
+
+.data-packet {
+  flex-shrink: 0;
+  white-space: nowrap;
+}
