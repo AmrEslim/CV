@@ -138,12 +138,12 @@
       {
         "id": 3,
         "language": "Englisch",
-        "proficiency": "Fließend (C1-Niveau)",
-        "percentage": 85
+        "proficiency": "Fließend (C1+/C2-Niveau)",
+        "percentage": 95
       },
       {
         "id": 4,
-        "language": "Französisch",
+        "language": "Spanisch",
         "proficiency": "Grundkenntnisse/Anfänger",
         "percentage": 30
       }
