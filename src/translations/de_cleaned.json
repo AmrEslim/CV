@@ -26,7 +26,7 @@
     "description": "Computer Engineering-Absolvent, spezialisiert auf Embedded Systems und Robotik",
     "content": [
       "Hallo! Ich bin Amr Eslim, ein Computer Engineering-Absolvent mit Sitz in Berlin, Deutschland.",
-      "Ich habe kürzlich meinen Bachelor-Abschluss in Computer Engineering an der HTW Berlin (April 2025) mit Schwerpunkt auf Embedded Systems abgeschlossen.",
+      "Ich habe meinen Bachelor-Abschluss in Computer Engineering an der HTW Berlin (April 2025) mit Schwerpunkt auf Embedded Systems abgeschlossen.",
       "Meine Expertise liegt in Embedded Systems mit Linux, Softwareentwicklung und Webanwendungsentwicklung.",
       "Ich habe praktische Erfahrungen als Werkstudent für Softwareentwicklung bei Fraunhofer IPK seit Mai 2022.",
       "Mit einem starken Hintergrund in C/C++, Python und Embedded Systems entwickle ich zuverlässige und effiziente Lösungen.",
@@ -102,22 +102,6 @@
         "title": "Hackathon: Zukunft der Bildung",
         "description": "N3XTCODER GmbH",
         "details": "Zusammenarbeit im Team am Onboarding-Prozess für eine Mentoring-App für Jugendliche, die sich als LGBTQIA identifizieren. Unser Ziel war es, einen reibungslosen Prozess zu gewährleisten. Wir präsentierten unsere Ergebnisse vor dem Publikum.",
-        "side": "right"
-      },
-      {
-        "id": 5,
-        "date": "09/2018 – 06/2019",
-        "title": "Vorbereitungsjahr für die Medizinische Fakultät",
-        "description": "Universität Damaskus, Syrien",
-        "details": "Studium in Anatomie, Biochemie, Allgemeinmedizin und Neurologie",
-        "side": "left"
-      },
-      {
-        "id": 6,
-        "date": "10/2015 – 06/2018",
-        "title": "Gymnasium",
-        "description": "Shakib Arslan Schule, Syrien",
-        "details": "Schwerpunkte: Physik, Mathematik, Chemie, Biologie, Englisch, Arabisch und Französisch",
         "side": "right"
       }
     ]
