@@ -1,11 +1,13 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useTranslation } from '../../hooks/useTranslation';
+import CodeEditor from '../CodeEditor/CodeEditor';
 import './RoboticsDiagram.css';
 
 const RoboticsDiagram = () => {
   const { t } = useTranslation();
   const [activeConnection, setActiveConnection] = useState(null);
   const [simulationRunning, setSimulationRunning] = useState(false);
+  const [codeEditorOpen, setCodeEditorOpen] = useState(false);
   const robotRef = useRef(null);
   const pathRef = useRef(null);
 
@@ -119,9 +121,18 @@ const RoboticsDiagram = () => {
           <div className="simulation-control">
             <div className="control-btn" onClick={startSimulation}>▶</div>
             <div className="control-btn" onClick={resetSimulation}>↺</div>
+            <div className="control-btn code-btn" onClick={() => setCodeEditorOpen(true)} title="View Arduino Code Examples">
+              &lt;/&gt;
+            </div>
           </div>
         </div>
       </div>
+      
+      {/* Code Editor Modal */}
+      <CodeEditor 
+        isOpen={codeEditorOpen} 
+        onClose={() => setCodeEditorOpen(false)} 
+      />
     </section>
   );
 };
