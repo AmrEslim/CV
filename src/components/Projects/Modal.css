@@ -135,12 +135,82 @@
   aspect-ratio: 16/9;
 }
 
+.modal-description-section {
+  background: rgba(0, 136, 255, 0.03);
+  border-radius: 12px;
+  padding: 1.5rem;
+  border: 1px solid rgba(0, 136, 255, 0.1);
+  position: relative;
+}
+
+.modal-description-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--robot-primary), rgba(0, 255, 136, 0.6));
+  border-radius: 12px 12px 0 0;
+}
+
+.modal-description-section h5 {
+  color: var(--robot-primary);
+  margin: 0 0 1rem 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.modal-description-section h5::before {
+  content: '📋';
+  font-size: 1.1rem;
+}
+
 .modal-description {
   color: rgba(255, 255, 255, 0.9);
-  line-height: 1.7;
+  line-height: 1.8;
   margin: 0;
   font-size: 1.05rem;
   text-align: justify;
+  text-indent: 1em;
+  font-weight: 400;
+}
+
+.modal-features-section {
+  background: rgba(0, 136, 255, 0.03);
+  border-radius: 12px;
+  padding: 1.5rem;
+  border: 1px solid rgba(0, 136, 255, 0.1);
+  position: relative;
+}
+
+.modal-features-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, rgba(0, 255, 136, 0.6), var(--robot-primary));
+  border-radius: 12px 12px 0 0;
+}
+
+.modal-features-section h5 {
+  color: var(--robot-primary);
+  margin: 0 0 1.2rem 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.modal-features-section h5::before {
+  content: '🚀';
+  font-size: 1.1rem;
 }
 
 .modal-feature-list {
@@ -149,24 +219,75 @@
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 0.8rem;
+  gap: 1rem;
 }
 
 .modal-feature-list li {
   color: rgba(255, 255, 255, 0.85);
-  line-height: 1.6;
+  line-height: 1.7;
   font-size: 0.95rem;
-  padding-left: 1rem;
+  padding: 1.2rem 1rem 1.2rem 3rem;
   position: relative;
+  background: rgba(0, 136, 255, 0.02);
+  border-radius: 8px;
+  border-left: 3px solid var(--robot-primary);
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.modal-feature-list li:hover {
+  background: rgba(0, 136, 255, 0.05);
+  transform: translateX(5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
 .modal-feature-list li::before {
-  content: '▶';
-  color: var(--robot-primary);
-  font-size: 0.8rem;
+  content: '✅';
+  color: #00ff88;
+  font-size: 1.3rem;
   position: absolute;
-  left: 0;
-  top: 0.1rem;
+  left: 1rem;
+  top: 1.2rem;
+  animation: pulse 2s infinite;
+  filter: drop-shadow(0 0 6px rgba(0, 255, 136, 0.4));
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(1.1); }
+}
+
+/* Enhanced styling for bold text in features */
+.modal-feature-list li strong,
+.modal-feature-list li b {
+  color: var(--robot-primary);
+  font-weight: 700;
+  text-shadow: 0 0 10px rgba(0, 136, 255, 0.3);
+  background: linear-gradient(135deg, rgba(0, 136, 255, 0.1), rgba(0, 255, 136, 0.05));
+  padding: 0.2em 0.5em;
+  border-radius: 6px;
+  border: 1px solid rgba(0, 136, 255, 0.2);
+  display: inline-block;
+  margin-bottom: 0.3em;
+  font-size: 1em;
+  letter-spacing: 0.3px;
+  transition: all 0.3s ease;
+}
+
+.modal-feature-list li:hover strong,
+.modal-feature-list li:hover b {
+  background: linear-gradient(135deg, rgba(0, 136, 255, 0.2), rgba(0, 255, 136, 0.1));
+  border-color: var(--robot-primary);
+  transform: scale(1.02);
+}
+
+/* Enhanced colon styling */
+.modal-feature-list li .feature-colon {
+  color: rgba(0, 255, 136, 0.8);
+  font-weight: 700;
+  font-size: 1.1em;
+  margin: 0 0.3em;
+  text-shadow: 0 0 8px rgba(0, 255, 136, 0.4);
 }
 
 .modal-tech {
@@ -174,13 +295,33 @@
   border-radius: 12px;
   padding: 1.5rem;
   border: 1px solid rgba(0, 136, 255, 0.1);
+  position: relative;
+}
+
+.modal-tech::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, rgba(255, 136, 0, 0.6), var(--robot-primary));
+  border-radius: 12px 12px 0 0;
 }
 
 .modal-tech h5 {
   color: var(--robot-primary);
-  margin: 0 0 1rem 0;
-  font-size: 1.1rem;
+  margin: 0 0 1.2rem 0;
+  font-size: 1.2rem;
   font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.modal-tech h5::before {
+  content: '🔧';
+  font-size: 1.1rem;
 }
 
 .tech-tags-container {
@@ -212,13 +353,33 @@
   border-radius: 12px;
   padding: 1.5rem;
   border: 1px solid rgba(0, 136, 255, 0.1);
+  position: relative;
+}
+
+.modal-references::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, rgba(136, 255, 0, 0.6), var(--robot-primary));
+  border-radius: 12px 12px 0 0;
 }
 
 .modal-references h5 {
   color: var(--robot-primary);
-  margin: 0 0 1rem 0;
-  font-size: 1.1rem;
+  margin: 0 0 1.2rem 0;
+  font-size: 1.2rem;
   font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.modal-references h5::before {
+  content: '📚';
+  font-size: 1.1rem;
 }
 
 .modal-references ul {
@@ -228,7 +389,17 @@
 }
 
 .modal-references li {
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.8rem;
+  padding: 0.8rem 1rem;
+  background: rgba(0, 136, 255, 0.02);
+  border-radius: 8px;
+  border-left: 3px solid var(--robot-primary);
+  transition: all 0.3s ease;
+}
+
+.modal-references li:hover {
+  background: rgba(0, 136, 255, 0.05);
+  transform: translateX(5px);
 }
 
 .modal-references a {
@@ -237,11 +408,20 @@
   font-weight: 500;
   transition: all 0.3s ease;
   border-bottom: 1px solid transparent;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.modal-references a::before {
+  content: '🔗';
+  font-size: 1rem;
 }
 
 .modal-references a:hover {
   border-bottom-color: var(--robot-primary);
   text-shadow: 0 0 8px rgba(0, 136, 255, 0.5);
+  transform: translateX(2px);
 }
 
 @media (max-width: 768px) {
@@ -286,17 +466,42 @@
     max-height: 250px;
   }
 
-  .modal-description {
+  .modal-description-section,
+  .modal-features-section,
+  .modal-tech,
+  .modal-references {
+    padding: 1rem;
+  }
+
+  .modal-description-section h5,
+  .modal-features-section h5,
+  .modal-tech h5,
+  .modal-references h5 {
     font-size: 1rem;
-    text-align: left;
+    margin-bottom: 0.8rem;
   }
 
   .modal-feature-list li {
     font-size: 0.9rem;
+    padding: 1rem 0.8rem 1rem 2.8rem;
   }
 
-  .modal-tech {
-    padding: 1rem;
+  .modal-feature-list li::before {
+    left: 0.8rem;
+    top: 1rem;
+    font-size: 1.1rem;
+  }
+
+  .modal-feature-list li strong,
+  .modal-feature-list li b {
+    font-size: 0.95em;
+    padding: 0.15em 0.4em;
+  }
+
+  .modal-description {
+    font-size: 1rem;
+    text-align: left;
+    text-indent: 0;
   }
 
   .tech-tags-container {
@@ -344,16 +549,39 @@
     max-height: 200px;
   }
 
-  .modal-description {
-    font-size: 0.95rem;
+  .modal-description-section,
+  .modal-features-section,
+  .modal-tech,
+  .modal-references {
+    padding: 0.8rem;
+  }
+
+  .modal-description-section h5,
+  .modal-features-section h5,
+  .modal-tech h5,
+  .modal-references h5 {
+    font-size: 0.9rem;
   }
 
   .modal-feature-list li {
     font-size: 0.85rem;
+    padding: 0.9rem 0.7rem 0.9rem 2.5rem;
   }
 
-  .modal-tech {
-    padding: 0.8rem;
+  .modal-feature-list li::before {
+    left: 0.7rem;
+    top: 0.9rem;
+    font-size: 1rem;
+  }
+
+  .modal-feature-list li strong,
+  .modal-feature-list li b {
+    font-size: 0.9em;
+    padding: 0.1em 0.3em;
+  }
+
+  .modal-description {
+    font-size: 0.95rem;
   }
 
   .tech-tags-container {

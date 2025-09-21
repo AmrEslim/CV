@@ -44,14 +44,28 @@ const Modal = ({ isOpen, onClose, project }) => {
             <ProjectVisual type={project.visualType} images={project.images} />
           </div>
 
-          <p className="modal-description">{project.description}</p>
+          <div className="modal-description-section">
+            <h5>Project Overview</h5>
+            <p className="modal-description">{project.description}</p>
+          </div>
 
           {project.features && (
-            <ul className="modal-feature-list">
-              {project.features.map((feature, index) => (
-                <li key={index}>{feature}</li>
-              ))}
-            </ul>
+            <div className="modal-features-section">
+              <h5>Key Features & Achievements</h5>
+              <ul className="modal-feature-list">
+                {project.features.map((feature, index) => {
+                  // Parse markdown-style formatting and enhance colons
+                  const formattedFeature = feature
+                    .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+                    .replace(/✅\s*/g, '')
+                    .replace(/(<\/strong>):\s*/g, '$1<span class="feature-colon">:</span> ');
+                  
+                  return (
+                    <li key={index} dangerouslySetInnerHTML={{__html: formattedFeature}}></li>
+                  );
+                })}
+              </ul>
+            </div>
           )}
 
           {project.technologies && (
