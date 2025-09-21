@@ -56,11 +56,16 @@ const Modal = ({ isOpen, onClose, project }) => {
 
           {project.technologies && (
             <div className="modal-tech">
-              {project.technologies.map((tech, index) => (
-                <span key={index} className="modal-tech-tag">{tech}</span>
-              ))}
+              <h5>Technologies Used:</h5>
+              <div className="tech-tags-container">
+                {project.technologies.map((tech, index) => (
+                  <span key={index} className="modal-tech-tag">{tech}</span>
+                ))}
+              </div>
             </div>
-          )}          {project.references && project.references.length > 0 && (
+          )}
+
+          {project.references && project.references.length > 0 && (
             <div className="modal-references">
               <h5>{t('ui.sections.references')}:</h5>
               <ul>

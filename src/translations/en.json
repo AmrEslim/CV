@@ -39,6 +39,7 @@
         "title": "Programming Languages",
         "skills": {
           "cpp": "C/C++",
+          "rust": "Rust",
           "python": "Python",
           "sql": "SQL"
         }
@@ -195,42 +196,84 @@
     "snake_robot": {
       "title": "Neurobiologically-Inspired Snake Robot",
       "subtitle": "Bachelor Thesis – HTW Berlin (2025)",
-      "description": "This project presents the design, implementation, and testing of a modular snake-like robot inspired by biological snake locomotion. It reproduces lateral undulation and sidewinding using a Central Pattern Generator (CPG) control model, built entirely from scratch for the thesis 'Neurobiologically-inspired Control of a Robot.' The robot integrates mechanical engineering, embedded programming, and motion neuroscience into a functional bio-inspired system.",
+      "description": "Bachelor's thesis project presenting the design, implementation, and experimental evaluation of a modular snake-like robot inspired by biological snake locomotion. Developed a complete biomimetic system reproducing lateral undulation and sidewinding using Central Pattern Generator (CPG) control algorithms. The project successfully integrated mechanical engineering, embedded systems programming, and neuroscience principles into a functional bio-inspired robotic platform.",
       "features": [
-        "✅ **Mechanical Design**: Built in Onshape CAD and 3D-printed with TPU friction scales and PLA+ wheels. Alternating servo layout (horizontal/vertical) for complex out-of-plane motion.",
-        "✅ **Control System**: CPG control based on a phase-coupled oscillator model. Implements two gaits – lateral undulation and sidewinding – driven by sinusoidal position updates at 50Hz.",
-        "✅ **Microcontroller & Power**: ESP32 used for real-time web-based control and Wi-Fi AP mode. Each of the 10 servo segments includes a local buck converter with capacitive filtering for noise suppression.",
-        "✅ **Web Interface**: Developed in React.js and served over Wi-Fi from ESP32. Allows live tuning of motion parameters (amplitude, frequency, phase offset) and toggling of movement direction.",
-        "✅ **Testing & Evaluation**: Experimental trials conducted on laminate flooring. Multiple configurations (base, TPU scales, PLA+ wheels) were compared using video tracking and current sensors.",
-        "✅ **Motion Tracking**: Kinovea used to track head/tail motion. Data exported to CSV and visualized in React-based plots, showing performance differences across configurations and gaits.",
-        "✅ **Energy Profiling**: Current draw was measured using ACS712 sensor. Sidewinding was found to consume ~50% more current than lateral undulation, with PLA+ wheels offering the most consistent performance.",
-        "✅ **Robust Control Architecture**: Uses mathematical oscillator model (θk = A·cos(2πft + φk)) for each servo. Oscillator phase relationships enable direction control and motion symmetry.",
-        "✅ **Design Evolution**: Replaced an earlier STM32 version with ESP32 for better connectivity and real-time tuning. Power distribution was redesigned for servo isolation, and mechanical tolerances were iteratively improved.",
-        "✅ **Future Work**: The thesis proposes improvements like ESP-NOW-based swarm collaboration, autonomous direction control using IMUs, and flexible soft-body actuation for terrain adaptation."
+        "✅ **Modular Mechanical Design**: CAD-designed in Onshape and 3D-printed using PETG, PLA+, and TPU materials. Features 10 servo motors in alternating horizontal/vertical configuration (7H/3V) enabling complex undulatory motion patterns.",
+        "✅ **CPG Control Implementation**: Implemented mathematical Central Pattern Generator algorithms on ESP32 microcontroller using Arduino IDE. Generated synchronized sinusoidal waves with configurable parameters (amplitude: 10-45°, frequency: 0.1-2.0 Hz, phase offset: 30-90°) to achieve biomimetic locomotion.",
+        "✅ **Dual Locomotion Patterns**: Successfully implemented both lateral undulation (snake-like horizontal waves) and sidewinding (3D desert-style motion) with real-time switching capability through web interface.",
+        "✅ **ESP32-Based Control System**: Complete embedded system with WiFi access point, web server, and real-time control interface. Supports remote parameter tuning, motion pattern selection, and live system monitoring.",
+        "✅ **Power Management & Monitoring**: Integrated ACS712 current sensor for real-time power consumption analysis. Discovered sidewinding consumes ~50% more power than lateral undulation, with detailed energy profiling across all configurations.",
+        "✅ **Experimental Validation**: Comprehensive testing using Kinovea motion tracking software on structured grid environment. Quantitative analysis of motion patterns, velocity profiles, and energy consumption across different mechanical configurations.",
+        "✅ **Three Test Configurations**: Baseline robot, TPU-scale enhanced version (biomimetic friction), and PLA+ wheel configuration. Comparative analysis showed wheels provided most consistent linear progression.",
+        "✅ **Research Documentation**: Complete bachelor's thesis documentation including literature review, mathematical modeling, experimental methodology, and statistical analysis of results with performance comparisons.",
+        "✅ **Future Research Applications**: Thesis proposes ESP-NOW wireless control, swarm robotics applications, autonomous navigation using IMUs, and soft-body actuation for enhanced terrain adaptation."
       ],
       "references": [
         {
           "title": "Thesis PDF (HTW Berlin, 2025)",
           "url": "https://github.com/AmrEslim/snake_robot"
-        },
-        {
-          "title": "Central Pattern Generator – Wikipedia",
-          "url": "https://en.wikipedia.org/wiki/central_pattern_generator"
-        },
-        {
-          "title": "Kinovea (Motion Analysis Software)",
-          "url": "https://www.kinovea.org"
         }
       ]
     },
-    "dashboard": {
-      "title": "Real-Time Robotics Dashboard",
-      "subtitle": "Embedded Monitoring + Visualization",
-      "description": "A full-stack application integrating React and Flask to monitor embedded sensor data in real-time. Features a dynamic front-end for command dispatch, system diagnostics, and graphing historical sensor readings."
+    "cryptify": {
+      "title": "Cryptify - Secure Password Manager",
+      "subtitle": "Cross-Platform Security Application",
+      "description": "A comprehensive cross-platform password manager built with Rust backend and modern frontend technologies. Cryptify provides end-to-end encrypted password storage with zero-knowledge architecture, ensuring that the server never sees unencrypted user data. Features secure synchronization across web, desktop, and mobile platforms with AES-256-GCM encryption and Argon2id key derivation.",
+      "features": [
+        "✅ **Zero-Knowledge Architecture**: Complete end-to-end encryption where the server never sees plaintext passwords or sensitive data, ensuring user privacy and security.",
+        "✅ **Rust Backend with Actix-web**: High-performance, memory-safe backend built with Rust featuring JWT authentication, SQLx for type-safe database queries, and comprehensive API endpoints.",
+        "✅ **Modern Cryptography**: Implements AES-256-GCM for authenticated encryption and Argon2id for secure password-based key derivation, following current security best practices.",
+        "✅ **Cross-Platform Frontend**: React/TypeScript web application with Vite, Tailwind CSS, and modern development tools. Planned Tauri desktop and React Native mobile apps.",
+        "✅ **Secure Password Generation**: Cryptographically secure random password generator with customizable criteria including length, character sets, and exclusion rules.",
+        "✅ **Docker Containerization**: Complete containerized deployment ready for TrueNAS Scale with Docker Compose configuration for easy self-hosting.",
+        "✅ **Comprehensive Testing Strategy**: Test-driven development approach with contract tests, integration tests, and security validation following industry best practices.",
+        "✅ **Development Documentation**: Extensive technical specifications, API contracts, implementation plans, and user guides with clear setup instructions."
+      ]
     },
-    "mentoring": {
-      "title": "LGBTQIA+ Mentoring UX App",      "subtitle": "Hackathon Concept – Inclusive Design",
-      "description": "A mentoring platform prototype tailored for LGBTQIA+ teens. Focused on safety, onboarding simplicity, and privacy-aware community pairing. Developed through UX research, user interviews, and iterative prototyping."
+    "sidequester": {
+      "title": "SideQuester - IoT E-Compass",
+      "subtitle": "LoRa-based Friend Finder Device",
+      "description": "An innovative dual ESP32-based compass system designed for festivals and off-grid adventures where cellular networks fail. SideQuester uses GPS coordinates transmitted via LoRa radio technology to create a compass that always points toward your companion. Each device acts as both transmitter and receiver, providing real-time directional guidance with OLED display showing distance, direction, and connection status.",
+      "features": [
+        "✅ **Long-Range LoRa Communication**: Up to 3km range using LoRa radio technology (868MHz EU / 915MHz US) with proper frequency compliance and regional configuration support.",
+        "✅ **Precision GPS Navigation**: Integrated GPS module with Haversine formula calculations for accurate distance and bearing computation between devices, including compass calibration.",
+        "✅ **Real-Time Direction Display**: OLED screen showing intuitive compass interface with arrow indicators, distance measurements, and device status information.",
+        "✅ **ESP32-Based Architecture**: Dual ESP32 development boards with comprehensive sensor integration including HMC5883L digital compass and GPS modules.",
+        "✅ **Battery-Optimized Design**: Power management with deep sleep modes, battery voltage monitoring, and emergency SOS functionality for extended outdoor use.",
+        "✅ **Safety and Compliance**: Comprehensive documentation covering radio regulations, battery safety, environmental considerations, and emergency protocols.",
+        "✅ **Open Source Hardware**: Complete build documentation with component lists, wiring diagrams, software setup guides, and troubleshooting resources.",
+        "✅ **Community-Driven Development**: Active GitHub project with contribution guidelines, testing procedures, and collaborative development framework."
+      ]
+    },
+    "cv_portfolio": {
+      "title": "Interactive CV Portfolio",
+      "subtitle": "React-based Personal Website",
+      "description": "A responsive, interactive personal portfolio website built with React and modern web technologies. Features multilingual support (English/German), smooth animations, and optimized performance. The site showcases professional experience, technical skills, and projects with an engaging user interface. Hosted on GitHub Pages with automatic deployment and mobile-responsive design.",
+      "features": [
+        "✅ **React with Modern JavaScript**: Built using React 18 with functional components, hooks, and modern ES6+ JavaScript features for optimal performance and maintainability.",
+        "✅ **Responsive Design**: Mobile-first responsive design ensuring optimal viewing experience across desktop, tablet, and mobile devices with smooth transitions and animations.",
+        "✅ **Multilingual Support**: Complete internationalization (i18n) implementation supporting English and German languages with seamless language switching functionality.",
+        "✅ **Interactive Components**: Dynamic project showcase, animated skill bars, interactive timeline for experience, and smooth scrolling navigation with section highlighting.",
+        "✅ **Performance Optimized**: Lazy loading, optimized images, efficient component rendering, and fast loading times with modern build tools and optimization techniques.",
+        "✅ **GitHub Pages Deployment**: Automated CI/CD pipeline with GitHub Actions for seamless deployment, custom domain support, and version control integration.",
+        "✅ **SEO and Accessibility**: Proper meta tags, semantic HTML, ARIA labels, and accessibility features ensuring good search engine visibility and inclusive design.",
+        "✅ **Professional Presentation**: Clean, modern design showcasing technical skills, project portfolios, experience timeline, and contact information in an engaging format."
+      ]
+    },
+    "opencv_auto": {
+      "title": "OpenCV Auto Projekt",
+      "subtitle": "Computer Vision Application",
+      "description": "A computer vision application built with Python and OpenCV for automated object detection and tracking. The project demonstrates practical applications of computer vision algorithms including real-time object detection, motion tracking, and image processing techniques. Designed for educational purposes and practical implementation of computer vision concepts in automotive or surveillance contexts.",
+      "features": [
+        "✅ **Real-Time Object Detection**: Implementation of computer vision algorithms for detecting and classifying objects in live video streams using OpenCV libraries.",
+        "✅ **Motion Tracking**: Advanced tracking algorithms for following moving objects across video frames with persistence and accuracy measurements.",
+        "✅ **Python-Based Implementation**: Clean, modular Python codebase utilizing OpenCV, NumPy, and other computer vision libraries for image processing and analysis.",
+        "✅ **Multiple Detection Methods**: Support for various object detection techniques including contour detection, template matching, and feature-based detection algorithms.",
+        "✅ **Educational Focus**: Well-documented code with clear examples and explanations suitable for learning computer vision concepts and practical implementation.",
+        "✅ **Configurable Parameters**: Adjustable detection sensitivity, tracking parameters, and processing options for different use cases and environments.",
+        "✅ **Performance Optimization**: Efficient algorithms and processing techniques for real-time performance with minimal computational overhead.",
+        "✅ **Practical Applications**: Designed for potential automotive applications, surveillance systems, or general object detection and tracking scenarios."
+      ]
     }
   }
 }

@@ -37,7 +37,6 @@ const Projects = () => {
       }
     };
   }, []);
-
   const projectsData = [
     {
       id: 1,
@@ -56,19 +55,35 @@ const Projects = () => {
     },
     {
       id: 2,
-      ...t('projects.dashboard'),
-      technologies: ["React", "Flask", "Bootstrap", "HTML/CSS", "JavaScript"],
-      visualType: "web-dashboard",
-      images: [process.env.PUBLIC_URL + '/images/dashboard.jpg'],
-      demoLink: "https://github.com/AmrEslim/"
+      ...t('projects.cryptify'),
+      technologies: ["Rust", "Actix-web", "Ring Cryptography", "SQLite", "React", "TypeScript", "Docker", "AES-256-GCM", "Argon2id"],
+      visualType: "security-app",
+      images: [process.env.PUBLIC_URL + '/images/Cryptify-logo.png'],
+      demoLink: "https://github.com/AmrEslim/Cryptify"
     },
     {
       id: 3,
-      ...t('projects.mentoring'),
-      technologies: ["Figma", "UX Design", "React", "Prototyping", "Accessibility"],
-      visualType: "mentoring-app",
-      images: [process.env.PUBLIC_URL + '/images/mentoring-app.jpg'],
-      demoLink: "https://github.com/AmrEslim/"
+      ...t('projects.sidequester'),
+      technologies: ["ESP32", "Arduino", "LoRa", "GPS", "HMC5883L Compass", "OLED Display", "C++", "TinyGPS++"],
+      visualType: "iot-device",
+      images: [process.env.PUBLIC_URL + '/images/SideQuester.png'],
+      demoLink: "https://github.com/AmrEslim/SideQuester"
+    },
+    {
+      id: 4,
+      ...t('projects.cv_portfolio'),
+      technologies: ["React", "JavaScript", "HTML/CSS", "GitHub Pages", "Responsive Design", "i18n"],
+      visualType: "web-app",
+      images: [process.env.PUBLIC_URL + '/images/Portfolio.png'],
+      demoLink: "https://github.com/AmrEslim/CV"
+    },
+    {
+      id: 5,
+      ...t('projects.opencv_auto'),
+      technologies: ["Python", "OpenCV", "Computer Vision", "Object Detection", "Tracking Algorithms"],
+      visualType: "computer-vision",
+      images: [process.env.PUBLIC_URL + '/images/OpenCV.png'],
+      demoLink: "https://github.com/AmrEslim/OpenCV-car"
     }
   ];
 

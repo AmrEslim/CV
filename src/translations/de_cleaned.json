@@ -41,6 +41,7 @@
         "title": "Programmiersprachen",
         "skills": {
           "cpp": "C/C++",
+          "rust": "Rust",
           "python": "Python",
           "sql": "SQL"
         }
@@ -224,16 +225,67 @@
           "title": "Kinovea (Bewegungsanalyse-Software)",
           "url": "https://www.kinovea.org"
         }
-      ]
-    },
+      ]    },
     "dashboard": {
       "title": "Echtzeit-Robotik-Dashboard",
       "subtitle": "Embedded-Überwachung + Visualisierung",
-      "description": "Eine Full-Stack-Anwendung, die React und Flask integriert, um Embedded-Sensordaten in Echtzeit zu überwachen. Bietet ein dynamisches Frontend für Befehlsversand, Systemdiagnose und Graphen historischer Sensorwerte."
+      "description": "Eine Full-Stack-Anwendung, die React und Flask integriert, um Embedded-Sensordaten in Echtzeit zu überwachen. Bietet ein dynamisches Frontend für Befehlsversand, Systemdiagnose und Graphen historischer Sensorwerte mit Echtzeit-WebSocket-Kommunikation.",
+      "features": [
+        "✅ **Echtzeitdatenvisualisierung**: Live-Diagramme mit Chart.js für Sensordatenüberwachung",
+        "✅ **Befehlsschnittstelle**: Webbasiertes Kontrollpanel für Embedded-Systembefehle",
+        "✅ **Datenprotokollierung**: Historische Datenspeicherung mit Filterfunktionen",
+        "✅ **Systemdiagnose**: Gesundheitsüberwachung und Fehlererkennung für verbundene Geräte",
+        "✅ **Responsive Design**: Bootstrap-basierte UI für Desktop und mobile Geräte"
+      ]
+    },
+    "embedded_linux": {
+      "title": "Maßgeschneidertes Embedded Linux System",
+      "subtitle": "Industrielles IoT Gateway",
+      "description": "Eine maßgeschneiderte Linux-Distribution für industrielle IoT-Anwendungen mit Buildroot und Yocto. Das System bietet eine sichere, minimale Plattform für Edge Computing mit Echtzeitdatenverarbeitung und industrieller Protokollunterstützung.",
+      "features": [
+        "✅ **Custom Linux Build**: Minimale Linux-Distribution optimiert für Embedded-Hardware",
+        "✅ **Industrielle Protokolle**: Unterstützung für Modbus, CAN-Bus und Ethernet/IP",
+        "✅ **Containerisierte Services**: Docker-basierte Anwendungsbereitstellung",
+        "✅ **Sicherheitsfeatures**: Secure Boot, verschlüsselte Speicherung und Netzwerksicherheit",
+        "✅ **Remote Management**: OTA-Updates und Fernüberwachung"
+      ]
+    },
+    "iot_sensor": {
+      "title": "Drahtloses Sensornetzwerk",
+      "subtitle": "Umweltüberwachungssystem",
+      "description": "Ein verteiltes IoT-Sensornetzwerk für Umweltüberwachung mit ESP32-Knoten. Das System erfasst Temperatur, Luftfeuchtigkeit, Luftqualität und andere Umweltdaten und überträgt sie via MQTT an ein zentrales Dashboard.",
+      "features": [
+        "✅ **Mesh-Netzwerk**: ESP-NOW basiertes Mesh für erweiterte Reichweite",
+        "✅ **Energiesparendes Design**: Deep-Sleep-Modi für Batteriebetrieb",
+        "✅ **Daten-Pipeline**: MQTT → Node.js → InfluxDB → Grafana Visualisierung",
+        "✅ **Custom PCB**: Selbst entwickelte Sensorplatinen mit Umweltsensoren",
+        "✅ **Alarmsystem**: Konfigurierbare Schwellwerte mit E-Mail/SMS-Benachrichtigungen"
+      ]
+    },
+    "robot_arm": {
+      "title": "6-DOF Roboterarm-Controller",
+      "subtitle": "Computer Vision + Inverse Kinematik",
+      "description": "Ein sechsachsiger Roboterarm mit Computer-Vision-Fähigkeiten für Objekterkennung und -manipulation. Implementiert inverse Kinematik-Algorithmen für präzise Positionierung und integriert OpenCV für visuelles Feedback.",
+      "features": [
+        "✅ **Inverse Kinematik**: Mathematisches Modell für präzise Endeffektorpositionierung",
+        "✅ **Computer Vision**: OpenCV-Integration für Objekterkennung und -verfolgung",
+        "✅ **Servo-Kontrolle**: Hochpräzise Servo-Steuerung mit Positionsrückmeldung",
+        "✅ **Pfadplanung**: Glatte Trajektoriengenerierung für kollisionsfreie Bewegung",
+        "✅ **Web-Interface**: Echtzeitsteuerung über Webbrowser"
+      ]
     },
     "mentoring": {
       "title": "LGBTQIA+ Mentoring UX App",
       "subtitle": "Hackathon Konzept – Inklusives Design",
+      "description": "Ein Mentoring-Plattform-Prototyp für LGBTQIA+ Jugendliche. Fokussiert auf Sicherheit, einfaches Onboarding und datenschutzbewusste Community-Kopplung. Entwickelt durch UX-Forschung und iterative Prototypenerstellung.",
+      "features": [
+        "✅ **Nutzerzentriertes Design**: Umfassende Nutzerforschung mit LGBTQIA+ Community-Mitgliedern",
+        "✅ **Privacy-First**: Erweiterte Datenschutzkontrollen und sichere Kommunikation",
+        "✅ **Inklusive Benutzeroberfläche**: Barrierefreiheitsfeatures und inklusive Designprinzipien",
+        "✅ **Sicherheitsfeatures**: Melde-Mechanismen und Community-Moderation",
+        "✅ **Prototyp-Testing**: Iterative Tests mit Zielnutzergruppen"
+      ]
+    }
       "description": "Ein Mentoring-Plattform-Prototyp, maßgeschneidert für LGBTQIA+ Jugendliche. Fokussiert auf Sicherheit, einfaches Onboarding und datenschutzbewusstes Community-Matching. Entwickelt durch UX-Research, Nutzerinterviews und iteratives Prototyping."
     }
   }

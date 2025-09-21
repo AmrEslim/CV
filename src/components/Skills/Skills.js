@@ -61,6 +61,7 @@ const Skills = () => {
           <div className="chip">
             <h3 className="chip-title">{t('skills.categories.programming.title')}</h3>
             <SkillMeter name={t('skills.categories.programming.skills.cpp')} percentage={90} />
+            <SkillMeter name={t('skills.categories.programming.skills.rust')} percentage={70} />
             <SkillMeter name={t('skills.categories.programming.skills.python')} percentage={85} />
             <SkillMeter name={t('skills.categories.programming.skills.sql')} percentage={75} />
           </div>

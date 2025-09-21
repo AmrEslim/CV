@@ -39,6 +39,7 @@
         "title": "Programmiersprachen",
         "skills": {
           "cpp": "C/C++",
+          "rust": "Rust",
           "python": "Python",
           "sql": "SQL"
         }
@@ -193,42 +194,84 @@
     "snake_robot": {
       "title": "Neurobiologisch inspirierter Schlangen-Roboter",
       "subtitle": "Bachelor-Arbeit – HTW Berlin (2025)",
-      "description": "Dieses Projekt präsentiert den Entwurf, die Implementierung und das Testen eines modularen schlangenähnlichen Roboters, inspiriert von der biologischen Schlangenbewegung. Er reproduziert laterale Undulation und Seitenwinden mithilfe eines Central Pattern Generator (CPG) Steuermodells, das vollständig von Grund auf für die Thesis 'Neurobiologisch inspirierte Steuerung eines Roboters' entwickelt wurde. Der Roboter integriert Maschinenbau, Embedded-Programmierung und Bewegungsneurowissenschaft in ein funktionales bio-inspiriertes System.",
+      "description": "Bachelor-Thesis-Projekt zur Entwicklung, Implementierung und experimentellen Bewertung eines modularen schlangenähnlichen Roboters, inspiriert von der biologischen Schlangenbewegung. Entwickelt ein vollständiges biomimetisches System, das laterale Undulation und Seitenwinden mittels Central Pattern Generator (CPG) Steuerungsalgorithmen reproduziert. Das Projekt integriert erfolgreich Maschinenbau, Embedded-Systems-Programmierung und Neurowissenschaften in eine funktionale bio-inspirierte Robotikplattform.",
       "features": [
-        "✅ **Mechanisches Design**: In Onshape CAD entwickelt und 3D-gedruckt mit TPU-Reibungsschuppen und PLA+-Rädern. Alternierende Servo-Anordnung (horizontal/vertikal) für komplexe räumliche Bewegungen.",
-        "✅ **Steuerungssystem**: CPG-Steuerung basierend auf einem phasengekoppelten Oszillatormodell. Implementiert zwei Gangarten – laterale Undulation und Seitenwinden – angetrieben durch sinusförmige Positionsaktualisierungen bei 50Hz.",
-        "✅ **Mikrocontroller & Stromversorgung**: ESP32 für echtzeitfähige webbasierte Steuerung im WLAN-AP-Modus. Jedes der 10 Servo-Segmente enthält einen lokalen Buck-Converter mit kapazitiver Filterung zur Rauschunterdrückung.",
-        "✅ **Web-Interface**: Entwickelt in React.js und über WLAN vom ESP32 bereitgestellt. Ermöglicht Live-Einstellung von Bewegungsparametern (Amplitude, Frequenz, Phasenverschiebung) und Umschalten der Bewegungsrichtung.",
-        "✅ **Tests & Auswertung**: Experimentelle Versuche auf Laminatboden durchgeführt. Mehrere Konfigurationen (Basis, TPU-Schuppen, PLA+-Räder) wurden mittels Videotracking und Stromsensoren verglichen.",
-        "✅ **Bewegungsverfolgung**: Kinovea zur Verfolgung der Kopf-/Schwanzbewegung verwendet. Daten in CSV exportiert und in React-basierten Plots visualisiert, zeigt Leistungsunterschiede zwischen Konfigurationen und Gangarten.",
-        "✅ **Energieprofil**: Stromaufnahme mit ACS712-Sensor gemessen. Seitenwinden verbrauchte ~50% mehr Strom als laterale Undulation, wobei PLA+-Räder die konsistenteste Leistung boten.",
-        "✅ **Robuste Steuerungsarchitektur**: Verwendet mathematisches Oszillatormodell (θk = A·cos(2πft + φk)) für jeden Servo. Oszillator-Phasenbeziehungen ermöglichen Richtungssteuerung und Bewegungssymmetrie.",
-        "✅ **Design-Evolution**: Ersetzte eine frühere STM32-Version durch ESP32 für bessere Konnektivität und Echtzeit-Tuning. Stromverteilung wurde für Servo-Isolation neu gestaltet und mechanische Toleranzen iterativ verbessert.",
-        "✅ **Zukünftige Arbeit**: Die Thesis schlägt Verbesserungen wie ESP-NOW-basierte Schwarmzusammenarbeit, autonome Richtungssteuerung mittels IMUs und flexible Weichkörper-Aktuierung zur Terrainanpassung vor."
+        "✅ **Modulares Mechanisches Design**: CAD-entworfen in Onshape und 3D-gedruckt mit PETG-, PLA+- und TPU-Materialien. Verfügt über 10 Servomotoren in alternierender horizontaler/vertikaler Konfiguration (7H/3V) für komplexe undulatorische Bewegungsmuster.",
+        "✅ **CPG-Steuerungsimplementierung**: Implementierte mathematische Central Pattern Generator Algorithmen auf ESP32 Mikrocontroller mit Arduino IDE. Generierte synchronisierte Sinuswellen mit konfigurierbaren Parametern (Amplitude: 10-45°, Frequenz: 0,1-2,0 Hz, Phasenversatz: 30-90°) für biomimetische Fortbewegung.",
+        "✅ **Duale Fortbewegungsmuster**: Erfolgreich implementierte sowohl laterale Undulation (schlangenähnliche horizontale Wellen) als auch Seitenwinden (3D-Wüstenstil-Bewegung) mit Echtzeitumschaltfunktion über Web-Interface.",
+        "✅ **ESP32-basiertes Steuerungssystem**: Vollständiges Embedded-System mit WiFi-Zugriffspunkt, Webserver und Echtzeit-Steuerungsschnittstelle. Unterstützt Remote-Parametereinstellung, Bewegungsmusterauswahl und Live-Systemüberwachung.",
+        "✅ **Stromverwaltung & Überwachung**: Integrierter ACS712-Stromsensor für Echtzeit-Stromverbrauchsanalyse. Entdeckte, dass Seitenwinden ~50% mehr Strom als laterale Undulation verbraucht, mit detaillierter Energieprofilierung aller Konfigurationen.",
+        "✅ **Experimentelle Validierung**: Umfassende Tests mit Kinovea-Bewegungsverfolgungssoftware in strukturierter Gitterumgebung. Quantitative Analyse von Bewegungsmustern, Geschwindigkeitsprofilen und Energieverbrauch verschiedener mechanischer Konfigurationen.",
+        "✅ **Drei Testkonfigurationen**: Basis-Roboter, TPU-Schuppen-verstärkte Version (biomimetische Reibung) und PLA+-Räderkonfiguration. Vergleichsanalyse zeigte, dass Räder die konsistenteste lineare Fortbewegung boten.",
+        "✅ **Forschungsdokumentation**: Vollständige Bachelor-Thesis-Dokumentation inklusive Literaturübersicht, mathematischer Modellierung, experimenteller Methodik und statistischer Analyse der Ergebnisse mit Leistungsvergleichen.",
+        "✅ **Zukünftige Forschungsanwendungen**: Thesis schlägt ESP-NOW drahtlose Steuerung, Schwarmrobotik-Anwendungen, autonome Navigation mit IMUs und Weichkörper-Aktuierung für verbesserte Geländeanpassung vor."
       ],
       "references": [
         {
           "title": "Thesis PDF (HTW Berlin, 2025)",
           "url": "https://github.com/AmrEslim/snake_robot"
-        },
-        {
-          "title": "Central Pattern Generator – Wikipedia",
-          "url": "https://en.wikipedia.org/wiki/central_pattern_generator"
-        },
-        {
-          "title": "Kinovea (Bewegungsanalyse-Software)",
-          "url": "https://www.kinovea.org"
         }
       ]
     },
-    "dashboard": {
-      "title": "Echtzeit-Robotik-Dashboard",
-      "subtitle": "Embedded-Überwachung + Visualisierung",
-      "description": "Eine Full-Stack-Anwendung, die React und Flask integriert, um Embedded-Sensordaten in Echtzeit zu überwachen. Bietet ein dynamisches Frontend für Befehlsversand, Systemdiagnose und Graphen historischer Sensorwerte."
+    "cryptify": {
+      "title": "Cryptify - Sicherer Passwort-Manager",
+      "subtitle": "Plattformübergreifende Sicherheitsanwendung",
+      "description": "Ein umfassender plattformübergreifender Passwort-Manager mit Rust-Backend und modernen Frontend-Technologien. Cryptify bietet Ende-zu-Ende-verschlüsselte Passwort-Speicherung mit Zero-Knowledge-Architektur, wodurch sichergestellt wird, dass der Server niemals unverschlüsselte Benutzerdaten sieht. Bietet sichere Synchronisation über Web-, Desktop- und Mobile-Plattformen mit AES-256-GCM-Verschlüsselung und Argon2id-Schlüsselableitung.",
+      "features": [
+        "✅ **Zero-Knowledge-Architektur**: Vollständige Ende-zu-Ende-Verschlüsselung, bei der der Server niemals Klartext-Passwörter oder sensible Daten sieht, wodurch Benutzerprivatsphäre und Sicherheit gewährleistet werden.",
+        "✅ **Rust-Backend mit Actix-web**: Hochperformantes, speichersicheres Backend mit Rust mit JWT-Authentifizierung, SQLx für typsichere Datenbankabfragen und umfassenden API-Endpunkten.",
+        "✅ **Moderne Kryptographie**: Implementiert AES-256-GCM für authentifizierte Verschlüsselung und Argon2id für sichere passwortbasierte Schlüsselableitung nach aktuellen Sicherheitsbest-Practices.",
+        "✅ **Plattformübergreifendes Frontend**: React/TypeScript-Webanwendung mit Vite, Tailwind CSS und modernen Entwicklungstools. Geplante Tauri-Desktop- und React Native-Mobile-Apps.",
+        "✅ **Sichere Passwort-Generierung**: Kryptographisch sicherer Zufalls-Passwort-Generator mit anpassbaren Kriterien inklusive Länge, Zeichensätzen und Ausschlussregeln.",
+        "✅ **Docker-Containerisierung**: Vollständige containerisierte Bereitstellung bereit für TrueNAS Scale mit Docker Compose-Konfiguration für einfaches Self-Hosting.",
+        "✅ **Umfassende Teststrategie**: Test-driven Development-Ansatz mit Contract-Tests, Integrationstests und Sicherheitsvalidierung nach Industriebest-Practices.",
+        "✅ **Entwicklungsdokumentation**: Umfangreiche technische Spezifikationen, API-Verträge, Implementierungspläne und Benutzerhandbücher mit klaren Setup-Anleitungen."
+      ]
     },
-    "mentoring": {
-      "title": "LGBTQIA+ Mentoring UX App",
-      "subtitle": "Hackathon Konzept – Inklusives Design",      "description": "Ein Mentoring-Plattform-Prototyp, maßgeschneidert für LGBTQIA+ Jugendliche. Fokussiert auf Sicherheit, einfaches Onboarding und datenschutzbewusstes Community-Matching. Entwickelt durch UX-Research, Nutzerinterviews und iteratives Prototyping."
+    "sidequester": {
+      "title": "SideQuester - IoT E-Kompass",
+      "subtitle": "LoRa-basiertes Freunde-Finder-Gerät",
+      "description": "Ein innovatives duales ESP32-basiertes Kompass-System für Festivals und Off-Grid-Abenteuer, wo Mobilfunknetze versagen. SideQuester nutzt GPS-Koordinaten, die über LoRa-Funktechnologie übertragen werden, um einen Kompass zu schaffen, der immer zu Ihrem Begleiter zeigt. Jedes Gerät fungiert sowohl als Sender als auch als Empfänger und bietet Echtzeit-Richtungsführung mit OLED-Display für Entfernung, Richtung und Verbindungsstatus.",
+      "features": [
+        "✅ **Langstrecken-LoRa-Kommunikation**: Bis zu 3km Reichweite mit LoRa-Funktechnologie (868MHz EU / 915MHz US) mit ordnungsgemäßer Frequenzkonformität und regionaler Konfigurationsunterstützung.",
+        "✅ **Präzisions-GPS-Navigation**: Integriertes GPS-Modul mit Haversine-Formelberechnungen für genaue Entfernungs- und Peilungsberechnung zwischen Geräten, einschließlich Kompass-Kalibrierung.",
+        "✅ **Echtzeit-Richtungsanzeige**: OLED-Bildschirm mit intuitiver Kompass-Schnittstelle mit Pfeil-Indikatoren, Entfernungsmessungen und Gerätestatus-Informationen.",
+        "✅ **ESP32-basierte Architektur**: Duale ESP32-Entwicklungsplatinen mit umfassender Sensorintegration einschließlich HMC5883L digitaler Kompass und GPS-Module.",
+        "✅ **Batterie-optimiertes Design**: Stromverwaltung mit Deep-Sleep-Modi, Batteriespannungsüberwachung und Notfall-SOS-Funktionalität für erweiterte Outdoor-Nutzung.",
+        "✅ **Sicherheit und Konformität**: Umfassende Dokumentation zu Funkvorschriften, Batteriesicherheit, Umweltaspekten und Notfallprotokollen.",
+        "✅ **Open Source Hardware**: Vollständige Aufbau-Dokumentation mit Komponentenlisten, Verdrahtungsdiagrammen, Software-Setup-Anleitungen und Fehlerbehebungsressourcen.",
+        "✅ **Community-getriebene Entwicklung**: Aktives GitHub-Projekt mit Beitragsrichtlinien, Testverfahren und kollaborativem Entwicklungsrahmen."
+      ]
+    },
+    "cv_portfolio": {
+      "title": "Interaktive CV-Portfolio",
+      "subtitle": "React-basierte persönliche Website",
+      "description": "Eine responsive, interaktive persönliche Portfolio-Website mit React und modernen Web-Technologien. Bietet mehrsprachige Unterstützung (Englisch/Deutsch), sanfte Animationen und optimierte Performance. Die Website präsentiert berufliche Erfahrungen, technische Fähigkeiten und Projekte mit einer ansprechenden Benutzeroberfläche. Gehostet auf GitHub Pages mit automatischer Bereitstellung und mobilfreundlichem Design.",
+      "features": [
+        "✅ **React mit modernem JavaScript**: Entwickelt mit React 18 mit funktionalen Komponenten, Hooks und modernen ES6+-JavaScript-Features für optimale Performance und Wartbarkeit.",
+        "✅ **Responsive Design**: Mobile-first responsives Design für optimale Betrachtungserfahrung auf Desktop-, Tablet- und Mobilgeräten mit sanften Übergängen und Animationen.",
+        "✅ **Mehrsprachige Unterstützung**: Vollständige Internationalisierung (i18n) Implementierung mit Unterstützung für Englisch und Deutsch mit nahtloser Sprachumschaltfunktion.",
+        "✅ **Interaktive Komponenten**: Dynamische Projektpräsentation, animierte Skill-Balken, interaktive Zeitleiste für Erfahrungen und sanftes Scrolling-Navigation mit Abschnittshervorhebung.",
+        "✅ **Performance-optimiert**: Lazy Loading, optimierte Bilder, effiziente Komponenten-Rendering und schnelle Ladezeiten mit modernen Build-Tools und Optimierungstechniken.",
+        "✅ **GitHub Pages Bereitstellung**: Automatisierte CI/CD-Pipeline mit GitHub Actions für nahtlose Bereitstellung, benutzerdefinierte Domain-Unterstützung und Versionskontrollintegration.",
+        "✅ **SEO und Barrierefreiheit**: Ordnungsgemäße Meta-Tags, semantisches HTML, ARIA-Labels und Barrierefreiheits-Features für gute Suchmaschinenvisibilität und inklusives Design.",
+        "✅ **Professionelle Präsentation**: Sauberes, modernes Design zur Präsentation technischer Fähigkeiten, Projektportfolios, Erfahrungszeitleiste und Kontaktinformationen in ansprechendem Format."
+      ]
+    },
+    "opencv_auto": {
+      "title": "OpenCV Auto Projekt",
+      "subtitle": "Computer Vision Anwendung",
+      "description": "Eine Computer Vision Anwendung mit Python und OpenCV für automatisierte Objekterkennung und -verfolgung. Das Projekt demonstriert praktische Anwendungen von Computer Vision Algorithmen einschließlich Echtzeit-Objekterkennung, Bewegungsverfolgung und Bildverarbeitungstechniken. Entwickelt für Bildungszwecke und praktische Implementierung von Computer Vision Konzepten in Automobil- oder Überwachungskontexten.",
+      "features": [
+        "✅ **Echtzeit-Objekterkennung**: Implementierung von Computer Vision Algorithmen zur Erkennung und Klassifizierung von Objekten in Live-Videostreams mit OpenCV-Bibliotheken.",
+        "✅ **Bewegungsverfolgung**: Erweiterte Tracking-Algorithmen zum Verfolgen sich bewegender Objekte über Videoframes mit Persistenz- und Genauigkeitsmessungen.",
+        "✅ **Python-basierte Implementierung**: Saubere, modulare Python-Codebasis mit OpenCV, NumPy und anderen Computer Vision Bibliotheken für Bildverarbeitung und -analyse.",
+        "✅ **Mehrere Erkennungsmethoden**: Unterstützung für verschiedene Objekterkennungstechniken einschließlich Konturerkennung, Template-Matching und Feature-basierte Erkennungsalgorithmen.",
+        "✅ **Bildungsfokus**: Gut dokumentierter Code mit klaren Beispielen und Erklärungen geeignet zum Erlernen von Computer Vision Konzepten und praktischer Implementierung.",
+        "✅ **Konfigurierbare Parameter**: Einstellbare Erkennungsempfindlichkeit, Tracking-Parameter und Verarbeitungsoptionen für verschiedene Anwendungsfälle und Umgebungen.",
+        "✅ **Performance-Optimierung**: Effiziente Algorithmen und Verarbeitungstechniken für Echtzeit-Performance mit minimalem rechnerischem Overhead.",
+        "✅ **Praktische Anwendungen**: Entwickelt für potenzielle Automobilanwendungen, Überwachungssysteme oder allgemeine Objekterkennungs- und Verfolgungsszenarien."
+      ]
     }
   }
 }

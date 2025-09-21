@@ -1,17 +1,21 @@
 .robot-project {
-  background-color: var(--terminal-bg);
-  border-radius: 10px;
-  border: 1px solid var(--robot-primary);
-  transition: all 0.3s;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+  background: linear-gradient(145deg, var(--terminal-bg), rgba(0, 136, 255, 0.02));
+  border-radius: 16px;
+  border: 1px solid rgba(0, 136, 255, 0.2);
+  transition: all 0.3s ease-out;
+  box-shadow: 
+    0 4px 20px rgba(0, 0, 0, 0.15),
+    0 1px 3px rgba(0, 136, 255, 0.1);
   position: relative;
-  transform: translateY(50px);
+  transform: translateY(30px);
   opacity: 0;
-  min-height: 300px;
+  min-height: 420px;
   cursor: pointer;
   display: flex;
   flex-direction: column;
-  padding: 1.5rem;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+  margin: 12px;
 }
 
 .robot-project.visible {
@@ -19,70 +23,229 @@
   opacity: 1;
 }
 
+.robot-project.visible:hover {
+  transform: translateY(-2px);
+}
+
 .robot-project:hover {
-  transform: scale(1.03);
-  box-shadow: 0 15px 30px rgba(0, 136, 255, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 
+    0 8px 25px rgba(0, 136, 255, 0.25),
+    0 4px 15px rgba(0, 0, 0, 0.2);
+  border-color: var(--robot-primary);
+}
+
+.robot-project:hover .project-overlay {
+  opacity: 1;
+}
+
+.project-header {
+  position: relative;
+  width: 100%;
+  height: 200px;
 }
 
 .project-image {
   width: 100%;
-  height: 200px;
-  margin-bottom: 1rem;
-  border-radius: 8px;
+  height: 100%;
+  border-radius: 12px 12px 0 0;
   overflow: hidden;
+  position: relative;
+  background: linear-gradient(135deg, rgba(0, 136, 255, 0.1), rgba(0, 255, 136, 0.05));
+}
+
+.project-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 136, 255, 0.8),
+    rgba(0, 255, 136, 0.6)
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  backdrop-filter: blur(4px);
+  pointer-events: none;
+}
+
+.click-hint {
+  color: white;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  letter-spacing: 0.5px;
 }
 
 .project-image .carousel-container {
   height: 100%;
 }
 
+.project-content {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 1rem;
+}
+
 .project-details {
   display: flex;
   flex-direction: column;
-  align-items: center;
   gap: 1rem;
-  text-align: center;
+  flex: 1;
 }
 
 .project-title {
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   color: var(--robot-primary);
-  font-weight: bold;
+  font-weight: 700;
   margin: 0;
+  line-height: 1.2;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
-.project-links {
+.project-subtitle {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0;
+  font-style: italic;
+  line-height: 1.4;
+}
+
+.tech-badges {
   display: flex;
-  gap: 1rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.tech-badge {
+  background: linear-gradient(135deg, rgba(0, 136, 255, 0.2), rgba(0, 255, 136, 0.1));
+  color: var(--robot-primary);
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border: 1px solid rgba(0, 136, 255, 0.3);
+  transition: all 0.3s ease;
+  letter-spacing: 0.3px;
+}
+
+.tech-badge:hover {
+  background: linear-gradient(135deg, rgba(0, 136, 255, 0.3), rgba(0, 255, 136, 0.2));
+  transform: translateY(-1px);
+}
+
+.tech-badge.more-tech {
+  background: linear-gradient(135deg, rgba(255, 136, 0, 0.2), rgba(255, 0, 136, 0.1));
+  border-color: rgba(255, 136, 0, 0.3);
+  color: #ff8800;
+}
+
+.project-actions {
+  display: flex;
+  gap: 0.8rem;
   margin-top: auto;
+  padding-top: 1rem;
 }
 
 .project-link {
-  padding: 0.6rem 1.2rem;
-  background: var(--chip-color);
-  color: var(--robot-primary);
+  padding: 0.8rem 1.5rem;
   text-decoration: none;
-  border-radius: 5px;
-  border: 1px solid var(--robot-primary);
-  transition: all 0.3s;
-  font-weight: bold;
+  border-radius: 25px;
+  border: none;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  font-weight: 600;
   cursor: pointer;
+  font-size: 0.9rem;
+  letter-spacing: 0.3px;
+  position: relative;
+  overflow: hidden;
+  flex: 1;
+  text-align: center;
 }
 
-.project-link:hover {
-  background: var(--robot-primary);
-  color: var(--terminal-bg);
+.project-link::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.project-link:hover::before {
+  left: 100%;
+}
+
+.project-link.primary {
+  background: linear-gradient(135deg, var(--robot-primary), #0066cc);
+  color: white;
+  box-shadow: 0 4px 15px rgba(0, 136, 255, 0.3);
+}
+
+.project-link.primary:hover {
+  background: linear-gradient(135deg, #0066cc, var(--robot-primary));
   transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 136, 255, 0.4);
+}
+
+.project-link.secondary {
+  background: rgba(0, 136, 255, 0.1);
+  color: var(--robot-primary);
+  border: 1px solid rgba(0, 136, 255, 0.3);
+}
+
+.project-link.secondary:hover {
+  background: rgba(0, 136, 255, 0.2);
+  transform: translateY(-2px);
+  border-color: var(--robot-primary);
+  box-shadow: 0 4px 15px rgba(0, 136, 255, 0.2);
 }
 
 @media (max-width: 768px) {
   .robot-project {
-    padding: 1rem;
-    min-height: 250px;
+    min-height: 380px;
+    margin: 8px;
   }
 
-  .project-image {
-    height: 150px;
+  .project-header {
+    height: 180px;
+  }
+
+  .project-content {
+    padding: 1.2rem;
+  }
+
+  .project-title {
+    font-size: 1.2rem;
+  }
+
+  .tech-badges {
+    gap: 0.4rem;
+  }
+
+  .tech-badge {
+    padding: 0.25rem 0.6rem;
+    font-size: 0.7rem;
+  }
+
+  .project-actions {
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .project-link {
+    padding: 0.7rem 1.2rem;
+    font-size: 0.85rem;
   }
 
   .carousel-button {
@@ -98,5 +261,36 @@
   .carousel-dot {
     width: 8px;
     height: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .robot-project {
+    min-height: 360px;
+    margin: 8px;
+  }
+
+  .project-header {
+    height: 160px;
+  }
+
+  .project-content {
+    padding: 1rem;
+  }
+
+  .project-title {
+    font-size: 1.1rem;
+  }
+
+  .project-subtitle {
+    font-size: 0.9rem;
+  }
+
+  .tech-badges {
+    justify-content: center;
+  }
+
+  .click-hint {
+    font-size: 0.8rem;
   }
 }
