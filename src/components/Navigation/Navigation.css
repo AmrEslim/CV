@@ -248,6 +248,33 @@
   }
 }
 
+/* CV Download Button Styles */
+.cv-download-nav {
+  position: relative;
+}
+
+.cv-download-link {
+  background: linear-gradient(45deg, #ff6b35, #f7931e) !important;
+  border: 2px solid #ff6b35 !important;
+  color: white !important;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  display: inline-block;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.cv-download-link:hover {
+  background: linear-gradient(45deg, #f7931e, #ff6b35) !important;
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 5px 15px rgba(255, 107, 53, 0.4);
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+}
+
 @keyframes glitch {
   0% {
     transform: translate(0);

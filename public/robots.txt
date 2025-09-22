@@ -1,3 +1,26 @@
 User-agent: *
 Allow: /
+
+# Specific permissions for search engines
+User-agent: Googlebot
+Allow: /
+Allow: /cv/
+
+User-agent: Bingbot
+Allow: /
+Allow: /cv/
+
+# Disallow crawling of build artifacts and source maps
+Disallow: /static/js/*.map
+Disallow: /static/css/*.map
+
+# Allow crawling of important resources
+Allow: /images/
+Allow: /manifest.json
+Allow: /favicon.ico
+
+# Sitemap location
 Sitemap: https://amreslim.de/sitemap.xml
+
+# Crawl-delay (be nice to servers)
+Crawl-delay: 1

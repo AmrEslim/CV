@@ -14,12 +14,16 @@ import CircuitBackground from './components/CircuitBackground/CircuitBackground'
 import CustomCursor from './components/CustomCursor/CustomCursor';
 import LanguageSwitcher from './components/LanguageSwitcher/LanguageSwitcher';
 import LoadingPage from './components/LoadingPage/LoadingPage';
+import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary';
 import { LanguageProvider } from './context/LanguageContext';
+import usePerformanceOptimization from './hooks/usePerformanceOptimization';
 import './App.css';
 
 function App() {
-  const [menuOpen, setMenuOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+  
+  // Initialize performance optimizations
+  usePerformanceOptimization();
 
   useEffect(() => {
     // Initialize intersection observer for animations
@@ -67,7 +71,9 @@ function App() {
   if (isLoading) {
     return (
       <LanguageProvider>
-        <LoadingPage onLoadingComplete={handleLoadingComplete} />
+        <ErrorBoundary>
+          <LoadingPage onLoadingComplete={handleLoadingComplete} />
+        </ErrorBoundary>
       </LanguageProvider>
     );
   }
@@ -76,23 +82,43 @@ function App() {
     <LanguageProvider>
       <Router basename={process.env.PUBLIC_URL}>
         <div className="App">
-          <CustomCursor />
-          <CircuitBackground />
-          <LanguageSwitcher />        
-          <Navigation onMenuOpenChange={(isOpen) => setMenuOpen(isOpen)} />
+          <ErrorBoundary>
+            <CustomCursor />
+            <CircuitBackground />
+            <LanguageSwitcher />        
+            <Navigation />
+          </ErrorBoundary>
         
           <main>
-            <Hero />
-            <About />
-            <Skills />
-            <Experience />
-            <Projects />
-            <Languages />
-            <Interests />
-            <Contact />
+            <ErrorBoundary>
+              <Hero />
+            </ErrorBoundary>
+            <ErrorBoundary>
+              <About />
+            </ErrorBoundary>
+            <ErrorBoundary>
+              <Skills />
+            </ErrorBoundary>
+            <ErrorBoundary>
+              <Experience />
+            </ErrorBoundary>
+            <ErrorBoundary>
+              <Projects />
+            </ErrorBoundary>
+            <ErrorBoundary>
+              <Languages />
+            </ErrorBoundary>
+            <ErrorBoundary>
+              <Interests />
+            </ErrorBoundary>
+            <ErrorBoundary>
+              <Contact />
+            </ErrorBoundary>
           </main>
         
-          <Footer />
+          <ErrorBoundary>
+            <Footer />
+          </ErrorBoundary>
         </div>
       </Router>
     </LanguageProvider>

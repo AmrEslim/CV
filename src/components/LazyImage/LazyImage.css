@@ -1,0 +1,93 @@
+.lazy-image-container {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+}
+
+.lazy-image-placeholder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #f0f0f0 0%, #e8e8e8 100%);
+  min-height: 200px;
+  width: 100%;
+  border-radius: 8px;
+}
+
+.lazy-image-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid #f3f3f3;
+  border-top: 3px solid #ff6b35;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.lazy-image-error {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #f8f9fa;
+  min-height: 200px;
+  width: 100%;
+  border-radius: 8px;
+  color: #6c757d;
+  border: 2px dashed #dee2e6;
+}
+
+.lazy-image-error span {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.lazy-image-error p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.lazy-image {
+  width: 100%;
+  height: auto;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 8px;
+}
+
+.lazy-image.loaded {
+  opacity: 1;
+}
+
+.lazy-image.error {
+  display: none;
+}
+
+/* Animation for spinner */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .lazy-image-placeholder,
+  .lazy-image-error {
+    min-height: 150px;
+  }
+  
+  .lazy-image-spinner {
+    width: 30px;
+    height: 30px;
+    border-width: 2px;
+  }
+}
+
+/* Performance optimizations */
+.lazy-image-container {
+  contain: layout style paint;
+}
+
+.lazy-image {
+  will-change: opacity;
+  backface-visibility: hidden;
+}

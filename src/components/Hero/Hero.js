@@ -53,6 +53,24 @@ const Hero = () => {
             <div className="cta-buttons">
               <HashLink smooth to="#about" className="cta-button">{t('ui.buttons.explore').toUpperCase()}</HashLink>
               <HashLink smooth to="#contact" className="cta-button">{t('ui.buttons.connect').toUpperCase()}</HashLink>
+             {/* { <a 
+                href="/cv/Amr_Eslim_CV.pdf" 
+                className="cta-button cv-download" 
+                download="Amr_Eslim_CV.pdf"
+                onClick={() => {
+                  // Analytics tracking for CV downloads
+                  if (window.gtag) {
+                    window.gtag('event', 'download', {
+                      event_category: 'CV',
+                      event_label: 'CV Download',
+                      value: 1
+                    });
+                  }
+                }}
+              >
+                📄 DOWNLOAD CV
+              </a> } */}
+              
             </div>
           </div>
           

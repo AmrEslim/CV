@@ -26,9 +26,10 @@
       "Hallo! Ich bin Amr Eslim, ein Computer Engineering-Absolvent in Berlin, Deutschland.",
       "Ich habe meinen Bachelor-Abschluss in Computer Engineering an der HTW Berlin (April 2025) mit Schwerpunkt auf Embedded Systems abgeschlossen.",
       "Meine Expertise liegt in Embedded Systems mit Linux, Softwareentwicklung und Webanwendungsentwicklung.",
-      "Ich habe praktische Erfahrungen als Werkstudent für Softwareentwicklung bei Fraunhofer IPK seit Mai 2022.",
-      "Mit einem starken Hintergrund in C/C++, Python und Embedded Systems entwickle ich zuverlässige und effiziente Lösungen.",
-      "Ich bin besonders interessiert an der Entwicklung von Robotiksystemen, die nahtlos in digitale Assistenzsysteme integriert werden können.",
+      "Ich habe praktische Erfahrungen als Werkstudent für Softwareentwicklung bei Fraunhofer IPK seit Mai 2022, wo ich an innovativen digitalen Assistenzsystemen für Industrie 4.0 arbeite.",
+      "Meine aktuelle Bachelor-Arbeit über neurobiologisch inspirierte Schlangenrobotik zeigt meine Fähigkeit, biologische Prinzipien mit ingenieurtechnischen Lösungen zu verbinden, kombiniert mit CPG-Steuerungsalgorithmen, Embedded-Programmierung und mechanischem Design.",
+      "Mit einem starken Hintergrund in C/C++, Python, Rust und Embedded Systems entwickle ich zuverlässige und effiziente Lösungen für komplexe technische Herausforderungen.",
+      "Ich bin besonders interessiert an der Entwicklung von Robotiksystemen, die nahtlos in digitale Assistenzsysteme integriert werden können und zur Zukunft der Automation beitragen.",
       "Lassen Sie uns gemeinsam die Zukunft der Robotik und Embedded Systems gestalten!"
     ]
   },
@@ -73,18 +74,18 @@
     "items": [
       {
         "id": 1,
-        "date": "04/2021 – 04/2025",
-        "title": "Bachelor-Abschluss in Computer Engineering",
-        "description": "HTW Berlin (Hochschule für Technik und Wirtschaft)",
-        "details": "Schwerpunkte: Informatik, Hardware, Netzwerke, rechnergesteuerte Geräte und Systeme",
-        "side": "left"
-      },
-      {
-        "id": 2,
         "date": "05/2022 – Aktuell",
         "title": "Werkstudent (Softwareentwicklung)",
         "description": "Fraunhofer IPK, Berlin",
         "details": "Arbeit mit Embedded Systems unter Linux, Entwicklung webbasierter Anwendungen und Dashboards, Implementierung von Backend-Funktionalitäten und Unterstützung bei der Konzeption und Umsetzung digitaler Assistenzsysteme.",
+        "side": "left"
+      },
+      {
+        "id": 2,
+        "date": "04/2021 – 04/2025",
+        "title": "Bachelor-Abschluss in Computer Engineering",
+        "description": "HTW Berlin (Hochschule für Technik und Wirtschaft)",
+        "details": "Schwerpunkte: Informatik, Hardware, Netzwerke, rechnergesteuerte Geräte und Systeme",
         "side": "right"
       },
       {

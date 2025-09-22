@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import LazyImage from '../LazyImage/LazyImage';
 import './ProfilePicture.css';
 
 const ProfilePicture = () => {
@@ -52,7 +53,11 @@ const ProfilePicture = () => {
         <div className="frame-edge left"></div>
         <div className="scanning-line"></div>
         <div className="profile-image">
-          <img src={process.env.PUBLIC_URL + '/images/profile.jpg'} alt="Amr Eslim" />
+          <LazyImage 
+            src={process.env.PUBLIC_URL + '/images/profile.jpg'} 
+            alt="Amr Eslim - Software Engineer and Robotics Enthusiast"
+            className="profile-img"
+          />
         </div>
         <div className="frame-overlay"></div>
       </div>

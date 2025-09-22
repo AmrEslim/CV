@@ -24,11 +24,12 @@
     "description": "Computer Engineering graduate specializing in Embedded Systems and Robotics",
     "content": [
       "Hello! I'm Amr Eslim, a Computer Engineering graduate based in Berlin, Germany.",
-      "I recently completed my Bachelor's degree in Computer Engineering at HTW Berlin (April 2025) with a focus on embedded systems.",
+      "I completed my Bachelor's degree in Computer Engineering at HTW Berlin (April 2025) with a focus on embedded systems.",
       "My expertise lies in embedded systems with Linux, software development, and web application development.",
-      "I have hands-on experience as a software development working student at Fraunhofer IPK since May 2022.",
-      "With a strong background in C/C++, Python, and embedded systems, I build reliable and efficient solutions.",
-      "I'm particularly interested in developing robotics systems that can seamlessly integrate with digital assistance systems.",
+      "I have hands-on experience as a software development working student at Fraunhofer IPK since May 2022, where I work on cutting-edge digital assistance systems for Industry 4.0.",
+      "My recent Bachelor's thesis on neurobiologically-inspired snake robotics demonstrates my ability to bridge biological principles with engineering solutions, combining CPG control algorithms, embedded programming, and mechanical design.",
+      "With a strong background in C/C++, Python, Rust, and embedded systems, I build reliable and efficient solutions for complex technical challenges.",
+      "I'm particularly interested in developing robotics systems that can seamlessly integrate with digital assistance systems and contribute to the future of automation.",
       "Let's build the future of robotics and embedded systems together!"
     ]
   },
@@ -73,18 +74,18 @@
     "items": [
       {
         "id": 1,
-        "date": "04/2021 – 04/2025",
-        "title": "Bachelor's Degree in Computer Engineering",
-        "description": "HTW Berlin (Hochschule für Technik und Wirtschaft)",
-        "details": "Focus areas: Computer Science, Hardware, Networks, Computer-controlled devices and systems",
+        "date": "05/2022 – Present",
+        "title": "Working Student - Software Development",
+        "description": "Fraunhofer IPK (Institute for Production Systems and Design Technology), Berlin",
+        "details": "Key responsibilities include: • Development and maintenance of embedded Linux systems for industrial applications • Creating responsive web-based dashboards and control interfaces using modern JavaScript frameworks • Backend development for data processing and system integration • Supporting research and development of digital assistance systems for Industry 4.0 • Collaborating with interdisciplinary teams on cutting-edge automation projects • Contributing to the digitalization of manufacturing processes",
         "side": "left"
       },
       {
         "id": 2,
-        "date": "05/2022 – Present",
-        "title": "Working Student (Software Development)",
-        "description": "Fraunhofer IPK, Berlin",
-        "details": "Working with Embedded Systems with Linux, developing web-based applications and dashboards, implementing backend functionalities, and supporting the conception and implementation of digital assistance systems.",
+        "date": "04/2021 – 04/2025",
+        "title": "Bachelor's Degree in Computer Engineering",
+        "description": "HTW Berlin (Hochschule für Technik und Wirtschaft)",
+        "details": "Focus areas: Computer Science, Hardware, Networks, Computer-controlled devices and systems",
         "side": "right"
       },
       {

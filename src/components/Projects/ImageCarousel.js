@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
-import { useTranslation } from '../../hooks/useTranslation';
+import LazyImage from '../LazyImage/LazyImage';
 import './ImageCarousel.css';
 
 const ImageCarousel = ({ images }) => {
-  const { t } = useTranslation();
   const [currentIndex, setCurrentIndex] = useState(0);
 
   if (!images || images.length === 0) {
@@ -24,9 +23,9 @@ const ImageCarousel = ({ images }) => {
 
   return (
     <div className="carousel-container">
-      <img 
+      <LazyImage 
         src={images[currentIndex]} 
-        alt={`Slide ${currentIndex + 1}`}
+        alt={`Project image ${currentIndex + 1} of ${images.length}`}
         className="carousel-image"
       />
       {images.length > 1 && (
