@@ -4,54 +4,14 @@ import './ProjectCard.css';
 import Modal from './Modal';
 import ImageCarousel from './ImageCarousel';
 
-// Visual fallback for various project types
+// Visual fallback for various project types (Exported for Modal)
 export const ProjectVisual = ({ type, images }) => {
   if (images && images.length > 0) {
     return <ImageCarousel images={images} />;
   }
-  switch (type) {
-    case 'embedded-system':
-      return (
-        <div className="project-robot">
-          {/* ESP32/Arduino visualization */}
-        </div>
-      );
-    case 'web-dashboard':
-      return (
-        <div className="project-robot">
-          {/* Dashboard visualization */}
-        </div>
-      );
-    case 'mentoring-app':
-      return (
-        <div className="project-robot">
-          {/* App visualization */}
-        </div>
-      );
-    case 'iot-system':
-      return (
-        <div className="project-robot">
-          {/* IoT sensor network visualization */}
-        </div>
-      );
-    case 'robotic-arm':
-      return (
-        <div className="project-robot">
-          {/* Robotic arm visualization */}
-        </div>
-      );
-    case 'backend-system':
-      return (
-        <div className="project-robot">
-          {/* Backend system visualization */}
-        </div>
-      );
-    default:
-      return <div className="project-robot"></div>;
-  }
+  return <div className="project-visual-placeholder"></div>;
 };
 
-// Main card component
 const ProjectCard = forwardRef(({ project }, ref) => {
   const { t } = useTranslation();
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -65,79 +25,71 @@ const ProjectCard = forwardRef(({ project }, ref) => {
     setIsModalOpen(false);
   };
 
-  const handleCardClick = (e) => {
-    // Prevent opening modal when clicking on links
-    if (e.target.tagName === 'A' || e.target.closest('a')) {
-      return;
-    }
-    openModal(e);
-  };
-
-  const handleGithubClick = (e) => {
-    e.stopPropagation();
-  };
+  // Generate fake PID and Memory stats for the "Process" look
+  const pid = 1000 + project.id * 42;
+  const mem = 40 + project.id * 12;
 
   return (
-    <div 
-      className="robot-project" 
-      ref={ref}
-      onClick={handleCardClick}
-    >
-      <div className="project-header">
-        <div className="project-image">
-          <ProjectVisual type={project.visualType} images={project.images} />
-          <div className="project-overlay">
-            <span className="click-hint">Click to view details</span>
+    <>
+      <div className="project-card-process" ref={ref}>
+        <div className="process-header">
+          <span className="pid-info">PID: <span className="pid-number">{pid}</span></span>
+          <span className="status-badge">RUNNING</span>
+        </div>
+
+        <div className="process-body">
+          <h3 className="process-title">{project.title}</h3>
+
+          <div className="process-stats">
+            <div className="stat-item">
+              <span>MEM:</span>
+              <span className="stat-val text-amber">{mem}MB</span>
+            </div>
+            <div className="stat-item">
+              <span>CPU:</span>
+              <span className="stat-val text-cyan">{(Math.random() * 5).toFixed(1)}%</span>
+            </div>
+            <div className="stat-item">
+              <span>USER:</span>
+              <span className="stat-val">root</span>
+            </div>
+          </div>
+
+          <p className="process-desc">
+            {project.subtitle || project.description || "Active system process running in background."}
+          </p>
+
+          <div className="tech-stack">
+            {project.technologies && project.technologies.slice(0, 4).map((tech, index) => (
+              <span key={index} className="tech-tag">{tech}</span>
+            ))}
+          </div>
+
+          <div className="process-actions">
+            <button onClick={openModal} className="action-btn">
+              {t('ui.buttons.details')}
+            </button>
+            {project.demoLink && (
+              <a
+                href={project.demoLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="action-btn primary"
+              >
+                ::EXECUTE()
+              </a>
+            )}
           </div>
         </div>
       </div>
-      
-      <div className="project-content">
-        <div className="project-details">
-          <h3 className="project-title">{project.title}</h3>
-          {project.subtitle && <p className="project-subtitle">{project.subtitle}</p>}
-          
-          {/* Technology badges */}
-          {project.technologies && (
-            <div className="tech-badges">
-              {project.technologies.slice(0, 4).map((tech, index) => (
-                <span key={index} className="tech-badge">
-                  {tech}
-                </span>
-              ))}
-              {project.technologies.length > 4 && (
-                <span className="tech-badge more-tech">
-                  +{project.technologies.length - 4} more
-                </span>
-              )}
-            </div>
-          )}
-        </div>
-        
-        <div className="project-actions">
-          <button onClick={openModal} className="project-link primary">
-            {t('ui.buttons.details')}
-          </button>
-          {project.demoLink && (
-            <a 
-              href={project.demoLink} 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="project-link secondary"
-              onClick={handleGithubClick}
-            >
-              {t('ui.buttons.demo')}
-            </a>
-          )}
-        </div>
-      </div>
-      
+
       <Modal
         isOpen={isModalOpen}
         onClose={closeModal}
         project={project}
+        VisualComponent={ProjectVisual} // Pass explicitly if needed, but the import works
       />
-    </div>
+    </>
   );
 });
 

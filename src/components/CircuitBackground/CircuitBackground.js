@@ -3,7 +3,7 @@ import React, { useEffect, useRef } from 'react';
 const CircuitBackground = () => {
   const backgroundRef = useRef(null);
 
-  // Embedded styles for sophisticated circuit background
+  // Embedded styles for sophisticated circuit background - MIDNIGHT CYBER THEME + INCREASED BRIGHTNESS
   const styles = {
     circuitBackground: {
       position: 'fixed',
@@ -12,7 +12,7 @@ const CircuitBackground = () => {
       width: '100%',
       height: '100%',
       zIndex: -1,
-      background: 'linear-gradient(135deg, #0a0a0f 0%, #151520 25%, #1a1a2e 50%, #16213e 75%, #0f3460 100%)',
+      background: 'transparent', // Fully transparent to let body gradients shine
       overflow: 'hidden',
       pointerEvents: 'none',
     },
@@ -23,66 +23,69 @@ const CircuitBackground = () => {
       width: '100%',
       height: '100%',
       backgroundImage: `
-        linear-gradient(rgba(0, 136, 255, 0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0, 136, 255, 0.03) 1px, transparent 1px)
+        linear-gradient(rgba(56, 189, 248, 0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(56, 189, 248, 0.08) 1px, transparent 1px)
       `,
-      backgroundSize: '50px 50px',
+      backgroundSize: '40px 40px',
       animation: 'gridPulse 12s ease-in-out infinite',
     },
     circuitLine: {
       position: 'absolute',
-      background: 'linear-gradient(90deg, transparent, rgba(0, 255, 157, 0.4), rgba(0, 136, 255, 0.6), rgba(0, 255, 157, 0.4), transparent)',
-      boxShadow: '0 0 10px rgba(0, 255, 157, 0.3), inset 0 0 5px rgba(0, 136, 255, 0.2)',
+      background: 'linear-gradient(90deg, transparent, var(--accent-secondary), var(--accent-primary), var(--accent-secondary), transparent)',
+      boxShadow: '0 0 10px var(--accent-secondary)', // Stronger glow
       borderRadius: '1px',
     },
     circuitLineHorizontal: {
-      height: '2px',
+      height: '1px',
       animation: 'circuitFlow 8s linear infinite',
+      opacity: 0.7, // Brighter
     },
     circuitLineVertical: {
-      width: '2px',
+      width: '1px',
       animation: 'circuitFlowVertical 8s linear infinite',
+      opacity: 0.7, // Brighter
     },
     circuitNode: {
       position: 'absolute',
-      width: '6px',
-      height: '6px',
-      background: 'radial-gradient(circle, rgba(0, 255, 157, 0.8), rgba(0, 136, 255, 0.4))',
+      width: '4px',
+      height: '4px',
+      background: 'var(--accent-primary)',
       borderRadius: '50%',
-      boxShadow: '0 0 12px rgba(0, 255, 157, 0.6), 0 0 24px rgba(0, 136, 255, 0.3)',
+      boxShadow: '0 0 12px var(--accent-primary)', // Stronger glow
       animation: 'nodePulse 4s ease-in-out infinite',
     },
     dataStream: {
       position: 'absolute',
-      background: 'linear-gradient(90deg, transparent, rgba(0, 255, 157, 0.8), rgba(0, 204, 126, 0.6), transparent)',
+      background: 'linear-gradient(90deg, transparent, #ffffff, transparent)',
       borderRadius: '2px',
       filter: 'blur(0.5px)',
+      opacity: 1.0, // Max brightness
     },
     dataStreamHorizontal: {
       width: '80px',
-      height: '3px',
-      animation: 'streamFlowH 12s linear infinite',
+      height: '2px',
+      animation: 'streamFlowH 10s linear infinite',
     },
     dataStreamVertical: {
-      width: '3px',
+      width: '2px',
       height: '80px',
-      animation: 'streamFlowV 12s linear infinite',
+      animation: 'streamFlowV 10s linear infinite',
     },
     ambientGlow: {
       position: 'absolute',
       borderRadius: '50%',
-      background: 'radial-gradient(circle, rgba(0, 136, 255, 0.15), rgba(0, 255, 157, 0.05), transparent)',
-      filter: 'blur(20px)',
+      background: 'radial-gradient(circle, rgba(56, 189, 248, 0.15), transparent)',
+      filter: 'blur(50px)', // Larger spread
       animation: 'ambientBreath 15s ease-in-out infinite',
     },
     floatingDot: {
       position: 'absolute',
-      width: '4px',
-      height: '4px',
-      background: 'rgba(0, 255, 157, 0.6)',
+      width: '3px',
+      height: '3px',
+      background: 'var(--accent-secondary)',
       borderRadius: '50%',
-      boxShadow: '0 0 8px rgba(0, 255, 157, 0.4)',
-      animation: 'floatUp 20s linear infinite',
+      boxShadow: '0 0 8px var(--accent-secondary)',
+      animation: 'floatUp 18s linear infinite',
     },
   };
 
@@ -90,7 +93,7 @@ const CircuitBackground = () => {
   const cssAnimations = `
     @keyframes gridPulse {
       0%, 100% { opacity: 0.3; }
-      50% { opacity: 0.6; }
+      50% { opacity: 0.7; }
     }
     
     @keyframes circuitFlow {
@@ -99,16 +102,16 @@ const CircuitBackground = () => {
         box-shadow: none;
       }
       25% { 
-        background: linear-gradient(90deg, transparent, rgba(0, 255, 157, 0.2), rgba(0, 136, 255, 0.3), transparent, transparent);
-        box-shadow: 0 0 5px rgba(0, 255, 157, 0.2);
+        background: linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.4), rgba(0, 255, 157, 0.5), transparent, transparent);
+        box-shadow: 0 0 8px rgba(56, 189, 248, 0.3);
       }
       50% { 
-        background: linear-gradient(90deg, transparent, rgba(0, 255, 157, 0.4), rgba(0, 136, 255, 0.6), rgba(0, 255, 157, 0.4), transparent);
-        box-shadow: 0 0 10px rgba(0, 255, 157, 0.3), inset 0 0 5px rgba(0, 136, 255, 0.2);
+        background: linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.6), rgba(0, 255, 157, 0.8), rgba(56, 189, 248, 0.6), transparent);
+        box-shadow: 0 0 15px rgba(0, 255, 157, 0.4), inset 0 0 5px rgba(56, 189, 248, 0.3);
       }
       75% { 
-        background: linear-gradient(90deg, transparent, transparent, rgba(0, 255, 157, 0.3), rgba(0, 136, 255, 0.2), transparent);
-        box-shadow: 0 0 5px rgba(0, 136, 255, 0.2);
+        background: linear-gradient(90deg, transparent, transparent, rgba(56, 189, 248, 0.4), rgba(0, 255, 157, 0.3), transparent);
+        box-shadow: 0 0 8px rgba(56, 189, 248, 0.3);
       }
       100% { 
         background: linear-gradient(90deg, transparent, transparent, transparent, transparent, transparent);
@@ -122,16 +125,16 @@ const CircuitBackground = () => {
         box-shadow: none;
       }
       25% { 
-        background: linear-gradient(180deg, transparent, rgba(0, 255, 157, 0.2), rgba(0, 136, 255, 0.3), transparent, transparent);
-        box-shadow: 0 0 5px rgba(0, 255, 157, 0.2);
+        background: linear-gradient(180deg, transparent, rgba(56, 189, 248, 0.4), rgba(0, 255, 157, 0.5), transparent, transparent);
+        box-shadow: 0 0 8px rgba(56, 189, 248, 0.3);
       }
       50% { 
-        background: linear-gradient(180deg, transparent, rgba(0, 255, 157, 0.4), rgba(0, 136, 255, 0.6), rgba(0, 255, 157, 0.4), transparent);
-        box-shadow: 0 0 10px rgba(0, 255, 157, 0.3), inset 0 0 5px rgba(0, 136, 255, 0.2);
+        background: linear-gradient(180deg, transparent, rgba(56, 189, 248, 0.6), rgba(0, 255, 157, 0.8), rgba(56, 189, 248, 0.6), transparent);
+        box-shadow: 0 0 15px rgba(0, 255, 157, 0.4), inset 0 0 5px rgba(56, 189, 248, 0.3);
       }
       75% { 
-        background: linear-gradient(180deg, transparent, transparent, rgba(0, 255, 157, 0.3), rgba(0, 136, 255, 0.2), transparent);
-        box-shadow: 0 0 5px rgba(0, 136, 255, 0.2);
+        background: linear-gradient(180deg, transparent, transparent, rgba(56, 189, 248, 0.4), rgba(0, 255, 157, 0.3), transparent);
+        box-shadow: 0 0 8px rgba(56, 189, 248, 0.3);
       }
       100% { 
         background: linear-gradient(180deg, transparent, transparent, transparent, transparent, transparent);
@@ -143,12 +146,12 @@ const CircuitBackground = () => {
       0%, 100% { 
         transform: scale(1);
         opacity: 0.6;
-        box-shadow: 0 0 12px rgba(0, 255, 157, 0.6), 0 0 24px rgba(0, 136, 255, 0.3);
+        box-shadow: 0 0 12px rgba(0, 255, 157, 0.6), 0 0 24px rgba(56, 189, 248, 0.3);
       }
       50% { 
-        transform: scale(1.3);
+        transform: scale(1.4);
         opacity: 1;
-        box-shadow: 0 0 20px rgba(0, 255, 157, 0.8), 0 0 40px rgba(0, 136, 255, 0.5);
+        box-shadow: 0 0 25px rgba(0, 255, 157, 0.9), 0 0 45px rgba(56, 189, 248, 0.6);
       }
     }
     
@@ -197,15 +200,15 @@ const CircuitBackground = () => {
     @keyframes ambientBreath {
       0%, 100% { 
         transform: scale(1);
-        opacity: 0.3;
+        opacity: 0.4;
       }
       33% { 
         transform: scale(1.2);
-        opacity: 0.5;
+        opacity: 0.6;
       }
       66% { 
         transform: scale(0.8);
-        opacity: 0.2;
+        opacity: 0.3;
       }
     }
     
@@ -220,7 +223,7 @@ const CircuitBackground = () => {
       }
       90% { 
         transform: translateY(-90vh) translateX(-5px) scale(1);
-        opacity: 0.8;
+        opacity: 0.9;
       }
       100% { 
         transform: translateY(-100vh) translateX(0) scale(0);
@@ -251,19 +254,19 @@ const CircuitBackground = () => {
 
       const width = window.innerWidth;
       const height = window.innerHeight;
-      
+
       // Create grid pattern with embedded styles
       createGridPattern(background);
-      
+
       // Create elegant circuit lines
       createCircuitGrid(background, width, height);
-      
+
       // Create flowing data streams
       createDataStreams(background, width, height);
-      
+
       // Create ambient lighting effects
       createAmbientEffects(background, width, height);
-      
+
       // Create floating elements
       createFloatingElements(background, width, height);
     };
@@ -277,24 +280,24 @@ const CircuitBackground = () => {
     const createCircuitGrid = (background, width, height) => {
       // Create sophisticated circuit lines with embedded styles
       const lineCount = Math.min(18, Math.floor((width + height) / 120));
-      
+
       for (let i = 0; i < lineCount; i++) {
         const line = document.createElement('div');
         Object.assign(line.style, styles.circuitLine);
-        
+
         const isHorizontal = Math.random() > 0.5;
-        
+
         if (isHorizontal) {
           Object.assign(line.style, styles.circuitLineHorizontal);
           const lineWidth = Math.random() * 350 + 150;
           const top = Math.random() * height;
           const left = Math.random() * (width - lineWidth);
-          
+
           line.style.top = `${top}px`;
           line.style.left = `${left}px`;
           line.style.width = `${lineWidth}px`;
           line.style.animationDelay = `${Math.random() * 8}s`;
-          
+
           // Add sophisticated connection nodes
           if (Math.random() > 0.5) {
             const node = document.createElement('div');
@@ -309,12 +312,12 @@ const CircuitBackground = () => {
           const lineHeight = Math.random() * 350 + 150;
           const left = Math.random() * width;
           const top = Math.random() * (height - lineHeight);
-          
+
           line.style.top = `${top}px`;
           line.style.left = `${left}px`;
           line.style.height = `${lineHeight}px`;
           line.style.animationDelay = `${Math.random() * 8}s`;
-          
+
           // Add sophisticated connection nodes
           if (Math.random() > 0.5) {
             const node = document.createElement('div');
@@ -325,7 +328,7 @@ const CircuitBackground = () => {
             background.appendChild(node);
           }
         }
-        
+
         background.appendChild(line);
       }
     };
@@ -333,13 +336,13 @@ const CircuitBackground = () => {
     const createDataStreams = (background, width, height) => {
       // Create dynamic data streams with embedded styles
       const streamCount = 6 + Math.floor(Math.random() * 4);
-      
+
       for (let i = 0; i < streamCount; i++) {
         const stream = document.createElement('div');
         Object.assign(stream.style, styles.dataStream);
-        
+
         const isHorizontal = Math.random() > 0.3;
-        
+
         if (isHorizontal) {
           Object.assign(stream.style, styles.dataStreamHorizontal);
           stream.style.top = `${Math.random() * height}px`;
@@ -349,7 +352,7 @@ const CircuitBackground = () => {
           stream.style.left = `${Math.random() * width}px`;
           stream.style.top = '-80px';
         }
-        
+
         stream.style.animationDelay = `${Math.random() * 12}s`;
         stream.style.animationDuration = `${10 + Math.random() * 6}s`;
         background.appendChild(stream);
@@ -359,11 +362,11 @@ const CircuitBackground = () => {
     const createAmbientEffects = (background, width, height) => {
       // Create atmospheric ambient glows with embedded styles
       const glowCount = 4 + Math.floor(Math.random() * 3);
-      
+
       for (let i = 0; i < glowCount; i++) {
         const glow = document.createElement('div');
         Object.assign(glow.style, styles.ambientGlow);
-        
+
         const size = 250 + Math.random() * 500;
         glow.style.width = `${size}px`;
         glow.style.height = `${size}px`;
@@ -371,33 +374,33 @@ const CircuitBackground = () => {
         glow.style.left = `${Math.random() * width - size / 2}px`;
         glow.style.animationDelay = `${Math.random() * 15}s`;
         glow.style.animationDuration = `${12 + Math.random() * 8}s`;
-        
+
         // Vary the glow colors slightly
         if (Math.random() > 0.5) {
-          glow.style.background = 'radial-gradient(circle, rgba(0, 255, 157, 0.12), rgba(0, 136, 255, 0.06), transparent)';
+          glow.style.background = 'radial-gradient(circle, rgba(56, 189, 248, 0.15), rgba(0, 255, 157, 0.08), transparent)';
         }
-        
+
         background.appendChild(glow);
       }
     };
 
     const createFloatingElements = (background, width, height) => {
       // Create elegant floating particles with embedded styles
-      const dotCount = Math.min(12, Math.floor(width / 150));
-      
+      const dotCount = Math.min(20, Math.floor(width / 100)); // Increased count
+
       for (let i = 0; i < dotCount; i++) {
         const dot = document.createElement('div');
         Object.assign(dot.style, styles.floatingDot);
-        
+
         dot.style.left = `${Math.random() * width}px`;
         dot.style.top = `${height + 50}px`;
         dot.style.animationDelay = `${Math.random() * 20}s`;
         dot.style.animationDuration = `${18 + Math.random() * 8}s`;
-        
+
         // Add size variation
         const scale = 0.8 + Math.random() * 0.4;
         dot.style.transform = `scale(${scale})`;
-        
+
         background.appendChild(dot);
       }
     };
@@ -413,9 +416,9 @@ const CircuitBackground = () => {
         createSophisticatedBackground();
       }, 250);
     };
-    
+
     window.addEventListener('resize', handleResize);
-    
+
     return () => {
       window.removeEventListener('resize', handleResize);
       clearTimeout(resizeTimeout);
@@ -427,9 +430,9 @@ const CircuitBackground = () => {
         }
       });
     };
-  }, []);  return (
-    <div 
-      ref={backgroundRef} 
+  }, []); return (
+    <div
+      ref={backgroundRef}
       style={styles.circuitBackground}
     />
   );

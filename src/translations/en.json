@@ -1,83 +1,81 @@
 {
   "hero": {
     "greeting": "Hi, I'm",
-    "role": "Robotics & Embedded Systems Engineer",
-    "subtitle": "Computer Engineer & Embedded Systems Developer",
+    "role": "Systems & Embedded Engineer",
+    "subtitle": "C++ • Linux • RTOS • Firmware",
     "info": {
       "greeting": "Hi, I'm Amr Eslim",
       "location": "based in Berlin",
       "education": "Graduated from HTW Berlin with a degree in Computer Engineering in April 2025",
-      "specialization": "Specialized in Linux-based Embedded Systems and web applications",
-      "scroll": "Scroll down to explore my portfolio..."
+      "specialization": "Specialized in Linux Embedded Systems, C++, and System Performance",
+      "scroll": "Initialize boot sequence..."
     }
   },
   "nav": {
-    "home": "Home",
-    "about": "About",
-    "skills": "Technical Skills",    "experience": "Education & Experience",
-    "projects": "Projects",
-    "languages": "Languages",
-    "interests": "Interests",
-    "contact": "Contact"
-  },  "about": {
-    "title": "About Me",
-    "description": "Computer Engineering graduate specializing in Embedded Systems and Robotics",
+    "home": "/home",
+    "about": "/usr/about",
+    "skills": "/bin/skills",
+    "experience": "/var/log/exp",
+    "projects": "/opt/projects",
+    "languages": "/etc/langs",
+    "interests": "~/.config",
+    "contact": "/dev/contact"
+  },
+  "about": {
+    "title": "System Status",
+    "description": "Computer Engineering graduate specializing in Low-Level Systems and Robotics",
     "content": [
       "Hello! I'm Amr Eslim, a Computer Engineering graduate based in Berlin, Germany.",
-      "I completed my Bachelor's degree in Computer Engineering at HTW Berlin in April 2025 with a focus on embedded systems.",
-      "My expertise lies in embedded systems with Linux, software development, and web application development.",
-      "I have hands-on experience as a software development working student at Fraunhofer IPK since May 2022, where I work on cutting-edge digital assistance systems for Industry 4.0.",
-      "My recent Bachelor's thesis on neurobiologically-inspired snake robotics demonstrates my ability to bridge biological principles with engineering solutions, combining CPG control algorithms, embedded programming, and mechanical design.",
-      "With a strong background in C/C++, Python, Rust, and embedded systems, I build reliable and efficient solutions for complex technical challenges.",
-      "I'm particularly interested in developing robotics systems that can seamlessly integrate with digital assistance systems and contribute to the future of automation.",
-      "Let's build the future of robotics and embedded systems together!"
+      "I completed my Bachelor's degree in Computer Engineering at HTW Berlin in April 2025 with a focus on embedded architectures.",
+      "My expertise lies in Embedded Linux, Firmware Development, and High-Performance C++ Applications.",
+      "I have hands-on experience as a software developer at Fraunhofer IPK since May 2022, working on industrial-grade digital assistance systems for Industry 4.0.",
+      "My recent Bachelor's thesis on neurobiologically-inspired snake robotics demonstrates my ability to bridge control theory with efficient C++ implementation, combining CPG algorithms and real-time constraints.",
+      "With a strong background in C/C++, Rust, and Linux Kernel internals, I build reliable, memory-safe, and efficient solutions for complex technical challenges.",
+      "I'm particularly interested in developing autonomous robotics systems and optimizing low-level drivers for next-gen hardware.",
+      "Ready to deploy efficient code to production."
     ]
   },
   "skills": {
-    "title": "Technical Skills",
+    "title": "Kernel Modules",
     "categories": {
       "programming": {
-        "title": "Programming Languages",
+        "title": "Languages & Core",
         "skills": {
-          "cpp": "C/C++",
+          "cpp": "C/C++ (C++17/20)",
           "rust": "Rust",
-          "python": "Python",
-          "sql": "SQL"
-        }
-      },
-      "web": {
-        "title": "Web Development",
-        "skills": {
-          "frontend": "HTML/CSS/JavaScript",
-          "flask": "Flask",
-          "react": "React.js"
-        }
-      },
-      "tools": {
-        "title": "Tools & Technologies",
-        "skills": {
-          "git": "Git",
-          "linux": "Linux",
-          "docker": "Docker"
+          "python": "Python (Scripting)",
+          "assembly": "Assembly (ARM/x86)"
         }
       },
       "embedded": {
-        "title": "Embedded Systems",
+        "title": "Embedded & Systems",
         "skills": {
-          "embedded_linux": "Embedded Linux Systems"
+          "embedded_linux": "Embedded Linux / Yocto",
+          "rtos": "FreeRTOS / Zephyr",
+          "drivers": "Device Drivers",
+          "protocols": "I2C, SPI, UART, CAN"
+        }
+      },
+      "tools": {
+        "title": "DevOps & Tools",
+        "skills": {
+          "cmake": "CMake / Make",
+          "git": "Git / CI/CD",
+          "docker": "Docker / Podman",
+          "gdb": "GDB / Valgrind"
         }
       }
     }
   },
   "experience": {
-    "title": "Education & Experience",
+    "title": "System Logs",
     "items": [
       {
         "id": 1,
         "date": "05/2022 – Present",
-        "title": "Working Student - Software Development",
+        "title": "Working Student - Embedded Software",
         "description": "Fraunhofer IPK (Institute for Production Systems and Design Technology), Berlin",
-        "details": "Key responsibilities include: • Development and maintenance of embedded Linux systems for industrial applications • Creating responsive web-based dashboards and control interfaces using modern JavaScript frameworks • Backend development for data processing and system integration • Supporting research and development of digital assistance systems for Industry 4.0 • Collaborating with interdisciplinary teams on cutting-edge automation projects • Contributing to the digitalization of manufacturing processes",
+        "details": "Key responsibilities include: • Development and maintenance of embedded Linux systems for industrial applications • Optimization of C++ control algorithms for digital assistance systems • System integration of sensor networks and industrial protocols • Backend development for real-time data processing • Collaborating with interdisciplinary teams on cutting-edge automation projects",
         "side": "left"
       },
       {
@@ -85,7 +83,7 @@
         "date": "04/2021 – 04/2025",
         "title": "Bachelor's Degree in Computer Engineering",
         "description": "HTW Berlin (Hochschule für Technik und Wirtschaft)",
-        "details": "Focus areas: Computer Science, Hardware, Networks, Computer-controlled devices and systems",
+        "details": "Focus areas: System Architecture, Microcontrollers, Distributed Systems, Real-Time Operating Systems",
         "side": "right"
       },
       {
@@ -93,7 +91,7 @@
         "date": "12/2019 – 12/2023",
         "title": "Volunteer",
         "description": "Medibüro, Berlin",
-        "details": "Medical liaison for people without residence status and health insurance through qualified medical professionals. Regular processing of incoming mail.",
+        "details": "Medical liaison for people without residence status. Optimized data processing workflows.",
         "side": "left"
       },
       {
@@ -101,13 +99,13 @@
         "date": "02/2020",
         "title": "Hackathon: Future of Education",
         "description": "N3XTCODER GmbH",
-        "details": "Worked with a team on the on-boarding process for a mentoring app for teenagers who identify as LGBTQIA. Our goal was to ensure a smooth process. We presented our results to the audience.",
+        "details": "Collaborated on system logic for a mentoring platform. Focused on backend data structure design.",
         "side": "right"
       }
     ]
   },
   "languages": {
-    "title": "Languages",
+    "title": "Language Packs",
     "items": [
       {
         "id": 1,
@@ -126,154 +124,129 @@
         "language": "English",
         "proficiency": "Fluent (C1+/C2 level)",
         "percentage": 95
-      },
-      {
-        "id": 4,
-        "language": "Spanish",
-        "proficiency": "Basic proficiency/Beginner",
-        "percentage": 30
       }
     ]
   },
   "interests": {
-    "title": "Personal Interests",
+    "title": "Background Processes",
     "items": [
-      "Music",
+      "Kernel Hacking",
+      "Open Source",
+      "Robotics",
+      "IoT Automation",
       "Football",
-      "Sports and athletics",
       "Swimming",
-      "Cooking",
-      "Travelling",
-      "Languages learning",
-      "Robotics and Automation",
-      "Digital Assistance Systems"
+      "Algorithm Optimization"
     ]
   },
   "contact": {
-    "title": "Contact",
+    "title": "/dev/contact",
     "info": {
       "email": "Email:",
       "linkedin": "LinkedIn:",
       "location": "Location:",
       "locationValue": "Berlin, Germany"
     },
-    "text": "I'm currently looking for new opportunities in robotics and autonomous systems development. Whether you have a question about robotics, want to collaborate on a project, or just want to say hi, I'll do my best to get back to you!",
+    "text": "I'm actively seeking roles in Embedded Systems, Firmware Engineering, and C++ Development. If you need a developer who understands what happens at the hardware level, let's connect.",
     "buttons": {
-      "email": "Email Me",
-      "linkedin": "LinkedIn",
+      "email": "Send Signal",
+      "linkedin": "Connect Layer",
       "form": {
-        "name": "Your Name",
-        "email": "Your Email",
-        "message": "Your Message",
-        "send": "Send Message"
+        "name": "User ID",
+        "email": "Return Address",
+        "message": "Payload",
+        "send": "Execute Send()"
       }
     }
-  },  "ui": {
+  },
+  "ui": {
     "buttons": {
-      "details": "Details",
-      "demo": "Github",
-      "connect": "Connect",
-      "explore": "Explore",
-      "emailMe": "Email Me",
-      "linkedin": "LinkedIn",
-      "close": "Close"
+      "details": "./view_details",
+      "demo": "git clone",
+      "connect": "ssh connect",
+      "explore": "ls -la",
+      "emailMe": "mail -s",
+      "linkedin": "curl linkedin",
+      "close": "exit(0)"
     },
     "sections": {
-      "technicalSkills": "Technical Skills",
-      "projects": "Projects",
-      "educationExperience": "Education & Experience",
-      "languages": "Languages",
-      "personalInterests": "Personal Interests",
-      "contact": "Contact",
-      "references": "References"
+      "technicalSkills": "Kernel Modules",
+      "projects": "Active Processes",
+      "educationExperience": "System Logs",
+      "languages": "Lang Packs",
+      "personalInterests": "Background Jobs",
+      "contact": "/dev/null",
+      "references": "Man Pages"
     },
     "meta": {
-      "title": "Amr Eslim | Robotics & Embedded Systems Engineer",
-      "description": "Computer Engineering graduate specializing in Embedded Systems, Robotics, and Digital Assistance Systems. Based in Berlin, Germany. Currently working at Fraunhofer IPK."
+      "title": "Amr Eslim | Systems Engineer",
+      "description": "Embedded Systems Engineer specializing in C++, Linux, and Firmware. Berlin-based."
     }
   },
   "projects": {
-    "title": "Projects",
+    "title": "Active Processes",
     "snake_robot": {
-      "title": "Neurobiologically-Inspired Snake Robot",
-      "subtitle": "Bachelor Thesis – HTW Berlin (2025)",
-      "description": "Bachelor's thesis project presenting the design, implementation, and experimental evaluation of a modular snake-like robot inspired by biological snake locomotion. Developed a complete biomimetic system reproducing lateral undulation and sidewinding using Central Pattern Generator (CPG) control algorithms. The project successfully integrated mechanical engineering, embedded systems programming, and neuroscience principles into a functional bio-inspired robotic platform.",
+      "title": "Snake Robot Firmware",
+      "subtitle": "Embedded C++ • ESP32 • RTOS",
+      "description": "High-performance firmware implementation for a modular bio-inspired snake robot. The system leverages CPG (Central Pattern Generator) algorithms running on ESP32 to achieve real-time coordinated servo control. Initialized complex kinematics solving and real-time state machine logic for adaptive locomotion.",
       "features": [
-        "✅ **Modular Mechanical Design**: CAD-designed in Onshape and 3D-printed using PETG, PLA+, and TPU materials. Features 10 servo motors in alternating horizontal/vertical configuration (7H/3V) enabling complex undulatory motion patterns.",
-        "✅ **CPG Control Implementation**: Implemented mathematical Central Pattern Generator algorithms on ESP32 microcontroller using Arduino IDE. Generated synchronized sinusoidal waves with configurable parameters (amplitude: 10-45°, frequency: 0.1-2.0 Hz, phase offset: 30-90°) to achieve biomimetic locomotion.",
-        "✅ **Dual Locomotion Patterns**: Successfully implemented both lateral undulation (snake-like horizontal waves) and sidewinding (3D desert-style motion) with real-time switching capability through web interface.",
-        "✅ **ESP32-Based Control System**: Complete embedded system with WiFi access point, web server, and real-time control interface. Supports remote parameter tuning, motion pattern selection, and live system monitoring.",
-        "✅ **Power Management & Monitoring**: Integrated ACS712 current sensor for real-time power consumption analysis. Discovered sidewinding consumes ~50% more power than lateral undulation, with detailed energy profiling across all configurations.",
-        "✅ **Experimental Validation**: Comprehensive testing using Kinovea motion tracking software on structured grid environment. Quantitative analysis of motion patterns, velocity profiles, and energy consumption across different mechanical configurations.",
-        "✅ **Three Test Configurations**: Baseline robot, TPU-scale enhanced version (biomimetic friction), and PLA+ wheel configuration. Comparative analysis showed wheels provided most consistent linear progression.",
-        "✅ **Research Documentation**: Complete bachelor's thesis documentation including literature review, mathematical modeling, experimental methodology, and statistical analysis of results with performance comparisons.",
-        "✅ **Future Research Applications**: Thesis proposes ESP-NOW wireless control, swarm robotics applications, autonomous navigation using IMUs, and soft-body actuation for enhanced terrain adaptation."
+        "✅ **Embedded C++ Architecture**: Object-oriented firmware design optimized for constrained resources, featuring custom driver layers for servo bus communication.",
+        "✅ **Real-Time Control Loop**: Implemented strict timing-critical loops for CPG wave generation (10-45° amplitude, 0.1-2.0 Hz) ensuring synchronized motion across 10-DOF.",
+        "✅ **Hardware Abstraction Layer**: Developed HAL for ESP32 peripherals including PWM, ADC (Current Sensing), and UART/WiFi stacks.",
+        "✅ **Performance Profiling**: Integrated energy monitoring using ACS712 sensors to profile algorithmic efficiency of Lateral Undulation vs Sidewinding gaits.",
+        "✅ **Concurrency**: Utilized FreeRTOS tasks for separating critical motor control loops from telemetry and communication threads.",
+        "✅ **Wireless Telemetry**: Implemented efficient binary UDP protocol for real-time robot state visualization and parameter tuning."
       ],
       "references": [
         {
-          "title": "Thesis PDF (HTW Berlin, 2025)",
+          "title": "Source Code",
           "url": "https://github.com/AmrEslim/snake_robot"
         }
       ]
     },
     "cryptify": {
-      "title": "Cryptify - Secure Password Manager",
-      "subtitle": "Cross-Platform Security Application",
-      "description": "A comprehensive cross-platform password manager built with Rust backend and modern frontend technologies. Cryptify provides end-to-end encrypted password storage with zero-knowledge architecture, ensuring that the server never sees unencrypted user data. Features secure synchronization across web, desktop, and mobile platforms with AES-256-GCM encryption and Argon2id key derivation.",
+      "title": "Cryptify Core",
+      "subtitle": "Rust • Cryptography • Memory Safety",
+      "description": "A high-security cryptographic storage engine built with Rust to demonstrate memory-safe systems programming. Implements zero-knowledge protocols and hardware-accelerated encryption primitives. Focuses on correctness, type safety, and efficient resource management.",
       "features": [
-        "✅ **Zero-Knowledge Architecture**: Complete end-to-end encryption where the server never sees plaintext passwords or sensitive data, ensuring user privacy and security.",
-        "✅ **Rust Backend with Actix-web**: High-performance, memory-safe backend built with Rust featuring JWT authentication, SQLx for type-safe database queries, and comprehensive API endpoints.",
-        "✅ **Modern Cryptography**: Implements AES-256-GCM for authenticated encryption and Argon2id for secure password-based key derivation, following current security best practices.",
-        "✅ **Cross-Platform Frontend**: React/TypeScript web application with Vite, Tailwind CSS, and modern development tools. Planned Tauri desktop and React Native mobile apps.",
-        "✅ **Secure Password Generation**: Cryptographically secure random password generator with customizable criteria including length, character sets, and exclusion rules.",
-        "✅ **Docker Containerization**: Complete containerized deployment ready for TrueNAS Scale with Docker Compose configuration for easy self-hosting.",
-        "✅ **Comprehensive Testing Strategy**: Test-driven development approach with contract tests, integration tests, and security validation following industry best practices.",
-        "✅ **Development Documentation**: Extensive technical specifications, API contracts, implementation plans, and user guides with clear setup instructions."
+        "✅ **Rust Ownership Model**: Leveraged Rust's borrow checker to ensure memory safety without garbage collection, critical for security applications.",
+        "✅ **Systems Programming**: Implemented low-level cryptographic primitives using ring and argon2 libraries, optimizing for CPU instruction sets.",
+        "✅ **Concurrency**: Built with Actix for high-throughput async I/O, handling concurrent authentications with minimal overhead.",
+        "✅ **Docker Containerization**: Optimized multi-stage Docker builds for minimal container footprint (<50MB) and secure rootless execution.",
+        "✅ **Type-Safe Database Interactions**: used SQLx for compile-time verified queries, preventing SQL injection at the compiler level.",
+        "✅ **Security Architecture**: Implemented Argon2id key derivation and AES-256-GCM for authenticated encryption."
       ]
     },
     "sidequester": {
-      "title": "SideQuester - IoT E-Compass",
-      "subtitle": "LoRa-based Friend Finder Device",
-      "description": "An innovative dual ESP32-based compass system designed for festivals and off-grid adventures where cellular networks fail. SideQuester uses GPS coordinates transmitted via LoRa radio technology to create a compass that always points toward your companion. Each device acts as both transmitter and receiver, providing real-time directional guidance with OLED display showing distance, direction, and connection status.",
+      "title": "SideQuester Firmware",
+      "subtitle": "LoRa • Hardware Design • C++",
+      "description": "Off-grid telemetry device firmware using LoRa radio modulation. Designed for long-range, low-power communication between independent nodes without infrastructure. Involved bare-metal sensor interfacing and power state optimization.",
       "features": [
-        "✅ **Long-Range LoRa Communication**: Up to 3km range using LoRa radio technology (868MHz EU / 915MHz US) with proper frequency compliance and regional configuration support.",
-        "✅ **Precision GPS Navigation**: Integrated GPS module with Haversine formula calculations for accurate distance and bearing computation between devices, including compass calibration.",
-        "✅ **Real-Time Direction Display**: OLED screen showing intuitive compass interface with arrow indicators, distance measurements, and device status information.",
-        "✅ **ESP32-Based Architecture**: Dual ESP32 development boards with comprehensive sensor integration including HMC5883L digital compass and GPS modules.",
-        "✅ **Battery-Optimized Design**: Power management with deep sleep modes, battery voltage monitoring, and emergency SOS functionality for extended outdoor use.",
-        "✅ **Safety and Compliance**: Comprehensive documentation covering radio regulations, battery safety, environmental considerations, and emergency protocols.",
-        "✅ **Open Source Hardware**: Complete build documentation with component lists, wiring diagrams, software setup guides, and troubleshooting resources.",
-        "✅ **Community-Driven Development**: Active GitHub project with contribution guidelines, testing procedures, and collaborative development framework."
+        "✅ **LoRa Mesh Networking**: Implemented P2P LoRa communication protocol (868/915MHz) for reliable data packet transmission over 3km.",
+        "✅ **Hardware Interfacing**: Developed I2C drivers for HMC5883L compass and UART NMEA parsing for GPS modules.",
+        "✅ **Power Optimization**: Implemented deep-sleep state machines to extend battery life, waking only for synchronized transmission windows.",
+        "✅ **Embedded Graphics**: Direct frame-buffer manipulation for OLED display updates using reduced instruction cycles.",
+        "✅ **Interrupt Handling**: Optimized GPIO interrupt service routines for user input and radio triggers."
       ]
     },
     "cv_portfolio": {
-      "title": "Interactive CV Portfolio",
-      "subtitle": "React-based Personal Website",
-      "description": "A responsive, interactive personal portfolio website built with React and modern web technologies. Features multilingual support (English/German), smooth animations, and optimized performance. The site showcases professional experience, technical skills, and projects with an engaging user interface. Hosted on GitHub Pages with automatic deployment and mobile-responsive design.",
+      "title": "System Interface",
+      "subtitle": "React • Performance • UI",
+      "description": "User interface layer for presenting system documentation and status. Optimized for fast rendering and responsive layout across devices.",
       "features": [
-        "✅ **React with Modern JavaScript**: Built using React 18 with functional components, hooks, and modern ES6+ JavaScript features for optimal performance and maintainability.",
-        "✅ **Responsive Design**: Mobile-first responsive design ensuring optimal viewing experience across desktop, tablet, and mobile devices with smooth transitions and animations.",
-        "✅ **Multilingual Support**: Complete internationalization (i18n) implementation supporting English and German languages with seamless language switching functionality.",
-        "✅ **Interactive Components**: Dynamic project showcase, animated skill bars, interactive timeline for experience, and smooth scrolling navigation with section highlighting.",
-        "✅ **Performance Optimized**: Lazy loading, optimized images, efficient component rendering, and fast loading times with modern build tools and optimization techniques.",
-        "✅ **GitHub Pages Deployment**: Automated CI/CD pipeline with GitHub Actions for seamless deployment, custom domain support, and version control integration.",
-        "✅ **SEO and Accessibility**: Proper meta tags, semantic HTML, ARIA labels, and accessibility features ensuring good search engine visibility and inclusive design.",
-        "✅ **Professional Presentation**: Clean, modern design showcasing technical skills, project portfolios, experience timeline, and contact information in an engaging format."
+        "✅ **Component Architecture**: Modular design pattern for maintainable UI logic.",
+        "✅ **Internationalization**: Runtime locale switching subsystem.",
+        "✅ **Performance**: Optimized bundle size and asset loading strategies."
       ]
     },
     "opencv_auto": {
-      "title": "OpenCV Auto Projekt",
-      "subtitle": "Computer Vision Application",
-      "description": "A computer vision application built with Python and OpenCV for automated object detection and tracking. The project demonstrates practical applications of computer vision algorithms including real-time object detection, motion tracking, and image processing techniques. Designed for educational purposes and practical implementation of computer vision concepts in automotive or surveillance contexts.",
+      "title": "Computer Vision Pipeline",
+      "subtitle": "Python • OpenCV • Image Processing",
+      "description": "Automated image processing pipeline for real-time object detection. Implements standard CV algorithms for tracking and classification in video streams.",
       "features": [
-        "✅ **Real-Time Object Detection**: Implementation of computer vision algorithms for detecting and classifying objects in live video streams using OpenCV libraries.",
-        "✅ **Motion Tracking**: Advanced tracking algorithms for following moving objects across video frames with persistence and accuracy measurements.",
-        "✅ **Python-Based Implementation**: Clean, modular Python codebase utilizing OpenCV, NumPy, and other computer vision libraries for image processing and analysis.",
-        "✅ **Multiple Detection Methods**: Support for various object detection techniques including contour detection, template matching, and feature-based detection algorithms.",
-        "✅ **Educational Focus**: Well-documented code with clear examples and explanations suitable for learning computer vision concepts and practical implementation.",
-        "✅ **Configurable Parameters**: Adjustable detection sensitivity, tracking parameters, and processing options for different use cases and environments.",
-        "✅ **Performance Optimization**: Efficient algorithms and processing techniques for real-time performance with minimal computational overhead.",
-        "✅ **Practical Applications**: Designed for potential automotive applications, surveillance systems, or general object detection and tracking scenarios."
+        "✅ **Image Processing Algorithms**: Implementation of Canny Edge detection, Gaussian Blurring, and Contour finding.",
+        "✅ **Matrix Operations**: Efficient NumPy array manipulations for pixel-data processing.",
+        "✅ **Motion Tracking**: Euclidean distance tracking logic for persistent object identity."
       ]
     }
   }

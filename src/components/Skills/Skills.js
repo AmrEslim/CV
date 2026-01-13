@@ -31,19 +31,18 @@ const SkillMeter = ({ name, percentage }) => {
 
   return (
     <div>
-      <p>{name}</p>
+      <div className="skill-label">
+        <span>{name}</span>
+        <span className="skill-percent">{percentage}%</span>
+      </div>
       <div className="skill-meter">
-        <div 
-          className="skill-progress" 
+        <div
+          className="skill-progress"
           ref={progressRef}
           data-width={percentage}
-          style={{ width: '0%' }} // Start at 0, will be animated to the target width
+          style={{ width: '0%' }}
         >
-          <div className="skill-dots">
-            {[...Array(10)].map((_, index) => (
-              <div className="skill-dot" key={index}></div>
-            ))}
-          </div>
+          {/* Animated via CSS */}
         </div>
       </div>
     </div>
@@ -53,38 +52,42 @@ const SkillMeter = ({ name, percentage }) => {
 const Skills = () => {
   const { t } = useTranslation();
 
+  /* 
+     NOTE: Structure maintained for visual hierarchy.
+  */
   return (
     <section id="skills" className="scene">
       <div className="content-container">
         <h2 className="section-title">{t('skills.title')}</h2>
         <div className="circuit-board">
-          <div className="chip">
-            <h3 className="chip-title">{t('skills.categories.programming.title')}</h3>
-            <SkillMeter name={t('skills.categories.programming.skills.cpp')} percentage={90} />
-            <SkillMeter name={t('skills.categories.programming.skills.rust')} percentage={70} />
-            <SkillMeter name={t('skills.categories.programming.skills.python')} percentage={85} />
-            <SkillMeter name={t('skills.categories.programming.skills.sql')} percentage={75} />
-          </div>
-          
-          <div className="chip">
-            <h3 className="chip-title">{t('skills.categories.web.title')}</h3>
-            <SkillMeter name={t('skills.categories.web.skills.frontend')} percentage={80} />
-            <SkillMeter name={t('skills.categories.web.skills.flask')} percentage={75} />
-            <SkillMeter name={t('skills.categories.web.skills.react')} percentage={70} />
-          </div>
-          
-          <div className="chip">
-            <h3 className="chip-title">{t('skills.categories.tools.title')}</h3>
-            <SkillMeter name={t('skills.categories.tools.skills.git')} percentage={85} />
-            <SkillMeter name={t('skills.categories.tools.skills.linux')} percentage={90} />
-            <SkillMeter name={t('skills.categories.tools.skills.docker')} percentage={75} />
-          </div>
-          
+
+          {/* Embedded Systems - Priority 1 */}
           <div className="chip">
             <h3 className="chip-title">{t('skills.categories.embedded.title')}</h3>
-            <SkillMeter name={t('skills.categories.embedded.skills.embedded_linux')} percentage={85} />
-
+            <SkillMeter name={t('skills.categories.embedded.skills.embedded_linux')} percentage={95} />
+            <SkillMeter name={t('skills.categories.embedded.skills.rtos')} percentage={85} />
+            <SkillMeter name={t('skills.categories.embedded.skills.drivers')} percentage={80} />
+            <SkillMeter name={t('skills.categories.embedded.skills.protocols')} percentage={90} />
           </div>
+
+          {/* Programming Languages - Priority 2 */}
+          <div className="chip">
+            <h3 className="chip-title">{t('skills.categories.programming.title')}</h3>
+            <SkillMeter name={t('skills.categories.programming.skills.cpp')} percentage={95} />
+            <SkillMeter name={t('skills.categories.programming.skills.rust')} percentage={70} />
+            <SkillMeter name={t('skills.categories.programming.skills.python')} percentage={85} />
+            <SkillMeter name={t('skills.categories.programming.skills.assembly')} percentage={60} />
+          </div>
+
+          {/* Tools & DevOps - Priority 3 */}
+          <div className="chip">
+            <h3 className="chip-title">{t('skills.categories.tools.title')}</h3>
+            <SkillMeter name={t('skills.categories.tools.skills.cmake')} percentage={85} />
+            <SkillMeter name={t('skills.categories.tools.skills.gdb')} percentage={90} />
+            <SkillMeter name={t('skills.categories.tools.skills.docker')} percentage={75} />
+            <SkillMeter name={t('skills.categories.tools.skills.git')} percentage={90} />
+          </div>
+
         </div>
       </div>
     </section>
