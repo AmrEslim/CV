@@ -1,175 +1,288 @@
+/* ProfilePicture.css - Advanced Sci-Fi HUD Style */
 .profile-picture-container {
-  width: 300px;
-  height: 300px;
+  width: 320px;
+  height: 320px;
   position: relative;
-  transition: transform 0.3s ease-out;
+  transition: transform 0.2s cubic-bezier(0.1, 0.5, 0.5, 1);
   transform-style: preserve-3d;
+  margin: 0 auto;
 }
 
 .profile-frame {
   width: 100%;
   height: 100%;
   position: relative;
-  padding: 20px;
-  background: var(--terminal-bg);
-  border-radius: 10px;
-  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.profile-image {
+/* --- Animated HUD Rings --- */
+.hud-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid transparent;
+  pointer-events: none;
+  box-shadow: 0 0 15px rgba(56, 189, 248, 0.1);
+}
+
+.outer-ring {
+  width: 360px;
+  height: 360px;
+  border-top: 1px solid var(--accent-secondary);
+  border-bottom: 1px solid var(--accent-secondary);
+  opacity: 0.3;
+  animation: spin 10s linear infinite;
+}
+
+.outer-ring::before {
+  content: '';
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  border-radius: 50%;
+  border: 1px dashed var(--accent-secondary);
+  opacity: 0.2;
+}
+
+.inner-ring {
+  width: 330px;
+  height: 330px;
+  border-left: 2px solid var(--accent-primary);
+  border-right: 2px solid var(--accent-primary);
+  opacity: 0.4;
+  animation: spinReverse 8s linear infinite;
+}
+
+/* --- Tech Markers (Corners) --- */
+.tech-marker {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border: 2px solid var(--accent-secondary);
+  transition: all 0.3s ease;
+  z-index: 5;
+}
+
+.tech-marker.top-left {
+  top: 10px;
+  left: 10px;
+  border-right: none;
+  border-bottom: none;
+}
+
+.tech-marker.top-right {
+  top: 10px;
+  right: 10px;
+  border-left: none;
+  border-bottom: none;
+}
+
+.tech-marker.bottom-left {
+  bottom: 10px;
+  left: 10px;
+  border-right: none;
+  border-top: none;
+}
+
+.tech-marker.bottom-right {
+  bottom: 10px;
+  right: 10px;
+  border-left: none;
+  border-top: none;
+}
+
+/* --- Status Indicators --- */
+.status-indicator {
+  position: absolute;
+  top: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.8rem;
+  color: var(--accent-primary);
+  text-shadow: 0 0 5px var(--accent-primary);
+  letter-spacing: 2px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(15, 23, 42, 0.8);
+  padding: 4px 12px;
+  border: 1px solid rgba(0, 255, 157, 0.3);
+  border-radius: 4px;
+}
+
+.blink-dot {
+  width: 8px;
+  height: 8px;
+  background: var(--accent-primary);
+  border-radius: 50%;
+  animation: blink 2s infinite;
+}
+
+.scan-data {
+  position: absolute;
+  bottom: -40px;
   width: 100%;
-  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  color: var(--accent-secondary);
+  font-family: 'Share Tech Mono', monospace;
+  opacity: 0.8;
+}
+
+/* --- Main Image Wrapper --- */
+.profile-image-wrapper {
+  width: 280px;
+  height: 280px;
   position: relative;
   overflow: hidden;
-  border-radius: 5px;
+  clip-path: polygon(10% 0, 100% 0, 100% 90%, 90% 100%, 0 100%, 0 10%);
+  background: var(--terminal-bg);
+  border: 1px solid rgba(56, 189, 248, 0.2);
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
 }
 
-.profile-image img {
+/* Image Styling */
+.profile-img img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: contrast(110%) brightness(110%);
+  filter: grayscale(20%) contrast(120%) brightness(0.9);
+  transition: filter 0.3s ease;
 }
 
-.frame-corner {
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  border: 2px solid var(--robot-primary);
-  z-index: 2;
+.profile-img:hover img {
+  filter: grayscale(0%) contrast(100%) brightness(1.1);
 }
 
-.top-left {
-  top: 0;
-  left: 0;
-  border-right: none;
-  border-bottom: none;
-}
-
-.top-right {
-  top: 0;
-  right: 0;
-  border-left: none;
-  border-bottom: none;
-}
-
-.bottom-left {
-  bottom: 0;
-  left: 0;
-  border-right: none;
-  border-top: none;
-}
-
-.bottom-right {
-  bottom: 0;
-  right: 0;
-  border-left: none;
-  border-top: none;
-}
-
-.frame-edge {
-  position: absolute;
-  background: var(--robot-primary);
-  opacity: 0.5;
-  z-index: 2;
-}
-
-.top, .bottom {
-  height: 2px;
-  width: calc(100% - 40px);
-  left: 20px;
-}
-
-.left, .right {
-  width: 2px;
-  height: calc(100% - 40px);
-  top: 20px;
-}
-
-.top { top: 0; }
-.right { right: 0; }
-.bottom { bottom: 0; }
-.left { left: 0; }
-
+/* --- Effects --- */
 .scanning-line {
   position: absolute;
-  width: 100%;
-  height: 2px;
-  background: linear-gradient(90deg, 
-    transparent 0%, 
-    var(--robot-primary) 50%, 
-    transparent 100%
-  );
   top: 0;
   left: 0;
-  z-index: 3;
-  animation: scan 3s linear infinite;
-  opacity: 0.7;
-  box-shadow: 0 0 10px var(--robot-primary);
+  width: 100%;
+  height: 4px;
+  background: var(--accent-primary);
+  box-shadow: 0 0 15px var(--accent-primary);
+  opacity: 0.8;
+  z-index: 10;
+  animation: scanVertical 3s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
 
-.frame-overlay {
+.frame-overlay-grid {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(
-    45deg,
-    transparent 0%,
-    rgba(0, 136, 255, 0.1) 50%,
-    transparent 100%
-  );
+  background-image:
+    linear-gradient(rgba(56, 189, 248, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(56, 189, 248, 0.1) 1px, transparent 1px);
+  background-size: 20px 20px;
   pointer-events: none;
-  z-index: 2;
+  z-index: 5;
+  opacity: 0.3;
 }
 
-@keyframes scan {
-  0% { transform: translateY(0); }
-  100% { transform: translateY(300px); }
+/* Hover Interactivity */
+.profile-picture-container:hover .tech-marker {
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 10px var(--accent-primary);
 }
 
-/* Glitch effect on hover */
-.profile-image:hover img {
-  animation: glitch 0.5s infinite;
+.profile-picture-container:hover .tech-marker.top-left {
+  transform: translate(-5px, -5px);
 }
 
-@keyframes glitch {
-  0% { transform: translate(0); }
-  20% { transform: translate(-2px, 2px); }
-  40% { transform: translate(-2px, -2px); }
-  60% { transform: translate(2px, 2px); }
-  80% { transform: translate(2px, -2px); }
-  100% { transform: translate(0); }
+.profile-picture-container:hover .tech-marker.top-right {
+  transform: translate(5px, -5px);
 }
 
-.profile-container {
-  width: 300px;
-  height: 300px;
-  position: relative;
-  perspective: 1000px;
-  margin: 0 auto;
+.profile-picture-container:hover .tech-marker.bottom-left {
+  transform: translate(-5px, 5px);
 }
 
-@media (max-width: 768px) {
-  .profile-container {
+.profile-picture-container:hover .tech-marker.bottom-right {
+  transform: translate(5px, 5px);
+}
+
+/* Animations */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spinReverse {
+  from {
+    transform: rotate(360deg);
+  }
+
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes scanVertical {
+  0% {
+    top: -10%;
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  90% {
+    opacity: 1;
+  }
+
+  100% {
+    top: 110%;
+    opacity: 0;
+  }
+}
+
+@keyframes blink {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.3;
+  }
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .profile-picture-container {
     width: 250px;
     height: 250px;
+    margin-top: 2rem;
   }
-}
 
-@media (max-width: 480px) {
-  .profile-container {
-    width: 200px;
-    height: 200px;
+  .outer-ring,
+  .inner-ring {
+    display: none;
+    /* Hide complex rings on mobile */
   }
-  
-  .frame {
-    border-width: 8px;
+
+  .profile-image-wrapper {
+    width: 100%;
+    height: 100%;
   }
-  
-  .frame::before,
-  .frame::after {
-    border-width: 8px;
+
+  .status-indicator,
+  .scan-data {
+    display: none;
   }
 }

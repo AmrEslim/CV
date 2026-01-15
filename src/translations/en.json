@@ -26,11 +26,11 @@
     "description": "Computer Engineering graduate specializing in Low-Level Systems and Robotics",
     "content": [
       "Hello! I'm Amr Eslim, a Computer Engineering graduate based in Berlin, Germany.",
-      "I completed my Bachelor's degree in Computer Engineering at HTW Berlin in April 2025 with a focus on embedded architectures.",
+      "I completed my Bachelor's degree in Computer Engineering at HTW Berlin in April 2025.",
       "My expertise lies in Embedded Linux, Firmware Development, and High-Performance C++ Applications.",
-      "I have hands-on experience as a software developer at Fraunhofer IPK since May 2022, working on industrial-grade digital assistance systems for Industry 4.0.",
-      "My recent Bachelor's thesis on neurobiologically-inspired snake robotics demonstrates my ability to bridge control theory with efficient C++ implementation, combining CPG algorithms and real-time constraints.",
-      "With a strong background in C/C++, Rust, and Linux Kernel internals, I build reliable, memory-safe, and efficient solutions for complex technical challenges.",
+      "I have hands-on experience as a software developer working student at Fraunhofer IPK since May 2022, working on industrial-grade projects.",
+      "My Bachelor's thesis on neurobiologically-inspired snake robotics demonstrates my ability to bridge control theory with efficient C/C++ implementation, combining CPG algorithms and real-time constraints.",
+      "With a strong background in C/C++, Python, Rust, and Linux Kernel, I build reliable, memory-safe, and efficient solutions for complex technical challenges.",
       "I'm particularly interested in developing autonomous robotics systems and optimizing low-level drivers for next-gen hardware.",
       "Ready to deploy efficient code to production."
     ]
@@ -41,17 +41,17 @@
       "programming": {
         "title": "Languages & Core",
         "skills": {
-          "cpp": "C/C++ (C++17/20)",
+          "cpp": "C/C++ (C++17/20/23)",
           "rust": "Rust",
-          "python": "Python (Scripting)",
+          "python": "Python",
           "assembly": "Assembly (ARM/x86)"
         }
       },
       "embedded": {
         "title": "Embedded & Systems",
         "skills": {
-          "embedded_linux": "Embedded Linux / Yocto",
-          "rtos": "FreeRTOS / Zephyr",
+          "embedded_linux": "Embedded Linux",
+          "rtos": "FreeRTOS ",
           "drivers": "Device Drivers",
           "protocols": "I2C, SPI, UART, CAN"
         }
@@ -61,8 +61,8 @@
         "skills": {
           "cmake": "CMake / Make",
           "git": "Git / CI/CD",
-          "docker": "Docker / Podman",
-          "gdb": "GDB / Valgrind"
+          "docker": "Docker",
+          "gdb": "GDB"
         }
       }
     }
@@ -130,11 +130,11 @@
   "interests": {
     "title": "Background Processes",
     "items": [
-      "Kernel Hacking",
+      "Sports and athletics",
       "Open Source",
       "Robotics",
       "IoT Automation",
-      "Football",
+      "Languages learning",
       "Swimming",
       "Algorithm Optimization"
     ]

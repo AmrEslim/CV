@@ -7,20 +7,15 @@ import './Modal.css';
 const Modal = ({ isOpen, onClose, project }) => {
   const { t } = useTranslation();
   const modalRef = useRef(null);
-  const contentRef = useRef(null);
 
   useEffect(() => {
     const handleEsc = (event) => {
-      if (event.key === 'Escape') {
-        onClose();
-      }
+      if (event.key === 'Escape') onClose();
     };
-
     if (isOpen) {
       document.addEventListener('keydown', handleEsc);
       document.body.style.overflow = 'hidden';
     }
-
     return () => {
       document.removeEventListener('keydown', handleEsc);
       document.body.style.overflow = 'unset';
@@ -29,68 +24,110 @@ const Modal = ({ isOpen, onClose, project }) => {
 
   if (!isOpen) return null;
 
+  // Format title for MAN page header: "PROJECT(1)"
+  const manTitle = project.title.toUpperCase().replace(/\s+/g, '_');
+
   return createPortal(
-    <div className={`modal-backdrop ${isOpen ? 'visible' : ''}`} ref={modalRef} onClick={onClose}>
-      <div className="modal-content" ref={contentRef} onClick={(e) => e.stopPropagation()}>
-        <button className="modal-close" onClick={onClose} aria-label="Close modal">×</button>
-        
-        <div className="modal-header">
-          <h2 className="modal-title">{project.title}</h2>
-          {project.subtitle && <h4 className="modal-subtitle">{project.subtitle}</h4>}
+    <div className={`modal-backdrop ${isOpen ? 'visible' : ''}`} onClick={onClose}>
+      <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+
+        {/* MAN PAGE HEADER */}
+        <div className="man-header">
+          <span>{manTitle}(1)</span>
+          <span>User Commands</span>
+          <button className="man-close-btn" onClick={onClose}>[q]uit</button>
         </div>
 
-        <div className="modal-body">
-          <div className="project-visual">
-            <ProjectVisual type={project.visualType} images={project.images} />
+        <div className="man-body">
+
+          {/* NAME */}
+          <div className="man-section">
+            <div className="man-section-title">NAME</div>
+            <div className="man-text">
+              {project.title} - {project.subtitle}
+            </div>
           </div>
 
-          <div className="modal-description-section">
-            <h5>Project Overview</h5>
-            <p className="modal-description">{project.description}</p>
+          {/* SYNOPSIS (Visuals) */}
+          <div className="man-section">
+            <div className="man-section-title">SYNOPSIS</div>
+            <div className="man-text" style={{ marginBottom: '20px' }}>
+              <ProjectVisual type={project.visualType} images={project.images} />
+            </div>
           </div>
 
+          {/* DESCRIPTION */}
+          <div className="man-section">
+            <div className="man-section-title">DESCRIPTION</div>
+            <div className="man-text">
+              {project.description}
+            </div>
+          </div>
+
+          {/* OPTIONS (Features) */}
           {project.features && (
-            <div className="modal-features-section">
-              <h5>Key Features & Achievements</h5>
-              <ul className="modal-feature-list">
+            <div className="man-section">
+              <div className="man-section-title">OPTIONS</div>
+              <ul className="man-list">
                 {project.features.map((feature, index) => {
-                  // Parse markdown-style formatting and enhance colons
-                  const formattedFeature = feature
-                    .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-                    .replace(/✅\s*/g, '')
-                    .replace(/(<\/strong>):\s*/g, '$1<span class="feature-colon">:</span> ');
-                  
+                  // Clean up markdown bolding for plain text feel
+                  const cleanFeature = feature.replace(/\*\*(.*?)\*\*/g, '$1').replace(/✅/g, '').trim();
+                  // Split into flag and desc if possible (heuristic: split by colon)
+                  const parts = cleanFeature.split(':');
+                  const flag = parts[0] ? `--${parts[0].toLowerCase().replace(/\s+/g, '-')}` : '';
+                  const desc = parts.slice(1).join(':') || parts[0];
+
                   return (
-                    <li key={index} dangerouslySetInnerHTML={{__html: formattedFeature}}></li>
+                    <li key={index} className="man-list-item">
+                      {parts.length > 1 ? (
+                        <>
+                          <span className="man-flag">{flag}</span>
+                          <span className="man-desc">{desc}</span>
+                        </>
+                      ) : (
+                        <span className="man-desc">{cleanFeature}</span>
+                      )}
+                    </li>
                   );
                 })}
               </ul>
             </div>
           )}
 
+          {/* TECH STACK */}
           {project.technologies && (
-            <div className="modal-tech">
-              <h5>Technologies Used:</h5>
-              <div className="tech-tags-container">
-                {project.technologies.map((tech, index) => (
-                  <span key={index} className="modal-tech-tag">{tech}</span>
+            <div className="man-section">
+              <div className="man-section-title">ENVIRONMENT</div>
+              <div className="man-tags">
+                {project.technologies.map((tech, i) => (
+                  <span key={i} className="man-tag">{tech}</span>
                 ))}
               </div>
             </div>
           )}
 
-          {project.references && project.references.length > 0 && (
-            <div className="modal-references">
-              <h5>{t('ui.sections.references')}:</h5>
-              <ul>
-                {project.references.map((ref, index) => (
-                  <li key={index}>
-                    <a href={ref.url} target="_blank" rel="noopener noreferrer">{ref.title}</a>
+          {/* SEE ALSO (Links) */}
+          {project.references && (
+            <div className="man-section">
+              <div className="man-section-title">SEE ALSO</div>
+              <ul className="man-list">
+                {project.references.map((ref, i) => (
+                  <li key={i}>
+                    <a href={ref.url} target="_blank" rel="noopener noreferrer" className="man-link">
+                      {ref.title}
+                    </a>
                   </li>
                 ))}
               </ul>
             </div>
           )}
+
+          {/* AUTHOR */}
+          <div className="man-section">
+            <div className="man-section-title">AUTHOR</div>
+            <div className="man-text">Amr Eslim &lt;amreslim@example.com&gt;</div>
+          </div>
+
         </div>
       </div>
     </div>,

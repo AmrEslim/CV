@@ -1,0 +1,100 @@
+.hex-viewer {
+    font-family: 'Fira Code', monospace;
+    background: var(--terminal-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    padding: 10px;
+    font-size: 0.85rem;
+    overflow-x: auto;
+    color: var(--text-dim);
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5);
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+.hex-header {
+    display: flex;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+    color: var(--accent-secondary);
+    font-weight: bold;
+    position: sticky;
+    top: 0;
+    background: var(--terminal-bg);
+    z-index: 10;
+}
+
+.hex-col-offset {
+    width: 90px;
+    flex-shrink: 0;
+}
+
+.hex-col-bytes {
+    flex: 1;
+    padding-left: 20px;
+    white-space: pre;
+}
+
+.hex-col-ascii {
+    width: 200px;
+    padding-left: 20px;
+    border-left: 1px solid var(--border-color);
+}
+
+.hex-row {
+    display: flex;
+    margin-bottom: 2px;
+}
+
+.hex-row:hover {
+    background: rgba(56, 189, 248, 0.1);
+    color: var(--text-main);
+}
+
+.hex-offset {
+    width: 90px;
+    color: var(--accent-tertiary);
+    /* Memory Address Color */
+    flex-shrink: 0;
+    user-select: none;
+}
+
+.hex-bytes {
+    flex: 1;
+    padding-left: 20px;
+    color: var(--text-dim);
+    white-space: pre;
+}
+
+.hex-ascii {
+    width: 200px;
+    padding-left: 20px;
+    border-left: 1px solid var(--border-color);
+    color: var(--accent-primary);
+    white-space: pre;
+}
+
+/* Scrollbar styles for the viewer */
+.hex-viewer::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+.hex-viewer::-webkit-scrollbar-track {
+    background: #0f172a;
+}
+
+.hex-viewer::-webkit-scrollbar-thumb {
+    background: #334155;
+    border: 1px solid #1e293b;
+}
+
+@media (max-width: 768px) {
+
+    .hex-col-bytes,
+    .hex-bytes {
+        display: none;
+        /* Hide raw bytes on mobile, keep offset and ASCII */
+    }
+}

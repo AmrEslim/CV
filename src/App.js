@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import Hero from './components/Hero/Hero';
 import About from './components/About/About';
@@ -16,11 +16,13 @@ import LanguageSwitcher from './components/LanguageSwitcher/LanguageSwitcher';
 import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary';
 import SystemMonitor from './components/SystemMonitor/SystemMonitor';
 import Terminal from './components/Terminal/Terminal';
+import BootSequence from './components/BootSequence/BootSequence';
 import { LanguageProvider } from './context/LanguageContext';
 import usePerformanceOptimization from './hooks/usePerformanceOptimization';
 import './App.css';
 
 function App() {
+  const [booted, setBooted] = useState(false);
   // Initialize performance optimizations
   usePerformanceOptimization();
 
@@ -50,66 +52,69 @@ function App() {
       });
     }, observerOptions);
 
-    // Validate elements exist before observing
-    setTimeout(() => {
-      const elements = document.querySelectorAll('.timeline-item, .language-item, .interest-item');
-      if (elements.length > 0) {
-        elements.forEach(item => observer.observe(item));
-      }
-    }, 100);
+    // Validate elements exist before observing (wait for boot)
+    if (booted) {
+      setTimeout(() => {
+        const elements = document.querySelectorAll('.timeline-item, .language-item, .interest-item, .chip');
+        if (elements.length > 0) {
+          elements.forEach(item => observer.observe(item));
+        }
+      }, 500);
+    }
 
     return () => {
       observer.disconnect();
     };
-  }, []);
+  }, [booted]);
 
   return (
     <LanguageProvider>
       <Router basename={process.env.PUBLIC_URL}>
         <div className="App">
-          <ErrorBoundary>
-            <CustomCursor />
-            <CircuitBackground />
-            <LanguageSwitcher />
-            <Navigation />
-          </ErrorBoundary>
+          {!booted && <BootSequence onComplete={() => setBooted(true)} />}
 
-          <main>
+          <div style={{ opacity: booted ? 1 : 0, transition: 'opacity 0.5s ease-in' }}>
             <ErrorBoundary>
-              <Hero />
+              <CustomCursor />
+              <CircuitBackground />
+              <LanguageSwitcher />
+              <Navigation />
             </ErrorBoundary>
-            <ErrorBoundary>
-              <About />
-            </ErrorBoundary>
-            <ErrorBoundary>
-              <Skills />
-            </ErrorBoundary>
-            <ErrorBoundary>
-              <Experience />
-            </ErrorBoundary>
-            <ErrorBoundary>
-              <Projects />
-            </ErrorBoundary>
-            <ErrorBoundary>
-              <Languages />
-            </ErrorBoundary>
-            <ErrorBoundary>
-              <Interests />
-            </ErrorBoundary>
-            <ErrorBoundary>
-              <Contact />
-            </ErrorBoundary>
-          </main>
 
-          <ErrorBoundary>
-            <Footer />
-          </ErrorBoundary>
+            <main>
+              <ErrorBoundary>
+                <Hero />
+              </ErrorBoundary>
+              <ErrorBoundary>
+                <About />
+              </ErrorBoundary>
+              <ErrorBoundary>
+                <Skills />
+              </ErrorBoundary>
+              <ErrorBoundary>
+                <Experience />
+              </ErrorBoundary>
+              <ErrorBoundary>
+                <Projects />
+              </ErrorBoundary>
+              <ErrorBoundary>
+                <Languages />
+              </ErrorBoundary>
+              <ErrorBoundary>
+                <Interests />
+              </ErrorBoundary>
+              <ErrorBoundary>
+                <Contact />
+              </ErrorBoundary>
+            </main>
 
-          {/* System Monitor Widget */}
-          <SystemMonitor />
+            <ErrorBoundary>
+              <Footer />
+            </ErrorBoundary>
 
-          {/* Global CLI Terminal */}
-          <Terminal />
+            <SystemMonitor />
+            <Terminal />
+          </div>
         </div>
       </Router>
     </LanguageProvider>
