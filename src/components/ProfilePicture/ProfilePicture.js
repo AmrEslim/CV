@@ -67,7 +67,7 @@ const ProfilePicture = () => {
           <div className="scanning-line"></div>
           <div className="profile-image">
             <LazyImage
-              src={process.env.PUBLIC_URL + '/images/profile.jpg'}
+              src={process.env.PUBLIC_URL + '/images/profile.jpg?v=2'}
               alt="Amr Eslim - Software Engineer"
               className="profile-img"
             />

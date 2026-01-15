@@ -376,16 +376,25 @@
 @media (max-width: 992px) {
   .hero-grid {
     grid-template-columns: 1fr;
-    gap: 2rem;
+    gap: 3rem;
+    display: flex;
+    flex-direction: column-reverse;
+    /* Terminal top on desktop, but maybe image top on mobile? Let's check user intent. "adjust to phone resolution so that it shows as well" implies it's missing. Usually image first is better for CVs on mobile. */
   }
 
   .hero-visuals {
-    display: none;
+    display: flex;
+    /* Make it visible */
+    justify-content: center;
+    margin-bottom: 1rem;
+    transform: scale(0.9);
+    /* Slightly smaller on tablets */
   }
 
   .hero-terminal {
     transform: none !important;
     margin: 0 1rem;
+    width: 100%;
   }
 
   .terminal-body {
