@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { useNavigate } from 'react-router-dom';
 import './Terminal.css';
 
 const Terminal = () => {
@@ -11,7 +10,6 @@ const Terminal = () => {
     const [input, setInput] = useState('');
     const inputRef = useRef(null);
     const bottomRef = useRef(null);
-    const navigate = useNavigate();
 
     // Toggle with backtick/tilde key
     useEffect(() => {

@@ -25,7 +25,7 @@ export default [
       'react-hooks/exhaustive-deps': 'warn',
       'react/prop-types': 'off',
       'react/no-unescaped-entities': 'off',
-      'no-unused-vars': ['warn', { varsIgnorePattern: '^React$' }],
+      'no-unused-vars': ['warn', { varsIgnorePattern: '^React$', ignoreRestSiblings: true, args: 'none' }],
     },
   },
 ];

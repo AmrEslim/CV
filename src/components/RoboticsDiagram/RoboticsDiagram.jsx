@@ -4,7 +4,7 @@ import './RoboticsDiagram.css';
 
 const RoboticsDiagram = () => {
   const { t } = useTranslation();
-  const [activeConnection, setActiveConnection] = useState(null);
+  const [, setActiveConnection] = useState(null);
   const [simulationRunning, setSimulationRunning] = useState(false);
   const robotRef = useRef(null);
   const pathRef = useRef(null);

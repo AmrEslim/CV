@@ -1,6 +1,30 @@
 import React, { useEffect, useState } from 'react';
 import './LoadingPage.css';
 
+const loadingSteps = [
+  'SYSTEM_INIT...',
+  'BOOTLOADER_v2.1.3',
+  'MCU_CALIBRATION',
+  'GPIO_INITIALIZATION',
+  'I2C_BUS_SCAN',
+  'SPI_INTERFACE_TEST',
+  'UART_COMM_READY',
+  'SENSOR_ARRAY_ONLINE',
+  'AI_MODULE_LOADED',
+  'SYSTEM_READY'
+];
+
+const bootCommands = [
+  '> Checking hardware integrity...',
+  '> Loading firmware v3.2.1...',
+  '> Initializing GPIO pins [0x00-0xFF]',
+  '> Starting I2C communication protocol',
+  '> Calibrating ADC channels',
+  '> Loading neural network weights',
+  '> Establishing wireless connectivity',
+  '> System diagnostics complete'
+];
+
 const LoadingPage = ({ onLoadingComplete }) => {
   const [progress, setProgress] = useState(0);
   const [loadingText, setLoadingText] = useState('SYSTEM_INIT...');
@@ -8,29 +32,6 @@ const LoadingPage = ({ onLoadingComplete }) => {
   const [currentCommand, setCurrentCommand] = useState('');
   const [isBootComplete, setIsBootComplete] = useState(false);
   const [isTransitioning, setIsTransitioning] = useState(false);
-
-  const loadingSteps = [
-    'SYSTEM_INIT...',
-    'BOOTLOADER_v2.1.3',
-    'MCU_CALIBRATION',
-    'GPIO_INITIALIZATION',
-    'I2C_BUS_SCAN',
-    'SPI_INTERFACE_TEST',
-    'UART_COMM_READY',
-    'SENSOR_ARRAY_ONLINE',
-    'AI_MODULE_LOADED',
-    'SYSTEM_READY'
-  ];
-
-  const bootCommands = [
-    '> Checking hardware integrity...',
-    '> Loading firmware v3.2.1...',
-    '> Initializing GPIO pins [0x00-0xFF]',
-    '> Starting I2C communication protocol',
-    '> Calibrating ADC channels',
-    '> Loading neural network weights',
-    '> Establishing wireless connectivity',
-    '> System diagnostics complete'  ];
 
   useEffect(() => {
     let progressInterval;
@@ -70,7 +71,9 @@ const LoadingPage = ({ onLoadingComplete }) => {
     progressInterval = setInterval(updateProgress, 300);
 
     return () => clearInterval(progressInterval);
-  }, [loadingSteps, bootCommands]);  const handleEnterDashboard = () => {
+  }, []);
+
+  const handleEnterDashboard = () => {
     if (isTransitioning) return; // Prevent multiple clicks
     
     setIsTransitioning(true);

@@ -1,12 +1,9 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect } from 'react';
 import { createPortal } from 'react-dom';
-import { useTranslation } from '../../hooks/useTranslation';
 import { ProjectVisual } from './ProjectCard';
 import './Modal.css';
 
 const Modal = ({ isOpen, onClose, project }) => {
-  const { t } = useTranslation();
-  const modalRef = useRef(null);
 
   useEffect(() => {
     const handleEsc = (event) => {

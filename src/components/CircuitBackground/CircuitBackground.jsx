@@ -430,6 +430,8 @@ const CircuitBackground = () => {
         }
       });
     };
+  // Runs once on mount; styles and cssAnimations are static.
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []); return (
     <div
       ref={backgroundRef}
