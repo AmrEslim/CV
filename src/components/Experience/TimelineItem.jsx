@@ -16,4 +16,6 @@ const TimelineItem = forwardRef(({ date, title, description, details }, ref) => 
   );
 });
 
+TimelineItem.displayName = 'TimelineItem';
+
 export default TimelineItem;

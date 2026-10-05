@@ -53,7 +53,7 @@ const Hero = () => {
                 </div>
                 <div className="variable-block">
                   <span className="keyword">auto</span> <span className="var">specialization</span> = <span className="string">"{t('hero.info.specialization')}"</span>;
-                  <span className="comment">// High performance critical systems</span>
+                  <span className="comment">{'// High performance critical systems'}</span>
                 </div>
               </div>
 

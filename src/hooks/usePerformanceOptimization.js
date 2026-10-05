@@ -4,14 +4,14 @@ const usePerformanceOptimization = () => {
   useEffect(() => {
     // Preload critical images
     const criticalImages = [
-      '/images/profile.jpg'
+      'images/profile.jpg'
     ];
 
     criticalImages.forEach(src => {
       const link = document.createElement('link');
       link.rel = 'preload';
       link.as = 'image';
-      link.href = process.env.PUBLIC_URL + src;
+      link.href = import.meta.env.BASE_URL + src;
       document.head.appendChild(link);
     });
 

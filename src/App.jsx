@@ -1,25 +1,26 @@
-import React, { useEffect, useState } from 'react';
+import React, { lazy, Suspense, useEffect, useState } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import Hero from './components/Hero/Hero';
 import About from './components/About/About';
 import Skills from './components/Skills/Skills';
 import Experience from './components/Experience/Experience';
-import Projects from './components/Projects/Projects';
 import Languages from './components/Languages/Languages';
 import Interests from './components/Interests/Interests';
-import Contact from './components/Contact/Contact';
 import Navigation from './components/Navigation/Navigation';
 import Footer from './components/Footer/Footer';
 import CircuitBackground from './components/CircuitBackground/CircuitBackground';
 import CustomCursor from './components/CustomCursor/CustomCursor';
 import LanguageSwitcher from './components/LanguageSwitcher/LanguageSwitcher';
 import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary';
-import SystemMonitor from './components/SystemMonitor/SystemMonitor';
-import Terminal from './components/Terminal/Terminal';
 import BootSequence from './components/BootSequence/BootSequence';
 import { LanguageProvider } from './context/LanguageContext';
 import usePerformanceOptimization from './hooks/usePerformanceOptimization';
 import './App.css';
+
+const Projects = lazy(() => import('./components/Projects/Projects'));
+const Contact = lazy(() => import('./components/Contact/Contact'));
+const SystemMonitor = lazy(() => import('./components/SystemMonitor/SystemMonitor'));
+const Terminal = lazy(() => import('./components/Terminal/Terminal'));
 
 function App() {
   const [booted, setBooted] = useState(false);
@@ -69,7 +70,7 @@ function App() {
 
   return (
     <LanguageProvider>
-      <Router basename={process.env.PUBLIC_URL}>
+      <Router basename={import.meta.env.BASE_URL}>
         <div className="App">
           {!booted && <BootSequence onComplete={() => setBooted(true)} />}
 
@@ -95,7 +96,9 @@ function App() {
                 <Experience />
               </ErrorBoundary>
               <ErrorBoundary>
-                <Projects />
+                <Suspense fallback={null}>
+                  <Projects />
+                </Suspense>
               </ErrorBoundary>
               <ErrorBoundary>
                 <Languages />
@@ -104,7 +107,9 @@ function App() {
                 <Interests />
               </ErrorBoundary>
               <ErrorBoundary>
-                <Contact />
+                <Suspense fallback={null}>
+                  <Contact />
+                </Suspense>
               </ErrorBoundary>
             </main>
 
@@ -112,8 +117,10 @@ function App() {
               <Footer />
             </ErrorBoundary>
 
-            <SystemMonitor />
-            <Terminal />
+            <Suspense fallback={null}>
+              <SystemMonitor />
+              <Terminal />
+            </Suspense>
           </div>
         </div>
       </Router>

@@ -69,7 +69,7 @@ const Terminal = () => {
   /contact`;
                 break;
 
-            case 'cd':
+            case 'cd': {
                 const target = args[1];
                 if (!target) {
                     output = "usage: cd [directory]";
@@ -85,6 +85,7 @@ const Terminal = () => {
                     }
                 }
                 break;
+            }
 
             case 'whoami':
                 output = `Amr Eslim

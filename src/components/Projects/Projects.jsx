@@ -48,8 +48,8 @@ const Projects = () => {
       ],
       visualType: "embedded-system",
       images: [
-        process.env.PUBLIC_URL + '/images/snake-robot1.jpg',
-        process.env.PUBLIC_URL + '/images/snake-robot2.jpg'
+        import.meta.env.BASE_URL + 'images/snake-robot1.jpg',
+        import.meta.env.BASE_URL + 'images/snake-robot2.jpg'
       ],
       demoLink: "https://github.com/AmrEslim/snake_robot"
     },
@@ -58,7 +58,7 @@ const Projects = () => {
       ...t('projects.cryptify'),
       technologies: ["Rust", "Actix-web", "Ring Cryptography", "SQLite", "React", "TypeScript", "Docker", "AES-256-GCM", "Argon2id"],
       visualType: "security-app",
-      images: [process.env.PUBLIC_URL + '/images/Cryptify-logo.png'],
+      images: [import.meta.env.BASE_URL + 'images/Cryptify-logo.png'],
       demoLink: "https://github.com/AmrEslim/Cryptify"
     },
     {
@@ -66,7 +66,7 @@ const Projects = () => {
       ...t('projects.sidequester'),
       technologies: ["ESP32", "Arduino", "LoRa", "GPS", "HMC5883L Compass", "OLED Display", "C++", "TinyGPS++"],
       visualType: "iot-device",
-      images: [process.env.PUBLIC_URL + '/images/SideQuester.png'],
+      images: [import.meta.env.BASE_URL + 'images/SideQuester.png'],
       demoLink: "https://github.com/AmrEslim/SideQuester"
     },
     {
@@ -74,7 +74,7 @@ const Projects = () => {
       ...t('projects.cv_portfolio'),
       technologies: ["React", "JavaScript", "HTML/CSS", "GitHub Pages", "Responsive Design", "i18n"],
       visualType: "web-app",
-      images: [process.env.PUBLIC_URL + '/images/Portfolio.png'],
+      images: [import.meta.env.BASE_URL + 'images/Portfolio.png'],
       demoLink: "https://github.com/AmrEslim/CV"
     },
     {
@@ -82,7 +82,7 @@ const Projects = () => {
       ...t('projects.opencv_auto'),
       technologies: ["Python", "OpenCV", "Computer Vision", "Object Detection", "Tracking Algorithms"],
       visualType: "computer-vision",
-      images: [process.env.PUBLIC_URL + '/images/OpenCV.png'],
+      images: [import.meta.env.BASE_URL + 'images/OpenCV.png'],
       demoLink: "https://github.com/AmrEslim/OpenCV-car"
     }
   ];
