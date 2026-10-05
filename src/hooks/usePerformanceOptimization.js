@@ -15,18 +15,6 @@ const usePerformanceOptimization = () => {
       document.head.appendChild(link);
     });
 
-    // Optimize font loading
-    const fontPreload = document.createElement('link');
-    fontPreload.rel = 'preconnect';
-    fontPreload.href = 'https://fonts.googleapis.com';
-    document.head.appendChild(fontPreload);
-
-    const fontPreload2 = document.createElement('link');
-    fontPreload2.rel = 'preconnect';
-    fontPreload2.href = 'https://fonts.gstatic.com';
-    fontPreload2.crossOrigin = 'anonymous';
-    document.head.appendChild(fontPreload2);
-
     // Memory cleanup
     return () => {
       // Remove preload links on component unmount
