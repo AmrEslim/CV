@@ -67,7 +67,7 @@ const ProfilePicture = () => {
           <div className="scanning-line"></div>
           <div className="profile-image">
             <LazyImage
-              src={import.meta.env.BASE_URL + 'images/profile.jpg?v=2'}
+              src={import.meta.env.BASE_URL + 'images/profile.webp?v=2'}
               alt="Amr Eslim - Software Engineer"
               className="profile-img"
             />

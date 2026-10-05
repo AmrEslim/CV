@@ -7,6 +7,10 @@ export default [
   { ignores: ['build', 'node_modules', 'src/components/CodeEditor'] },
   js.configs.recommended,
   {
+    files: ['scripts/**/*.mjs', '*.config.js'],
+    languageOptions: { globals: globals.node },
+  },
+  {
     files: ['src/**/*.{js,jsx}'],
     languageOptions: {
       globals: globals.browser,

@@ -4,7 +4,7 @@ const usePerformanceOptimization = () => {
   useEffect(() => {
     // Preload critical images
     const criticalImages = [
-      'images/profile.jpg'
+      'images/profile.webp'
     ];
 
     criticalImages.forEach(src => {
