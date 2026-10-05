@@ -4,7 +4,7 @@ import react from 'eslint-plugin-react';
 import reactHooks from 'eslint-plugin-react-hooks';
 
 export default [
-  { ignores: ['build', 'node_modules', 'src/components/CodeEditor'] },
+  { ignores: ['build', 'dev-dist', 'node_modules'] },
   js.configs.recommended,
   {
     files: ['scripts/**/*.mjs', '*.config.js'],
