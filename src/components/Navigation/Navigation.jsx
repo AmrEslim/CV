@@ -1,22 +1,30 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { HashLink } from 'react-router-hash-link';
 import { useTranslation } from '../../hooks/useTranslation';
+import { useLanguage } from '../../context/LanguageContext';
+import { getPosts } from '../../content';
 import './Navigation.css';
 
 const Navigation = ({ onMenuOpenChange }) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
   const { t } = useTranslation();
+  const { language } = useLanguage();
+  const hasPosts = useMemo(() => getPosts(language).length > 0, [language]);
+
+  const sections = useMemo(
+    () => [
+      'hero', 'about', 'skills', 'experience', 'projects',
+      ...(hasPosts ? ['posts'] : []),
+      'languages', 'interests', 'contact',
+    ],
+    [hasPosts]
+  );
 
   useEffect(() => {
-    const handleScroll = () => {      const sections = [
-        'hero', 'about', 'skills', 'experience', 
-        'projects', 'languages', 
-        'interests', 'contact'
-      ];
-      
+    const handleScroll = () => {
       const scrollPosition = window.scrollY + window.innerHeight / 3;
-      
+
       for (const section of sections) {
         const element = document.getElementById(section);
         if (element) {
@@ -33,7 +41,7 @@ const Navigation = ({ onMenuOpenChange }) => {
     handleScroll(); // Initial check
 
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [sections]);
 
   const toggleMenu = () => {
     const newMenuState = !menuOpen;
@@ -50,88 +58,21 @@ const Navigation = ({ onMenuOpenChange }) => {
     }
   };
 
-  const NavLinks = ({ onClick }) => (
+  const renderLinks = (onClick) => (
     <ul className="nav-links">
-      <li>
-        <HashLink 
-          smooth 
-          to="#hero" 
-          onClick={onClick}
-          className={activeSection === 'hero' ? 'active' : ''}
-        >
-          {t('nav.home')}
-        </HashLink>
-      </li>
-      <li>
-        <HashLink 
-          smooth 
-          to="#about" 
-          onClick={onClick}
-          className={activeSection === 'about' ? 'active' : ''}
-        >
-          {t('nav.about')}
-        </HashLink>
-      </li>
-      <li>
-        <HashLink 
-          smooth 
-          to="#skills" 
-          onClick={onClick}
-          className={activeSection === 'skills' ? 'active' : ''}
-        >
-          {t('nav.skills')}
-        </HashLink>
-      </li>
-      <li>
-        <HashLink 
-          smooth 
-          to="#experience" 
-          onClick={onClick}
-          className={activeSection === 'experience' ? 'active' : ''}
-        >
-          {t('nav.experience')}
-        </HashLink>
-      </li>
-      <li>
-        <HashLink 
-          smooth 
-          to="#projects" 
-          onClick={onClick}
-          className={activeSection === 'projects' ? 'active' : ''}
-        >
-          {t('nav.projects')}
-        </HashLink>
-      </li>
-      <li>
-        <HashLink 
-          smooth 
-          to="#languages" 
-          onClick={onClick}
-          className={activeSection === 'languages' ? 'active' : ''}
-        >
-          {t('nav.languages')}
-        </HashLink>
-      </li>
-      <li>
-        <HashLink 
-          smooth 
-          to="#interests" 
-          onClick={onClick}
-          className={activeSection === 'interests' ? 'active' : ''}
-        >
-          {t('nav.interests')}
-        </HashLink>
-      </li>
-      <li>
-        <HashLink 
-          smooth 
-          to="#contact" 
-          onClick={onClick}
-          className={activeSection === 'contact' ? 'active' : ''}
-        >
-          {t('nav.contact')}
-        </HashLink>
-      </li>
+      {sections.map((id) => (
+        <li key={id}>
+          {/* "/#id" keeps anchors working from sub-pages such as /posts */}
+          <HashLink
+            smooth
+            to={`/#${id}`}
+            onClick={onClick}
+            className={activeSection === id ? 'active' : ''}
+          >
+            {t(`nav.${id === 'hero' ? 'home' : id}`)}
+          </HashLink>
+        </li>
+      ))}
     </ul>
   );
 
@@ -139,17 +80,17 @@ const Navigation = ({ onMenuOpenChange }) => {
     <>
       {/* Horizontal Navigation for Desktop */}
       <nav className="nav-horizontal">
-        <NavLinks onClick={() => {}} />
+        {renderLinks(() => {})}
       </nav>
 
       {/* Mobile Navigation */}
       <div className="nav-container">
         <button className="nav-toggle" onClick={toggleMenu}>☰</button>
       </div>
-      
+
       <nav className={`nav-menu ${menuOpen ? 'active' : ''}`}>
         <button className="nav-close" onClick={closeMenu}>✕</button>
-        <NavLinks onClick={closeMenu} />
+        {renderLinks(closeMenu)}
       </nav>
     </>
   );

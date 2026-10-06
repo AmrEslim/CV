@@ -1,0 +1,47 @@
+{
+  "order": 3,
+  "status": "active",
+  "category": "iot",
+  "featured": false,
+  "technologies": [
+    "ESP32",
+    "Arduino",
+    "LoRa",
+    "GPS",
+    "HMC5883L Compass",
+    "OLED Display",
+    "C++",
+    "TinyGPS++"
+  ],
+  "images": [
+    "SideQuester.webp"
+  ],
+  "link": "https://github.com/AmrEslim/SideQuester",
+  "en": {
+    "title": "SideQuester Firmware",
+    "subtitle": "LoRa • Hardware Design • C++",
+    "description": "Off-grid telemetry device firmware using LoRa radio modulation. Designed for long-range, low-power communication between independent nodes without infrastructure. Involved bare-metal sensor interfacing and power state optimization.",
+    "features": [
+      "LoRa Mesh Networking: Implemented P2P LoRa communication protocol (868/915MHz) for reliable data packet transmission over 3km.",
+      "Hardware Interfacing: Developed I2C drivers for HMC5883L compass and UART NMEA parsing for GPS modules.",
+      "Power Optimization: Implemented deep-sleep state machines to extend battery life, waking only for synchronized transmission windows.",
+      "Embedded Graphics: Direct frame-buffer manipulation for OLED display updates using reduced instruction cycles.",
+      "Interrupt Handling: Optimized GPIO interrupt service routines for user input and radio triggers."
+    ]
+  },
+  "de": {
+    "title": "SideQuester - IoT E-Kompass",
+    "subtitle": "LoRa-basiertes Freunde-Finder-Gerät",
+    "description": "Ein innovatives duales ESP32-basiertes Kompass-System für Festivals und Off-Grid-Abenteuer, wo Mobilfunknetze versagen. SideQuester nutzt GPS-Koordinaten, die über LoRa-Funktechnologie übertragen werden, um einen Kompass zu schaffen, der immer zu Ihrem Begleiter zeigt. Jedes Gerät fungiert sowohl als Sender als auch als Empfänger und bietet Echtzeit-Richtungsführung mit OLED-Display für Entfernung, Richtung und Verbindungsstatus.",
+    "features": [
+      "Langstrecken-LoRa-Kommunikation: Bis zu 3km Reichweite mit LoRa-Funktechnologie (868MHz EU / 915MHz US) mit ordnungsgemäßer Frequenzkonformität und regionaler Konfigurationsunterstützung.",
+      "Präzisions-GPS-Navigation: Integriertes GPS-Modul mit Haversine-Formelberechnungen für genaue Entfernungs- und Peilungsberechnung zwischen Geräten, einschließlich Kompass-Kalibrierung.",
+      "Echtzeit-Richtungsanzeige: OLED-Bildschirm mit intuitiver Kompass-Schnittstelle mit Pfeil-Indikatoren, Entfernungsmessungen und Gerätestatus-Informationen.",
+      "ESP32-basierte Architektur: Duale ESP32-Entwicklungsplatinen mit umfassender Sensorintegration einschließlich HMC5883L digitaler Kompass und GPS-Module.",
+      "Batterie-optimiertes Design: Stromverwaltung mit Deep-Sleep-Modi, Batteriespannungsüberwachung und Notfall-SOS-Funktionalität für erweiterte Outdoor-Nutzung.",
+      "Sicherheit und Konformität: Umfassende Dokumentation zu Funkvorschriften, Batteriesicherheit, Umweltaspekten und Notfallprotokollen.",
+      "Open Source Hardware: Vollständige Aufbau-Dokumentation mit Komponentenlisten, Verdrahtungsdiagrammen, Software-Setup-Anleitungen und Fehlerbehebungsressourcen.",
+      "Community-getriebene Entwicklung: Aktives GitHub-Projekt mit Beitragsrichtlinien, Testverfahren und kollaborativem Entwicklungsrahmen."
+    ]
+  }
+}

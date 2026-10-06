@@ -104,11 +104,11 @@ const Modal = ({ isOpen, onClose, project }) => {
           )}
 
           {/* SEE ALSO (Links) */}
-          {project.references && (
+          {(project.references || project.link) && (
             <div className="man-section">
               <div className="man-section-title">SEE ALSO</div>
               <ul className="man-list">
-                {project.references.map((ref, i) => (
+                {(project.references || [{ title: 'Source Code', url: project.link }]).map((ref, i) => (
                   <li key={i}>
                     <a href={ref.url} target="_blank" rel="noopener noreferrer" className="man-link">
                       {ref.title}
@@ -122,7 +122,7 @@ const Modal = ({ isOpen, onClose, project }) => {
           {/* AUTHOR */}
           <div className="man-section">
             <div className="man-section-title">AUTHOR</div>
-            <div className="man-text">Amr Eslim &lt;amreslim@example.com&gt;</div>
+            <div className="man-text">Amr Eslim</div>
           </div>
 
         </div>

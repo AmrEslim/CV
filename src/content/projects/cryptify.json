@@ -1,0 +1,49 @@
+{
+  "order": 2,
+  "status": "active",
+  "category": "security",
+  "featured": false,
+  "technologies": [
+    "Rust",
+    "Actix-web",
+    "Ring Cryptography",
+    "SQLite",
+    "React",
+    "TypeScript",
+    "Docker",
+    "AES-256-GCM",
+    "Argon2id"
+  ],
+  "images": [
+    "Cryptify-logo.webp"
+  ],
+  "link": "https://github.com/AmrEslim/Cryptify",
+  "en": {
+    "title": "Cryptify Core",
+    "subtitle": "Rust • Cryptography • Memory Safety",
+    "description": "A high-security cryptographic storage engine built with Rust to demonstrate memory-safe systems programming. Implements zero-knowledge protocols and hardware-accelerated encryption primitives. Focuses on correctness, type safety, and efficient resource management.",
+    "features": [
+      "Rust Ownership Model: Leveraged Rust's borrow checker to ensure memory safety without garbage collection, critical for security applications.",
+      "Systems Programming: Implemented low-level cryptographic primitives using ring and argon2 libraries, optimizing for CPU instruction sets.",
+      "Concurrency: Built with Actix for high-throughput async I/O, handling concurrent authentications with minimal overhead.",
+      "Docker Containerization: Optimized multi-stage Docker builds for minimal container footprint (<50MB) and secure rootless execution.",
+      "Type-Safe Database Interactions: used SQLx for compile-time verified queries, preventing SQL injection at the compiler level.",
+      "Security Architecture: Implemented Argon2id key derivation and AES-256-GCM for authenticated encryption."
+    ]
+  },
+  "de": {
+    "title": "Cryptify - Sicherer Passwort-Manager",
+    "subtitle": "Plattformübergreifende Sicherheitsanwendung",
+    "description": "Ein umfassender plattformübergreifender Passwort-Manager mit Rust-Backend und modernen Frontend-Technologien. Cryptify bietet Ende-zu-Ende-verschlüsselte Passwort-Speicherung mit Zero-Knowledge-Architektur, wodurch sichergestellt wird, dass der Server niemals unverschlüsselte Benutzerdaten sieht. Bietet sichere Synchronisation über Web-, Desktop- und Mobile-Plattformen mit AES-256-GCM-Verschlüsselung und Argon2id-Schlüsselableitung.",
+    "features": [
+      "Zero-Knowledge-Architektur: Vollständige Ende-zu-Ende-Verschlüsselung, bei der der Server niemals Klartext-Passwörter oder sensible Daten sieht, wodurch Benutzerprivatsphäre und Sicherheit gewährleistet werden.",
+      "Rust-Backend mit Actix-web: Hochperformantes, speichersicheres Backend mit Rust mit JWT-Authentifizierung, SQLx für typsichere Datenbankabfragen und umfassenden API-Endpunkten.",
+      "Moderne Kryptographie: Implementiert AES-256-GCM für authentifizierte Verschlüsselung und Argon2id für sichere passwortbasierte Schlüsselableitung nach aktuellen Sicherheitsbest-Practices.",
+      "Plattformübergreifendes Frontend: React/TypeScript-Webanwendung mit Vite, Tailwind CSS und modernen Entwicklungstools. Geplante Tauri-Desktop- und React Native-Mobile-Apps.",
+      "Sichere Passwort-Generierung: Kryptographisch sicherer Zufalls-Passwort-Generator mit anpassbaren Kriterien inklusive Länge, Zeichensätzen und Ausschlussregeln.",
+      "Docker-Containerisierung: Vollständige containerisierte Bereitstellung bereit für TrueNAS Scale mit Docker Compose-Konfiguration für einfaches Self-Hosting.",
+      "Umfassende Teststrategie: Test-driven Development-Ansatz mit Contract-Tests, Integrationstests und Sicherheitsvalidierung nach Industriebest-Practices.",
+      "Entwicklungsdokumentation: Umfangreiche technische Spezifikationen, API-Verträge, Implementierungspläne und Benutzerhandbücher mit klaren Setup-Anleitungen."
+    ]
+  }
+}

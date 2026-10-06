@@ -1,0 +1,43 @@
+{
+  "order": 4,
+  "status": "active",
+  "category": "web",
+  "featured": false,
+  "technologies": [
+    "React",
+    "JavaScript",
+    "HTML/CSS",
+    "GitHub Pages",
+    "Responsive Design",
+    "i18n"
+  ],
+  "images": [
+    "Portfolio.webp"
+  ],
+  "link": "https://github.com/AmrEslim/CV",
+  "en": {
+    "title": "System Interface",
+    "subtitle": "React • Performance • UI",
+    "description": "User interface layer for presenting system documentation and status. Optimized for fast rendering and responsive layout across devices.",
+    "features": [
+      "Component Architecture: Modular design pattern for maintainable UI logic.",
+      "Internationalization: Runtime locale switching subsystem.",
+      "Performance: Optimized bundle size and asset loading strategies."
+    ]
+  },
+  "de": {
+    "title": "Interaktive CV-Portfolio",
+    "subtitle": "React-basierte persönliche Website",
+    "description": "Eine responsive, interaktive persönliche Portfolio-Website mit React und modernen Web-Technologien. Bietet mehrsprachige Unterstützung (Englisch/Deutsch), sanfte Animationen und optimierte Performance. Die Website präsentiert berufliche Erfahrungen, technische Fähigkeiten und Projekte mit einer ansprechenden Benutzeroberfläche. Gehostet auf GitHub Pages mit automatischer Bereitstellung und mobilfreundlichem Design.",
+    "features": [
+      "React mit modernem JavaScript: Entwickelt mit React 18 mit funktionalen Komponenten, Hooks und modernen ES6+-JavaScript-Features für optimale Performance und Wartbarkeit.",
+      "Responsive Design: Mobile-first responsives Design für optimale Betrachtungserfahrung auf Desktop-, Tablet- und Mobilgeräten mit sanften Übergängen und Animationen.",
+      "Mehrsprachige Unterstützung: Vollständige Internationalisierung (i18n) Implementierung mit Unterstützung für Englisch und Deutsch mit nahtloser Sprachumschaltfunktion.",
+      "Interaktive Komponenten: Dynamische Projektpräsentation, animierte Skill-Balken, interaktive Zeitleiste für Erfahrungen und sanftes Scrolling-Navigation mit Abschnittshervorhebung.",
+      "Performance-optimiert: Lazy Loading, optimierte Bilder, effiziente Komponenten-Rendering und schnelle Ladezeiten mit modernen Build-Tools und Optimierungstechniken.",
+      "GitHub Pages Bereitstellung: Automatisierte CI/CD-Pipeline mit GitHub Actions für nahtlose Bereitstellung, benutzerdefinierte Domain-Unterstützung und Versionskontrollintegration.",
+      "SEO und Barrierefreiheit: Ordnungsgemäße Meta-Tags, semantisches HTML, ARIA-Labels und Barrierefreiheits-Features für gute Suchmaschinenvisibilität und inklusives Design.",
+      "Professionelle Präsentation: Sauberes, modernes Design zur Präsentation technischer Fähigkeiten, Projektportfolios, Erfahrungszeitleiste und Kontaktinformationen in ansprechendem Format."
+    ]
+  }
+}

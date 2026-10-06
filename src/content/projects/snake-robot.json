@@ -1,0 +1,65 @@
+{
+  "order": 1,
+  "status": "active",
+  "category": "embedded",
+  "featured": true,
+  "technologies": [
+    "ESP32",
+    "C++",
+    "CPG Control Algorithms",
+    "3D Printing (TPU, PLA+)",
+    "Arduino Framework",
+    "React",
+    "WebSockets",
+    "Motion Tracking (Kinovea)",
+    "ACS712 Current Sensor",
+    "Onshape CAD",
+    "CSV Data Logging"
+  ],
+  "images": [
+    "snake-robot1.webp",
+    "snake-robot2.webp"
+  ],
+  "link": "https://github.com/AmrEslim/snake_robot",
+  "en": {
+    "title": "Snake Robot Firmware",
+    "subtitle": "Embedded C++ • ESP32 • RTOS",
+    "description": "High-performance firmware implementation for a modular bio-inspired snake robot. The system leverages CPG (Central Pattern Generator) algorithms running on ESP32 to achieve real-time coordinated servo control. Initialized complex kinematics solving and real-time state machine logic for adaptive locomotion.",
+    "features": [
+      "Embedded C++ Architecture: Object-oriented firmware design optimized for constrained resources, featuring custom driver layers for servo bus communication.",
+      "Real-Time Control Loop: Implemented strict timing-critical loops for CPG wave generation (10-45° amplitude, 0.1-2.0 Hz) ensuring synchronized motion across 10-DOF.",
+      "Hardware Abstraction Layer: Developed HAL for ESP32 peripherals including PWM, ADC (Current Sensing), and UART/WiFi stacks.",
+      "Performance Profiling: Integrated energy monitoring using ACS712 sensors to profile algorithmic efficiency of Lateral Undulation vs Sidewinding gaits.",
+      "Concurrency: Utilized FreeRTOS tasks for separating critical motor control loops from telemetry and communication threads.",
+      "Wireless Telemetry: Implemented efficient binary UDP protocol for real-time robot state visualization and parameter tuning."
+    ],
+    "references": [
+      {
+        "title": "Source Code",
+        "url": "https://github.com/AmrEslim/snake_robot"
+      }
+    ]
+  },
+  "de": {
+    "title": "Neurobiologisch inspirierter Schlangen-Roboter",
+    "subtitle": "Bachelor-Arbeit – HTW Berlin (2025)",
+    "description": "Bachelor-Thesis-Projekt zur Entwicklung, Implementierung und experimentellen Bewertung eines modularen schlangenähnlichen Roboters, inspiriert von der biologischen Schlangenbewegung. Entwickelt ein vollständiges biomimetisches System, das laterale Undulation und Seitenwinden mittels Central Pattern Generator (CPG) Steuerungsalgorithmen reproduziert. Das Projekt integriert erfolgreich Maschinenbau, Embedded-Systems-Programmierung und Neurowissenschaften in eine funktionale bio-inspirierte Robotikplattform.",
+    "features": [
+      "Modulares Mechanisches Design: CAD-entworfen in Onshape und 3D-gedruckt mit PETG-, PLA+- und TPU-Materialien. Verfügt über 10 Servomotoren in alternierender horizontaler/vertikaler Konfiguration (7H/3V) für komplexe undulatorische Bewegungsmuster.",
+      "CPG-Steuerungsimplementierung: Implementierte mathematische Central Pattern Generator Algorithmen auf ESP32 Mikrocontroller mit Arduino IDE. Generierte synchronisierte Sinuswellen mit konfigurierbaren Parametern (Amplitude: 10-45°, Frequenz: 0,1-2,0 Hz, Phasenversatz: 30-90°) für biomimetische Fortbewegung.",
+      "Duale Fortbewegungsmuster: Erfolgreich implementierte sowohl laterale Undulation (schlangenähnliche horizontale Wellen) als auch Seitenwinden (3D-Wüstenstil-Bewegung) mit Echtzeitumschaltfunktion über Web-Interface.",
+      "ESP32-basiertes Steuerungssystem: Vollständiges Embedded-System mit WiFi-Zugriffspunkt, Webserver und Echtzeit-Steuerungsschnittstelle. Unterstützt Remote-Parametereinstellung, Bewegungsmusterauswahl und Live-Systemüberwachung.",
+      "Stromverwaltung & Überwachung: Integrierter ACS712-Stromsensor für Echtzeit-Stromverbrauchsanalyse. Entdeckte, dass Seitenwinden ~50% mehr Strom als laterale Undulation verbraucht, mit detaillierter Energieprofilierung aller Konfigurationen.",
+      "Experimentelle Validierung: Umfassende Tests mit Kinovea-Bewegungsverfolgungssoftware in strukturierter Gitterumgebung. Quantitative Analyse von Bewegungsmustern, Geschwindigkeitsprofilen und Energieverbrauch verschiedener mechanischer Konfigurationen.",
+      "Drei Testkonfigurationen: Basis-Roboter, TPU-Schuppen-verstärkte Version (biomimetische Reibung) und PLA+-Räderkonfiguration. Vergleichsanalyse zeigte, dass Räder die konsistenteste lineare Fortbewegung boten.",
+      "Forschungsdokumentation: Vollständige Bachelor-Thesis-Dokumentation inklusive Literaturübersicht, mathematischer Modellierung, experimenteller Methodik und statistischer Analyse der Ergebnisse mit Leistungsvergleichen.",
+      "Zukünftige Forschungsanwendungen: Thesis schlägt ESP-NOW drahtlose Steuerung, Schwarmrobotik-Anwendungen, autonome Navigation mit IMUs und Weichkörper-Aktuierung für verbesserte Geländeanpassung vor."
+    ],
+    "references": [
+      {
+        "title": "Thesis PDF (HTW Berlin, 2025)",
+        "url": "https://github.com/AmrEslim/snake_robot"
+      }
+    ]
+  }
+}

@@ -17,6 +17,7 @@
     "skills": "/bin/skills",
     "experience": "/var/log/exp",
     "projects": "/opt/projects",
+    "posts": "/var/log/posts",
     "languages": "/etc/langs",
     "interests": "~/.config",
     "contact": "/dev/contact"
@@ -185,69 +186,26 @@
   },
   "projects": {
     "title": "Active Processes",
-    "snake_robot": {
-      "title": "Snake Robot Firmware",
-      "subtitle": "Embedded C++ • ESP32 • RTOS",
-      "description": "High-performance firmware implementation for a modular bio-inspired snake robot. The system leverages CPG (Central Pattern Generator) algorithms running on ESP32 to achieve real-time coordinated servo control. Initialized complex kinematics solving and real-time state machine logic for adaptive locomotion.",
-      "features": [
-        "✅ **Embedded C++ Architecture**: Object-oriented firmware design optimized for constrained resources, featuring custom driver layers for servo bus communication.",
-        "✅ **Real-Time Control Loop**: Implemented strict timing-critical loops for CPG wave generation (10-45° amplitude, 0.1-2.0 Hz) ensuring synchronized motion across 10-DOF.",
-        "✅ **Hardware Abstraction Layer**: Developed HAL for ESP32 peripherals including PWM, ADC (Current Sensing), and UART/WiFi stacks.",
-        "✅ **Performance Profiling**: Integrated energy monitoring using ACS712 sensors to profile algorithmic efficiency of Lateral Undulation vs Sidewinding gaits.",
-        "✅ **Concurrency**: Utilized FreeRTOS tasks for separating critical motor control loops from telemetry and communication threads.",
-        "✅ **Wireless Telemetry**: Implemented efficient binary UDP protocol for real-time robot state visualization and parameter tuning."
-      ],
-      "references": [
-        {
-          "title": "Source Code",
-          "url": "https://github.com/AmrEslim/snake_robot"
-        }
-      ]
+    "filterAll": "all",
+    "categories": {
+      "embedded": "embedded",
+      "security": "security",
+      "iot": "iot",
+      "web": "web",
+      "vision": "vision"
     },
-    "cryptify": {
-      "title": "Cryptify Core",
-      "subtitle": "Rust • Cryptography • Memory Safety",
-      "description": "A high-security cryptographic storage engine built with Rust to demonstrate memory-safe systems programming. Implements zero-knowledge protocols and hardware-accelerated encryption primitives. Focuses on correctness, type safety, and efficient resource management.",
-      "features": [
-        "✅ **Rust Ownership Model**: Leveraged Rust's borrow checker to ensure memory safety without garbage collection, critical for security applications.",
-        "✅ **Systems Programming**: Implemented low-level cryptographic primitives using ring and argon2 libraries, optimizing for CPU instruction sets.",
-        "✅ **Concurrency**: Built with Actix for high-throughput async I/O, handling concurrent authentications with minimal overhead.",
-        "✅ **Docker Containerization**: Optimized multi-stage Docker builds for minimal container footprint (<50MB) and secure rootless execution.",
-        "✅ **Type-Safe Database Interactions**: used SQLx for compile-time verified queries, preventing SQL injection at the compiler level.",
-        "✅ **Security Architecture**: Implemented Argon2id key derivation and AES-256-GCM for authenticated encryption."
-      ]
-    },
-    "sidequester": {
-      "title": "SideQuester Firmware",
-      "subtitle": "LoRa • Hardware Design • C++",
-      "description": "Off-grid telemetry device firmware using LoRa radio modulation. Designed for long-range, low-power communication between independent nodes without infrastructure. Involved bare-metal sensor interfacing and power state optimization.",
-      "features": [
-        "✅ **LoRa Mesh Networking**: Implemented P2P LoRa communication protocol (868/915MHz) for reliable data packet transmission over 3km.",
-        "✅ **Hardware Interfacing**: Developed I2C drivers for HMC5883L compass and UART NMEA parsing for GPS modules.",
-        "✅ **Power Optimization**: Implemented deep-sleep state machines to extend battery life, waking only for synchronized transmission windows.",
-        "✅ **Embedded Graphics**: Direct frame-buffer manipulation for OLED display updates using reduced instruction cycles.",
-        "✅ **Interrupt Handling**: Optimized GPIO interrupt service routines for user input and radio triggers."
-      ]
-    },
-    "cv_portfolio": {
-      "title": "System Interface",
-      "subtitle": "React • Performance • UI",
-      "description": "User interface layer for presenting system documentation and status. Optimized for fast rendering and responsive layout across devices.",
-      "features": [
-        "✅ **Component Architecture**: Modular design pattern for maintainable UI logic.",
-        "✅ **Internationalization**: Runtime locale switching subsystem.",
-        "✅ **Performance**: Optimized bundle size and asset loading strategies."
-      ]
-    },
-    "opencv_auto": {
-      "title": "Computer Vision Pipeline",
-      "subtitle": "Python • OpenCV • Image Processing",
-      "description": "Automated image processing pipeline for real-time object detection. Implements standard CV algorithms for tracking and classification in video streams.",
-      "features": [
-        "✅ **Image Processing Algorithms**: Implementation of Canny Edge detection, Gaussian Blurring, and Contour finding.",
-        "✅ **Matrix Operations**: Efficient NumPy array manipulations for pixel-data processing.",
-        "✅ **Motion Tracking**: Euclidean distance tracking logic for persistent object identity."
-      ]
+    "status": {
+      "active": "RUNNING",
+      "wip": "BUILDING",
+      "archived": "STOPPED"
     }
+  },
+  "posts": {
+    "title": "Kernel Log",
+    "allPosts": "cat /var/log/posts",
+    "back": "cd ..",
+    "empty": "No entries yet.",
+    "minRead": "min read",
+    "notFound": "No such file or directory"
   }
 }

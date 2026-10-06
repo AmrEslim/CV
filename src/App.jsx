@@ -1,5 +1,5 @@
-import React, { lazy, Suspense, useEffect, useState } from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
+import React, { lazy, Suspense, useCallback, useEffect, useState } from 'react';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Hero from './components/Hero/Hero';
 import About from './components/About/About';
 import Skills from './components/Skills/Skills';
@@ -21,11 +21,65 @@ const Projects = lazy(() => import('./components/Projects/Projects'));
 const Contact = lazy(() => import('./components/Contact/Contact'));
 const SystemMonitor = lazy(() => import('./components/SystemMonitor/SystemMonitor'));
 const Terminal = lazy(() => import('./components/Terminal/Terminal'));
+const PostsSection = lazy(() => import('./components/Posts/PostsSection'));
+const PostsPage = lazy(() => import('./components/Posts/PostsPage'));
+const PostPage = lazy(() => import('./components/Posts/PostPage'));
 
-function App() {
-  const [booted, setBooted] = useState(false);
+const BOOT_KEY = 'booted';
+
+const Home = () => (
+  <>
+    <ErrorBoundary>
+      <Hero />
+    </ErrorBoundary>
+    <ErrorBoundary>
+      <About />
+    </ErrorBoundary>
+    <ErrorBoundary>
+      <Skills />
+    </ErrorBoundary>
+    <ErrorBoundary>
+      <Experience />
+    </ErrorBoundary>
+    <ErrorBoundary>
+      <Suspense fallback={null}>
+        <Projects />
+      </Suspense>
+    </ErrorBoundary>
+    <ErrorBoundary>
+      <Suspense fallback={null}>
+        <PostsSection />
+      </Suspense>
+    </ErrorBoundary>
+    <ErrorBoundary>
+      <Languages />
+    </ErrorBoundary>
+    <ErrorBoundary>
+      <Interests />
+    </ErrorBoundary>
+    <ErrorBoundary>
+      <Suspense fallback={null}>
+        <Contact />
+      </Suspense>
+    </ErrorBoundary>
+  </>
+);
+
+function Shell() {
+  // Skip the boot animation for repeat visits within the same session.
+  const [booted, setBooted] = useState(() => sessionStorage.getItem(BOOT_KEY) === '1');
+  const { pathname, hash } = useLocation();
   // Initialize performance optimizations
   usePerformanceOptimization();
+
+  const handleBootComplete = useCallback(() => {
+    sessionStorage.setItem(BOOT_KEY, '1');
+    setBooted(true);
+  }, []);
+
+  useEffect(() => {
+    if (!hash) window.scrollTo(0, 0);
+  }, [pathname, hash]);
 
   useEffect(() => {
     // Initialize intersection observer for animations
@@ -54,8 +108,9 @@ function App() {
     }, observerOptions);
 
     // Validate elements exist before observing (wait for boot)
+    let timer;
     if (booted) {
-      setTimeout(() => {
+      timer = setTimeout(() => {
         const elements = document.querySelectorAll('.timeline-item, .language-item, .interest-item, .chip');
         if (elements.length > 0) {
           elements.forEach(item => observer.observe(item));
@@ -64,65 +119,52 @@ function App() {
     }
 
     return () => {
+      clearTimeout(timer);
       observer.disconnect();
     };
-  }, [booted]);
+  }, [booted, pathname]);
 
+  return (
+    <div className="App">
+      {!booted && <BootSequence onComplete={handleBootComplete} />}
+
+      <div style={{ opacity: booted ? 1 : 0, transition: 'opacity 0.5s ease-in' }}>
+        <ErrorBoundary>
+          <CustomCursor />
+          <CircuitBackground />
+          <LanguageSwitcher />
+          <Navigation />
+        </ErrorBoundary>
+
+        <main>
+          <Suspense fallback={null}>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/posts" element={<ErrorBoundary><PostsPage /></ErrorBoundary>} />
+              <Route path="/posts/:slug" element={<ErrorBoundary><PostPage /></ErrorBoundary>} />
+              <Route path="*" element={<Home />} />
+            </Routes>
+          </Suspense>
+        </main>
+
+        <ErrorBoundary>
+          <Footer />
+        </ErrorBoundary>
+
+        <Suspense fallback={null}>
+          <SystemMonitor />
+          <Terminal />
+        </Suspense>
+      </div>
+    </div>
+  );
+}
+
+function App() {
   return (
     <LanguageProvider>
       <Router basename={import.meta.env.BASE_URL}>
-        <div className="App">
-          {!booted && <BootSequence onComplete={() => setBooted(true)} />}
-
-          <div style={{ opacity: booted ? 1 : 0, transition: 'opacity 0.5s ease-in' }}>
-            <ErrorBoundary>
-              <CustomCursor />
-              <CircuitBackground />
-              <LanguageSwitcher />
-              <Navigation />
-            </ErrorBoundary>
-
-            <main>
-              <ErrorBoundary>
-                <Hero />
-              </ErrorBoundary>
-              <ErrorBoundary>
-                <About />
-              </ErrorBoundary>
-              <ErrorBoundary>
-                <Skills />
-              </ErrorBoundary>
-              <ErrorBoundary>
-                <Experience />
-              </ErrorBoundary>
-              <ErrorBoundary>
-                <Suspense fallback={null}>
-                  <Projects />
-                </Suspense>
-              </ErrorBoundary>
-              <ErrorBoundary>
-                <Languages />
-              </ErrorBoundary>
-              <ErrorBoundary>
-                <Interests />
-              </ErrorBoundary>
-              <ErrorBoundary>
-                <Suspense fallback={null}>
-                  <Contact />
-                </Suspense>
-              </ErrorBoundary>
-            </main>
-
-            <ErrorBoundary>
-              <Footer />
-            </ErrorBoundary>
-
-            <Suspense fallback={null}>
-              <SystemMonitor />
-              <Terminal />
-            </Suspense>
-          </div>
-        </div>
+        <Shell />
       </Router>
     </LanguageProvider>
   );

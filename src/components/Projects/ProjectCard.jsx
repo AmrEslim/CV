@@ -1,4 +1,4 @@
-import React, { forwardRef, useState } from 'react';
+import React, { useState } from 'react';
 import { useTranslation } from '../../hooks/useTranslation';
 import './ProjectCard.css';
 import Modal from './Modal';
@@ -12,7 +12,10 @@ export const ProjectVisual = ({ type, images }) => {
   return <div className="project-visual-placeholder"></div>;
 };
 
-const ProjectCard = forwardRef(({ project }, ref) => {
+// Deterministic per-slug value so the fake stats don't change on re-render.
+const hashOf = (s) => [...s].reduce((h, c) => (h * 31 + c.charCodeAt(0)) >>> 0, 7);
+
+const ProjectCard = ({ project }) => {
   const { t } = useTranslation();
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -25,17 +28,31 @@ const ProjectCard = forwardRef(({ project }, ref) => {
     setIsModalOpen(false);
   };
 
-  // Generate fake PID and Memory stats for the "Process" look
-  const pid = 1000 + project.id * 42;
-  const mem = 40 + project.id * 12;
+  const hash = hashOf(project.slug);
+  const pid = 1000 + (hash % 9000);
+  const mem = 40 + (hash % 90);
+  const cpu = ((hash >> 3) % 50) / 10;
+  const status = project.status || 'active';
 
   return (
     <>
-      <div className="project-card-process" ref={ref}>
+      <div className={`project-card-process${project.featured ? ' featured' : ''}`}>
         <div className="process-header">
           <span className="pid-info">PID: <span className="pid-number">{pid}</span></span>
-          <span className="status-badge">RUNNING</span>
+          <span className={`status-badge status-${status}`}>{t(`projects.status.${status}`)}</span>
         </div>
+
+        {project.images?.[0] && (
+          <button
+            type="button"
+            className="process-thumb"
+            onClick={openModal}
+            aria-label={project.title}
+            tabIndex={-1}
+          >
+            <img src={project.images[0]} alt="" loading="lazy" decoding="async" />
+          </button>
+        )}
 
         <div className="process-body">
           <h3 className="process-title">{project.title}</h3>
@@ -47,7 +64,7 @@ const ProjectCard = forwardRef(({ project }, ref) => {
             </div>
             <div className="stat-item">
               <span>CPU:</span>
-              <span className="stat-val text-cyan">{(Math.random() * 5).toFixed(1)}%</span>
+              <span className="stat-val text-cyan">{cpu.toFixed(1)}%</span>
             </div>
             <div className="stat-item">
               <span>USER:</span>
@@ -69,9 +86,9 @@ const ProjectCard = forwardRef(({ project }, ref) => {
             <button onClick={openModal} className="action-btn">
               {t('ui.buttons.details')}
             </button>
-            {project.demoLink && (
+            {project.link && (
               <a
-                href={project.demoLink}
+                href={project.link}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="action-btn primary"
@@ -87,12 +104,9 @@ const ProjectCard = forwardRef(({ project }, ref) => {
         isOpen={isModalOpen}
         onClose={closeModal}
         project={project}
-        VisualComponent={ProjectVisual} // Pass explicitly if needed, but the import works
       />
     </>
   );
-});
-
-ProjectCard.displayName = 'ProjectCard';
+};
 
 export default ProjectCard;

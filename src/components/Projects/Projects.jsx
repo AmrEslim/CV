@@ -1,103 +1,46 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useMemo, useState } from 'react';
 import { useTranslation } from '../../hooks/useTranslation';
+import { useLanguage } from '../../context/LanguageContext';
+import { getProjects } from '../../content';
 import ProjectCard from './ProjectCard';
 import './Projects.css';
 
 const Projects = () => {
   const { t } = useTranslation();
-  const projectsRef = useRef([]);
+  const { language } = useLanguage();
+  const [filter, setFilter] = useState('all');
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-          }
-        });
-      },
-      {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-      }
-    );
-
-    const elements = projectsRef.current;
-    if (elements) {
-      elements.forEach(ref => {
-        if (ref) observer.observe(ref);
-      });
-    }
-
-    return () => {
-      if (elements) {
-        elements.forEach(ref => {
-          if (ref) observer.unobserve(ref);
-        });
-      }
-    };
-  }, []);
-  const projectsData = [
-    {
-      id: 1,
-      ...t('projects.snake_robot'),
-      technologies: [
-        "ESP32", "C++", "CPG Control Algorithms", "3D Printing (TPU, PLA+)",
-        "Arduino Framework", "React", "WebSockets", "Motion Tracking (Kinovea)",
-        "ACS712 Current Sensor", "Onshape CAD", "CSV Data Logging"
-      ],
-      visualType: "embedded-system",
-      images: [
-        import.meta.env.BASE_URL + 'images/snake-robot1.webp',
-        import.meta.env.BASE_URL + 'images/snake-robot2.webp'
-      ],
-      demoLink: "https://github.com/AmrEslim/snake_robot"
-    },
-    {
-      id: 2,
-      ...t('projects.cryptify'),
-      technologies: ["Rust", "Actix-web", "Ring Cryptography", "SQLite", "React", "TypeScript", "Docker", "AES-256-GCM", "Argon2id"],
-      visualType: "security-app",
-      images: [import.meta.env.BASE_URL + 'images/Cryptify-logo.webp'],
-      demoLink: "https://github.com/AmrEslim/Cryptify"
-    },
-    {
-      id: 3,
-      ...t('projects.sidequester'),
-      technologies: ["ESP32", "Arduino", "LoRa", "GPS", "HMC5883L Compass", "OLED Display", "C++", "TinyGPS++"],
-      visualType: "iot-device",
-      images: [import.meta.env.BASE_URL + 'images/SideQuester.webp'],
-      demoLink: "https://github.com/AmrEslim/SideQuester"
-    },
-    {
-      id: 4,
-      ...t('projects.cv_portfolio'),
-      technologies: ["React", "JavaScript", "HTML/CSS", "GitHub Pages", "Responsive Design", "i18n"],
-      visualType: "web-app",
-      images: [import.meta.env.BASE_URL + 'images/Portfolio.webp'],
-      demoLink: "https://github.com/AmrEslim/CV"
-    },
-    {
-      id: 5,
-      ...t('projects.opencv_auto'),
-      technologies: ["Python", "OpenCV", "Computer Vision", "Object Detection", "Tracking Algorithms"],
-      visualType: "computer-vision",
-      images: [import.meta.env.BASE_URL + 'images/OpenCV.webp'],
-      demoLink: "https://github.com/AmrEslim/OpenCV-car"
-    }
-  ];
+  const projects = useMemo(() => getProjects(language), [language]);
+  const categories = useMemo(
+    () => [...new Set(projects.map((p) => p.category).filter(Boolean))],
+    [projects]
+  );
+  const visible = filter === 'all' ? projects : projects.filter((p) => p.category === filter);
 
   return (
     <section id="projects" className="scene">
       <div className="content-container">
         <h2 className="section-title">{t('projects.title')}</h2>
+
+        {categories.length > 1 && (
+          <div className="project-filters" role="group" aria-label="Filter projects">
+            {['all', ...categories].map((cat) => (
+              <button
+                key={cat}
+                type="button"
+                className={`filter-chip ${filter === cat ? 'active' : ''}`}
+                aria-pressed={filter === cat}
+                onClick={() => setFilter(cat)}
+              >
+                {cat === 'all' ? t('projects.filterAll') : t(`projects.categories.${cat}`)}
+              </button>
+            ))}
+          </div>
+        )}
+
         <div className="robotics-projects">
-          {projectsData.map((project, index) => (
-            <ProjectCard
-              key={project.id}
-              project={project}
-              ref={el => projectsRef.current[index] = el}
-            />
+          {visible.map((project) => (
+            <ProjectCard key={project.slug} project={project} />
           ))}
         </div>
       </div>

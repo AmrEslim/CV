@@ -1,0 +1,42 @@
+{
+  "order": 5,
+  "status": "active",
+  "category": "vision",
+  "featured": false,
+  "technologies": [
+    "Python",
+    "OpenCV",
+    "Computer Vision",
+    "Object Detection",
+    "Tracking Algorithms"
+  ],
+  "images": [
+    "OpenCV.webp"
+  ],
+  "link": "https://github.com/AmrEslim/OpenCV-car",
+  "en": {
+    "title": "Computer Vision Pipeline",
+    "subtitle": "Python • OpenCV • Image Processing",
+    "description": "Automated image processing pipeline for real-time object detection. Implements standard CV algorithms for tracking and classification in video streams.",
+    "features": [
+      "Image Processing Algorithms: Implementation of Canny Edge detection, Gaussian Blurring, and Contour finding.",
+      "Matrix Operations: Efficient NumPy array manipulations for pixel-data processing.",
+      "Motion Tracking: Euclidean distance tracking logic for persistent object identity."
+    ]
+  },
+  "de": {
+    "title": "OpenCV Auto Projekt",
+    "subtitle": "Computer Vision Anwendung",
+    "description": "Eine Computer Vision Anwendung mit Python und OpenCV für automatisierte Objekterkennung und -verfolgung. Das Projekt demonstriert praktische Anwendungen von Computer Vision Algorithmen einschließlich Echtzeit-Objekterkennung, Bewegungsverfolgung und Bildverarbeitungstechniken. Entwickelt für Bildungszwecke und praktische Implementierung von Computer Vision Konzepten in Automobil- oder Überwachungskontexten.",
+    "features": [
+      "Echtzeit-Objekterkennung: Implementierung von Computer Vision Algorithmen zur Erkennung und Klassifizierung von Objekten in Live-Videostreams mit OpenCV-Bibliotheken.",
+      "Bewegungsverfolgung: Erweiterte Tracking-Algorithmen zum Verfolgen sich bewegender Objekte über Videoframes mit Persistenz- und Genauigkeitsmessungen.",
+      "Python-basierte Implementierung: Saubere, modulare Python-Codebasis mit OpenCV, NumPy und anderen Computer Vision Bibliotheken für Bildverarbeitung und -analyse.",
+      "Mehrere Erkennungsmethoden: Unterstützung für verschiedene Objekterkennungstechniken einschließlich Konturerkennung, Template-Matching und Feature-basierte Erkennungsalgorithmen.",
+      "Bildungsfokus: Gut dokumentierter Code mit klaren Beispielen und Erklärungen geeignet zum Erlernen von Computer Vision Konzepten und praktischer Implementierung.",
+      "Konfigurierbare Parameter: Einstellbare Erkennungsempfindlichkeit, Tracking-Parameter und Verarbeitungsoptionen für verschiedene Anwendungsfälle und Umgebungen.",
+      "Performance-Optimierung: Effiziente Algorithmen und Verarbeitungstechniken für Echtzeit-Performance mit minimalem rechnerischem Overhead.",
+      "Praktische Anwendungen: Entwickelt für potenzielle Automobilanwendungen, Überwachungssysteme oder allgemeine Objekterkennungs- und Verfolgungsszenarien."
+    ]
+  }
+}

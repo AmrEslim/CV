@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import './BootSequence.css';
 
 const bootLog = [
@@ -21,9 +21,27 @@ const BootSequence = ({ onComplete }) => {
     const [lines, setLines] = useState([]);
     const [complete, setComplete] = useState(false);
     const bottomRef = useRef(null);
+    const doneRef = useRef(false);
+
+    const finish = useCallback(() => {
+        if (doneRef.current) return;
+        doneRef.current = true;
+        setComplete(true);
+        onComplete();
+    }, [onComplete]);
+
+    useEffect(() => {
+        window.addEventListener('keydown', finish);
+        window.addEventListener('pointerdown', finish);
+        return () => {
+            window.removeEventListener('keydown', finish);
+            window.removeEventListener('pointerdown', finish);
+        };
+    }, [finish]);
 
     useEffect(() => {
         let index = 0;
+        let timer;
         const interval = setInterval(() => {
             if (index < bootLog.length) {
                 // Timestamp generation
@@ -32,15 +50,15 @@ const BootSequence = ({ onComplete }) => {
                 index++;
             } else {
                 clearInterval(interval);
-                setTimeout(() => {
-                    setComplete(true);
-                    setTimeout(onComplete, 500); // Wait for fade out
-                }, 800);
+                timer = setTimeout(finish, 800);
             }
         }, 120); // Speed of scroll
 
-        return () => clearInterval(interval);
-    }, [onComplete]);
+        return () => {
+            clearInterval(interval);
+            clearTimeout(timer);
+        };
+    }, [finish]);
 
     useEffect(() => {
         bottomRef.current?.scrollIntoView({ behavior: 'auto' });
