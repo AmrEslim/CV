@@ -1,0 +1,29 @@
+[
+  {
+    "category": "embedded",
+    "skills": [
+      { "key": "embedded_linux", "level": 95 },
+      { "key": "rtos", "level": 85 },
+      { "key": "drivers", "level": 80 },
+      { "key": "protocols", "level": 90 }
+    ]
+  },
+  {
+    "category": "programming",
+    "skills": [
+      { "key": "cpp", "level": 95 },
+      { "key": "rust", "level": 70 },
+      { "key": "python", "level": 85 },
+      { "key": "assembly", "level": 60 }
+    ]
+  },
+  {
+    "category": "tools",
+    "skills": [
+      { "key": "cmake", "level": 85 },
+      { "key": "gdb", "level": 90 },
+      { "key": "docker", "level": 75 },
+      { "key": "git", "level": 90 }
+    ]
+  }
+]
