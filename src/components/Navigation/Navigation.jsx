@@ -4,12 +4,25 @@ import { HashLink } from 'react-router-hash-link';
 import { useTranslation } from '../../hooks/useTranslation';
 import './Navigation.css';
 
+// Home sections in page order, and the nav item each one belongs to.
+const SECTION_NAV = {
+  hero: 'hero',
+  posts: 'posts',
+  projects: 'projects',
+  about: 'about',
+  experience: 'about',
+  skills: 'about',
+  languages: 'about',
+  interests: 'about',
+  contact: 'contact',
+};
+
 const Navigation = ({ onMenuOpenChange }) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
   const { t } = useTranslation();
   const { pathname } = useLocation();
-  const writingActive = pathname.startsWith('/posts');
+  const writingActive = pathname.startsWith('/posts') || (pathname === '/' && activeSection === 'posts');
   const navItems = [
     { key: 'home', section: 'hero', to: '/#hero' },
     { key: 'writing', to: '/posts' },
@@ -20,18 +33,15 @@ const Navigation = ({ onMenuOpenChange }) => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrollPosition = window.scrollY + window.innerHeight / 3;
+      const readingLine = window.scrollY + window.innerHeight / 3;
+      let current = 'hero';
 
-      for (const section of ['hero', 'projects', 'about', 'contact']) {
-        const element = document.getElementById(section);
-        if (element) {
-          const { offsetTop, offsetHeight } = element;
-          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
-            setActiveSection(section);
-            break;
-          }
-        }
+      for (const [id, navKey] of Object.entries(SECTION_NAV)) {
+        const element = document.getElementById(id);
+        if (element && element.offsetTop <= readingLine) current = navKey;
       }
+
+      setActiveSection(current);
     };
 
     window.addEventListener('scroll', handleScroll);

@@ -9,45 +9,26 @@ const Contact = () => {
     <section id="contact" className="scene">
       <div className="content-container">
         <h2 className="section-title">{t('contact.title')}</h2>
-        
-        <div className="contact-info">
-          <div className="contact-item">
-            <span className="contact-label">{t('contact.info.location')}</span>
-            <span>{t('contact.info.locationValue')}</span>
-          </div>
-        </div>
-        
+
         <div className="contact-container">
-          <div className="contact-text">
-            <p>{t('contact.text')}</p>
-            <p>Feel free to reach out directly through email or connect with me on LinkedIn!</p>
-          </div>
-          
-          <div className="contact-buttons">
-            <a 
-              href="mailto:Eslim.amr@gmail.com" 
-              className="cta-button email-button"
-              aria-describedby="email-description"
-            >
-              📧 {t('contact.buttons.email')}
+          <p className="contact-text">{t('contact.text')}</p>
+
+          <div className="contact-links">
+            <a href="mailto:Eslim.amr@gmail.com" className="hero-action hero-action-primary">
+              {t('contact.buttons.email')} <span aria-hidden="true">↗</span>
             </a>
-            <span id="email-description" className="sr-only">
-              Opens your email client to send a message to Amr Eslim
-            </span>
-            
-            <a 
-              href="https://www.linkedin.com/in/amr-eslim" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="cta-button linkedin-button"
-              aria-describedby="linkedin-description"
+            <a
+              href="https://www.linkedin.com/in/amr-eslim"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hero-action"
             >
-              💼 {t('contact.buttons.linkedin')}
+              {t('contact.buttons.linkedin')} <span aria-hidden="true">↗</span>
+              <span className="sr-only"> ({t('contact.newTab')})</span>
             </a>
-            <span id="linkedin-description" className="sr-only">
-              Opens LinkedIn profile in a new tab
-            </span>
           </div>
+
+          <p className="meta-label">{t('contact.info.locationValue')}</p>
         </div>
       </div>
     </section>

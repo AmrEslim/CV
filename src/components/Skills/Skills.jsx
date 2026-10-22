@@ -10,13 +10,13 @@ const Skills = () => {
     <section id="skills" className="scene">
       <div className="content-container">
         <h2 className="section-title">{t('skills.title')}</h2>
-        <div className="circuit-board">
+        <div className="skill-groups">
           {skillGroups.map(({ category, skills }) => (
-            <div className="chip" key={category}>
-              <h3 className="chip-title">{t(`skills.categories.${category}.title`)}</h3>
-              <ul className="skill-list">
+            <div className="skill-group" key={category}>
+              <h3 className="skill-group-title">{t(`skills.categories.${category}.title`)}</h3>
+              <ul className="tag-list">
                 {skills.map(({ key }) => (
-                  <li className="skill-name" key={key}>
+                  <li key={key}>
                     {t(`skills.categories.${category}.skills.${key}`)}
                   </li>
                 ))}

@@ -182,12 +182,25 @@
 
 .posts-container {
   max-width: 900px;
+  margin-inline: auto;
 }
 
 #posts.writing-preview {
-  min-height: auto;
-  justify-content: initial;
-  padding: 5rem 2rem 6rem;
+  padding: var(--section-space) var(--gutter);
+}
+
+#posts .posts-container {
+  max-width: var(--content-width);
+}
+
+#posts .featured-post {
+  padding-top: 0;
+  border-top: 0;
+}
+
+#posts .featured-post h3,
+#posts .featured-post > p {
+  max-width: var(--reading-width);
 }
 
 .writing-heading {
@@ -208,6 +221,7 @@
   font-family: 'IBM Plex Serif', Georgia, serif;
   font-size: clamp(2rem, 5vw, 3rem);
   font-weight: 500;
+  line-height: 1.1;
   text-transform: none;
   letter-spacing: 0;
 }

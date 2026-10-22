@@ -167,9 +167,10 @@
       "location": "Standort:",
       "locationValue": "Berlin, Deutschland"
     },
-    "text": "Ich bin derzeit auf der Suche nach neuen Möglichkeiten in der Robotik- und autonomen Systementwicklung. Ob Sie eine Frage zur Robotik haben, an einem Projekt zusammenarbeiten möchten oder einfach nur Hallo sagen wollen - ich werde mein Bestes geben, Ihnen zu antworten!",
+    "text": "Ich spreche gern über Embedded Systems, IoT und Energiedaten oder über das, woran Sie gerade arbeiten. Am schnellsten erreichen Sie mich per E-Mail.",
+    "newTab": "öffnet in neuem Tab",
     "buttons": {
-      "email": "E-Mail senden",
+      "email": "E-Mail schreiben",
       "linkedin": "LinkedIn",
       "form": {
         "name": "Ihr Name",

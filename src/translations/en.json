@@ -118,7 +118,7 @@
     ]
   },
   "languages": {
-    "title": "Language Packs",
+    "title": "Languages",
     "items": [
       {
         "id": 1,
@@ -141,7 +141,7 @@
     ]
   },
   "interests": {
-    "title": "Background Processes",
+    "title": "Interests",
     "items": [
       "Sports and athletics",
       "Open Source",
@@ -153,17 +153,18 @@
     ]
   },
   "contact": {
-    "title": "/dev/contact",
+    "title": "Contact",
     "info": {
       "email": "Email:",
       "linkedin": "LinkedIn:",
       "location": "Location:",
       "locationValue": "Berlin, Germany"
     },
-    "text": "I'm actively seeking roles in Embedded Systems, Firmware Engineering, and C++ Development. If you need a developer who understands what happens at the hardware level, let's connect.",
+    "text": "I'm always glad to talk about embedded systems, IoT and energy data, or something you are building. Email is the quickest way to reach me.",
+    "newTab": "opens in a new tab",
     "buttons": {
-      "email": "Send Signal",
-      "linkedin": "Connect Layer",
+      "email": "Email me",
+      "linkedin": "LinkedIn",
       "form": {
         "name": "User ID",
         "email": "Return Address",

@@ -13,13 +13,16 @@
   --text-highlight: #ffffff;
 
   /* Accents - Brighter & Neon */
-  --accent-primary: #00ff9d;
-  /* Spring Green - Pop! */
+  /* One cool accent for structure and links; amber is reserved for small highlights. */
   --accent-secondary: #38bdf8;
-  /* Electric Sky Blue */
+  --accent-primary: var(--accent-secondary);
   --accent-tertiary: #fbbf24;
-  /* Amber */
   --accent-error: #ef4444;
+
+  /* Names that older stylesheets reference but were never defined */
+  --accent-color: var(--accent-secondary);
+  --accent-success: var(--accent-secondary);
+  --text-color: var(--text-main);
 
   /* Board/Hardware Colors */
   --board-bg: #111827;
@@ -28,6 +31,7 @@
 
   /* UI Elements */
   --border-color: rgba(56, 189, 248, 0.2);
+  --line: rgba(148, 163, 184, 0.2);
   --glass-border: rgba(255, 255, 255, 0.15);
 
   /* Legacy Robot Colors mapping */
@@ -39,6 +43,10 @@
   /* Dimensions */
   --header-height: 70px;
   --max-width: 1400px;
+  --content-width: 1160px;
+  --reading-width: 700px;
+  --gutter: 2rem;
+  --section-space: clamp(4rem, 8vw, 6.5rem);
 
   /* Animations */
   --transition-fast: 0.15s ease;
@@ -70,22 +78,6 @@ body {
     linear-gradient(180deg, #101827 0%, var(--bg-color) 55%);
   background-size: 100% 100%, 100% 100%;
   background-attachment: fixed;
-}
-
-/* CRT Scanline Overlay - Lighter */
-body::after {
-  content: " ";
-  display: block;
-  position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
-  z-index: 9999;
-  background-size: 100% 2px, 3px 100%;
-  pointer-events: none;
-  opacity: 0.015;
 }
 
 /* Scrollbar */
@@ -157,71 +149,56 @@ a:hover {
   margin: 1rem 0;
 }
 
-/* Common Components */
+/* Every home section shares one column, one gutter and one vertical rhythm. */
 .scene {
-  min-height: 100vh;
   position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 60px 20px;
+  padding: var(--section-space) var(--gutter);
 }
 
 .content-container {
-  max-width: var(--max-width);
-  width: 100%;
+  width: min(var(--content-width), 100%);
+  margin: 0 auto;
   z-index: 2;
   position: relative;
 }
 
-/* Cyber Section Headers */
+/* A hairline above each section, in the same column as the content. */
+.scene > .content-container {
+  padding-top: 2.5rem;
+  border-top: 1px solid var(--line);
+}
+
 .section-title {
+  margin: 0 0 2rem;
   font-family: 'IBM Plex Serif', Georgia, serif;
-  font-size: 2.25rem;
-  margin-bottom: 3rem;
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 500;
+  line-height: 1.1;
   color: var(--text-highlight);
-  position: relative;
-  display: inline-block;
-  padding-bottom: 10px;
-  text-shadow: none;
   text-transform: none;
   letter-spacing: 0;
 }
 
-.section-title::before {
-  content: none;
+/* Small labels used for dates, categories and similar metadata. */
+.meta-label {
+  color: var(--text-dim);
+  font-size: 0.82rem;
+  letter-spacing: 0.02em;
 }
 
-/* Glitchy Underline */
-.section-title::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 1px;
-  background: var(--border-color);
-  box-shadow: none;
-  clip-path: none;
-  animation: none;
+/* Pills shared by skills, languages-adjacent tags and interests. */
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  list-style: none;
 }
 
-@keyframes loadLine {
-  0% {
-    width: 0;
-    opacity: 0.5;
-  }
-
-  50% {
-    width: 100%;
-    opacity: 1;
-  }
-
-  100% {
-    width: 100%;
-    opacity: 0;
-    margin-left: 20px;
-  }
+.tag-list > li {
+  padding: 0.35rem 0.7rem;
+  border: 1px solid var(--line);
+  color: var(--text-dim);
+  font-size: 0.88rem;
 }
 
 /* Buttons */
@@ -325,8 +302,8 @@ a:hover {
     font-size: 14px;
   }
 
-  .section-title {
-    font-size: 2rem;
+  :root {
+    --gutter: 1.25rem;
   }
 
   .cta-button {

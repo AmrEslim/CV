@@ -430,8 +430,7 @@
 
 #hero.editorial-hero {
   min-height: min(760px, 92vh);
-  justify-content: initial;
-  padding: calc(var(--header-height) + 3rem) 2rem 5rem;
+  padding: calc(var(--header-height) + 3rem) var(--gutter) 4rem;
 }
 
 .editorial-hero-inner {
@@ -544,7 +543,7 @@
 @media (max-width: 760px) {
   #hero.editorial-hero {
     min-height: auto;
-    padding: calc(var(--header-height) + 2rem) 1.25rem 3rem;
+    padding: calc(var(--header-height) + 2rem) var(--gutter) 3rem;
   }
 
   .editorial-hero-inner {
