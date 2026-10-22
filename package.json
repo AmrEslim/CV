@@ -20,6 +20,7 @@
     "preview": "vite preview",
     "lint": "eslint .",
     "images": "node scripts/optimize-images.mjs",
+    "deploy": "node scripts/deploy.mjs",
     "new:project": "node scripts/new.mjs project",
     "new:post": "node scripts/new.mjs post"
   },
