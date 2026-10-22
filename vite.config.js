@@ -4,14 +4,18 @@ import { VitePWA } from 'vite-plugin-pwa';
 import { copyFileSync, existsSync, readdirSync, readFileSync, writeFileSync } from 'node:fs';
 
 const SITE = 'https://amreslim.de';
+let outDir = 'build';
 
 // GitHub Pages serves 404.html for unknown paths, so deep links like /posts/x load the SPA.
 // Also lists posts in the sitemap, which is otherwise static.
 const spaPagesPlugin = {
   name: 'spa-pages',
   apply: 'build',
+  configResolved(config) {
+    outDir = config.build.outDir;
+  },
   closeBundle() {
-    const out = 'build';
+    const out = outDir;
     if (!existsSync(`${out}/index.html`)) return;
     copyFileSync(`${out}/index.html`, `${out}/404.html`);
 
