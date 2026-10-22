@@ -9,27 +9,31 @@
       "education": "Graduated from HTW Berlin with a degree in Computer Engineering in April 2025",
       "specialization": "Specialized in Linux Embedded Systems, C++, and System Performance",
       "scroll": "Initialize boot sequence..."
+    },
+    "editorial": {
+      "eyebrow": "Computer engineer · Berlin",
+      "lede": "I build software where connected devices, energy data, and the physical world meet.",
+      "note": "I develop IoT and energy data projects at Gewobag ED, and write about embedded systems, robotics, and the practical side of building connected systems.",
+      "read": "Read the latest",
+      "work": "Explore selected work",
+      "location": "Berlin, DE"
     }
   },
   "nav": {
-    "home": "/home",
-    "about": "/usr/about",
-    "skills": "/bin/skills",
-    "experience": "/var/log/exp",
-    "projects": "/opt/projects",
-    "posts": "/var/log/posts",
-    "languages": "/etc/langs",
-    "interests": "~/.config",
-    "contact": "/dev/contact"
+    "home": "Home",
+    "about": "About",
+    "projects": "Work",
+    "writing": "Writing",
+    "contact": "Contact"
   },
   "about": {
-    "title": "System Status",
+    "title": "About",
     "description": "Computer Engineering graduate specializing in Low-Level Systems and Robotics",
     "content": [
       "Hello! I'm Amr Eslim, a Computer Engineering graduate based in Berlin, Germany.",
       "I completed my Bachelor's degree in Computer Engineering at HTW Berlin in April 2025.",
       "My expertise lies in Embedded Linux, Firmware Development, and High-Performance C++ Applications.",
-      "I have hands-on experience as a software developer working student at Fraunhofer IPK since May 2022, working on industrial-grade projects.",
+      "Since August 2026, I have been working as an IoT & Energy Data Project Developer at Gewobag ED, helping connect smart technology with sustainable housing in Berlin.",
       "My Bachelor's thesis on neurobiologically-inspired snake robotics demonstrates my ability to bridge control theory with efficient C/C++ implementation, combining CPG algorithms and real-time constraints.",
       "With a strong background in C/C++, Python, Rust, and Linux Kernel, I build reliable, memory-safe, and efficient solutions for complex technical challenges.",
       "I'm particularly interested in developing autonomous robotics systems and optimizing low-level drivers for next-gen hardware.",
@@ -37,7 +41,7 @@
     ]
   },
   "skills": {
-    "title": "Kernel Modules",
+    "title": "Skills & Tools",
     "categories": {
       "programming": {
         "title": "Languages & Core",
@@ -69,11 +73,19 @@
     }
   },
   "experience": {
-    "title": "System Logs",
+    "title": "Experience",
     "items": [
       {
         "id": 1,
-        "date": "05/2022 – Present",
+        "date": "08/2026 – Present",
+        "title": "IoT & Energy Data Project Developer",
+        "description": "Gewobag ED, Berlin",
+        "details": "Developing IoT and energy data projects to connect smart technology with sustainable housing and support Berlin's urban energy transition.",
+        "side": "left"
+      },
+      {
+        "id": 5,
+        "date": "05/2022 – 07/2026",
         "title": "Working Student - Embedded Software",
         "description": "Fraunhofer IPK (Institute for Production Systems and Design Technology), Berlin",
         "details": "Key responsibilities include: • Development and maintenance of embedded Linux systems for industrial applications • Optimization of C++ control algorithms for digital assistance systems • System integration of sensor networks and industrial protocols • Backend development for real-time data processing • Collaborating with interdisciplinary teams on cutting-edge automation projects",
@@ -162,7 +174,8 @@
   },
   "ui": {
     "buttons": {
-      "details": "./view_details",
+      "details": "Details",
+      "source": "View source",
       "demo": "git clone",
       "connect": "ssh connect",
       "explore": "ls -la",
@@ -181,11 +194,11 @@
     },
     "meta": {
       "title": "Amr Eslim | Systems Engineer",
-      "description": "Embedded Systems Engineer specializing in C++, Linux, and Firmware. Berlin-based."
+      "description": "Berlin-based Computer Engineer working on IoT, energy data, and sustainable housing at Gewobag ED."
     }
   },
   "projects": {
-    "title": "Active Processes",
+    "title": "Selected Work",
     "filterAll": "all",
     "categories": {
       "embedded": "embedded",
@@ -201,8 +214,15 @@
     }
   },
   "posts": {
-    "title": "Kernel Log",
-    "allPosts": "cat /var/log/posts",
+    "title": "Writing",
+    "recent": "Latest notes",
+    "archiveIntro": "Notes on engineering, energy, connected systems, and things I learn while building them.",
+    "allPosts": "Browse all writing",
+    "search": "Search posts",
+    "filterTags": "Filter by topic",
+    "topics": "Topics",
+    "allTags": "All topics",
+    "noResults": "No posts match that search.",
     "back": "cd ..",
     "empty": "No entries yet.",
     "minRead": "min read",

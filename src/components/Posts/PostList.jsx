@@ -11,11 +11,11 @@ export const formatDate = (date, language) => {
   });
 };
 
-const PostList = ({ posts }) => {
+const PostList = ({ posts, emptyMessage }) => {
   const { t } = useTranslation();
   const { language } = useLanguage();
 
-  if (posts.length === 0) return <p className="posts-empty">{t('posts.empty')}</p>;
+  if (posts.length === 0) return <p className="posts-empty">{emptyMessage || t('posts.empty')}</p>;
 
   return (
     <ul className="post-list">
@@ -31,9 +31,9 @@ const PostList = ({ posts }) => {
               <h3 className="post-title">{post.title}</h3>
               {post.summary && <p className="post-summary">{post.summary}</p>}
               {post.tags.length > 0 && (
-                <div className="tech-stack">
-                  {post.tags.map((tag) => <span key={tag} className="tech-tag">{tag}</span>)}
-                </div>
+                <ul className="post-tags" aria-label={t('posts.topics')}>
+                  {post.tags.map((tag) => <li key={tag}>{tag}</li>)}
+                </ul>
               )}
             </div>
           </Link>

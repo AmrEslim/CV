@@ -1,31 +1,28 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
 import { useTranslation } from '../../hooks/useTranslation';
-import { useLanguage } from '../../context/LanguageContext';
-import { getPosts } from '../../content';
 import './Navigation.css';
 
 const Navigation = ({ onMenuOpenChange }) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
   const { t } = useTranslation();
-  const { language } = useLanguage();
-  const hasPosts = useMemo(() => getPosts(language).length > 0, [language]);
-
-  const sections = useMemo(
-    () => [
-      'hero', 'about', 'skills', 'experience', 'projects',
-      ...(hasPosts ? ['posts'] : []),
-      'languages', 'interests', 'contact',
-    ],
-    [hasPosts]
-  );
+  const { pathname } = useLocation();
+  const writingActive = pathname.startsWith('/posts');
+  const navItems = [
+    { key: 'home', section: 'hero', to: '/#hero' },
+    { key: 'writing', to: '/posts' },
+    { key: 'projects', section: 'projects', to: '/#projects' },
+    { key: 'about', section: 'about', to: '/#about' },
+    { key: 'contact', section: 'contact', to: '/#contact' },
+  ];
 
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY + window.innerHeight / 3;
 
-      for (const section of sections) {
+      for (const section of ['hero', 'projects', 'about', 'contact']) {
         const element = document.getElementById(section);
         if (element) {
           const { offsetTop, offsetHeight } = element;
@@ -41,7 +38,7 @@ const Navigation = ({ onMenuOpenChange }) => {
     handleScroll(); // Initial check
 
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [sections]);
+  }, [pathname]);
 
   const toggleMenu = () => {
     const newMenuState = !menuOpen;
@@ -60,17 +57,17 @@ const Navigation = ({ onMenuOpenChange }) => {
 
   const renderLinks = (onClick) => (
     <ul className="nav-links">
-      {sections.map((id) => (
-        <li key={id}>
-          {/* "/#id" keeps anchors working from sub-pages such as /posts */}
-          <HashLink
-            smooth
-            to={`/#${id}`}
-            onClick={onClick}
-            className={activeSection === id ? 'active' : ''}
-          >
-            {t(`nav.${id === 'hero' ? 'home' : id}`)}
-          </HashLink>
+      {navItems.map(({ key, section, to }) => (
+        <li key={key}>
+          {section ? (
+            <HashLink smooth to={to} onClick={onClick} className={!writingActive && activeSection === section ? 'active' : ''}>
+              {t(`nav.${key}`)}
+            </HashLink>
+          ) : (
+            <Link to={to} onClick={onClick} className={writingActive ? 'active' : ''}>
+              {t(`nav.${key}`)}
+            </Link>
+          )}
         </li>
       ))}
     </ul>

@@ -45,7 +45,11 @@ const PostPage = () => {
             <div className="post-meta">
               <time dateTime={String(post.date)}>{formatDate(post.date, language)}</time>
               <span>{post.readingMinutes} {t('posts.minRead')}</span>
-              {post.tags.map((tag) => <span key={tag} className="tech-tag">{tag}</span>)}
+              {post.tags.length > 0 && (
+                <ul className="post-tags" aria-label={t('posts.topics')}>
+                  {post.tags.map((tag) => <li key={tag}>{tag}</li>)}
+                </ul>
+              )}
             </div>
             {post.cover && <img className="post-hero-image" src={post.cover} alt="" />}
             <div className="post-body">

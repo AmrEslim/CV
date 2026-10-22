@@ -15,6 +15,7 @@ const CircuitBackground = () => {
       background: 'transparent', // Fully transparent to let body gradients shine
       overflow: 'hidden',
       pointerEvents: 'none',
+      opacity: 0.18,
     },
     gridPattern: {
       position: 'absolute',

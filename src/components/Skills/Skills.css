@@ -180,3 +180,64 @@
 
   /* Hide pins on mobile */
 }
+
+.circuit-board {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+  gap: 2rem;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.circuit-board::before,
+.chip::before,
+.chip::after {
+  display: none;
+}
+
+.chip {
+  margin: 0;
+  padding: 1.25rem 0;
+  border: 0;
+  border-top: 1px solid var(--border-color);
+  background: transparent;
+  box-shadow: none;
+  transition: none;
+}
+
+.chip:hover {
+  transform: none;
+  border-color: var(--accent-secondary);
+  box-shadow: none;
+}
+
+.chip-title {
+  margin-bottom: 1rem;
+  padding-bottom: 0;
+  border: 0;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.chip-title::before {
+  content: none;
+}
+
+.skill-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  list-style: none;
+}
+
+.skill-name {
+  padding: 0.35rem 0.6rem;
+  border: 1px solid var(--border-color);
+  color: var(--text-dim);
+  font-size: 0.86rem;
+}

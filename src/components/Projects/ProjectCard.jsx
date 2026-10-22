@@ -12,9 +12,6 @@ export const ProjectVisual = ({ type, images }) => {
   return <div className="project-visual-placeholder"></div>;
 };
 
-// Deterministic per-slug value so the fake stats don't change on re-render.
-const hashOf = (s) => [...s].reduce((h, c) => (h * 31 + c.charCodeAt(0)) >>> 0, 7);
-
 const ProjectCard = ({ project }) => {
   const { t } = useTranslation();
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -28,53 +25,29 @@ const ProjectCard = ({ project }) => {
     setIsModalOpen(false);
   };
 
-  const hash = hashOf(project.slug);
-  const pid = 1000 + (hash % 9000);
-  const mem = 40 + (hash % 90);
-  const cpu = ((hash >> 3) % 50) / 10;
   const status = project.status || 'active';
 
   return (
     <>
       <div className={`project-card-process${project.featured ? ' featured' : ''}`}>
-        <div className="process-header">
-          <span className="pid-info">PID: <span className="pid-number">{pid}</span></span>
-          <span className={`status-badge status-${status}`}>{t(`projects.status.${status}`)}</span>
-        </div>
-
         {project.images?.[0] && (
           <button
             type="button"
             className="process-thumb"
             onClick={openModal}
-            aria-label={project.title}
-            tabIndex={-1}
+            aria-label={`${t('ui.buttons.details')}: ${project.title}`}
           >
             <img src={project.images[0]} alt="" loading="lazy" decoding="async" />
           </button>
         )}
 
         <div className="process-body">
+          {project.subtitle && <p className="process-kicker">{project.subtitle}</p>}
+          {status !== 'active' && (
+            <span className={`status-badge status-${status}`}>{t(`projects.status.${status}`)}</span>
+          )}
           <h3 className="process-title">{project.title}</h3>
-
-          <div className="process-stats">
-            <div className="stat-item">
-              <span>MEM:</span>
-              <span className="stat-val text-amber">{mem}MB</span>
-            </div>
-            <div className="stat-item">
-              <span>CPU:</span>
-              <span className="stat-val text-cyan">{cpu.toFixed(1)}%</span>
-            </div>
-            <div className="stat-item">
-              <span>USER:</span>
-              <span className="stat-val">root</span>
-            </div>
-          </div>
-
-          <p className="process-desc">
-            {project.subtitle || project.description || "Active system process running in background."}
-          </p>
+          <p className="process-desc">{project.description}</p>
 
           <div className="tech-stack">
             {project.technologies && project.technologies.slice(0, 4).map((tech, index) => (
@@ -93,7 +66,7 @@ const ProjectCard = ({ project }) => {
                 rel="noopener noreferrer"
                 className="action-btn primary"
               >
-                ::EXECUTE()
+                {t('ui.buttons.source')} <span aria-hidden="true">↗</span>
               </a>
             )}
           </div>

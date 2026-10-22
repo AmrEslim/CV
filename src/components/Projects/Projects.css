@@ -43,19 +43,10 @@
   border: 1px solid var(--border-color);
   color: var(--text-dim);
   padding: 4px 12px;
-  font-family: 'Fira Code', monospace;
+  font-family: 'IBM Plex Sans', sans-serif;
   font-size: 0.85rem;
   cursor: pointer;
   transition: all var(--transition-fast);
-}
-
-.filter-chip::before {
-  content: 'grep -i ';
-  opacity: 0.5;
-}
-
-.filter-chip:first-child::before {
-  content: 'ls ';
 }
 
 .filter-chip:hover,
@@ -63,4 +54,11 @@
   color: var(--accent-primary);
   border-color: var(--accent-primary);
   background: rgba(0, 255, 157, 0.08);
+}
+
+.robotics-projects {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr));
+  gap: 1.25rem;
+  margin-top: 2rem;
+  padding: 0;
 }

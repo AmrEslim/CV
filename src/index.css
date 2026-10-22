@@ -50,7 +50,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Share Tech Mono', 'Fira Code', 'Courier New', monospace;
+  font-family: 'IBM Plex Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -65,13 +65,10 @@ body {
   line-height: 1.6;
   overflow-x: hidden;
   position: relative;
-  /* Massive ambient light glow + Grid */
   background-image:
-    radial-gradient(circle at 50% 0%, rgba(56, 189, 248, 0.15) 0%, transparent 60%),
-    radial-gradient(circle at 80% 50%, rgba(0, 255, 157, 0.08) 0%, transparent 40%),
-    linear-gradient(rgba(56, 189, 248, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(56, 189, 248, 0.03) 1px, transparent 1px);
-  background-size: 100% 100%, 100% 100%, 40px 40px, 40px 40px;
+    radial-gradient(ellipse at 70% 0%, rgba(56, 189, 248, 0.08) 0%, transparent 48%),
+    linear-gradient(180deg, #101827 0%, var(--bg-color) 55%);
+  background-size: 100% 100%, 100% 100%;
   background-attachment: fixed;
 }
 
@@ -88,7 +85,7 @@ body::after {
   z-index: 9999;
   background-size: 100% 2px, 3px 100%;
   pointer-events: none;
-  opacity: 0.05;
+  opacity: 0.015;
 }
 
 /* Scrollbar */
@@ -114,9 +111,10 @@ h4,
 h5,
 h6 {
   color: var(--text-highlight);
-  font-weight: normal;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+  font-family: 'IBM Plex Serif', Georgia, serif;
+  font-weight: 500;
+  text-transform: none;
+  letter-spacing: 0;
 }
 
 a {
@@ -126,7 +124,7 @@ a {
 }
 
 a:hover {
-  text-shadow: 0 0 8px var(--accent-secondary);
+  text-shadow: none;
 }
 
 .text-green {
@@ -178,25 +176,20 @@ a:hover {
 
 /* Cyber Section Headers */
 .section-title {
-  font-family: 'Fira Code', monospace;
-  font-size: 2.5rem;
+  font-family: 'IBM Plex Serif', Georgia, serif;
+  font-size: 2.25rem;
   margin-bottom: 3rem;
   color: var(--text-highlight);
   position: relative;
   display: inline-block;
   padding-bottom: 10px;
-  text-shadow: 0 0 10px rgba(56, 189, 248, 0.3);
+  text-shadow: none;
+  text-transform: none;
+  letter-spacing: 0;
 }
 
 .section-title::before {
-  content: 'root@sys:~# ';
-  font-size: 0.5em;
-  color: var(--accent-tertiary);
-  /* Amber or Pink */
-  display: block;
-  margin-bottom: 5px;
-  opacity: 0.8;
-  letter-spacing: 0;
+  content: none;
 }
 
 /* Glitchy Underline */
@@ -206,11 +199,11 @@ a:hover {
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 4px;
-  background: linear-gradient(90deg, var(--accent-secondary), var(--accent-primary), transparent);
-  box-shadow: 0 0 10px var(--accent-secondary);
-  clip-path: polygon(0 0, 100% 0, 95% 100%, 0% 100%);
-  animation: loadLine 3s ease-in-out infinite;
+  height: 1px;
+  background: var(--border-color);
+  box-shadow: none;
+  clip-path: none;
+  animation: none;
 }
 
 @keyframes loadLine {

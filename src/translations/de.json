@@ -9,34 +9,38 @@
       "education": "Habe im April 2025 meinen Abschluss in Computer Engineering an der HTW Berlin absolviert",
       "specialization": "Spezialisiert auf Linux-basierte Embedded-Systeme und Webanwendungen",
       "scroll": "Scrollen Sie nach unten, um mein Portfolio zu entdecken..."
+    },
+    "editorial": {
+      "eyebrow": "Computer Engineer · Berlin",
+      "lede": "Ich entwickle Software an der Schnittstelle von vernetzten Geräten, Energiedaten und der realen Welt.",
+      "note": "Bei Gewobag ED entwickle ich IoT- und Energiedatenprojekte. Hier schreibe ich über Embedded Systems, Robotik und die praktische Entwicklung vernetzter Systeme.",
+      "read": "Neueste Beiträge lesen",
+      "work": "Projekte ansehen",
+      "location": "Berlin, DE"
     }
   },
   "nav": {
     "home": "Startseite",
     "about": "Über mich",
-    "skills": "Technische Fähigkeiten",
-    "experience": "Ausbildung & Erfahrung",
     "projects": "Projekte",
-    "posts": "Beiträge",
-    "languages": "Sprachen",
-    "interests": "Interessen",
+    "writing": "Beiträge",
     "contact": "Kontakt"
   },
   "about": {
-    "title": "Über Mich",
+    "title": "Über mich",
     "description": "Computer Engineering-Absolvent, spezialisiert auf Embedded Systems und Robotik",
     "content": [
       "Hallo! Ich bin Amr Eslim, ein Computer Ingenieur in Berlin, Deutschland.",
       "Ich habe meinen Bachelor-Abschluss in Computer Engineering an der HTW Berlin im April 2025 mit Schwerpunkt auf Embedded Systems abgeschlossen.",
       "Meine Expertise liegt in Embedded Systems mit Linux, Softwareentwicklung und Webanwendungsentwicklung.",
-      "Ich habe praktische Erfahrungen als Werkstudent für Softwareentwicklung bei Fraunhofer IPK seit Mai 2022, wo ich an innovativen Projekten für die Industrie arbeite.",
+      "Seit August 2026 arbeite ich als IoT & Energy Data Project Developer bei Gewobag ED und verbinde smarte Technologie mit nachhaltigem Wohnraum in Berlin.",
       "Meine Bachelor-Arbeit über neurobiologisch inspirierte Schlangenrobotik zeigt meine Fähigkeit, biologische Prinzipien mit ingenieurtechnischen Lösungen zu verbinden, kombiniert mit CPG-Steuerungsalgorithmen, Embedded-Programmierung und mechanischem Design.",
       "Mit einem starken Hintergrund in C/C++, Python, Rust und Embedded Systems entwickle ich zuverlässige und effiziente Lösungen für komplexe technische Herausforderungen.",
       "Lass uns gemeinsam die Zukunft der Robotik und Embedded Systems gestalten!"
     ]
   },
   "skills": {
-    "title": "Technische Fähigkeiten",
+    "title": "Fähigkeiten & Tools",
     "categories": {
       "programming": {
         "title": "Programmiersprachen",
@@ -68,11 +72,19 @@
     }
   },
   "experience": {
-    "title": "Ausbildung & Erfahrung",
+    "title": "Erfahrung",
     "items": [
       {
         "id": 1,
-        "date": "05/2022 – Aktuell",
+        "date": "08/2026 – Aktuell",
+        "title": "IoT & Energy Data Project Developer",
+        "description": "Gewobag ED, Berlin",
+        "details": "Entwicklung von IoT- und Energiedatenprojekten, die intelligente Technologie mit nachhaltigem Wohnraum verbinden und Berlins Energiewende unterstützen.",
+        "side": "left"
+      },
+      {
+        "id": 5,
+        "date": "05/2022 – 07/2026",
         "title": "Werkstudent (Softwareentwicklung)",
         "description": "Fraunhofer IPK, Berlin",
         "details": "Arbeit mit Embedded Systems unter Linux, Entwicklung webbasierter Anwendungen und Dashboards, Implementierung von Backend-Funktionalitäten und Unterstützung bei der Konzeption und Umsetzung digitaler Assistenzsysteme.",
@@ -170,6 +182,7 @@
   "ui": {
     "buttons": {
       "details": "Mehr erfahren",
+      "source": "Quellcode",
       "demo": "Github",
       "connect": "Verbinden",
       "explore": "Erkunden",
@@ -188,11 +201,11 @@
     },
     "meta": {
       "title": "Amr Eslim | Robotik- und Embedded-Systems-Ingenieur",
-      "description": "Computer Engineering-Absolvent, spezialisiert auf Embedded Systems, Robotik und digitale Assistenzsysteme. Ansässig in Berlin, Deutschland. Derzeit tätig bei Fraunhofer IPK."
+      "description": "Computer- und Embedded-Systems-Ingenieur aus Berlin mit Schwerpunkt auf IoT, Energiedaten und nachhaltigem Wohnraum bei Gewobag ED."
     }
   },
   "projects": {
-    "title": "Projekte",
+    "title": "Ausgewählte Projekte",
     "filterAll": "alle",
     "categories": {
       "embedded": "embedded",
@@ -208,8 +221,15 @@
     }
   },
   "posts": {
-    "title": "Kernel-Log",
-    "allPosts": "cat /var/log/posts",
+    "title": "Beiträge",
+    "recent": "Neueste Beiträge",
+    "archiveIntro": "Notizen zu Engineering, Energie, vernetzten Systemen und den Erfahrungen beim Entwickeln.",
+    "allPosts": "Alle Beiträge ansehen",
+    "search": "Beiträge durchsuchen",
+    "filterTags": "Nach Thema filtern",
+    "topics": "Themen",
+    "allTags": "Alle Themen",
+    "noResults": "Keine passenden Beiträge gefunden.",
     "back": "cd ..",
     "empty": "Noch keine Einträge.",
     "minRead": "Min. Lesezeit",

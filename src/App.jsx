@@ -1,4 +1,4 @@
-import React, { lazy, Suspense, useCallback, useEffect, useState } from 'react';
+import React, { lazy, Suspense, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Hero from './components/Hero/Hero';
 import About from './components/About/About';
@@ -9,23 +9,17 @@ import Interests from './components/Interests/Interests';
 import Navigation from './components/Navigation/Navigation';
 import Footer from './components/Footer/Footer';
 import CircuitBackground from './components/CircuitBackground/CircuitBackground';
-import CustomCursor from './components/CustomCursor/CustomCursor';
 import LanguageSwitcher from './components/LanguageSwitcher/LanguageSwitcher';
 import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary';
-import BootSequence from './components/BootSequence/BootSequence';
 import { LanguageProvider } from './context/LanguageContext';
 import usePerformanceOptimization from './hooks/usePerformanceOptimization';
 import './App.css';
 
 const Projects = lazy(() => import('./components/Projects/Projects'));
 const Contact = lazy(() => import('./components/Contact/Contact'));
-const SystemMonitor = lazy(() => import('./components/SystemMonitor/SystemMonitor'));
-const Terminal = lazy(() => import('./components/Terminal/Terminal'));
 const PostsSection = lazy(() => import('./components/Posts/PostsSection'));
 const PostsPage = lazy(() => import('./components/Posts/PostsPage'));
 const PostPage = lazy(() => import('./components/Posts/PostPage'));
-
-const BOOT_KEY = 'booted';
 
 const Home = () => (
   <>
@@ -33,13 +27,9 @@ const Home = () => (
       <Hero />
     </ErrorBoundary>
     <ErrorBoundary>
-      <About />
-    </ErrorBoundary>
-    <ErrorBoundary>
-      <Skills />
-    </ErrorBoundary>
-    <ErrorBoundary>
-      <Experience />
+      <Suspense fallback={null}>
+        <PostsSection />
+      </Suspense>
     </ErrorBoundary>
     <ErrorBoundary>
       <Suspense fallback={null}>
@@ -47,9 +37,13 @@ const Home = () => (
       </Suspense>
     </ErrorBoundary>
     <ErrorBoundary>
-      <Suspense fallback={null}>
-        <PostsSection />
-      </Suspense>
+      <About />
+    </ErrorBoundary>
+    <ErrorBoundary>
+      <Experience />
+    </ErrorBoundary>
+    <ErrorBoundary>
+      <Skills />
     </ErrorBoundary>
     <ErrorBoundary>
       <Languages />
@@ -66,16 +60,8 @@ const Home = () => (
 );
 
 function Shell() {
-  // Skip the boot animation for repeat visits within the same session.
-  const [booted, setBooted] = useState(() => sessionStorage.getItem(BOOT_KEY) === '1');
   const { pathname, hash } = useLocation();
-  // Initialize performance optimizations
   usePerformanceOptimization();
-
-  const handleBootComplete = useCallback(() => {
-    sessionStorage.setItem(BOOT_KEY, '1');
-    setBooted(true);
-  }, []);
 
   useEffect(() => {
     if (!hash) window.scrollTo(0, 0);
@@ -107,55 +93,39 @@ function Shell() {
       });
     }, observerOptions);
 
-    // Validate elements exist before observing (wait for boot)
-    let timer;
-    if (booted) {
-      timer = setTimeout(() => {
-        const elements = document.querySelectorAll('.timeline-item, .language-item, .interest-item, .chip');
-        if (elements.length > 0) {
-          elements.forEach(item => observer.observe(item));
-        }
-      }, 500);
+    const elements = document.querySelectorAll('.timeline-item, .language-item, .interest-item, .chip');
+    if (elements.length > 0) {
+      elements.forEach(item => observer.observe(item));
     }
 
     return () => {
-      clearTimeout(timer);
       observer.disconnect();
     };
-  }, [booted, pathname]);
+  }, [pathname]);
 
   return (
     <div className="App">
-      {!booted && <BootSequence onComplete={handleBootComplete} />}
+      <ErrorBoundary>
+        <CircuitBackground />
+        <LanguageSwitcher />
+        <Navigation />
+      </ErrorBoundary>
 
-      <div style={{ opacity: booted ? 1 : 0, transition: 'opacity 0.5s ease-in' }}>
-        <ErrorBoundary>
-          <CustomCursor />
-          <CircuitBackground />
-          <LanguageSwitcher />
-          <Navigation />
-        </ErrorBoundary>
-
-        <main>
-          <Suspense fallback={null}>
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/posts" element={<ErrorBoundary><PostsPage /></ErrorBoundary>} />
-              <Route path="/posts/:slug" element={<ErrorBoundary><PostPage /></ErrorBoundary>} />
-              <Route path="*" element={<Home />} />
-            </Routes>
-          </Suspense>
-        </main>
-
-        <ErrorBoundary>
-          <Footer />
-        </ErrorBoundary>
-
+      <main>
         <Suspense fallback={null}>
-          <SystemMonitor />
-          <Terminal />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/posts" element={<ErrorBoundary><PostsPage /></ErrorBoundary>} />
+            <Route path="/posts/:slug" element={<ErrorBoundary><PostPage /></ErrorBoundary>} />
+            <Route path="*" element={<Home />} />
+          </Routes>
         </Suspense>
-      </div>
+      </main>
+
+      <ErrorBoundary>
+        <Footer />
+      </ErrorBoundary>
+
     </div>
   );
 }

@@ -1,6 +1,6 @@
 ---
 title: How this site's content works
-date: 2026-10-22
+date: 2026-08-01
 tags: [meta, react, vite]
 summary: Adding a project or a post is a single file, no code changes.
 ---
